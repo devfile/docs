@@ -8,12 +8,12 @@ See link:{attachmentsdir}/api-reference.html[Devfile API Reference].
 
 == Guide for Stacks Authors
 
-See xref:assembly_making-a-workspace-portable-using-a-devfile.adoc[].
+See xref:assembly_making-a-workspace-portable-using-a-devfile.adoc[Guide for Stack Authors].
 
 
 == v1 to v2 Migration Guide
 
-See xref:migration_guide.adoc[].
+See xref:migration_guide.adoc[Devfile v2 Migration Guide].
 
 
 == Devfile v2.0 Examples
