@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Devfile v2 Migration Guide :: Devfile // Docs</title>
+    <meta name="description" content="A guide to migrate a v1 Devfile to v2">
+    <meta name="generator" content="Antora 2.2.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="..">Devfile // Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Resource A</a>
+            <a class="navbar-item" href="#">Resource B</a>
+            <a class="navbar-item" href="#">Resource C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="devfile" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">devfile</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="_attachments/api-reference.html">Devfile API Reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="assembly_making-a-workspace-portable-using-a-devfile.html">assembly_making-a-workspace-portable-using-a-devfile.adoc</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="migration_guide.html">migration_guide.adoc</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://github.com/devfile/kubernetes-api/tree/master/devfile-support/samples">Devfile Samples</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">devfile</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">devfile</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">devfile</a></li>
+    <li><a href="migration_guide.html">migration_guide.adoc</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/devfile/website/edit/master/docs/modules/ROOT/pages/migration_guide.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Devfile v2 Migration Guide</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This guide explains how to migrate an existing v1.0 devfile to v2.0.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_migrate_projects"><a class="anchor" href="#_how_to_migrate_projects"></a>How to migrate projects</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are NO major changes in the <code>projects</code> section of the devfile. A project specified in a v1.0 devfile will work as it is in a devfile v2.0.</p>
+</div>
+<div class="sect2">
+<h3 id="_starterprojects_and_projects_description"><a class="anchor" href="#_starterprojects_and_projects_description"></a>starterProjects and projects description</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">v2.0
+---
+starterProjects:
+  - name: "kafka-project"
+    description: "Use this app to get a nodejs application for working with kafka"
+  - name: "simple-project"
+    description: "Use this app to get a simple "hello world" nodejs application"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Details can be found in the corresponding issue <a href="https://github.com/che-incubator/devworkspace-api/issues/42" class="bare">https://github.com/che-incubator/devworkspace-api/issues/42</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_migrate_components"><a class="anchor" href="#_how_to_migrate_components"></a>How to migrate components</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There ARE major changes in the <code>components</code> section of the devfile. A component specified in a v1.0 devfile will NOT work as it is in a devfile v2.0.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_migrate_plugins"><a class="anchor" href="#_how_to_migrate_plugins"></a>How to migrate plugins</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There ARE major changes about the definition of plugins in a devfile. Plugins are now specified using a devfile. A plugin specified in a v1.0 meta.yaml will NOT work as it is in a devfile v2.0.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_migrate_commands"><a class="anchor" href="#_how_to_migrate_commands"></a>How to migrate commands</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There ARE major changes in the <code>commands</code> section of the devfile. A command specified in a v1.0 devfile will NOT work as it is in a devfile v2.0.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_consider_splitting_the_devfile"><a class="anchor" href="#_consider_splitting_the_devfile"></a>Consider splitting the devfile</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>One of the major changes in the 2.0.0 specification is the addition of the concept of parent. That allows refering a devfile (the parent) from a distinct devfile and makes it possible to reuse in multiple devfiles the same parent (the stack).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml"># v2.0
+---
+schemaVersion: 2.0.0
+metadata:
+  name: nodejs-app
+parent:
+    uri: https://(...)/nodejs/devfile.yaml # &lt;--- Parent referenced by `uri`, registry `id`
+                                           #      or `kubernetes` devworkspace
+  components:                              # &lt;--- Parent configuration can be customized
+    - container:
+         name: vsx-installer
+         env:
+            - name: VSX_LIST
+               value: java-dbg.vsix,java.vsix
+components:                               # &lt;--- components are added to parent's components
+  - container:
+      name: tooling                       # &lt;--- should not match the name of a parent component
+      image: busybox
+commands:                                 # &lt;--- commands are added to parent's commands
+   (...)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Details are in the corresponding issue: <a href="https://github.com/che-incubator/devworkspace-api/issues/25" class="bare">https://github.com/che-incubator/devworkspace-api/issues/25</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_adding_event_bindings"><a class="anchor" href="#_adding_event_bindings"></a>Adding event bindings</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There is a new root element in the devfile 2.0: events:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml"># v2.0
+---
+components:
+  - container:
+      name: "copier"
+      image: ''
+  - container:
+      name: "maven"
+      image: ''
+  - plugin:
+      id: theia
+Commands:
+containerBuild:
+reference:
+composite:
+
+  - exec:
+      name: "copyNeededFiles"
+      component: "copier"
+      commandLine: "cp somefile"
+  - exec:
+      name: "buildAll"
+      component: "maven"
+      commandLine: "mvn ..."
+  - vsCodeTask:
+      name: "openFile"
+      component: "theia"
+events:
+  preStart:
+    - "copyNeededFiles"
+  postStart:
+    - "buildAll"
+    - "openFile"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Details are in the corresponding issue: <a href="https://github.com/che-incubator/devworkspace-api/issues/32" class="bare">https://github.com/che-incubator/devworkspace-api/issues/32</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_adding_metadata"><a class="anchor" href="#_adding_metadata"></a>Adding metadata</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

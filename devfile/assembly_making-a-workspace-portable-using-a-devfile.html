@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Guide for Stack Authors :: Devfile // Docs</title>
+    <meta name="generator" content="Antora 2.2.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="..">Devfile // Docs</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Resources</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Resource A</a>
+            <a class="navbar-item" href="#">Resource B</a>
+            <a class="navbar-item" href="#">Resource C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="devfile" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">devfile</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="_attachments/api-reference.html">Devfile API Reference</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="assembly_making-a-workspace-portable-using-a-devfile.html">assembly_making-a-workspace-portable-using-a-devfile.adoc</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="migration_guide.html">migration_guide.adoc</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://github.com/devfile/kubernetes-api/tree/master/devfile-support/samples">Devfile Samples</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">devfile</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">devfile</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">devfile</a></li>
+    <li><a href="assembly_making-a-workspace-portable-using-a-devfile.html">assembly_making-a-workspace-portable-using-a-devfile.adoc</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/devfile/website/edit/master/docs/modules/ROOT/pages/assembly_making-a-workspace-portable-using-a-devfile.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Guide for Stack Authors</h1>
+<div class="sect1">
+<h2 id="_making_a_workspace_portable_using_a_devfile"><a class="anchor" href="#_making_a_workspace_portable_using_a_devfile"></a>Making a workspace portable using a devfile</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To transfer a configured Che  workspace, create and export the devfile of the workspace and load the devfile on a different host to initialize a new instance of the workspace. For detailed instructions on how to create such a devfile, see below.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="what-is-a-devfile_making-a-workspace-portable-using-a-devfile"><a class="anchor" href="#what-is-a-devfile_making-a-workspace-portable-using-a-devfile"></a>What is a devfile</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A devfile is a file that describes and define a development environment:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the source code</p>
+</li>
+<li>
+<p>the development components (browser IDE tools and application runtimes)</p>
+</li>
+<li>
+<p>a list of pre-defined commands</p>
+</li>
+<li>
+<p>projects to clone</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Devfiles are YAML files that Che consumes and transforms into a cloud workspace composed of multiple containers. The devfile can be saved in the root folder of a Git repository, a feature branch of a Git repository, a publicly accessible destination, or as a separate, locally stored artifact.</p>
+</div>
+<div class="paragraph">
+<p>When creating a workspace, Che uses that definition to initiate everything and run all the containers for the required tools and application runtimes. Che also mounts file-system volumes to make source code available to the workspace.</p>
+</div>
+<div class="paragraph">
+<p>Devfiles can be versioned with the project source code. When there is a need for a workspace to fix an old maintenance branch, the project devfile provides a definition of the workspace with the tools and the exact dependencies to start working on the old branch. Use it to instantiate workspaces on demand.</p>
+</div>
+<div class="paragraph">
+<p>Che maintains the devfile up-to-date with the tools used in the workspace:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Projects of the workspace (path, Git location, branch)</p>
+</li>
+<li>
+<p>Commands to perform daily tasks (build, run, test, debug)</p>
+</li>
+<li>
+<p>Runtime environment (container images to run the application)</p>
+</li>
+<li>
+<p>Che-Theia plug-ins with tools, IDE features, and helpers that a developer would use in the workspace (Git, Java support, SonarLint, Pull Request)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="a-minimal-devfile_making-a-workspace-portable-using-a-devfile"><a class="anchor" href="#a-minimal-devfile_making-a-workspace-portable-using-a-devfile"></a>A minimal devfile</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following is the minimum content required in a <code>devfile.yaml</code> file:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/devfile/kubernetes-api/blob/master/schemas/devfile.json">schemaVersion</a></p>
+</li>
+<li>
+<p><a href="https://redhat-developer.github.io/devfile/devfile#metadata">metadata name</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: che-in-che-out</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For a complete devfile example, see <a href="https://github.com/eclipse/che/blob/master/devfile.yaml">Eclipse Che in Che devfile.yaml</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title"><code>name</code> or <code>generateName</code> must be defined</div>
+<div class="paragraph">
+<p>Both <code>name</code> and <code>generateName</code> are optional parameters, but at least one of them must be defined. See <a href="#generating-workspace-names_making-a-workspace-portable-using-a-devfile">Generating workspace names</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="generating-workspace-names_making-a-workspace-portable-using-a-devfile"><a class="anchor" href="#generating-workspace-names_making-a-workspace-portable-using-a-devfile"></a>Generating workspace names</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To specify a prefix for automatically generated workspace names, set the <code>generateName</code> parameter in the <code>devfile.yaml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  generateName: che-</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The workspace name will be in the <code>&lt;generateName&gt;YYYYY</code> format (for example, <code>che-2y7kp</code>). <code>Y</code> is random <code>[a-z0-9]</code> character.</p>
+</div>
+<div class="paragraph">
+<p>The following naming rules apply when creating workspaces:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When <code>name</code> is defined, it is used as the workspace name: <code>&lt;name&gt;</code></p>
+</li>
+<li>
+<p>When only <code>generateName</code> is defined, it is used as the base of the generated name: <code>&lt;generateName&gt;YYYYY</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For workspaces created using a factory, defining <code>name</code> or <code>generateName</code> has the same effect. The defined value is used as the name prefix: <code>&lt;name&gt;YYYYY</code> or <code>&lt;generateName&gt;YYYYY</code>. When both <code>generateName</code> and <code>name</code> are defined, <code>generateName</code> takes precedence.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="writing-a-devfile-for-your-project_making-a-workspace-portable-using-a-devfile"><a class="anchor" href="#writing-a-devfile-for-your-project_making-a-workspace-portable-using-a-devfile"></a>Writing a devfile for a project</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes how to create a minimal devfile for your project and how to include more than one projects in a devfile.</p>
+</div>
+<div class="sect2">
+<h3 id="preparing-a-minimal-devfile_making-a-workspace-portable-using-a-devfile"><a class="anchor" href="#preparing-a-minimal-devfile_making-a-workspace-portable-using-a-devfile"></a>Preparing a minimal devfile</h3>
+<div class="paragraph">
+<p>A minimal devfile sufficient to run a workspace consists of the following parts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Specification version</p>
+</li>
+<li>
+<p>Name</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Example of a minimal devfile with no project</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: minimal-workspace</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Without any further configuration, a workspace with the default editor is launched along with its default plug-ins, which are configured on the Che Server. Che-Theia is configured as the default editor along with the <strong>Che Machine Exec</strong> plug-in. When launching a workspace within a Git repository using a factory, the project from the given repository and branch is be created by default. The project name then matches the repository name.</p>
+</div>
+<div class="paragraph">
+<p>Add the following parts for a more functional workspace:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>List of components: Development components and user runtimes</p>
+</li>
+<li>
+<p>List of projects: Source code repositories</p>
+</li>
+<li>
+<p>List of commands: Actions to manage the workspace components, such as running the development tools, starting the runtime environments, and others</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Example of a minimal devfile with a project</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: petclinic-dev-environment
+projects:
+  - name: petclinic
+    git:
+      location: 'https://github.com/spring-projects/spring-petclinic.git'
+      branch: master
+components:
+  - chePlugin
+      registryEntry:
+        id: redhat/java/latest</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="specifying-multiple-projects-in-a-devfile_making-a-workspace-portable-using-a-devfile"><a class="anchor" href="#specifying-multiple-projects-in-a-devfile_making-a-workspace-portable-using-a-devfile"></a>Specifying multiple projects in a devfile</h3>
+<div class="paragraph">
+<p>A single devfile can specify multiple projects. For each project, specify the type of the source repository, its location, and, optionally, the directory the project is cloned to.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example of a devfile with two projects</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: example-devfile
+projects:
+- name: frontend
+  git:
+    location: https://github.com/acmecorp/frontend.git
+- name: backend
+  clonePath: src/github.com/acmecorp/backend
+  git:
+    location: https://github.com/acmecorp/backend.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the preceding example, there are two projects defined, <code>frontend</code> and <code>backend</code>. Each project is located in its own repository. The <code>backend</code> project has a specific requirement to be cloned into the <code>src/github.com/acmecorp/backend/</code> directory under the source root (implicitly defined by the Che runtime) while the <code>frontend</code> project will be cloned into the <code>frontend/</code> directory under the source root.</p>
+</div>
+<div class="paragraph">
+<div class="title">Additional resources</div>
+<p>For a detailed explanation of all devfile component assignments and possible values, see:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/redhat-developer/devfile">Specification repository</a></p>
+</li>
+<li>
+<p><a href="https://redhat-developer.github.io/devfile/devfile">Detailed json-schema documentation</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These sample devfiles are a good source of inspiration:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/eclipse/che-devfile-registry/tree/master/devfiles">Sample devfiles for Eclipse Che workspaces used by default in the user interface</a>.</p>
+</li>
+<li>
+<p><a href="https://github.com/redhat-developer/devfile/tree/master/samples">Sample devfiles for Eclipse Che workspaces from Red Hat Developer program</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="devfile-reference_making-a-workspace-portable-using-a-devfile"><a class="anchor" href="#devfile-reference_making-a-workspace-portable-using-a-devfile"></a>Devfile reference</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section contains devfile reference and instructions on how to use the various elements that devfiles consist of.</p>
+</div>
+<div class="sect2">
+<h3 id="_adding_projects_to_a_devfile"><a class="anchor" href="#_adding_projects_to_a_devfile"></a>Adding projects to a devfile</h3>
+<div class="paragraph">
+<p>Usually a devfile contains one or more projects. A workspace is created to develop those projects. Projects are added in the <code>projects</code> section of devfiles.</p>
+</div>
+<div class="paragraph">
+<p>Each project in a single devfile must have:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Unique name</p>
+</li>
+<li>
+<p>Source specified</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Project source consists of one of the following types: <code>git</code>, <code>github</code> and <code>zip</code>.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>git</code></dt>
+<dd>
+<p>Projects with sources in Git. The location points to a clone link.</p>
+</dd>
+<dt class="hdlist1"><code>github</code></dt>
+<dd>
+<p>Same as <code>git</code> but for projects hosted on <a href="https://github.com/">GitHub</a> only. Use <code>git</code> for projects that do not use GitHub-specific features.</p>
+</dd>
+<dt class="hdlist1"><code>zip</code></dt>
+<dd>
+<p>Projects with sources in a ZIP archive. Location points to a ZIP file.</p>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="_project_source_type_git"><a class="anchor" href="#_project_source_type_git"></a>Project-source type: git</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">source:
+    git:
+      location: https://github.com/eclipse/che.git
+      startPoint: master           <i class="conum" data-value="1"></i><b>(1)</b>
+      tag: 7.2.0
+      commitId: 36fe587
+      branch: master
+      sparseCheckoutDir: wsmaster  <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>startPoint</code> is the general value for <code>tag</code>, <code>commitId</code>, and <code>branch</code>. The <code>startPoint</code>, <code>tag</code>, <code>commitId</code>, and <code>branch</code> parameters are mutually exclusive. When more than one is supplied, the following order is used: <code>startPoint</code>, <code>tag</code>, <code>commitId</code>, <code>branch</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>sparseCheckoutDir</code> the template for the sparse checkout Git feature. This is useful when only a part of a project (typically only a single directory) is needed.</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. <code>sparseCheckoutDir</code> parameter settings</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Set to <code>/my-module/</code> to create only the root <code>my-module</code> directory (and its content).</p>
+</li>
+<li>
+<p>Omit the leading slash (<code>my-module/</code>) to create all <code>my-module</code> directories that exist in the project. Including, for example, <code>/addons/my-module/</code>.</p>
+<div class="paragraph">
+<p>The trailing slash indicates that only directories with the given name (including their content) are created.</p>
+</div>
+</li>
+<li>
+<p>Use wildcards to specify more than one directory name. For example, setting <code>module-*</code> checks out all directories of the given project that start with <code>module-</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="https://git-scm.com/docs/git-read-tree#_sparse_checkout">Sparse checkout in Git documentation</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_project_source_type_zip"><a class="anchor" href="#_project_source_type_zip"></a>Project-source type: zip</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">source:
+    zip:
+      location: http://host.net/path/project-src.zip</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_project_clone_path_parameter_clonepath"><a class="anchor" href="#_project_clone_path_parameter_clonepath"></a>Project clone-path parameter: clonePath</h4>
+<div class="paragraph">
+<p>The <code>clonePath</code> parameter specifies the path into which the project is to be cloned. The path must be relative to the <code>/projects/</code> directory, and it cannot leave the <code>/projects/</code> directory. The default value is the project name.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example devfile with projects</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: my-project-dev
+projects:
+  - name: my-project-resourse
+    clonePath: resources/my-project
+    zip:
+      location: http://host.net/path/project-res.zip
+  - name: my-project
+    source:
+      git:
+        location: https://github.com/my-org/project.git
+        branch: develop</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="refering-a-parent-devfile-in-a-devfile_making-a-workspace-portable-using-a-devfile"><a class="anchor" href="#refering-a-parent-devfile-in-a-devfile_making-a-workspace-portable-using-a-devfile"></a>Refering a parent devfile in a devfile</h3>
+<div class="paragraph">
+<p>It is possible to refer another devfile as a parent to a given devfile. If a parent is specified, the devfile will inherit all behaviour from the parent. Part of the content of the parent can be modified in the child devfile.</p>
+</div>
+<div class="paragraph">
+<p>A parent devfile can be referenced in 3 different ways: <code>registry</code>, <code>uri</code> or <code>kubernetes</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="_parent_referred_by_registry"><a class="anchor" href="#_parent_referred_by_registry"></a>Parent referred by registry</h4>
+<div class="paragraph">
+<p>Using its <code>id</code> if it has been published in a registry.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: my-project-dev
+parent:
+    id: redhat/nodejs/11.6
+    registry: https://devfile-registry.io/</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parent_referred_by_uri"><a class="anchor" href="#_parent_referred_by_uri"></a>Parent referred by uri</h4>
+<div class="paragraph">
+<p>Using the URI if it has been published on a static http server (like gist or pastebin).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: my-project-dev
+parent:
+    id: redhat/nodejs/11.6
+    uri: https://raw.githubusercontent.com/eclipse/che-devfile-registry/master/devfiles/nodejs/devfile.yaml</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parent_referred_by_registry_2"><a class="anchor" href="#_parent_referred_by_registry_2"></a>Parent referred by registry</h4>
+<div class="paragraph">
+<p>Using a Kubernetes resource name, namespace and selector if it has been deployed on a Kubernete cluster.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: my-project-dev
+parent:
+    kubernetes:
+        name: mydevworkspacetemplate
+        namespace: mynamespace
+        selector: mykey=myvalue</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-components-to-a-devfile_making-a-workspace-portable-using-a-devfile"><a class="anchor" href="#adding-components-to-a-devfile_making-a-workspace-portable-using-a-devfile"></a>Adding components to a devfile</h3>
+<div class="paragraph">
+<p>Each component in a single devfile must have a unique name.</p>
+</div>
+<div class="sect3">
+<h4 id="_component_type_cheeditor"><a class="anchor" href="#_component_type_cheeditor"></a>Component type: cheEditor</h4>
+<div class="paragraph">
+<p>Describes the editor used in the workspace by defining its <code>id</code>. A devfile can only contain one component of the <code>cheEditor</code> type.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">components:
+  - cheEditor:
+      id: eclipse/che-theia/next
+      alias: theia-editor</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When <code>cheEditor</code> is missing, a default editor is provided along with its default plug-ins. The default plug-ins are also provided for an explicitly defined editor with the same <code>id</code> as the default one (even if it is a different version). Che-Theia is configured as default editor along with the <strong>Che Machine Exec</strong> plug-in.</p>
+</div>
+<div class="paragraph">
+<p>To specify that a workspace requires no editor, use the <a href="#attribute-editorfree_making-a-workspace-portable-using-a-devfile"><code>editorFree:true</code> attribute</a> in the devfile attributes.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_component_type_cheplugin"><a class="anchor" href="#_component_type_cheplugin"></a>Component type: chePlugin</h4>
+<div class="paragraph">
+<p>Describes plug-ins in a workspace by defining their <code>id</code>. It is allowed to have several <code>chePlugin</code> components.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  components:
+   - chePlugin:
+      id: eclipse/che-machine-exec-plugin/0.0.1
+      name: exec-plugin</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Both types above use an ID, which is slash-separated publisher, name and version of plug-in from the Che Plug-in registry.</p>
+</div>
+<div class="paragraph">
+<p>List of available Che plug-ins and more information about registry can be found in the <a href="https://github.com/eclipse/che-plugin-registry">Che plug-in registry</a> GitHub repository.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_specifying_an_alternative_component_registry"><a class="anchor" href="#_specifying_an_alternative_component_registry"></a>Specifying an alternative component registry</h4>
+<div class="paragraph">
+<p>To specify an alternative registry for the <code>cheEditor</code> and <code>chePlugin</code> component types, use the <code>registryUrl</code> parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  components:
+   - chePlugin:
+      id: eclipse/che-machine-exec-plugin/0.0.1
+      name: exec-plugin
+      registryUrl: https://my-customregistry.com</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_specifying_a_component_by_linking_to_its_descriptor"><a class="anchor" href="#_specifying_a_component_by_linking_to_its_descriptor"></a>Specifying a component by linking to its descriptor</h4>
+<div class="paragraph">
+<p>An alternative way of specifying <code>cheEditor</code> or <code>chePlugin</code>, instead of using the editor or plug-in <code>id</code> (and optionally an alternative registry), is to provide a direct link to the component descriptor (typically named <code>meta.yaml</code>) by using the <code>reference</code> field:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  components:
+   - chePlugin:
+      name: exec-plugin
+      reference: https://raw.githubusercontent.com.../plugin/1.0.1/meta.yaml</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is impossible to mix the <code>id</code> and <code>reference</code> fields in a single component definition; they are mutually exclusive.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_tuning_cheplugin_component_configuration"><a class="anchor" href="#_tuning_cheplugin_component_configuration"></a>Tuning chePlugin component configuration</h4>
+<div class="paragraph">
+<p>A chePlugin component may need to be precisely tuned, and in such case, component preferences can be used. The example shows how to configure JVM using plug-in preferences.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  id: redhat/java/0.38.0
+  chePlugin:
+    preferences:
+       java.jdt.ls.vmargs: '-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Preferences may also be specified as an array:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  id: redhat/java/0.38.0
+  chePlugin:
+    preferences:
+      go.lintFlags: ["--enable-all", "--new"]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_component_type_kubernetes"><a class="anchor" href="#_component_type_kubernetes"></a>Component type: kubernetes</h4>
+<div class="paragraph">
+<p>A complex component type that allows to apply configuration from a list of Kubernetes or OpenShift components.</p>
+</div>
+<div class="paragraph">
+<p>The content can be provided through the <code>reference</code> attribute, which points to the file with the component content.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  components:
+    - kubernetes:
+        name: mysql
+        reference: petclinic.yaml
+        selector:
+          app.kubernetes.io/name: mysql
+          app.kubernetes.io/component: database
+          app.kubernetes.io/part-of: petclinic</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, to post a devfile with such components to REST API, the contents of the Kubernetes or OpenShift list can be embedded into the devfile using the <code>referenceContent</code> field:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  components:
+    - kubernetes:
+        name: mysql
+        reference: petclinic.yaml
+        referenceContent: |
+             kind: List
+             items:
+              -
+               apiVersion: v1
+               kind: Pod
+               metadata:
+                name: ws
+               spec:
+                containers:
+               ... etc</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_overriding_container_entrypoints"><a class="anchor" href="#_overriding_container_entrypoints"></a>Overriding container entrypoints</h4>
+<div class="paragraph">
+<p>As with the <a href="#component-type-dockerimage_making-a-workspace-portable-using-a-devfile"><code>dockerimage</code> component</a>, it is possible to override the entrypoint of the containers contained in the Kubernetes or OpenShift list using the <code>command</code> and <code>args</code> properties (as <a href="https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#notes">understood</a> by Kubernetes).</p>
+</div>
+<div class="paragraph">
+<p>There can be more containers in the list (contained in Pods or Pod templates of deployments). To select which containers to apply the entrypoint changes to.</p>
+</div>
+<div class="paragraph">
+<p>The entrypoints can be defined as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  components:
+    - kubernetes:
+        name: appDeployment
+        reference: app-deployment.yaml
+        entrypoints:
+        - parentName: mysqlServer
+          command: ['sleep']
+          args: ['infinity']
+        - parentSelector:
+          app: prometheus
+          args: ['-f', '/opt/app/prometheus-config.yaml']</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>entrypoints</code> list contains constraints for picking the containers along with the <code>command</code> and <code>args</code> parameters to apply to them. In the example above, the constraint is <code>parentName: mysqlServer</code>, which will cause the command to be applied to all containers defined in any parent object called <code>mysqlServer</code>. The parent object is assumed to be a top level object in the list defined in the referenced file, which is <code>app-deployment.yaml</code> in the example above.</p>
+</div>
+<div class="paragraph">
+<p>Other types of constraints (and their combinations) are possible:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>containerName</code></dt>
+<dd>
+<p>the name of the container</p>
+</dd>
+<dt class="hdlist1"><code>parentName</code></dt>
+<dd>
+<p>the name of the parent object that (indirectly) contains the containers to override</p>
+</dd>
+<dt class="hdlist1"><code>parentSelector</code></dt>
+<dd>
+<p>the set of labels the parent object needs to have</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>A combination of these constraints can be used to precisely locate the containers inside the referenced Kubernetes list.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_overriding_container_environment_variables"><a class="anchor" href="#_overriding_container_environment_variables"></a>Overriding container environment variables</h4>
+<div class="paragraph">
+<p>To provision or override entrypoints in a Kubernetes or OpensShift component, configure it in the following way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  components:
+    - kubernetes:
+        name: appDeployment
+        reference: app-deployment.yaml
+        env:
+          - name: ENV_VAR
+            value: value</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is useful for temporary content or without access to editing the referenced content. The specified environment variables are provisioned into each init container and containers inside all Pods and Deployments.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_specifying_mount_source_option"><a class="anchor" href="#_specifying_mount_source_option"></a>Specifying mount-source option</h4>
+<div class="paragraph">
+<p>To specify a project sources directory mount into container(s), use the <code>mountSources</code> parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">   components:
+      - kubernetes:
+          name: appDeployment
+          reference: app-deployment.yaml
+          mountSources: true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If enabled, project sources mounts will be applied to every container of the given component.
+This parameter is also applicable for <code>chePlugin</code> type components.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="component-type-containermaking-a-workspace-portable-using-a-devfile"><a class="anchor" href="#component-type-containermaking-a-workspace-portable-using-a-devfile"></a>Component type: container</h4>
+<div class="paragraph">
+<p>A component type that allows to define a container image-based configuration of a container in a workspace. A devfile can contain one or more component(s) of the <code>container</code> type. The <code>container</code> type of component brings in custom tools into the workspace. The component is identified by its image.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml"> components:
+   - container:
+      name: maven
+      image: eclipe/maven-jdk8:latest
+      volumeMounts:
+        - name: mavenrepo
+           containerPath: /root/.m2
+       env:
+         - name: ENV_VAR
+           value: value
+       endpoints:
+         - name: maven-server
+           port: 3101
+           attributes:
+             protocol: http
+             secure: 'true'
+             public: 'true'
+             discoverable: 'false'
+       memoryLimit: 1536M
+       command: ['tail']
+       args: ['-f', '/dev/null']</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example of a minimal <code>container</code> component</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+    name: MyDevfile
+components:
+  - container:
+      name: go
+      image: golang
+      memoryLimit: 512Mi
+      command: ['sleep', 'infinity']</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It specifies the type of the component, <code>container</code> and the <code>image</code> attribute names the image to be used for the component using the usual Docker naming conventions, that is, the above <code>image</code> attribute is equal to <code>docker.io/library/golang:latest</code>.</p>
+</div>
+<div class="paragraph">
+<p>A <code>container</code> component has many features that enable augmenting the image with additional resources and information needed for meaningful integration of the <strong>tool</strong> provided by the image with Eclipse Che.</p>
+</div>
+<div class="sect4">
+<h5 id="_mounting_project_sources"><a class="anchor" href="#_mounting_project_sources"></a>Mounting project sources</h5>
+<div class="paragraph">
+<p>For the <code>container</code> component to have access to the project sources, you must set the <code>mountSources</code> attribute to <code>true</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+    name: MyDevfile
+components:
+  - container:
+      name: go
+      image: golang
+      memoryLimit: 512Mi
+      mountSources: true
+      command: ['sleep', 'infinity']</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The sources is mounted on a location stored in the <code>CHE_PROJECTS_ROOT</code> environment variable that is made available in the running container of the image. This location defaults to <code>/projects</code>. If <code>sourceMapping</code> is defined in the container, it overrides the 'CHE_PROJECT_ROOT' value if present and mounts the source to the path defined by <code>sourceMapping</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_container_entrypoint"><a class="anchor" href="#_container_entrypoint"></a>Container Entrypoint</h5>
+<div class="paragraph">
+<p>The <code>command</code> attribute of the <code>container</code> along with other arguments, is used to modify the <code>entrypoint</code> command of the container created from the image. In Eclipse Che the container is needed to run indefinitely so that you can connect to it and execute arbitrary commands in it at any time. Because the availability of the <code>sleep</code> command and the support for the <code>infinity</code> argument for it is different and depends on the base image used in the particular images, Che cannot insert this behavior automatically on its own. However, you can take advantage of this feature to, for example, start up necessary servers with modified configurations, etc.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_persistent_storage"><a class="anchor" href="#_persistent_storage"></a>Persistent Storage</h4>
+<div class="paragraph">
+<p>Components of any type can specify the custom volumes to be mounted on specific locations within the image. Note that the volume names are shared across all components and therefore this mechanism can also be used to share file systems between components.</p>
+</div>
+<div class="paragraph">
+<p>Example specifying volumes for <code>container</code> type:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: MyDevfile
+components:
+  - container:
+      image: golang
+      memoryLimit: 512Mi
+      mountSources: true
+      command: ['sleep', 'infinity']
+      volumeMounts:
+        - name: cache
+          containerPath: /.cache</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example specifying volumes for <code>cheEditor</code>/<code>chePlugin</code> type:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">scheamVersion: 2.0.0
+metadata:
+  name: MyDevfile
+components:
+  - cheEditor:
+      name: theia-editor
+      id: eclipse/che-theia/next
+      env:
+      - name: HOME
+        value: $(CHE_PROJECTS_ROOT)
+      volumeMounts:
+      - name: cache
+        containerPath: /.cache</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example specifying volumes for <code>kubernetes</code>/<code>openshift</code> type:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: MyDevfile
+components:
+  - openshift:
+      name: mongo
+      reference: mongo-db.yaml
+      volumeMounts:
+      - name: mongo-persistent-storage
+        containerPath: /data/db</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_specifying_container_memory_limit_for_components"><a class="anchor" href="#_specifying_container_memory_limit_for_components"></a>Specifying container memory limit for components</h4>
+<div class="paragraph">
+<p>To specify a container(s) memory limit for <code>container</code>, <code>chePlugin</code>, <code>cheEditor</code>, use the <code>memoryLimit</code> parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  components:
+   - chePlugin:
+      name: exec-plugin
+      id: eclipse/che-machine-exec-plugin/0.0.1
+      memoryLimit: 1Gi
+   - container:
+      name: maven
+      image: eclipe/maven-jdk8:latest
+      memoryLimit: 512M</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This limit will be applied to every container of the given component.</p>
+</div>
+<div class="paragraph">
+<p>For the <code>cheEditor</code> and <code>chePlugin</code> component types, RAM limits can be described in the plug-in descriptor file, typically named <code>meta.yaml</code>.</p>
+</div>
+<div class="paragraph">
+<p>If none of them are specified, system-wide defaults will be applied (see description of <code>CHE_WORKSPACE_SIDECAR_DEFAULT__MEMORY__LIMIT__MB</code> system property).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_specifying_container_memory_request_for_components"><a class="anchor" href="#_specifying_container_memory_request_for_components"></a>Specifying container memory request for components</h4>
+<div class="paragraph">
+<p>To specify a container(s) memory request for <code>chePlugin</code> or  <code>cheEditor</code>, use the <code>memoryRequest</code> parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  components:
+   - chePlugin:
+      name: exec-plugin
+      id: eclipse/che-machine-exec-plugin/0.0.1
+      memoryLimit: 1Gi
+      memoryRequest: 512M
+   - container:
+      name: maven
+      image: eclipe/maven-jdk8:latest
+      memoryLimit: 512M
+      memoryRequest: 256M</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This limit will be applied to every container of the given component.</p>
+</div>
+<div class="paragraph">
+<p>For the <code>cheEditor</code> and <code>chePlugin</code> component types, RAM requests can be described in the plug-in descriptor file, typically named <code>meta.yaml</code>.</p>
+</div>
+<div class="paragraph">
+<p>If none of them are specified, system-wide defaults are applied (see description of <code>CHE_WORKSPACE_SIDECAR_DEFAULT__MEMORY__REQUEST__MB</code> system property).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_specifying_container_cpu_limit_for_components"><a class="anchor" href="#_specifying_container_cpu_limit_for_components"></a>Specifying container CPU limit for components</h4>
+<div class="paragraph">
+<p>To specify a container(s) CPU limit for <code>chePlugin</code>, <code>cheEditor</code> or <code>container</code> use the <code>cpuLimit</code> parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  components:
+   - chePlugin:
+      name: exec-plugin
+       id: eclipse/che-machine-exec-plugin/0.0.1
+       cpuLimit: 1.5
+   - container:
+      name: maven
+      image: eclipe/maven-jdk8:latest
+      cpuLimit: 750m</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This limit will be applied to every container of the given component.</p>
+</div>
+<div class="paragraph">
+<p>For the <code>cheEditor</code> and <code>chePlugin</code> component types, CPU limits can be described in the plug-in descriptor file, typically named <code>meta.yaml</code>.</p>
+</div>
+<div class="paragraph">
+<p>If none of them are specified, system-wide defaults are applied (see description of <code>CHE_WORKSPACE_SIDECAR_DEFAULT__CPU__LIMIT__CORES</code> system property).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_specifying_container_cpu_request_for_components"><a class="anchor" href="#_specifying_container_cpu_request_for_components"></a>Specifying container CPU request for components</h4>
+<div class="paragraph">
+<p>To specify a container(s) CPU request for <code>chePlugin</code>, <code>cheEditor</code> or <code>container</code> use the <code>cpuRequest</code> parameter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  components:
+   - chePlugin:
+      name: exec-plugin
+      id: eclipse/che-machine-exec-plugin/0.0.1
+      cpuLimit: 1.5
+      cpuRequest: 0.225
+   - container:
+      name: maven
+      image: eclipe/maven-jdk8:latest
+      cpuLimit: 750m
+      cpuRequest: 450m</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This limit will be applied to every container of the given component.</p>
+</div>
+<div class="paragraph">
+<p>For the <code>cheEditor</code> and <code>chePlugin</code> component types, CPU requests can be described in the plug-in descriptor file, typically named <code>meta.yaml</code>.</p>
+</div>
+<div class="paragraph">
+<p>If none of them are specified, system-wide defaults are applied (see description of <code>CHE_WORKSPACE_SIDECAR_DEFAULT__CPU__REQUEST__CORES</code> system property).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_environment_variables"><a class="anchor" href="#_environment_variables"></a>Environment variables</h4>
+<div class="paragraph">
+<p>Eclipse Che allows you to configure Docker containers by modifying the environment variables available in component&#8217;s configuration.
+Environment variables are supported by the following component types: <code>container</code>, <code>chePlugin</code>, <code>cheEditor</code>, <code>kubernetes</code>, <code>openshift</code>.
+In case component has multiple containers, environment variables will be provisioned to each container.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: MyDevfile
+components:
+  - container:
+      name: go
+      image: golang
+      memoryLimit: 512Mi
+      mountSources: true
+      command: ['sleep', 'infinity']
+      env:
+        - name: GOPATH
+          value: $(CHE_PROJECTS_ROOT)/go
+  - cheEditor:
+      name: theia-editor
+      id: eclipse/che-theia/next
+      memoryLimit: 2Gi
+      env:
+      - name: HOME
+        value: $(CHE_PROJECTS_ROOT)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The variable expansion works between the environment variables, and it uses the Kubernetes convention for the variable references.</p>
+</li>
+<li>
+<p>The predefined variables are available for use in custom definitions.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following environment variables are pre-set by the Che server:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CHE_PROJECTS_ROOT</code>: The location of the projects directory (note that if the component does not mount the sources, the projects will not be accessible).</p>
+</li>
+<li>
+<p><code>CHE_WORKSPACE_LOGS_ROOT__DIR</code>: The location of the logs common to all the components. If the component chooses to put logs into this directory, the log files are accessible from all other components.</p>
+</li>
+<li>
+<p><code>CHE_API_INTERNAL</code>: The URL to the Che server API endpoint used for communication with the Che server.</p>
+</li>
+<li>
+<p><code>CHE_WORKSPACE_ID</code>: The ID of the current workspace.</p>
+</li>
+<li>
+<p><code>CHE_WORKSPACE_NAME</code>: The name of the current workspace.</p>
+</li>
+<li>
+<p><code>CHE_WORKSPACE_NAMESPACE</code>: The Che namespace of the current workspace. This environment variable is the name of the user or organization that the workspace belongs to. Note that this is different from
+the Kubernetes namespace or OpenShift project to which the workspace is deployed.</p>
+</li>
+<li>
+<p><code>CHE_MACHINE_TOKEN</code>: The token used to authenticate the request against the Che server.</p>
+</li>
+<li>
+<p><code>CHE_MACHINE_AUTH_SIGNATURE<em>PUBLIC</em>KEY</code>: The public key used to secure the communication with the Che server.</p>
+</li>
+<li>
+<p><code>CHE_MACHINE_AUTH_SIGNATURE__ALGORITHM</code>: The encryption algorithm used in the secured communication with the Che server.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A devfiles may only need the <code>CHE_PROJECTS_ROOT</code> environment variable to locate the cloned projects in the component&#8217;s container. More advanced devfiles might use the <code>CHE_WORKSPACE_LOGS_ROOT__DIR</code> environment variable to read the logs (for example as part of a devfile command). The environment variables used to securely access the Che server are mostly out of scope for devfiles and are present only for advanced use cases that are usually handled by the Che plug-ins.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_endpoints"><a class="anchor" href="#_endpoints"></a>Endpoints</h4>
+<div class="paragraph">
+<p>Components of any type can specify the endpoints that the Docker image exposes. These endpoints can be made accessible to the users if the Che cluster is running using a Kubernetes ingress or an OpenShift route and to the other components within the workspace. You can create an endpoint for your application or database, if your application or database server is listening on a port and you want to be able to directly interact with it yourself or you want other components to interact with it.</p>
+</div>
+<div class="paragraph">
+<p>Endpoints have a number of properties as shown in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: MyDevfile
+projects:
+  - name: my-go-project
+    clonePath: go/src/github.com/acme/my-go-project
+    git:
+      location: https://github.com/acme/my-go-project.git
+components:
+  - container:
+      name: go
+      image: golang
+      memoryLimit: 512Mi
+      mountSources: true
+      command: ['sleep', 'infinity']
+      env:
+        - name: GOPATH
+          value: $(CHE_PROJECTS_ROOT)/go
+        - name: GOCACHE
+          value: /tmp/go-cache
+      endpoints:
+      - name: web
+        port: 8080
+        attributes:
+          discoverable: false
+          public: true
+          protocol: http
+  - container:
+      name: postgres
+      image: postgres
+      memoryLimit: 512Mi
+      env:
+        - name: POSTGRES_USER
+          value: user
+        - name: POSTGRES_PASSWORD
+          value: password
+        - name: POSTGRES_DB
+          value: database
+      endpoints:
+        - name: postgres
+          port: 5432
+          attributes:
+            discoverable: true
+            public: false</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, there are two Docker images, each defining a single endpoint. Endpoint is an accessible port that can be made accessible inside the workspace or also publicly (example, from the UI). Each endpoint has a name and port, which is the port on which certain server running inside the container is listening. The following are a few attributes that you can set on the endpoint:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>discoverable</code>: If an endpoint is discoverable, it means that it can be accessed using its name as the host name within the workspace containers (in the Kubernetes parlance, a service is created for it with the provided name).
+55</p>
+</li>
+<li>
+<p><code>public</code>: The endpoint will be accessible outside of the workspace, too (such endpoint can be accessed from the Che user interface). Such endpoints are publicized always on port <code>80</code> or <code>443</code> (depending on whether <code>tls</code> is enabled in Che).</p>
+</li>
+<li>
+<p><code>protocol</code>: For public endpoints the protocol is a hint to the UI on how to construct the URL for the endpoint access. Typical values are <code>http</code>, <code>https</code>, <code>ws</code>, <code>wss</code>.</p>
+</li>
+<li>
+<p><code>secure</code>: A boolean (defaulting to <code>false</code>) specifying whether the endpoint is put behind a JWT proxy requiring a JWT workspace token to grant access. The JWT proxy is deployed in the same Pod as the server and assumes the server listens solely on the local loopback interface, such as <code>127.0.0.1</code>.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Listening on any other interface than the local loopback poses a security risk because such server is accessible without the JWT authentication within the cluster network on the corresponding IP addresses.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><code>path</code>: The URL of the endpoint.</p>
+</li>
+<li>
+<p><code>unsecuredPaths</code>: A comma-separated list of endpoint paths that are to stay unsecured even if the <code>secure</code> attribute is set to <code>true</code>.</p>
+</li>
+<li>
+<p><code>cookiesAuthEnabled</code>: When set to <code>true</code> (the default is <code>false</code>), the JWT workspace token is automatically fetched and included in a workspace-specific cookie to allow requests to pass through the JWT proxy.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This setting potentially allows a <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> attack when used in conjunction with a server using POST requests.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When starting a new server within a component, Che autodetects this, and the UI offers to automatically expose this port as a <code>public</code> port. This is useful for debugging a web application, for example. It is impossible to do this for servers that autostart with the container (for example, a database server). For such components, specify the endpoints explicitly.</p>
+</div>
+<div class="paragraph">
+<p>Example specifying endpoints for <code>kubernetes</code>/<code>openshift</code> and <code>chePlugin</code>/<code>cheEditor</code> types:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: MyDevfile
+components:
+  - cheEditor:
+      name: theia-editor
+      id: eclipse/che-theia/next
+      endpoints:
+      - name: 'theia-extra-endpoint'
+        port: 8880
+        attributes:
+          discoverable: true
+          public: true
+
+  - chePlugin:
+      id: redhat/php/latest
+      memoryLimit: 1Gi
+      endpoints:
+      - name: 'php-endpoint'
+        port: 7777
+
+  - chePlugin:
+      name: theia-editor
+      id: eclipse/che-theia/next
+      endpoints:
+      - name: 'theia-extra-endpoint'
+        port: 8880
+        attributes:
+          discoverable: true
+          public: true
+
+  - openshift:
+      name: webapp
+      reference: webapp.yaml
+      endpoints:
+      - name: 'web'
+        port: 8080
+        attributes:
+          discoverable: false
+          public: true
+          protocol: http
+
+  - openshift:
+      name: mongo
+      reference: mongo-db.yaml
+      endpoints:
+      - name: 'mongo-db'
+        port: 27017
+        attributes:
+          discoverable: true
+          public: false</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kubernetes_and_openshift_resources"><a class="anchor" href="#_kubernetes_and_openshift_resources"></a>Kubernetes and OpenShift resources</h4>
+<div class="paragraph">
+<p>Complex deployments can be described using Kubernetes or OpenShift resource lists that can be referenced in the devfile. This makes them a part of the workspace.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Because a Che workspace is internally represented as a single deployment, all resources from the Kubernetes or OpenShift list are merged into that single deployment.</p>
+</li>
+<li>
+<p>Be careful when designing such lists because this can result in name conflicts and other problems.</p>
+</li>
+<li>
+<p>Only the following subset of the Kubernetes objects are supported: <code>deployments</code>, <code>pods</code>, <code>services</code>, <code>persistent volume claims</code>, <code>secrets</code>, and <code>config maps</code>. Kubernetes Ingresses are ignored, but OpenShift routes are supported. A workspace created from a devfile using any other object types fails to start.</p>
+</li>
+<li>
+<p>When running Che on a Kubernetes cluster, only Kubernetes lists are supported. When running Che on an OpenShift cluster, both Kubernetes and OpenShift lists are supported.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: MyDevfile
+projects:
+  - name: my-go-project
+    clonePath: go/src/github.com/acme/my-go-project
+    git:
+      location: https://github.com/acme/my-go-project.git
+components:
+  -  kubernetes:
+      reference: ../relative/path/postgres.yaml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The preceding component references a file that is relative to the location of the devfile itself. Meaning, this devfile is only loadable by a Che factory to which you supply the location of the devfile and therefore it is able to figure out the location of the referenced Kubernetes resource list.</p>
+</div>
+<div class="paragraph">
+<p>The following is an example of the <code>postgres.yaml</code> file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: v1
+kind: List
+items:
+-
+    apiVersion: v1
+    kind: Deployment
+    metadata:
+        name: postgres
+        labels:
+            app: postgres
+    spec:
+        template:
+        metadata:
+            name: postgres
+            app:
+                name: postgres
+        spec:
+            containers:
+            - image: postgres
+              name: postgres
+              ports:
+              - name: postgres
+                containerPort: 5432
+                volumeMounts:
+                - name: pg-storage
+                  mountPath: /var/lib/postgresql/data
+            volumes:
+            - name: pg-storage
+              persistentVolumeClaim:
+                  claimName: pg-storage
+-
+    apiVersion: v1
+    kind: Service
+    metadata:
+        name: postgres
+        labels:
+            app: postgres
+            name: postgres
+    spec:
+        ports:
+            - port: 5432
+              targetPort: 5432
+        selector:
+            app: postgres
+-
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+        name: pg-storage
+      labels:
+        app: postgres
+    spec:
+        accessModes:
+         - ReadWriteOnce
+        resources:
+            requests:
+                storage: 1Gi</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For a basic example of a devfile with an associated Kubernetes or OpenShift list, see <a href="https://github.com/redhat-developer/devfile/tree/master/samples/web-nodejs-with-db-sample">web-nodejs-with-db-sample</a> on redhat-developer GitHub.</p>
+</div>
+<div class="paragraph">
+<p>If you use generic or large resource lists from which you will only need a subset of resources, you can select particular resources from the list using a selector (which, as the usual Kubernetes selectors, works on the labels of the resources in the list).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: MyDevfile
+projects:
+  - name: my-go-project
+    clonePath: go/src/github.com/acme/my-go-project
+    git:
+      location: https://github.com/acme/my-go-project.git
+components:
+  - kubernetes:
+      reference: ../relative/path/postgres.yaml
+      selector:
+        app: postgres</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Additionally, it is also possible to modify the entrypoints (command and arguments) of the containers present in the resource list. For details of the advanced use case, see the reference (TODO: link).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_adding_commands_to_a_devfile"><a class="anchor" href="#_adding_commands_to_a_devfile"></a>Adding commands to a devfile</h3>
+<div class="paragraph">
+<p>A devfile allows to specify commands to be available for execution in a workspace. Every command can contain a subset of actions, which are related to a specific component in whose container it will be executed.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml"> commands:
+   - exec:
+      name: build
+      component: mysql
+      commandLine: mvn clean
+      workingDir: /projects/spring-petclinic</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can use commands to automate the workspace. You can define commands for building and testing your code, or cleaning the database.</p>
+</div>
+<div class="paragraph">
+<p>The following are two kinds of commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Che specific commands: You have full control over what component executes the command.</p>
+</li>
+<li>
+<p>Editor specific commands: You can use the editor-specific command definitions (example: <code>tasks.json</code> and <code>launch.json</code> in Che-Theia, which is equivalent to how these files work in VS Code).</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_che_specific_commands"><a class="anchor" href="#_che_specific_commands"></a>Che-specific commands</h4>
+<div class="paragraph">
+<p>Each Che-specific command features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An <code>commandLine</code> attribute that is a command to execute.</p>
+</li>
+<li>
+<p>A <code>component</code> attribute that specifies the container in which to execute the command.</p>
+<div class="literalblock">
+<div class="content">
+<pre>The commands are run using the default shell in the container.</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: MyDevfile
+projects:
+  - name: my-go-project
+    clonePath: go/src/github.com/acme/my-go-project
+    git:
+      location: https://github.com/acme/my-go-project.git
+components:
+  - container:
+      name: go-cli
+      image: golang
+      memoryLimit: 512Mi
+      mountSources: true
+      command: ['sleep', 'infinity']
+      env:
+        - name: GOPATH
+          value: $(CHE_PROJECTS_ROOT)/go
+        - name: GOCACHE
+          value: /tmp/go-cache
+commands:
+  - exec:
+      name: compile and run
+      component: go-cli
+      commandLine: “go get -d &amp;&amp; go run main.go”
+      workingDir: “${CHE_PROJECTS_ROOT}/src/github.com/acme/my-go-project”
+      runAsUser: root</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If a component to be used in a command must have an alias. This alias is used to reference the component in the command definition. Example: <code>alias: go-cli</code> in the component definition and <code>component: go-cli</code> in the command definition. This ensures that Eclipse Che can find the correct container to run the command in.</p>
+</li>
+<li>
+<p>A command can have only one action.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_editor_specific_commands"><a class="anchor" href="#_editor_specific_commands"></a>Editor-specific commands</h4>
+<div class="paragraph">
+<p>If the editor in the workspace supports it, the devfile can specify additional configuration in the editor-specific format. This is dependent on the integration code present in the workspace editor itself and so is not a generic mechanism. However, the default Che-Theia editor within Eclipse Che is equipped to understand the <code>tasks.json</code> and <code>launch.json</code> files provided in the devfile.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: MyDevfile
+projects:
+  - name: my-go-project
+    clonePath: go/src/github.com/acme/my-go-project
+    git:
+      location: https://github.com/acme/my-go-project.git
+commands:
+  - vscode-task:
+      name: tasks
+      referenceContent: &gt;
+          {
+              "version": "2.0.0",
+              "tasks": [
+                  {
+                      "label": "create test file",
+                      "type": "shell",
+                      "command": "touch ${workspaceFolder}/test.file"
+                  }
+              ]
+          }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This example shows association of a <code>tasks.json</code> file with a devfile. Notice the <code>vscode-task</code> type that instructs the Che-Theia editor to interpret this command as a tasks definition and <code>referenceContent</code> attribute that contains the contents of the file itself. You can also save this file separately from the devfile and use <code>reference</code> attribute to specify a relative or absolute URL to it.</p>
+</div>
+<div class="paragraph">
+<p>In addition to the <code>vscode-task</code> commands, the Che-Theia editor understands <code>vscode-launch</code> type using which you can specify the launch configurations.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_command_group"><a class="anchor" href="#_command_group"></a>Command group</h4>
+<div class="paragraph">
+<p>A given command can be assigned to one or more groups that represents the nature of the command.  The support groups are: <code>build</code>, <code>run</code>, <code>test</code> and <code>debug</code>. For each of the groups, one default command can be defined in each group by specifying the <code>isDefault</code> value.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: MyDevfile
+projects:
+  - name: my-maven-project
+    clonePath: maven/src/github.com/acme/my-maven-project
+    git:
+      location: https://github.com/acme/my-maven-project.git
+components:
+  - container:
+      name: maven
+      image: eclipe/maven-jdk8:latest
+      mountSources: true
+      command: ['tail']
+commands:
+  - exec:
+      name: package
+      component: maven
+      commandLine: “mvn package”
+      group:
+        kind: build
+  - exec:
+      name: install
+      component: maven
+      commandLine: “mvn install”
+      group:
+        kind: build
+        isDefault: true</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_composite_command"><a class="anchor" href="#_composite_command"></a>Composite command</h4>
+<div class="paragraph">
+<p>A composite command can be defined to chain multiple commands together. The individual commands that are called from a composite command can be referenced by the <code>name</code> of the command.  A <code>parallel</code> boolean can be specified to determine if the commands within a composite command are being executed sequentially or in parallel.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: MyDevfile
+projects:
+  - name: my-maven-project
+    clonePath: maven/src/github.com/acme/my-maven-project
+    git:
+      location: https://github.com/acme/my-maven-project.git
+components:
+  - container:
+      name: maven
+      image: eclipe/maven-jdk8:latest
+      mountSources: true
+      command: ['tail']
+commands:
+  - exec:
+      name: package
+      component: maven
+      commandLine: “mvn package”
+      group:
+        kind: build
+  - exec:
+      name: install
+      component: maven
+      commandLine: “mvn install”
+      group:
+        kind: build
+        isDefault: true
+  - composite:
+      name: installAndPackage
+      commands:
+        - install
+        - package
+      parallel: false</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_command_preview_url"><a class="anchor" href="#_command_preview_url"></a>Command preview URL</h4>
+<div class="paragraph">
+<p>It is possible to specify a preview URL for commands that expose web UI. This URL is offered for opening when the command is executed.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">commands:
+    - exec:
+        name: tasks
+        previewUrl:
+          port: 8080     <i class="conum" data-value="1"></i><b>(1)</b>
+          path: /myweb   <i class="conum" data-value="2"></i><b>(2)</b>
+        component: go-cli
+        commandLine: "go run webserver.go"
+        workingDir: ${CHE_PROJECTS_ROOT}/webserver</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>TCP port where the application listens. Mandatory parameter.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The path part of the URL to the UI. Optional parameter. The default is root (<code>/</code>).</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The example above opens <code>http://__&lt;server-domain&gt;__/myweb</code>, where <code><em>&lt;server-domain&gt;</em></code> is the URL to the dynamically created Kubernetes Ingress or OpenShift Route.</p>
+</div>
+<div class="sect4">
+<h5 id="_setting_the_default_way_of_opening_preview_urls"><a class="anchor" href="#_setting_the_default_way_of_opening_preview_urls"></a>Setting the default way of opening preview URLs</h5>
+<div class="paragraph">
+<p>By default, a notification that asks the user about the URL opening preference is displayed.</p>
+</div>
+<div class="paragraph">
+<p>To specify the preferred way of previewing a service URL:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open Che preferences in <strong>File &#8594; Settings &#8594; Open Preferences</strong> and find <code>che.task.preview.notifications</code> in the <strong>Che</strong> section.</p>
+</li>
+<li>
+<p>Choose from the list of possible values:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>on</code>&#8201;&#8212;&#8201;enables a notification for asking the user about the URL opening preferences</p>
+</li>
+<li>
+<p><code>alwaysPreview</code>&#8201;&#8212;&#8201;the preview URL opens automatically in the <strong>Preview</strong> panel as soon as a task is running</p>
+</li>
+<li>
+<p><code>alwaysGoTo</code>&#8201;&#8212;&#8201;the preview URL opens automatically in a separate browser tab as soon as a task is running</p>
+</li>
+<li>
+<p><code>off</code>&#8201;&#8212;&#8201;disables opening the preview URL (automatically and with a notification)</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_devfile_attributes"><a class="anchor" href="#_devfile_attributes"></a>Devfile attributes</h3>
+<div class="paragraph">
+<p>Devfile attributes can be used to configure various features.</p>
+</div>
+<div class="sect3">
+<h4 id="attribute-editorfree_making-a-workspace-portable-using-a-devfile"><a class="anchor" href="#attribute-editorfree_making-a-workspace-portable-using-a-devfile"></a>Attribute: editorFree</h4>
+<div class="paragraph">
+<p>When an editor is not specified in a devfile, a default is provided. When no editor is needed, use the <code>editorFree</code> attribute. The default value of <code>false</code> means that the devfile requests the provisioning of the default editor.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example of a devfile without an editor</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: petclinic-dev-environment
+components:
+  - kubernetes:
+      name: myApp
+      local: my-app.yaml
+attributes:
+  editorFree: true</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_attribute_persistvolumes_ephemeral_mode"><a class="anchor" href="#_attribute_persistvolumes_ephemeral_mode"></a>Attribute: persistVolumes (ephemeral mode)</h4>
+<div class="paragraph">
+<p>By default, volumes and PVCs specified in a devfile are bound to a host folder to persist data even after a container restart. To disable data persistence to make the workspace faster, such as when the volume back end is slow, modify the <code>persistVolumes</code> attribute in the devfile. The default value is <code>true</code>. Set to <code>false</code> to use <code>emptyDir</code> for configured volumes and PVC.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example of a devfile with ephemeral mode enabled</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.0.0
+metadata:
+  name: petclinic-dev-environment
+projects:
+  - name: petclinic
+    git:
+      location: 'https://github.com/che-samples/web-java-spring-petclinic.git'
+attributes:
+  persistVolumes: false</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="objects-supported-in-eclipse-che_making-a-workspace-portable-using-a-devfile"><a class="anchor" href="#objects-supported-in-eclipse-che_making-a-workspace-portable-using-a-devfile"></a>Objects supported in Eclipse Che 7.15</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following table lists the objects that are partially supported in Eclipse Che 7.15:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Object</th>
+<th class="tableblock halign-left valign-top">API</th>
+<th class="tableblock halign-left valign-top">Kubernetes Infra</th>
+<th class="tableblock halign-left valign-top">OpenShift Infra</th>
+<th class="tableblock halign-left valign-top">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kubernetes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deployment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kubernetes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ConfigMap</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kubernetes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PVC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kubernetes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Secret</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kubernetes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kubernetes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ingress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kubernetes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minishift allows you to create Ingress and it works when the host is specified (OpenShift creates a route for it). But, the <code>loadBalancer</code> IP is not provisioned. To add Ingress support for the OpenShift infrastructure node, generate routes based on the provided Ingress.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Route</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OpenShift</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The OpenShift recipe must be made compatible with the Kubernetes Infrastructure and, instead of the provided route, generate Ingress.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Template</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OpenShift</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Kubernetes API does not support templates. A workspace with a template in the recipe starts successfully and the default parameters are resolved.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="https://github.com/devfile/kubernetes-api">Devfile specifications</a></p>
+</li>
+<li>
+<p><a href="https://devfile.github.io/website/">Devfile schema</a></p>
+</li>
+<li>
+<p><a href="https://github.com/devfile/website">Documentation repo</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
