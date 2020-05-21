@@ -18,21 +18,22 @@ summary:
 
 To transfer a configured {prod-short}  workspace, create and export the devfile of the workspace and load the devfile on a different host to initialize a new instance of the workspace. For detailed instructions on how to create such a devfile, see below.
 
-include::con_what-is-a-devfile.adoc[leveloffset=+1]
+link:con_what-is-a-devfile.adoc[What is a devfile?]
 
-include::con_a-minimal-devfile.adoc[leveloffset=+1]
+link:con_a-minimal-devfile.adoc[A minimal devfile]
 
-include::proc_generating-workspace-names.adoc[leveloffset=+1]
+link:proc_generating-workspace-names.adoc[Generating workspace names]
 
-include::proc_writing-a-devfile-for-your-project.adoc[leveloffset=+1]
+link:proc_writing-a-devfile-for-your-project.adoc[Writing a devfile for a project]
 
-include::ref_devfile-reference.adoc[leveloffset=+1]
+link:ref_devfile-reference.adoc[Devfile reference]
 
-include::ref_objects-supported-in-products.adoc[leveloffset=+1]
+link:ref_objects-supported-in-products.adoc[Objects supported in different environment]
 
 .Additional resources
 
 * link:https://github.com/devfile/kubernetes-api[Devfile specifications]
 * link:https://devfile.github.io/website/[Devfile schema]
+* link:https://github.com/devfile/website[Documentation repo]
 
 :context: {parent-context-of-making-a-workspace-portable-using-a-devfile}
