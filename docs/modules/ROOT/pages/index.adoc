@@ -1,0 +1,21 @@
+= Devfile Documentation
+:description: Software Defined Development Environments 
+
+== API Reference
+
+See link:{attachmentsdir}/api-reference.html[Devfile API Reference].
+
+
+== Guide for Stacks Authors
+
+See xref:assembly_making-a-workspace-portable-using-a-devfile.adoc[].
+
+
+== v1 to v2 Migration Guide
+
+See xref:migration_guide.adoc[].
+
+
+== Devfile v2.0 Examples
+
+See https://github.com/devfile/kubernetes-api/tree/master/devfile-support/samples[Devfile Samples].

@@ -1,0 +1,4 @@
+name: devfile
+version: master
+nav:
+- modules/ROOT/nav.adoc

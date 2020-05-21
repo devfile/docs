@@ -1,0 +1,4 @@
+* link:{attachmentsdir}/api-reference.html[Devfile API Reference]
+* xref:assembly_making-a-workspace-portable-using-a-devfile.adoc[]
+* xref:migration_guide.adoc[]
+* https://github.com/devfile/kubernetes-api/tree/master/devfile-support/samples[Devfile Samples]
