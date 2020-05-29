@@ -341,15 +341,16 @@ A component type that allows to define a container image-based configuration of 
       image: eclipe/maven-jdk8:latest
       volumeMounts:
         - name: mavenrepo
-           containerPath: /root/.m2
+          path: /root/.m2
        env:
          - name: ENV_VAR
            value: value
        endpoints:
          - name: maven-server
-           port: 3101
-           attributes:
-             protocol: http
+           targetPort: 3101
+           configuration:
+             protocol: tcp
+             scheme: http
              secure: 'true'
              public: 'true'
              discoverable: 'false'
@@ -420,7 +421,7 @@ components:
       command: ['sleep', 'infinity']
       volumeMounts:
         - name: cache
-          containerPath: /.cache
+          path: /.cache
 ----
 
 Example specifying volumes for `cheEditor`/`chePlugin` type:
@@ -439,7 +440,7 @@ components:
         value: $(CHE_PROJECTS_ROOT)
       volumeMounts:
       - name: cache
-        containerPath: /.cache
+        path: /.cache
 ----
 
 Example specifying volumes for `kubernetes`/`openshift` type:
@@ -455,7 +456,7 @@ components:
       reference: mongo-db.yaml
       volumeMounts:
       - name: mongo-persistent-storage
-        containerPath: /data/db
+        path: /data/db
 ----
 
 === Specifying container memory limit for components
@@ -647,11 +648,12 @@ components:
           value: /tmp/go-cache
       endpoints:
       - name: web
-        port: 8080
-        attributes:
+        targetPort: 8080
+        configuration:
           discoverable: false
           public: true
-          protocol: http
+          protocol: tcp
+          scheme: http
   - container:
       name: postgres
       image: postgres
@@ -665,8 +667,8 @@ components:
           value: database
       endpoints:
         - name: postgres
-          port: 5432
-          attributes:
+          targetPort: 5432
+          configuration:
             discoverable: true
             public: false
 ----
@@ -706,8 +708,8 @@ components:
       id: eclipse/che-theia/next
       endpoints:
       - name: 'theia-extra-endpoint'
-        port: 8880
-        attributes:
+        targetPort: 8880
+        configuration:
           discoverable: true
           public: true
 
@@ -716,15 +718,15 @@ components:
       memoryLimit: 1Gi
       endpoints:
       - name: 'php-endpoint'
-        port: 7777
+        targetPort: 7777
 
   - chePlugin:
       name: theia-editor
       id: eclipse/che-theia/next
       endpoints:
       - name: 'theia-extra-endpoint'
-        port: 8880
-        attributes:
+        targetPort: 8880
+        configuration:
           discoverable: true
           public: true
 
@@ -733,8 +735,8 @@ components:
       reference: webapp.yaml
       endpoints:
       - name: 'web'
-        port: 8080
-        attributes:
+        targetPort: 8080
+        configuration:
           discoverable: false
           public: true
           protocol: http
@@ -744,8 +746,8 @@ components:
       reference: mongo-db.yaml
       endpoints:
       - name: 'mongo-db'
-        port: 27017
-        attributes:
+        targetPort: 27017
+        configuration:
           discoverable: true
           public: false
 ----
@@ -876,7 +878,7 @@ A devfile allows to specify commands to be available for execution in a workspac
 ----
  commands:
    - exec:
-      name: build
+      id: build
       component: mysql
       commandLine: mvn clean
       workingDir: /projects/spring-petclinic
@@ -923,7 +925,7 @@ components:
           value: /tmp/go-cache
 commands:
   - exec:
-      name: compile and run
+      id: compile and run
       component: go-cli
       commandLine: “go get -d && go run main.go”
       workingDir: “${CHE_PROJECTS_ROOT}/src/github.com/acme/my-go-project”
@@ -993,13 +995,13 @@ components:
       command: ['tail']
 commands:
   - exec:
-      name: package
+      id: package
       component: maven
       commandLine: “mvn package”
       group: 
         kind: build
   - exec:
-      name: install
+      id: install
       component: maven
       commandLine: “mvn install”
       group: 
@@ -1029,20 +1031,20 @@ components:
       command: ['tail']
 commands:
   - exec:
-      name: package
+      id: package
       component: maven
       commandLine: “mvn package”
       group: 
         kind: build
   - exec:
-      name: install
+      id: install
       component: maven
       commandLine: “mvn install”
       group: 
         kind: build
         isDefault: true
   - composite:
-      name: installAndPackage
+      id: installAndPackage
       commands:
         - install
         - package
@@ -1057,7 +1059,7 @@ It is possible to specify a preview URL for commands that expose web UI. This UR
 ----
 commands:
     - exec:
-        name: tasks
+        id: tasks
         previewUrl:
           port: 8080     <1>
           path: /myweb   <2>
