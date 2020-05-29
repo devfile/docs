@@ -829,15 +829,16 @@ This parameter is also applicable for <code>chePlugin</code> type components.</p
       image: eclipe/maven-jdk8:latest
       volumeMounts:
         - name: mavenrepo
-           containerPath: /root/.m2
+          path: /root/.m2
        env:
          - name: ENV_VAR
            value: value
        endpoints:
          - name: maven-server
-           port: 3101
-           attributes:
-             protocol: http
+           targetPort: 3101
+           configuration:
+             protocol: tcp
+             scheme: http
              secure: 'true'
              public: 'true'
              discoverable: 'false'
@@ -919,7 +920,7 @@ components:
       command: ['sleep', 'infinity']
       volumeMounts:
         - name: cache
-          containerPath: /.cache</code></pre>
+          path: /.cache</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -939,7 +940,7 @@ components:
         value: $(CHE_PROJECTS_ROOT)
       volumeMounts:
       - name: cache
-        containerPath: /.cache</code></pre>
+        path: /.cache</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -956,7 +957,7 @@ components:
       reference: mongo-db.yaml
       volumeMounts:
       - name: mongo-persistent-storage
-        containerPath: /data/db</code></pre>
+        path: /data/db</code></pre>
 </div>
 </div>
 </div>
@@ -1199,11 +1200,12 @@ components:
           value: /tmp/go-cache
       endpoints:
       - name: web
-        port: 8080
-        attributes:
+        targetPort: 8080
+        configuration:
           discoverable: false
           public: true
-          protocol: http
+          protocol: tcp
+          scheme: http
   - container:
       name: postgres
       image: postgres
@@ -1217,8 +1219,8 @@ components:
           value: database
       endpoints:
         - name: postgres
-          port: 5432
-          attributes:
+          targetPort: 5432
+          configuration:
             discoverable: true
             public: false</code></pre>
 </div>
@@ -1293,8 +1295,8 @@ components:
       id: eclipse/che-theia/next
       endpoints:
       - name: 'theia-extra-endpoint'
-        port: 8880
-        attributes:
+        targetPort: 8880
+        configuration:
           discoverable: true
           public: true
 
@@ -1303,15 +1305,15 @@ components:
       memoryLimit: 1Gi
       endpoints:
       - name: 'php-endpoint'
-        port: 7777
+        targetPort: 7777
 
   - chePlugin:
       name: theia-editor
       id: eclipse/che-theia/next
       endpoints:
       - name: 'theia-extra-endpoint'
-        port: 8880
-        attributes:
+        targetPort: 8880
+        configuration:
           discoverable: true
           public: true
 
@@ -1320,8 +1322,8 @@ components:
       reference: webapp.yaml
       endpoints:
       - name: 'web'
-        port: 8080
-        attributes:
+        targetPort: 8080
+        configuration:
           discoverable: false
           public: true
           protocol: http
@@ -1331,8 +1333,8 @@ components:
       reference: mongo-db.yaml
       endpoints:
       - name: 'mongo-db'
-        port: 27017
-        attributes:
+        targetPort: 27017
+        configuration:
           discoverable: true
           public: false</code></pre>
 </div>
@@ -1489,7 +1491,7 @@ components:
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml"> commands:
    - exec:
-      name: build
+      id: build
       component: mysql
       commandLine: mvn clean
       workingDir: /projects/spring-petclinic</code></pre>
@@ -1555,7 +1557,7 @@ components:
           value: /tmp/go-cache
 commands:
   - exec:
-      name: compile and run
+      id: compile and run
       component: go-cli
       commandLine: “go get -d &amp;&amp; go run main.go”
       workingDir: “${CHE_PROJECTS_ROOT}/src/github.com/acme/my-go-project”
@@ -1648,13 +1650,13 @@ components:
       command: ['tail']
 commands:
   - exec:
-      name: package
+      id: package
       component: maven
       commandLine: “mvn package”
       group:
         kind: build
   - exec:
-      name: install
+      id: install
       component: maven
       commandLine: “mvn install”
       group:
@@ -1686,20 +1688,20 @@ components:
       command: ['tail']
 commands:
   - exec:
-      name: package
+      id: package
       component: maven
       commandLine: “mvn package”
       group:
         kind: build
   - exec:
-      name: install
+      id: install
       component: maven
       commandLine: “mvn install”
       group:
         kind: build
         isDefault: true
   - composite:
-      name: installAndPackage
+      id: installAndPackage
       commands:
         - install
         - package
@@ -1716,7 +1718,7 @@ commands:
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">commands:
     - exec:
-        name: tasks
+        id: tasks
         previewUrl:
           port: 8080     <i class="conum" data-value="1"></i><b>(1)</b>
           path: /myweb   <i class="conum" data-value="2"></i><b>(2)</b>
