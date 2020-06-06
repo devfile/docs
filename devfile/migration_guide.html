@@ -124,10 +124,49 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="_schema_version"><a class="anchor" href="#_schema_version"></a>Schema Version</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Attribute <code>apiVersion</code> has been renamed <code>schemaVersion</code>:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">v1.0
+---
+apiVersion: 1.0.0
+metadata:
+  name: che-in-che-out</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">v2.0
+---
+schemaVersion: 2.0.0
+metadata:
+  name: che-in-che-out</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Details can be found in the <a href="https://github.com/che-incubator/devworkspace-api/issues/7">corresponding issue</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_how_to_migrate_projects"><a class="anchor" href="#_how_to_migrate_projects"></a>How to migrate projects</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>There are NO major changes in the <code>projects</code> section of the devfile. A project specified in a v1.0 devfile will work as it is in a devfile v2.0.</p>
+<p>There are NO major changes in the <code>projects</code> section of the devfile. A project specified in a v1.0 devfile will work as it is in a devfile v2.0. The only major change is the addition of a new kind of project: <code>starterProjects</code>. Those are supposed to be used in interactive mode only (user pick one) and the git repo get not be cloned but only source code get copied (kind of what <code>git archive --remote=&lt;repository URL&gt; | tar -t</code> would do).</p>
 </div>
 <div class="sect2">
 <h3 id="_starterprojects_and_projects_description"><a class="anchor" href="#_starterprojects_and_projects_description"></a>starterProjects and projects description</h3>
@@ -143,7 +182,7 @@ starterProjects:
 </div>
 </div>
 <div class="paragraph">
-<p>Details can be found in the corresponding issue <a href="https://github.com/che-incubator/devworkspace-api/issues/42" class="bare">https://github.com/che-incubator/devworkspace-api/issues/42</a>.</p>
+<p>Details can be found in the <a href="https://github.com/che-incubator/devworkspace-api/issues/42">corresponding issue</a>.</p>
 </div>
 </div>
 </div>
@@ -154,6 +193,72 @@ starterProjects:
 <div class="paragraph">
 <p>There ARE major changes in the <code>components</code> section of the devfile. A component specified in a v1.0 devfile will NOT work as it is in a devfile v2.0.</p>
 </div>
+<div class="sect2">
+<h3 id="_component_is_a_polymophic_type"><a class="anchor" href="#_component_is_a_polymophic_type"></a>Component is a polymophic type</h3>
+<div class="paragraph">
+<p>For a better syntax validation component now is defined as a polymorphic type and can be implemented as <code>container</code>, <code>kubernetes</code>, <code>openshift</code>, <code>plugin</code> or <code>volume</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">v2.0
+---
+components:
+  - container:
+        image: maven
+        ...
+  - container:
+        image: nodejs
+        ...
+  - kubernetes:
+       reference: https://.../mongo.yaml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Details can be found in the <a href="https://github.com/che-incubator/devworkspace-api/issues/4">corresponding issue</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shared_volumes_across_components"><a class="anchor" href="#_shared_volumes_across_components"></a>Shared Volumes Across Components</h3>
+<div class="paragraph">
+<p>Details can be found in the <a href="https://github.com/che-incubator/devworkspace-api/issues/19">corresponding issue</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_out_of_main_pod_compoenents"><a class="anchor" href="#_out_of_main_pod_compoenents"></a>Out of Main Pod Compoenents</h3>
+<div class="paragraph">
+<p>Details can be found in the  <a href="https://github.com/devfile/kubernetes-api/issues/48">corresponding issue</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_replace_alias_with_name"><a class="anchor" href="#_replace_alias_with_name"></a>Replace Alias with Name</h3>
+<div class="paragraph">
+<p>Details can be found in the  <a href="https://github.com/che-incubator/devworkspace-api/issues/9">corresponding issue</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_renaming_dockerimage_component_type"><a class="anchor" href="#_renaming_dockerimage_component_type"></a>Renaming dockerimage component type</h3>
+<div class="paragraph">
+<p>Details can be found in the  <a href="https://github.com/che-incubator/devworkspace-api/issues/8">corresponding issue</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_specify_sources_path_for_containers"><a class="anchor" href="#_specify_sources_path_for_containers"></a>Specify sources path for containers</h3>
+<div class="paragraph">
+<p>Details can be found in the  <a href="https://github.com/che-incubator/devworkspace-api/issues/17">corresponding issue</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_specify_size_of_volume_for_component"><a class="anchor" href="#_specify_size_of_volume_for_component"></a>Specify size of volume for component</h3>
+<div class="paragraph">
+<p>Details can be found in the <a href="https://github.com/che-incubator/devworkspace-api/issues/14">corresponding issue</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_containers_endpoints_routesingresses"><a class="anchor" href="#_containers_endpoints_routesingresses"></a>Containers endpoints (routes/ingresses)</h3>
+<div class="paragraph">
+<p>Details can be found in the <a href="https://github.com/che-incubator/devworkspace-api/issues/33">corresponding issue</a>.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -161,6 +266,76 @@ starterProjects:
 <div class="sectionbody">
 <div class="paragraph">
 <p>There ARE major changes about the definition of plugins in a devfile. Plugins are now specified using a devfile. A plugin specified in a v1.0 meta.yaml will NOT work as it is in a devfile v2.0.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">v2.0
+---
+java8.yaml
+---
+schemaVersion: 2.0.0
+metadata:
+  publisher: redhat
+  name: java8
+  version: 0.57.0
+  displayName: Language Support for Java 8
+  title: Language Support for Java(TM) by ...
+  description: Java Linting, Intellisense ...
+  icon: https://.../logo-eclipseche.svg
+  repository: https://github.../vscode-java
+  category: Language
+  firstPublicationDate: "2020-02-20"
+  pluginType: che-theia-vsx # &lt;== mandatory
+                            # for plugins
+                      # Valid types:
+                      #   che-theia-vsx
+                      #   che-editor,
+                      #   che-theia-plugin,
+                      #   che-theia-ext,
+                      #   generic-service,
+                      #   generic-ui
+parent:
+  id: redhat/theia-vsx-template/latest
+  components:
+    - container:
+       name: vsx-installer
+       env:
+        - name: VSX_LIST
+          value: java-dbg.vsix,java.vsix
+components:
+ - kubernetes:
+    name: ...
+    reference: ...
+ - container:
+    image: ...che-sidecar-java
+    name: vscode-java
+    memoryLimit: "1500Mi"
+    volumeMounts:
+     - path: "/home/theia/.m2"
+       name: m2
+ - volume:
+    name: m2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And then can be referenced from a distinct devfile:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">v2.0
+---
+devfile.yaml
+---
+components:
+- plugin:
+    name: java language server
+    id: redhat/java11/0.57.0 # other then by `id`, a plugin
+                             # can be referenced by `uri` and
+                             # `kubernetes`</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Details can be found in the <a href="https://github.com/che-incubator/devworkspace-api/issues/31">corresponding issue</a>.</p>
 </div>
 </div>
 </div>
@@ -170,10 +345,58 @@ starterProjects:
 <div class="paragraph">
 <p>There ARE major changes in the <code>commands</code> section of the devfile. A command specified in a v1.0 devfile will NOT work as it is in a devfile v2.0.</p>
 </div>
+<div class="sect2">
+<h3 id="_command_groups_buildruntestdebug"><a class="anchor" href="#_command_groups_buildruntestdebug"></a>Command Groups: build,run,test,debug</h3>
+<div class="paragraph">
+<p>Details can be found in the <a href="https://github.com/che-incubator/devworkspace-api/issues/27">corresponding issue</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_apply_command"><a class="anchor" href="#_apply_command"></a>Apply Command</h3>
+<div class="paragraph">
+<p>Details can be found in the <a href="https://github.com/devfile/kubernetes-api/issues/56">corresponding issue</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_environment_varibables_for_a_specific_command"><a class="anchor" href="#_environment_varibables_for_a_specific_command"></a>Environment Varibables for a Specific Command</h3>
+<div class="paragraph">
+<p>Details can be found in the <a href="https://github.com/che-incubator/devworkspace-api/issues/21">corresponding issue</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_renaming_workdir_into_workingdir"><a class="anchor" href="#_renaming_workdir_into_workingdir"></a>Renaming workdir into workingDir</h3>
+<div class="paragraph">
+<p>Details can be found in the <a href="https://github.com/che-incubator/devworkspace-api/issues/22">corresponding issue</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_id_and_label_for_composite_commands"><a class="anchor" href="#_id_and_label_for_composite_commands"></a>Id and label for Composite Commands</h3>
+<div class="paragraph">
+<p>Details can be found in the <a href="https://github.com/che-incubator/devworkspace-api/issues/18">corresponding issue</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_run_exec_commands_as_specific_user"><a class="anchor" href="#_run_exec_commands_as_specific_user"></a>Run exec Commands as Specific User</h3>
+<div class="paragraph">
+<p>Details can be found in the <a href="https://github.com/che-incubator/devworkspace-api/issues/34">corresponding issue</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_devfile_metadata_add_a_link_to_an_external_website"><a class="anchor" href="#_devfile_metadata_add_a_link_to_an_external_website"></a>Devfile metadata: add a link to an external website</h3>
+<div class="paragraph">
+<p>Details can be found in the <a href="https://github.com/che-incubator/devworkspace-api/issues/38">corresponding issue</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stackdevfile_matching_rules"><a class="anchor" href="#_stackdevfile_matching_rules"></a>Stack/Devfile Matching Rules</h3>
+<div class="paragraph">
+<p>Details can be found in the <a href="https://github.com/che-incubator/devworkspace-api/issues/40">corresponding issue</a>.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_consider_splitting_the_devfile"><a class="anchor" href="#_consider_splitting_the_devfile"></a>Consider splitting the devfile</h2>
+<h2 id="_using_parent_devfiles_to_build_reusable_stacks"><a class="anchor" href="#_using_parent_devfiles_to_build_reusable_stacks"></a>Using parent devfiles to build reusable stacks</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>One of the major changes in the 2.0.0 specification is the addition of the concept of parent. That allows refering a devfile (the parent) from a distinct devfile and makes it possible to reuse in multiple devfiles the same parent (the stack).</p>
@@ -203,7 +426,7 @@ commands:                                 # &lt;--- commands are added to parent
 </div>
 </div>
 <div class="paragraph">
-<p>Details are in the corresponding issue: <a href="https://github.com/che-incubator/devworkspace-api/issues/25" class="bare">https://github.com/che-incubator/devworkspace-api/issues/25</a></p>
+<p>Details are in the <a href="https://github.com/che-incubator/devworkspace-api/issues/25">corresponding issue</a>.</p>
 </div>
 </div>
 </div>
@@ -251,14 +474,16 @@ events:
 </div>
 </div>
 <div class="paragraph">
-<p>Details are in the corresponding issue: <a href="https://github.com/che-incubator/devworkspace-api/issues/32" class="bare">https://github.com/che-incubator/devworkspace-api/issues/32</a></p>
+<p>Details are in the <a href="https://github.com/che-incubator/devworkspace-api/issues/32">corresponding issue</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_adding_metadata"><a class="anchor" href="#_adding_metadata"></a>Adding metadata</h2>
+<h2 id="_new_metadata"><a class="anchor" href="#_new_metadata"></a>New metadata</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>In v2 of the devfile we have added some new metadata like <code>version</code> (this is the <a href="https://github.com/che-incubator/devworkspace-api/issues/10">corresponding issue</a>) and some mandatory metadata for plugins (this is the <a href="https://github.com/devfile/kubernetes-api/issues/31">corresponding issue</a>).</p>
+</div>
 </div>
 </div>
 </article>
