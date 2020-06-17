@@ -400,10 +400,10 @@ projects:
 <div class="ulist">
 <ul>
 <li>
-<p>Unique name</p>
+<p>a unique name</p>
 </li>
 <li>
-<p>Source specified</p>
+<p>a specified source</p>
 </li>
 </ul>
 </div>
@@ -499,7 +499,7 @@ projects:
 metadata:
   name: my-project-dev
 projects:
-  - name: my-project-resourse
+  - name: my-project-resource
     clonePath: resources/my-project
     zip:
       location: http://host.net/path/project-res.zip
@@ -513,9 +513,9 @@ projects:
 </div>
 </div>
 <div class="sect2">
-<h3 id="refering-a-parent-devfile-in-a-devfile_making-a-workspace-portable-using-a-devfile"><a class="anchor" href="#refering-a-parent-devfile-in-a-devfile_making-a-workspace-portable-using-a-devfile"></a>Refering a parent devfile in a devfile</h3>
+<h3 id="refering-a-parent-devfile-in-a-devfile_making-a-workspace-portable-using-a-devfile"><a class="anchor" href="#refering-a-parent-devfile-in-a-devfile_making-a-workspace-portable-using-a-devfile"></a>Refering to a parent devfile in a devfile</h3>
 <div class="paragraph">
-<p>It is possible to refer another devfile as a parent to a given devfile. If a parent is specified, the devfile will inherit all behaviour from the parent. Part of the content of the parent can be modified in the child devfile.</p>
+<p>It is possible to refer to another devfile as a parent to a given devfile. If a parent is specified, the devfile will inherit all behaviour from the parent. Part of the content of the parent can be overridden in the child devfile.</p>
 </div>
 <div class="paragraph">
 <p>A parent devfile can be referenced in 3 different ways: <code>registry</code>, <code>uri</code> or <code>kubernetes</code>.</p>
@@ -553,7 +553,7 @@ parent:
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parent_referred_by_registry_2"><a class="anchor" href="#_parent_referred_by_registry_2"></a>Parent referred by registry</h4>
+<h4 id="_parent_identified_by_a_kubernetes_resource"><a class="anchor" href="#_parent_identified_by_a_kubernetes_resource"></a>Parent identified by a Kubernetes resource</h4>
 <div class="paragraph">
 <p>Using a Kubernetes resource name, namespace and selector if it has been deployed on a Kubernete cluster.</p>
 </div>
@@ -728,13 +728,10 @@ It is impossible to mix the <code>id</code> and <code>reference</code> fields in
 <div class="sect3">
 <h4 id="_overriding_container_entrypoints"><a class="anchor" href="#_overriding_container_entrypoints"></a>Overriding container entrypoints</h4>
 <div class="paragraph">
-<p>As with the <a href="#component-type-dockerimage_making-a-workspace-portable-using-a-devfile"><code>dockerimage</code> component</a>, it is possible to override the entrypoint of the containers contained in the Kubernetes or OpenShift list using the <code>command</code> and <code>args</code> properties (as <a href="https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#notes">understood</a> by Kubernetes).</p>
+<p>As with the <a href="#component-type-containermaking-a-workspace-portable-using-a-devfile"><code>container</code> component</a>, it is possible to override the entrypoint of the containers contained in the Kubernetes or OpenShift list using the <code>command</code> and <code>args</code> properties (as <a href="https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#notes">understood</a> by Kubernetes).</p>
 </div>
 <div class="paragraph">
-<p>There can be more containers in the list (contained in Pods or Pod templates of deployments). To select which containers to apply the entrypoint changes to.</p>
-</div>
-<div class="paragraph">
-<p>The entrypoints can be defined as follows:</p>
+<p>There can be more containers in the list (contained in Pods or Pod templates of deployments). It is therefore necessary to select which containers to apply the entrypoint changes to as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1082,7 +1079,7 @@ components:
 <div class="paragraph">
 <p>Eclipse Che allows you to configure Docker containers by modifying the environment variables available in component&#8217;s configuration.
 Environment variables are supported by the following component types: <code>container</code>, <code>chePlugin</code>, <code>cheEditor</code>, <code>kubernetes</code>, <code>openshift</code>.
-In case component has multiple containers, environment variables will be provisioned to each container.</p>
+If the component has multiple containers, environment variables will be provisioned for each container.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1171,7 +1168,7 @@ the Kubernetes namespace or OpenShift project to which the workspace is deployed
 <div class="sect3">
 <h4 id="_endpoints"><a class="anchor" href="#_endpoints"></a>Endpoints</h4>
 <div class="paragraph">
-<p>Components of any type can specify the endpoints that the Docker image exposes. These endpoints can be made accessible to the users if the Che cluster is running using a Kubernetes ingress or an OpenShift route and to the other components within the workspace. You can create an endpoint for your application or database, if your application or database server is listening on a port and you want to be able to directly interact with it yourself or you want other components to interact with it.</p>
+<p>Components of any type can specify the endpoints that the container exposes. These endpoints can be made accessible to the users if the Che cluster is running using a Kubernetes ingress or an OpenShift route and to the other components within the workspace. You can create an endpoint for your application or database, if your application or database server is listening on a port and you want to be able to directly interact with it yourself or you want other components to interact with it.</p>
 </div>
 <div class="paragraph">
 <p>Endpoints have a number of properties as shown in the following example:</p>
@@ -1226,16 +1223,15 @@ components:
 </div>
 </div>
 <div class="paragraph">
-<p>Here, there are two Docker images, each defining a single endpoint. Endpoint is an accessible port that can be made accessible inside the workspace or also publicly (example, from the UI). Each endpoint has a name and port, which is the port on which certain server running inside the container is listening. The following are a few attributes that you can set on the endpoint:</p>
+<p>Here, there are two container, each defining a single endpoint. Endpoint is an accessible port that can be made accessible inside the workspace or publicly (example, from the UI). Each endpoint has a name and port, which is the port on which certain server running inside the container is listening. The following are a few attributes that you can set on the endpoint:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>discoverable</code>: If an endpoint is discoverable, it means that it can be accessed using its name as the host name within the workspace containers (in the Kubernetes parlance, a service is created for it with the provided name).
-55</p>
+<p><code>discoverable</code>: If an endpoint is discoverable, it means that it can be accessed using its name as the host name within the workspace containers (in the Kubernetes parlance, a Service is created for it with the provided name).</p>
 </li>
 <li>
-<p><code>public</code>: The endpoint will be accessible outside of the workspace, too (such endpoint can be accessed from the Che user interface). Such endpoints are publicized always on port <code>80</code> or <code>443</code> (depending on whether <code>tls</code> is enabled in Che).</p>
+<p><code>public</code>: The endpoint will also be accessible outside of the workspace: such endpoint can be accessed from the Che user interface and is always exposed on port <code>80</code> or <code>443</code> (depending on whether <code>tls</code> is enabled in Che).</p>
 </li>
 <li>
 <p><code>protocol</code>: For public endpoints the protocol is a hint to the UI on how to construct the URL for the endpoint access. Typical values are <code>http</code>, <code>https</code>, <code>ws</code>, <code>wss</code>.</p>
@@ -1577,10 +1573,10 @@ commands:
 <div class="ulist">
 <ul>
 <li>
-<p>If a component to be used in a command must have an alias. This alias is used to reference the component in the command definition. Example: <code>alias: go-cli</code> in the component definition and <code>component: go-cli</code> in the command definition. This ensures that Eclipse Che can find the correct container to run the command in.</p>
+<p>Any component on which commands are executed must define a <code>name</code> attribute. This name is used to reference the component in the command definition. Example: <code>name: go-cli</code> in the component definition and <code>component: go-cli</code> in the command definition. This ensures that Eclipse Che can find the correct container to run the command in.</p>
 </li>
 <li>
-<p>A command can have only one action.</p>
+<p>A command can have only one action, though you can use <code>composite</code> commands to execute several commands either sequentially or in parallel.</p>
 </li>
 </ul>
 </div>
