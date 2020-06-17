@@ -44,5 +44,6 @@ jobs:
         # ACCESS_TOKEN: # optional
         GITHUB_TOKEN: "${{ github.token}}"
         FOLDER: "${{ env.SITE_DIR }}"
-        BRANCH: 'gh-pages'
+        REPOSITORY_NAME: devfile/devfile.github.io
+        BRANCH: 'master'
         COMMIT_MESSAGE: "[CI] Publish Documentation for ${{ github.sha }}"
