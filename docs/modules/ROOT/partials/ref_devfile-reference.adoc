@@ -141,30 +141,14 @@ parent:
 
 Each component in a single devfile must have a unique name.
 
-=== Component type: cheEditor
+=== Component type: plugin
 
-Describes the editor used in the workspace by defining its `id`. A devfile can only contain one component of the `cheEditor` type.
-
-[source,yaml]
-----
-components:
-  - cheEditor:
-      id: eclipse/che-theia/next
-      alias: theia-editor
-----
-
-When `cheEditor` is missing, a default editor is provided along with its default plug-ins. The default plug-ins are also provided for an explicitly defined editor with the same `id` as the default one (even if it is a different version). Che-Theia is configured as default editor along with the *{prod-short} Machine Exec* plug-in.
-
-To specify that a workspace requires no editor, use the xref:attribute-editorfree_{context}[`editorFree:true` attribute] in the devfile attributes.
-
-=== Component type: chePlugin
-
-Describes plug-ins in a workspace by defining their `id`. It is allowed to have several `chePlugin` components.
+Describes plug-ins in a workspace by defining their `id`. It is allowed to have several `plugin` components.
 
 [source,yaml]
 ----
   components:
-   - chePlugin:
+   - plugin:
       id: eclipse/che-machine-exec-plugin/0.0.1
       name: exec-plugin
 ----
@@ -175,12 +159,12 @@ List of available {prod-short} plug-ins and more information about registry can 
 
 === Specifying an alternative component registry
 
-To specify an alternative registry for the `cheEditor` and `chePlugin` component types, use the `registryUrl` parameter:
+To specify an alternative registry for `plugin` component types, use the `registryUrl` parameter:
 
 [source,yaml]
 ----
   components:
-   - chePlugin:
+   - plugin:
       id: eclipse/che-machine-exec-plugin/0.0.1
       name: exec-plugin
       registryUrl: https://my-customregistry.com
@@ -188,26 +172,26 @@ To specify an alternative registry for the `cheEditor` and `chePlugin` component
 
 === Specifying a component by linking to its descriptor
 
-An alternative way of specifying `cheEditor` or `chePlugin`, instead of using the editor or plug-in `id` (and optionally an alternative registry), is to provide a direct link to the component descriptor (typically named `meta.yaml`) by using the `reference` field:
+An alternative way of specifying `plugin`, instead of using the `id` (and optionally an alternative registry), is to provide a direct link to the component descriptor (typically named `meta.yaml`) by using the `reference` field:
 
 [source,yaml]
 ----
   components:
-   - chePlugin:
+   - plugin:
       name: exec-plugin
       reference: https://raw.githubusercontent.com.../plugin/1.0.1/meta.yaml
 ----
 
 NOTE: It is impossible to mix the `id` and `reference` fields in a single component definition; they are mutually exclusive.
 
-=== Tuning chePlugin component configuration
+=== Tuning plugin component configuration
 
-A chePlugin component may need to be precisely tuned, and in such case, component preferences can be used. The example shows how to configure JVM using plug-in preferences.
+A plugin component may need to be precisely tuned, and in such case, component preferences can be used. The example shows how to configure JVM using plug-in preferences.
 
 [source,yaml]
 ----
   id: redhat/java/0.38.0
-  chePlugin:
+  plugin:
     preferences:
        java.jdt.ls.vmargs: '-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication'
 ----
@@ -217,7 +201,7 @@ Preferences may also be specified as an array:
 [source,yaml]
 ----
   id: redhat/java/0.38.0
-  chePlugin:
+  plugin:
     preferences:
       go.lintFlags: ["--enable-all", "--new"]
 ----
@@ -324,7 +308,7 @@ To specify a project sources directory mount into container(s), use the `mountSo
 ----
 
 If enabled, project sources mounts will be applied to every container of the given component.
-This parameter is also applicable for `chePlugin` type components.
+This parameter is also applicable for `plugin` type components.
 
 [id="component-type-container{context}"]
 === Component type: container
@@ -422,7 +406,7 @@ components:
           path: /.cache
 ----
 
-Example specifying volumes for `cheEditor`/`chePlugin` type:
+Example specifying volumes for `plugin` type:
 
 [source,yaml]
 ----
@@ -430,7 +414,7 @@ scheamVersion: 2.0.0
 metadata:
   name: MyDevfile
 components:
-  - cheEditor:
+  - plugin:
       name: theia-editor
       id: eclipse/che-theia/next
       env:
@@ -459,12 +443,12 @@ components:
 
 === Specifying container memory limit for components
 
-To specify a container(s) memory limit for `container`, `chePlugin`, `cheEditor`, use the `memoryLimit` parameter:
+To specify a container(s) memory limit for `container`, `plugin`, use the `memoryLimit` parameter:
 
 [source,yaml]
 ----
   components:
-   - chePlugin:
+   - plugin:
       name: exec-plugin
       id: eclipse/che-machine-exec-plugin/0.0.1
       memoryLimit: 1Gi
@@ -476,19 +460,19 @@ To specify a container(s) memory limit for `container`, `chePlugin`, `cheEditor`
 
 This limit will be applied to every container of the given component.
 
-For the `cheEditor` and `chePlugin` component types, RAM limits can be described in the plug-in descriptor file, typically named `meta.yaml`.
+For `plugin` components, RAM limits can be described in the plug-in descriptor file, typically named `meta.yaml`.
 
 If none of them are specified, system-wide defaults will be applied (see description of `pass:[CHE_WORKSPACE_SIDECAR_DEFAULT__MEMORY__LIMIT__MB]` system property).
 
 
 === Specifying container memory request for components
 
-To specify a container(s) memory request for `chePlugin` or  `cheEditor`, use the `memoryRequest` parameter:
+To specify a container(s) memory request for `plugin` use the `memoryRequest` parameter:
 
 [source,yaml]
 ----
   components:
-   - chePlugin:
+   - plugin:
       name: exec-plugin
       id: eclipse/che-machine-exec-plugin/0.0.1
       memoryLimit: 1Gi
@@ -502,19 +486,19 @@ To specify a container(s) memory request for `chePlugin` or  `cheEditor`, use th
 
 This limit will be applied to every container of the given component.
 
-For the `cheEditor` and `chePlugin` component types, RAM requests can be described in the plug-in descriptor file, typically named `meta.yaml`.
+For `plugin` components, RAM requests can be described in the plug-in descriptor file, typically named `meta.yaml`.
 
 If none of them are specified, system-wide defaults are applied (see description of `pass:[CHE_WORKSPACE_SIDECAR_DEFAULT__MEMORY__REQUEST__MB]` system property).
 
 
 === Specifying container CPU limit for components
 
-To specify a container(s) CPU limit for `chePlugin`, `cheEditor` or `container` use the `cpuLimit` parameter:
+To specify a container(s) CPU limit for `plugin` or `container` use the `cpuLimit` parameter:
 
 [source,yaml]
 ----
   components:
-   - chePlugin:
+   - plugin:
       name: exec-plugin
        id: eclipse/che-machine-exec-plugin/0.0.1
        cpuLimit: 1.5
@@ -526,19 +510,19 @@ To specify a container(s) CPU limit for `chePlugin`, `cheEditor` or `container` 
 
 This limit will be applied to every container of the given component.
 
-For the `cheEditor` and `chePlugin` component types, CPU limits can be described in the plug-in descriptor file, typically named `meta.yaml`.
+For the `plugin` components, CPU limits can be described in the plug-in descriptor file, typically named `meta.yaml`.
 
 If none of them are specified, system-wide defaults are applied (see description of `pass:[CHE_WORKSPACE_SIDECAR_DEFAULT__CPU__LIMIT__CORES]` system property).
 
 
 === Specifying container CPU request for components
 
-To specify a container(s) CPU request for `chePlugin`, `cheEditor` or `container` use the `cpuRequest` parameter:
+To specify a container(s) CPU request for `plugin` or `container` use the `cpuRequest` parameter:
 
 [source,yaml]
 ----
   components:
-   - chePlugin:
+   - plugin:
       name: exec-plugin
       id: eclipse/che-machine-exec-plugin/0.0.1
       cpuLimit: 1.5
@@ -552,14 +536,14 @@ To specify a container(s) CPU request for `chePlugin`, `cheEditor` or `container
 
 This limit will be applied to every container of the given component.
 
-For the `cheEditor` and `chePlugin` component types, CPU requests can be described in the plug-in descriptor file, typically named `meta.yaml`.
+For the `pugin` component type, CPU requests can be described in the plug-in descriptor file, typically named `meta.yaml`.
 
 If none of them are specified, system-wide defaults are applied (see description of `pass:[CHE_WORKSPACE_SIDECAR_DEFAULT__CPU__REQUEST__CORES]` system property).
 
 === Environment variables
 
 {prod} allows you to configure Docker containers by modifying the environment variables available in component's configuration.
-Environment variables are supported by the following component types: `container`, `chePlugin`, `cheEditor`, `kubernetes`, `openshift`.
+Environment variables are supported by the following component types: `container`, `plugin`, `kubernetes`, `openshift`.
 If the component has multiple containers, environment variables will be provisioned for each container.
 
 [source,yaml]
@@ -577,7 +561,7 @@ components:
       env:
         - name: GOPATH
           value: $(CHE_PROJECTS_ROOT)/go
-  - cheEditor:
+  - plugin:
       name: theia-editor
       id: eclipse/che-theia/next
       memoryLimit: 2Gi
@@ -693,7 +677,7 @@ WARNING: This setting potentially allows a link:https://en.wikipedia.org/wiki/Cr
 
 When starting a new server within a component, {prod-short} autodetects this, and the UI offers to automatically expose this port as a `public` port. This is useful for debugging a web application, for example. It is impossible to do this for servers that autostart with the container (for example, a database server). For such components, specify the endpoints explicitly.
 
-Example specifying endpoints for `kubernetes`/`openshift` and `chePlugin`/`cheEditor` types:
+Example specifying endpoints for `kubernetes`/`openshift` and `plugin` types:
 
 [source,yaml]
 ----
@@ -701,7 +685,7 @@ schemaVersion: 2.0.0
 metadata:
   name: MyDevfile
 components:
-  - cheEditor:
+  - plugin:
       name: theia-editor
       id: eclipse/che-theia/next
       endpoints:
@@ -711,14 +695,14 @@ components:
           discoverable: true
           public: true
 
-  - chePlugin:
+  - plugin:
       id: redhat/php/latest
       memoryLimit: 1Gi
       endpoints:
       - name: 'php-endpoint'
         targetPort: 7777
 
-  - chePlugin:
+  - plugin:
       name: theia-editor
       id: eclipse/che-theia/next
       endpoints:
