@@ -39,7 +39,7 @@ jobs:
          name: site
          path: "${{ github.workspace }}/${{ env.SITE_DIR }}"
      - name: Deploy to GitHub Pages
-       uses: JamesIves/github-pages-deploy-action@3.2.1
+       uses: JamesIves/github-pages-deploy-action@3.5.5
        with:
         # ACCESS_TOKEN: # optional
         GITHUB_TOKEN: "${{ github.token}}"
