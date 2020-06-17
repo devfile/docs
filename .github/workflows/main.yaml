@@ -44,7 +44,7 @@ jobs:
        uses: JamesIves/github-pages-deploy-action@3.5.5
        with:
         # ACCESS_TOKEN: # optional
-        GITHUB_TOKEN: "${{ github.token}}"
+        GITHUB_TOKEN: "${{ secrets.DOCS_DEPLOY_TOKEN}}"
         FOLDER: "${{ env.SITE_DIR }}"
         REPOSITORY_NAME: 'devfile/devfile.github.io'
         BRANCH: 'master'
