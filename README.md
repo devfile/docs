@@ -4,7 +4,7 @@ The generated JSON Schema documentation for the Devfile 2.0 is available here: h
 
 [Devfile 2.0 development documentation](https://github.com/devfile/docs/blob/master/docs/end-user-guide/assembly_making-a-workspace-portable-using-a-devfile.adoc)
 
-[Devfile 1.0 to 2.0 migration documentation](https://github.com/devfile/docs/blob/master/migration_howto.md)
+[Devfile 1.0 to 2.0 migration documentation](https://github.com/devfile/docs/blob/master/docs/modules/ROOT/pages/migration_guide.adoc)
 
 ## Contributing
 
