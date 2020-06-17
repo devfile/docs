@@ -1,4 +1,4 @@
-name: Antora Devfile Docs Site
+name: Devfile Docs Build
 
 on:
   push:
