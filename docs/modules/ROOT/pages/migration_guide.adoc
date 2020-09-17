@@ -81,7 +81,7 @@ Details can be found in the https://github.com/che-incubator/devworkspace-api/is
 
 === Out of Main Pod Compoenents
 
-Details can be found in the  https://github.com/devfile/kubernetes-api/issues/48[corresponding issue].
+Details can be found in the  https://github.com/devfile/api/issues/48[corresponding issue].
 
 === Replace Alias with Name
 
@@ -185,7 +185,7 @@ Details can be found in the https://github.com/che-incubator/devworkspace-api/is
 
 === Apply Command
 
-Details can be found in the https://github.com/devfile/kubernetes-api/issues/56[corresponding issue].
+Details can be found in the https://github.com/devfile/api/issues/56[corresponding issue].
 
 === Environment Varibables for a Specific Command
 
@@ -286,7 +286,7 @@ Details are in the https://github.com/che-incubator/devworkspace-api/issues/32[c
 
 == New metadata
 
-In v2 of the devfile we have added some new metadata like `version` (this is the https://github.com/che-incubator/devworkspace-api/issues/10[corresponding issue]) and some mandatory metadata for plugins (this is the https://github.com/devfile/kubernetes-api/issues/31[corresponding issue]).
+In v2 of the devfile we have added some new metadata like `version` (this is the https://github.com/che-incubator/devworkspace-api/issues/10[corresponding issue]) and some mandatory metadata for plugins (this is the https://github.com/devfile/api/issues/31[corresponding issue]).
 
 
 
