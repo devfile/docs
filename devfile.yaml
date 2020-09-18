@@ -4,6 +4,12 @@ metadata:
   generateName: devfile-docs-
 
 components:
+  - id: joaompinto/vscode-asciidoctor/latest
+    type: chePlugin
+  - id: ms-vscode/vscode-github-pullrequest/latest
+    type: chePlugin
+  - id: testthedocs/vale/latest
+    type: chePlugin
   - alias: antora
     type: dockerimage
     image: docker.io/antora/antora
@@ -47,12 +53,6 @@ components:
     args:
       - '-f'
       - /dev/null
-  - id: testthedocs/vale/latest
-    type: chePlugin
-  - id: ms-vscode/vscode-github-pullrequest/latest
-    type: chePlugin
-  - id: joaompinto/vscode-asciidoctor/latest
-    type: chePlugin
 
 commands:
   - name: Start preview server
