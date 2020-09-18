@@ -1,4 +1,4 @@
-* link:{attachmentsdir}/api-reference.html[Devfile API Reference]
+* xref:api-reference.adoc[]
 * xref:assembly_making-a-workspace-portable-using-a-devfile.adoc[Guide for Stack Authors]
 * xref:migration_guide.adoc[Devfile v2 Migration Guide]
 * https://github.com/devfile/api/tree/master/samples/devfiles[Devfile Samples]

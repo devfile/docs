@@ -1,0 +1,69 @@
+# chectl devfile:generate --name=che-docs --git-repo=https://github.com/eclipse/che-docs --dockerimage=docker.io/antora/antora --command=./run_antora.sh
+apiVersion: 1.0.0
+metadata:
+  generateName: devfile-docs-
+
+components:
+  - alias: antora
+    type: dockerimage
+    image: docker.io/antora/antora
+    memoryLimit: 512M
+    mountSources: true
+    command:
+      - tail
+    args:
+      - '-f'
+      - /dev/null
+    endpoints:
+      - name: Open-Livereload
+        port: 35729
+      - name: Open-Preview-server
+        port: 4000
+    env:
+      - value: /projects
+        name: HOME
+      - value: /projects/devfile-docs/node_modules
+        name: NODE_PATH
+  - alias: linkchecker
+    type: dockerimage
+    image: 'docker.io/linkchecker/linkchecker:latest'
+    memoryLimit: 512M
+    mountSources: true
+    command:
+      - tail
+    args:
+      - '-f'
+      - /dev/null
+    volumes:
+      - name: mnt
+        containerPath: /mnt
+  - alias: newdoc
+    type: dockerimage
+    image: 'docker.io/mrksu/newdoc'
+    memoryLimit: 512M
+    mountSources: true
+    command:
+      - tail
+    args:
+      - '-f'
+      - /dev/null
+  - id: testthedocs/vale/latest
+    type: chePlugin
+  - id: ms-vscode/vscode-github-pullrequest/latest
+    type: chePlugin
+  - id: joaompinto/vscode-asciidoctor/latest
+    type: chePlugin
+
+commands:
+  - name: Start preview server
+    actions:
+      - type: exec
+        component: antora
+        workdir: /projects/devfile-docs
+        command: yarn add gulp gulp-cli gulp-connect; yarn run gulp
+  - name: Validate links
+    actions:
+      - type: exec
+        component: linkchecker
+        workdir: /projects/devfile-docs
+        command: 'linkchecker -f linkcheckerrc http://0.0.0.0:4000'
