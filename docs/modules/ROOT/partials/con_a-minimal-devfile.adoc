@@ -7,7 +7,7 @@
 
 The following is the minimum content required in a `devfile.yaml` file:
 
-* link:https://github.com/devfile/kubernetes-api/blob/master/schemas/devfile.json[schemaVersion]
+* link:https://github.com/devfile/api/blob/master/schemas/devfile.json[schemaVersion]
 * link:https://redhat-developer.github.io/devfile/devfile#metadata[metadata name]
 
 [source,yaml]

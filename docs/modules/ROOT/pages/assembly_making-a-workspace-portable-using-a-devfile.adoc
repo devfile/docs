@@ -28,7 +28,7 @@ include::partial$ref_objects-supported-in-products.adoc[leveloffset=+1]
 
 .Additional resources
 
-* link:https://github.com/devfile/kubernetes-api[Devfile specifications]
+* link:https://github.com/devfile/api[Devfile specifications]
 * link:https://devfile.github.io/website/[Devfile schema]
 * link:https://github.com/devfile/website[Documentation repo]
 
