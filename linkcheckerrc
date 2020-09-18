@@ -1,0 +1,38 @@
+[checking]
+
+aborttimeout=60
+maxfilesizedownload=10000000
+maxfilesizeparse=10000000
+maxnumurls=1000000
+maxrunseconds=60
+robotstxt=0
+threads=60
+timeout=60
+
+# Checks validity of HTML anchors.
+# Add section in the configuration file to enable the plugin
+[AnchorCheck]
+
+[output]
+
+# Output to a files linkchecker-out.html
+fileoutput=html
+
+log=text
+
+# Control printing check status messages. 
+status=0
+
+[text]
+
+parts=parenturl,url,realurl,warning,result,outro
+
+[filtering]
+
+# Check external links.
+checkextern=1
+
+# URLs matching the given regular expression will be ignored and not checked.
+# Multiline option. Each line has to be indented for that to work.
+# Lines starting with a hash (#) will be ignored, though they must still be indented. 
+ignore=
