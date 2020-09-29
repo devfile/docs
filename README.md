@@ -15,3 +15,6 @@ antora antora-playbook.yml
 ```
 
 This command will generate the html documentation in folder `build/sidte`. Open `build/site/index.html` in the browser.
+
+# Issue tracking repo
+https://github.com/devfile/api with label area/documentation
