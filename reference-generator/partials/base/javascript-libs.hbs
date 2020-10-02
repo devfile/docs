@@ -1,0 +1,8 @@
+<script>
+    $('dt').each(function() {
+        $(this).next().children('div.json-inner-schema').hide();
+    });		
+    $('dt').click(function() {
+        $(this).next().children('div.json-inner-schema').toggle();
+    });
+</script>

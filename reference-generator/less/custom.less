@@ -1,0 +1,39 @@
+@msg-json-section-description: "";
+@msg-json-section-properties: "Properties";
+@msg-json-section-items: "Items";
+
+.oneof-properties {
+  > dl {
+    border-left: 2px solid @definition-panel-inner-border-color;
+    padding-left: 1em;
+
+    > dt:not(:first-child):before {
+      content: "or ";
+      font-weight: lighter;
+      font-style: italic;
+      font-size: small;
+    }
+
+    > dt:first-child:before {
+      content: "Either ";
+      font-weight: lighter;
+      font-style: italic;
+      font-size: small;
+    }
+
+  }
+}
+
+dt{
+    cursor: pointer;
+}
+
+dt::after{
+    font-family: 'Material Icons';
+    content: "expand_more";
+}
+
+body > div.container {
+            margin: 0;
+            padding: 0;
+}
