@@ -28,7 +28,7 @@ components:
     env:
       - value: /projects
         name: HOME
-      - value: /projects/devfile-docs/node_modules
+      - value: /projects/docs/node_modules
         name: NODE_PATH
   - alias: linkchecker
     type: dockerimage
@@ -55,15 +55,21 @@ components:
       - /dev/null
 
 commands:
+  - name: Generate API reference
+    actions:
+      - type: exec
+        component: antora
+        workdir: /projects/docs
+        command: yarn install; ; yarn run generate-api-reference
   - name: Start preview server
     actions:
       - type: exec
         component: antora
-        workdir: /projects/devfile-docs
-        command: yarn add gulp gulp-cli gulp-connect; yarn run gulp
+        workdir: /projects/docs
+        command: yarn install; yarn run gulp
   - name: Validate links
     actions:
       - type: exec
         component: linkchecker
-        workdir: /projects/devfile-docs
+        workdir: /projects/docs
         command: 'linkchecker -f linkcheckerrc http://0.0.0.0:4000'
