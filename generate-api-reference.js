@@ -24,7 +24,7 @@ fs.readdir('./docs/modules/ROOT/attachments/jsonschemas/', (err, files) => {
                     `./docs/modules/ROOT/examples/api-reference/${version}/body.html`,
                     `
                     <a href="_attachments/jsonschemas/${version}/devfile.json">Download current the JSON Schema</a>
-                    <iframe src="_attachments/api-reference/${version}/index.html" style="border:none;width: 100%;height:-moz-available;height:-webkit-fill-available;height: fill-available;"></iframe>
+                    <iframe src="_attachments/api-reference/${version}/index.html" style="border:none;width: 100%;min-height:50em;height:-webkit-fill-available;"></iframe>
                     `)
             }
             , (err) => {
