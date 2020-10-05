@@ -11,10 +11,14 @@ The generated JSON Schema documentation for the Devfile 2.0 is available here: h
 To build the documentation locally you need [Antora](https://antora.org/). Then from the root of this repository run
 
 ```bash
+yarn install; yarn run generate-api-reference
 antora antora-playbook.yml
 ```
 
-This command will generate the html documentation in folder `build/sidte`. Open `build/site/index.html` in the browser.
+These commands will generate the html documentation in folder `build/site`. Open `build/site/index.html` in the browser.
+
+Additionally, when pushing to a branch or working on a PR, the site is built by a GH action and
+made available in a ZIP file as a GH action build artifact, and can be tested locally.
 
 # Issue tracking repo
 https://github.com/devfile/api with label area/documentation
