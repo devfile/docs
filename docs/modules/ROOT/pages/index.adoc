@@ -1,5 +1,5 @@
 = Devfile Documentation
-:description: Software Defined Development Environments 
+:description: Software Defined Development Environments
 
 == API Reference
 
@@ -18,4 +18,4 @@ See xref:migration_guide.adoc[Devfile v2 Migration Guide].
 
 == Devfile v2.0 Examples
 
-See https://github.com/devfile/api/tree/master/devfile-support/samples[Devfile Samples].
+See https://github.com/devfile/api/tree/master/samples/devfiles[Devfile Samples].
