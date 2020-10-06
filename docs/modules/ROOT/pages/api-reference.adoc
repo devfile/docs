@@ -5,5 +5,5 @@
 :page-aliases: _attachments:api-reference
 
 ++++
-include::example$api-reference.html[]
+include::example$api-reference/next/body.html[]
 ++++

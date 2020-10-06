@@ -3,8 +3,8 @@ site:
   start_page: devfile::index.adoc 
 content:
   sources: 
-  - url: .
-    branches: master
+  - url: ./
+    branches: HEAD
     start_path: docs
 ui: 
   bundle:

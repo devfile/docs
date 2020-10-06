@@ -4,3 +4,5 @@
 
 .yarnrc
 yarn-error.log
+docs/modules/ROOT/attachments/api-reference/
+docs/modules/ROOT/examples/api-reference/
