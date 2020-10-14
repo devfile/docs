@@ -45,6 +45,9 @@
           "apply": {
             "description": "Command that consists in applying a given component definition, typically bound to a workspace event.\n\nFor example, when an `apply` command is bound to a `preStart` event, and references a `container` component, it will start the container as a K8S initContainer in the workspace POD, unless the component has its `dedicatedPod` field set to `true`.\n\nWhen no `apply` command exist for a given component, it is assumed the component will be applied at workspace start by default.",
             "type": "object",
+            "required": [
+              "component"
+            ],
             "properties": {
               "attributes": {
                 "description": "Optional map of free-form additional command attributes",
@@ -145,7 +148,8 @@
             "description": "CLI Command executed in an existing component container",
             "type": "object",
             "required": [
-              "commandLine"
+              "commandLine",
+              "component"
             ],
             "properties": {
               "attributes": {
@@ -156,7 +160,7 @@
                 }
               },
               "commandLine": {
-                "description": "The actual command-line string\n\nSpecial variables that can be used:\n\n - `$PROJECTS_ROOT`: A path where projects sources are mounted\n\n - `$PROJECT_SOURCE`: A path to a project source ($PROJECTS_ROOT/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
+                "description": "The actual command-line string\n\nSpecial variables that can be used:\n\n - `$PROJECTS_ROOT`: A path where projects sources are mounted as defined by container component's sourceMapping.\n\n - `$PROJECT_SOURCE`: A path to a project source ($PROJECTS_ROOT/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
                 "type": "string"
               },
               "component": {
@@ -216,7 +220,7 @@
                 "type": "string"
               },
               "workingDir": {
-                "description": "Working directory where the command should be executed\n\nSpecial variables that can be used:\n\n - `${PROJECTS_ROOT}`: A path where projects sources are mounted\n\n - `${PROJECT_SOURCE}`: A path to a project source (${PROJECTS_ROOT}/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
+                "description": "Working directory where the command should be executed\n\nSpecial variables that can be used:\n\n - `$PROJECTS_ROOT`: A path where projects sources are mounted as defined by container component's sourceMapping.\n\n - `$PROJECT_SOURCE`: A path to a project source ($PROJECTS_ROOT/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
                 "type": "string"
               }
             },
@@ -426,6 +430,7 @@
                     "exposure": {
                       "description": "Describes how the endpoint should be exposed on the network.\n- `public` means that the endpoint will be exposed on the public network, typically through a K8S ingress or an OpenShift route.\n- `internal` means that the endpoint will be exposed internally outside of the main workspace POD, typically by K8S services, to be consumed by other elements running on the same cloud internal network.\n- `none` means that the endpoint will not be exposed and will only be accessible inside the main workspace POD, on a local address.\n\nDefault value is `public`",
                       "type": "string",
+                      "default": "public",
                       "enum": [
                         "public",
                         "internal",
@@ -441,7 +446,8 @@
                     },
                     "protocol": {
                       "description": "Describes the application and transport protocols of the traffic that will go through this endpoint.\n- `http`: Endpoint will have `http` traffic, typically on a TCP connection. It will be automaticaly promoted to `https` when the `secure` field is set to `true`.\n- `https`: Endpoint will have `https` traffic, typically on a TCP connection.\n- `ws`: Endpoint will have `ws` traffic, typically on a TCP connection. It will be automaticaly promoted to `wss` when the `secure` field is set to `true`.\n- `wss`: Endpoint will have `wss` traffic, typically on a TCP connection.\n- `tcp`: Endpoint will have traffic on a TCP connection, without specifying an application protocol.\n- `udp`: Endpoint will have traffic on an UDP connection, without specifying an application protocol.\n\nDefault value is `http`",
-                      "type": "string"
+                      "type": "string",
+                      "default": "http"
                     },
                     "secure": {
                       "description": "Describes whether the endpoint should be secured and protected by some authentication process",
@@ -455,7 +461,7 @@
                 }
               },
               "env": {
-                "description": "Environment variables used in this container",
+                "description": "Environment variables used in this container.\n\nThe following variables are reserved and cannot be overridden via env:\n\n - `$PROJECTS_ROOT`\n\n - `$PROJECT_SOURCE`",
                 "type": "array",
                 "items": {
                   "type": "object",
@@ -481,11 +487,13 @@
                 "type": "string"
               },
               "mountSources": {
+                "description": "Toggles whether or not the project source code should be mounted in the component.\n\nDefaults to true for all component types except plugins and components that set `dedicatedPod` to true.",
                 "type": "boolean"
               },
               "sourceMapping": {
-                "description": "Optional specification of the path in the container where project sources should be transferred/mounted when `mountSources` is `true`. When omitted, the value of the `PROJECTS_ROOT` environment variable is used.",
-                "type": "string"
+                "description": "Optional specification of the path in the container where project sources should be transferred/mounted when `mountSources` is `true`. When omitted, the default value of /projects is used.",
+                "type": "string",
+                "default": "/projects"
               },
               "volumeMounts": {
                 "description": "List of volumes mounts that should be mounted is this container.",
@@ -547,6 +555,7 @@
                     "exposure": {
                       "description": "Describes how the endpoint should be exposed on the network.\n- `public` means that the endpoint will be exposed on the public network, typically through a K8S ingress or an OpenShift route.\n- `internal` means that the endpoint will be exposed internally outside of the main workspace POD, typically by K8S services, to be consumed by other elements running on the same cloud internal network.\n- `none` means that the endpoint will not be exposed and will only be accessible inside the main workspace POD, on a local address.\n\nDefault value is `public`",
                       "type": "string",
+                      "default": "public",
                       "enum": [
                         "public",
                         "internal",
@@ -562,7 +571,8 @@
                     },
                     "protocol": {
                       "description": "Describes the application and transport protocols of the traffic that will go through this endpoint.\n- `http`: Endpoint will have `http` traffic, typically on a TCP connection. It will be automaticaly promoted to `https` when the `secure` field is set to `true`.\n- `https`: Endpoint will have `https` traffic, typically on a TCP connection.\n- `ws`: Endpoint will have `ws` traffic, typically on a TCP connection. It will be automaticaly promoted to `wss` when the `secure` field is set to `true`.\n- `wss`: Endpoint will have `wss` traffic, typically on a TCP connection.\n- `tcp`: Endpoint will have traffic on a TCP connection, without specifying an application protocol.\n- `udp`: Endpoint will have traffic on an UDP connection, without specifying an application protocol.\n\nDefault value is `http`",
-                      "type": "string"
+                      "type": "string",
+                      "default": "http"
                     },
                     "secure": {
                       "description": "Describes whether the endpoint should be secured and protected by some authentication process",
@@ -625,6 +635,7 @@
                     "exposure": {
                       "description": "Describes how the endpoint should be exposed on the network.\n- `public` means that the endpoint will be exposed on the public network, typically through a K8S ingress or an OpenShift route.\n- `internal` means that the endpoint will be exposed internally outside of the main workspace POD, typically by K8S services, to be consumed by other elements running on the same cloud internal network.\n- `none` means that the endpoint will not be exposed and will only be accessible inside the main workspace POD, on a local address.\n\nDefault value is `public`",
                       "type": "string",
+                      "default": "public",
                       "enum": [
                         "public",
                         "internal",
@@ -640,7 +651,8 @@
                     },
                     "protocol": {
                       "description": "Describes the application and transport protocols of the traffic that will go through this endpoint.\n- `http`: Endpoint will have `http` traffic, typically on a TCP connection. It will be automaticaly promoted to `https` when the `secure` field is set to `true`.\n- `https`: Endpoint will have `https` traffic, typically on a TCP connection.\n- `ws`: Endpoint will have `ws` traffic, typically on a TCP connection. It will be automaticaly promoted to `wss` when the `secure` field is set to `true`.\n- `wss`: Endpoint will have `wss` traffic, typically on a TCP connection.\n- `tcp`: Endpoint will have traffic on a TCP connection, without specifying an application protocol.\n- `udp`: Endpoint will have traffic on an UDP connection, without specifying an application protocol.\n\nDefault value is `http`",
-                      "type": "string"
+                      "type": "string",
+                      "default": "http"
                     },
                     "secure": {
                       "description": "Describes whether the endpoint should be secured and protected by some authentication process",
@@ -826,7 +838,7 @@
                           }
                         },
                         "commandLine": {
-                          "description": "The actual command-line string\n\nSpecial variables that can be used:\n\n - `$PROJECTS_ROOT`: A path where projects sources are mounted\n\n - `$PROJECT_SOURCE`: A path to a project source ($PROJECTS_ROOT/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
+                          "description": "The actual command-line string\n\nSpecial variables that can be used:\n\n - `$PROJECTS_ROOT`: A path where projects sources are mounted as defined by container component's sourceMapping.\n\n - `$PROJECT_SOURCE`: A path to a project source ($PROJECTS_ROOT/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
                           "type": "string"
                         },
                         "component": {
@@ -882,7 +894,7 @@
                           "type": "string"
                         },
                         "workingDir": {
-                          "description": "Working directory where the command should be executed\n\nSpecial variables that can be used:\n\n - `${PROJECTS_ROOT}`: A path where projects sources are mounted\n\n - `${PROJECT_SOURCE}`: A path to a project source (${PROJECTS_ROOT}/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
+                          "description": "Working directory where the command should be executed\n\nSpecial variables that can be used:\n\n - `$PROJECTS_ROOT`: A path where projects sources are mounted as defined by container component's sourceMapping.\n\n - `$PROJECT_SOURCE`: A path to a project source ($PROJECTS_ROOT/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
                           "type": "string"
                         }
                       },
@@ -1106,7 +1118,7 @@
                           }
                         },
                         "env": {
-                          "description": "Environment variables used in this container",
+                          "description": "Environment variables used in this container.\n\nThe following variables are reserved and cannot be overridden via env:\n\n - `$PROJECTS_ROOT`\n\n - `$PROJECT_SOURCE`",
                           "type": "array",
                           "items": {
                             "type": "object",
@@ -1131,10 +1143,11 @@
                           "type": "string"
                         },
                         "mountSources": {
+                          "description": "Toggles whether or not the project source code should be mounted in the component.\n\nDefaults to true for all component types except plugins and components that set `dedicatedPod` to true.",
                           "type": "boolean"
                         },
                         "sourceMapping": {
-                          "description": "Optional specification of the path in the container where project sources should be transferred/mounted when `mountSources` is `true`. When omitted, the value of the `PROJECTS_ROOT` environment variable is used.",
+                          "description": "Optional specification of the path in the container where project sources should be transferred/mounted when `mountSources` is `true`. When omitted, the default value of /projects is used.",
                           "type": "string"
                         },
                         "volumeMounts": {
@@ -1585,7 +1598,7 @@
                     }
                   },
                   "commandLine": {
-                    "description": "The actual command-line string\n\nSpecial variables that can be used:\n\n - `$PROJECTS_ROOT`: A path where projects sources are mounted\n\n - `$PROJECT_SOURCE`: A path to a project source ($PROJECTS_ROOT/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
+                    "description": "The actual command-line string\n\nSpecial variables that can be used:\n\n - `$PROJECTS_ROOT`: A path where projects sources are mounted as defined by container component's sourceMapping.\n\n - `$PROJECT_SOURCE`: A path to a project source ($PROJECTS_ROOT/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
                     "type": "string"
                   },
                   "component": {
@@ -1641,7 +1654,7 @@
                     "type": "string"
                   },
                   "workingDir": {
-                    "description": "Working directory where the command should be executed\n\nSpecial variables that can be used:\n\n - `${PROJECTS_ROOT}`: A path where projects sources are mounted\n\n - `${PROJECT_SOURCE}`: A path to a project source (${PROJECTS_ROOT}/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
+                    "description": "Working directory where the command should be executed\n\nSpecial variables that can be used:\n\n - `$PROJECTS_ROOT`: A path where projects sources are mounted as defined by container component's sourceMapping.\n\n - `$PROJECT_SOURCE`: A path to a project source ($PROJECTS_ROOT/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
                     "type": "string"
                   }
                 },
@@ -1870,7 +1883,7 @@
                     }
                   },
                   "env": {
-                    "description": "Environment variables used in this container",
+                    "description": "Environment variables used in this container.\n\nThe following variables are reserved and cannot be overridden via env:\n\n - `$PROJECTS_ROOT`\n\n - `$PROJECT_SOURCE`",
                     "type": "array",
                     "items": {
                       "type": "object",
@@ -1895,10 +1908,11 @@
                     "type": "string"
                   },
                   "mountSources": {
+                    "description": "Toggles whether or not the project source code should be mounted in the component.\n\nDefaults to true for all component types except plugins and components that set `dedicatedPod` to true.",
                     "type": "boolean"
                   },
                   "sourceMapping": {
-                    "description": "Optional specification of the path in the container where project sources should be transferred/mounted when `mountSources` is `true`. When omitted, the value of the `PROJECTS_ROOT` environment variable is used.",
+                    "description": "Optional specification of the path in the container where project sources should be transferred/mounted when `mountSources` is `true`. When omitted, the default value of /projects is used.",
                     "type": "string"
                   },
                   "volumeMounts": {
@@ -2238,7 +2252,7 @@
                               }
                             },
                             "commandLine": {
-                              "description": "The actual command-line string\n\nSpecial variables that can be used:\n\n - `$PROJECTS_ROOT`: A path where projects sources are mounted\n\n - `$PROJECT_SOURCE`: A path to a project source ($PROJECTS_ROOT/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
+                              "description": "The actual command-line string\n\nSpecial variables that can be used:\n\n - `$PROJECTS_ROOT`: A path where projects sources are mounted as defined by container component's sourceMapping.\n\n - `$PROJECT_SOURCE`: A path to a project source ($PROJECTS_ROOT/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
                               "type": "string"
                             },
                             "component": {
@@ -2294,7 +2308,7 @@
                               "type": "string"
                             },
                             "workingDir": {
-                              "description": "Working directory where the command should be executed\n\nSpecial variables that can be used:\n\n - `${PROJECTS_ROOT}`: A path where projects sources are mounted\n\n - `${PROJECT_SOURCE}`: A path to a project source (${PROJECTS_ROOT}/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
+                              "description": "Working directory where the command should be executed\n\nSpecial variables that can be used:\n\n - `$PROJECTS_ROOT`: A path where projects sources are mounted as defined by container component's sourceMapping.\n\n - `$PROJECT_SOURCE`: A path to a project source ($PROJECTS_ROOT/\u003cproject-name\u003e). If there are multiple projects, this will point to the directory of the first one.",
                               "type": "string"
                             }
                           },
@@ -2518,7 +2532,7 @@
                               }
                             },
                             "env": {
-                              "description": "Environment variables used in this container",
+                              "description": "Environment variables used in this container.\n\nThe following variables are reserved and cannot be overridden via env:\n\n - `$PROJECTS_ROOT`\n\n - `$PROJECT_SOURCE`",
                               "type": "array",
                               "items": {
                                 "type": "object",
@@ -2543,10 +2557,11 @@
                               "type": "string"
                             },
                             "mountSources": {
+                              "description": "Toggles whether or not the project source code should be mounted in the component.\n\nDefaults to true for all component types except plugins and components that set `dedicatedPod` to true.",
                               "type": "boolean"
                             },
                             "sourceMapping": {
-                              "description": "Optional specification of the path in the container where project sources should be transferred/mounted when `mountSources` is `true`. When omitted, the value of the `PROJECTS_ROOT` environment variable is used.",
+                              "description": "Optional specification of the path in the container where project sources should be transferred/mounted when `mountSources` is `true`. When omitted, the default value of /projects is used.",
                               "type": "string"
                             },
                             "volumeMounts": {
@@ -3181,7 +3196,7 @@
     "schemaVersion": {
       "description": "Devfile schema version",
       "type": "string",
-      "pattern": "^([2-9][0-9]*)\\.([0-9]+)\\.([0-9]+)(\\-[0-9a-z-]+(\\.[0-9a-z-]+)*)?(\\+[0-9A-Za-z-]+(\\.[0-9A-Za-z-]+)*)?$"
+      "pattern": "^([2-9])\\.([0-9]+)\\.([0-9]+)(\\-[0-9a-z-]+(\\.[0-9a-z-]+)*)?(\\+[0-9A-Za-z-]+(\\.[0-9A-Za-z-]+)*)?$"
     },
     "starterProjects": {
       "description": "StarterProjects is a project that can be used as a starting point when bootstrapping new projects",
