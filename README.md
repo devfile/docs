@@ -8,7 +8,7 @@ The generated JSON Schema documentation for the Devfile 2.0 is available here: h
 
 ## Contributing
 
-To build the documentation locally you need [Antora](https://antora.org/). Then from the root of this repository run
+To build the documentation locally you need [Antora](https://antora.org/), node v10.12 or higher and yarn. Then from the root of this repository run:
 
 ```bash
 yarn install; yarn run generate-api-reference
