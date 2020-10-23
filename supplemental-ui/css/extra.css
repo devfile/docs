@@ -1,0 +1,13 @@
+
+/* Navigation bar */
+.navbar {
+    background-color: #ff8800;
+}
+
+/* Devfile logo in navigation bar */
+.navbar-item img.navbar-logo {
+    margin-right: 1ex;
+    height: 140%;
+    width: auto;
+}
+
