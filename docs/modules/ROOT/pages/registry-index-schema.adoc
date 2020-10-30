@@ -1,0 +1,9 @@
+= Registry Index Schema
+:description: Devfile registry index schema
+:navtitle: Devfile registry index schema
+:keywords: devfile, registry, index, schema
+:page-aliases: _attachments:registry-index-schema
+
+++++
+include::example$registry-index-schema/next/body.html[]
+++++

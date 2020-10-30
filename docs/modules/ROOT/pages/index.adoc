@@ -9,6 +9,9 @@ Devfiles are consumed by tools that transform the definition into a cloud worksp
 
 See link:{attachmentsdir}/api-reference.html[Devfile API Reference].
 
+== Registry index schema
+
+See link:{attachmentsdir}/registry-index-schema.html[Devfile Registry Index Schema].
 
 == Guide for Stacks Authors
 

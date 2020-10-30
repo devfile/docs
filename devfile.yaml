@@ -60,7 +60,7 @@ commands:
       - type: exec
         component: antora
         workdir: /projects/docs
-        command: yarn install; ; yarn run generate-api-reference
+        command: yarn install; ; yarn run generate-all-schema
   - name: Start preview server
     actions:
       - type: exec

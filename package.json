@@ -11,6 +11,8 @@
     "http-server": "^0.12.3"
   },
   "scripts": {
-    "generate-api-reference": "node generate-api-reference.js"
+    "generate-all-schema": "yarn run generate-api-reference && yarn run generate-registry-index-schema",
+    "generate-api-reference": "node generate-api-reference.js",
+    "generate-registry-index-schema": "node generate-registry-index-schema.js"
   }
 }

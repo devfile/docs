@@ -1,4 +1,5 @@
 * xref:api-reference.adoc[]
+* xref:registry-index-schema.adoc[Devfile Registry Index Schema]
 * xref:assembly_making-a-workspace-portable-using-a-devfile.adoc[Guide for Stack Authors]
 * xref:migration_guide.adoc[Devfile v2 Migration Guide]
 * https://github.com/devfile/api/tree/master/samples/devfiles[Devfile Samples]

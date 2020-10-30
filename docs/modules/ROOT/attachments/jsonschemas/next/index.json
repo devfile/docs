@@ -1,0 +1,58 @@
+{
+    "title": "Devfile registry index schema - Version 2.0.0-alpha2",
+    "description": "Devfile registry index schema defines the structure of index.json in the devfile registry",
+    "type": "array",
+    "items": {
+        "description": "Devfile metadata",
+        "type": "object",
+        "properties": {
+            "name": {
+                "description": "The stack name",
+                "type": "string"
+            },
+            "displayName": {
+                "description": "The display name of devfile",
+                "type": "string"
+            },
+            "description": {
+                "description": "The description of devfile",
+                "type": "string"
+            },
+            "tags": {
+                "description": "The tags associated to devfile",
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "projectType": {
+                "description": "The project framework that is used in the devfile",
+                "type": "string"
+            },
+            "language": {
+                "description": "The project language that is used in the devfile",
+                "type": "string"
+            },
+            "links": {
+                "description": "Links related to the devfile",
+                "type": "object",
+                    "properties": {
+                    "<link>": {
+                        "type": "string"
+                    }
+                }
+            },
+            "starterProjects": {
+                "description": "The project templates that can be used in the devfile",
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
+  
+  
+  
+  
