@@ -29,7 +29,7 @@ include::partial$ref_objects-supported-in-products.adoc[leveloffset=+1]
 .Additional resources
 
 * link:https://github.com/devfile/api[Devfile specifications]
-* link:https://devfile.github.io/website/[Devfile schema]
+* link:https://docs.devfile.io/devfile/api-reference.html[Devfile schema]
 * link:https://github.com/devfile/website[Documentation repo]
 
 :context: {parent-context-of-making-a-workspace-portable-using-a-devfile}
