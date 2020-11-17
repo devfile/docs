@@ -29,10 +29,13 @@ Project source consists of one of the following types: `git`, `github` and `zip`
 
 [source,yaml]
 ----
-source:
+projects:
+  - name: my-project1
     git:
-      remotes: https://github.com/eclipse/che.git
-      startPoint: master           <1>
+      remotes:
+        origin: "https://github.com/my-org/project1.git"
+      checkoutFrom:
+        revision: master           <1>
       tag: 7.2.0
       commitId: 36fe587
       branch: master
@@ -80,11 +83,12 @@ projects:
     clonePath: resources/my-project
     zip:
       location: http://host.net/path/project-res.zip
-  - name: my-project
-    source:
+  - name: my-project2
       git:
-        remotes: https://github.com/my-org/project.git
-        branch: develop
+        remotes:
+          origin: "https://github.com/my-org/project2.git"
+        checkoutFrom:
+          revision: develop
 ----
 
 [id="refering-a-parent-devfile-in-a-devfile_{context}"]
@@ -616,7 +620,8 @@ projects:
   - name: my-go-project
     clonePath: go/src/github.com/acme/my-go-project
     git:
-      remotes: https://github.com/acme/my-go-project.git
+      remotes:
+        origin: "https://github.com/acme/my-go-project.git"
 components:
   - name: go
     container:
@@ -759,7 +764,8 @@ projects:
   - name: my-go-project
     clonePath: go/src/github.com/acme/my-go-project
     git:
-      remotes: https://github.com/acme/my-go-project.git
+      remotes:
+        origin: "https://github.com/acme/my-go-project.git"
 components:
   - name: MyDevfile
     kubernetes:
@@ -844,7 +850,8 @@ projects:
   - name: my-go-project
     clonePath: go/src/github.com/acme/my-go-project
     git:
-      remotes: https://github.com/acme/my-go-project.git
+      remotes:
+        origin: "https://github.com/acme/my-go-project.git"
 components:
   - name: MyDevfile
     kubernetes:
@@ -895,7 +902,8 @@ projects:
   - name: my-go-project
     clonePath: go/src/github.com/acme/my-go-project
     git:
-      remotes: https://github.com/acme/my-go-project.git
+      remotes:
+        origin: "https://github.com/acme/my-go-project.git"
 components:
   - name: go-cli
     container:
@@ -937,7 +945,8 @@ projects:
   - name: my-go-project
     clonePath: go/src/github.com/acme/my-go-project
     git:
-      remotes: https://github.com/acme/my-go-project.git
+      remotes:
+        origin: "https://github.com/acme/my-go-project.git"
 commands:
   - id: task
     vscode-task:
@@ -972,7 +981,8 @@ projects:
   - name: my-maven-project
     clonePath: maven/src/github.com/acme/my-maven-project
     git:
-      remotes: https://github.com/acme/my-maven-project.git
+      remotes:
+        origin: "https://github.com/acme/my-maven-project.git"
 components:
   - name: maven
     container:
@@ -1008,7 +1018,8 @@ projects:
   - name: my-maven-project
     clonePath: maven/src/github.com/acme/my-maven-project
     git:
-      remotes: https://github.com/acme/my-maven-project.git
+      remotes:
+        origin: "https://github.com/acme/my-maven-project.git"
 components:
   - name: maven
     container:
@@ -1110,7 +1121,8 @@ metadata:
 projects:
   - name: petclinic
     git:
-      remotes: 'https://github.com/che-samples/web-java-spring-petclinic.git'
+      remotes:
+        origin: "https://github.com/che-samples/web-java-spring-petclinic.git"
 attributes:
   persistVolumes: false
 ----
