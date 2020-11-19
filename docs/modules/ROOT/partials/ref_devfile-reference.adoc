@@ -29,10 +29,13 @@ Project source consists of one of the following types: `git`, `github` and `zip`
 
 [source,yaml]
 ----
-source:
+projects:
+  - name: my-project1
     git:
-      location: https://github.com/eclipse/che.git
-      startPoint: master           <1>
+      remotes:
+        origin: "https://github.com/my-org/project1.git"
+      checkoutFrom:
+        revision: master           <1>
       tag: 7.2.0
       commitId: 36fe587
       branch: master
@@ -80,11 +83,12 @@ projects:
     clonePath: resources/my-project
     zip:
       location: http://host.net/path/project-res.zip
-  - name: my-project
-    source:
+  - name: my-project2
       git:
-        location: https://github.com/my-org/project.git
-        branch: develop
+        remotes:
+          origin: "https://github.com/my-org/project2.git"
+        checkoutFrom:
+          revision: develop
 ----
 
 [id="refering-a-parent-devfile-in-a-devfile_{context}"]
@@ -92,7 +96,7 @@ projects:
 
 It is possible to refer to another devfile as a parent to a given devfile. If a parent is specified, the devfile will inherit all behaviour from the parent. Part of the content of the parent can be overridden in the child devfile.
 
-A parent devfile can be referenced in 3 different ways: `registry`, `uri` or `kubernetes`.  
+A parent devfile can be referenced in 3 different ways: `registry`, `uri` or `kubernetes`.
 
 === Parent referred by registry
 Using its `id` if it has been published in a registry.
@@ -148,9 +152,9 @@ Describes plug-ins in a workspace by defining their `id`. It is allowed to have 
 [source,yaml]
 ----
   components:
-   - plugin:
+   - name: exec-plugin
+     plugin:
       id: eclipse/che-machine-exec-plugin/0.0.1
-      name: exec-plugin
 ----
 
 Both types above use an ID, which is slash-separated publisher, name and version of plug-in from the {prod-short} Plug-in registry.
@@ -164,9 +168,9 @@ To specify an alternative registry for `plugin` component types, use the `regist
 [source,yaml]
 ----
   components:
-   - plugin:
+   - name: exec-plugin
+     plugin:
       id: eclipse/che-machine-exec-plugin/0.0.1
-      name: exec-plugin
       registryUrl: https://my-customregistry.com
 ----
 
@@ -177,8 +181,8 @@ An alternative way of specifying `plugin`, instead of using the `id` (and option
 [source,yaml]
 ----
   components:
-   - plugin:
-      name: exec-plugin
+   - name: exec-plugin
+     plugin:
       reference: https://raw.githubusercontent.com.../plugin/1.0.1/meta.yaml
 ----
 
@@ -216,8 +220,8 @@ The content can be provided through the `reference` attribute, which points to t
 [source,yaml]
 ----
   components:
-    - kubernetes:
-        name: mysql
+    - name: mysql
+      kubernetes:
         reference: petclinic.yaml
         selector:
           app.kubernetes.io/name: mysql
@@ -230,8 +234,8 @@ Alternatively, to post a devfile with such components to REST API, the contents 
 [source,yaml]
 ----
   components:
-    - kubernetes:
-        name: mysql
+    - name: mysql
+      kubernetes:
         reference: petclinic.yaml
         referenceContent: |
              kind: List
@@ -255,8 +259,8 @@ There can be more containers in the list (contained in Pods or Pod templates of 
 [source,yaml]
 ----
   components:
-    - kubernetes:
-        name: appDeployment
+    - name: appDeployment
+      kubernetes:
         reference: app-deployment.yaml
         entrypoints:
         - parentName: mysqlServer
@@ -284,8 +288,8 @@ To provision or override entrypoints in a Kubernetes or OpensShift component, co
 [source,yaml]
 ----
   components:
-    - kubernetes:
-        name: appDeployment
+    - name: appDeployment
+      kubernetes:
         reference: app-deployment.yaml
         env:
           - name: ENV_VAR
@@ -301,8 +305,8 @@ To specify a project sources directory mount into container(s), use the `mountSo
 [source,yaml]
 ----
    components:
-      - kubernetes:
-          name: appDeployment
+      - name: appDeployment
+        kubernetes:
           reference: app-deployment.yaml
           mountSources: true
 ----
@@ -318,8 +322,8 @@ A component type that allows to define a container image-based configuration of 
 [source,yaml]
 ----
  components:
-   - container:
-      name: maven
+   - name: maven
+     container:
       image: eclipe/maven-jdk8:latest
       volumeMounts:
         - name: mavenrepo
@@ -349,8 +353,8 @@ schemaVersion: 2.0.0
 metadata:
     name: MyDevfile
 components:
-  - container:
-      name: go
+  - name: go
+    container:
       image: golang
       memoryLimit: 512Mi
       command: ['sleep', 'infinity']
@@ -370,8 +374,8 @@ schemaVersion: 2.0.0
 metadata:
     name: MyDevfile
 components:
-  - container:
-      name: go
+  - name: go
+    container:
       image: golang
       memoryLimit: 512Mi
       mountSources: true
@@ -396,7 +400,8 @@ schemaVersion: 2.0.0
 metadata:
   name: MyDevfile
 components:
-  - container:
+  - name: MyDevfile
+    container:
       image: golang
       memoryLimit: 512Mi
       mountSources: true
@@ -414,8 +419,8 @@ scheamVersion: 2.0.0
 metadata:
   name: MyDevfile
 components:
-  - plugin:
-      name: theia-editor
+  - name: theia-editor
+    plugin:
       id: eclipse/che-theia/next
       env:
       - name: HOME
@@ -433,8 +438,8 @@ schemaVersion: 2.0.0
 metadata:
   name: MyDevfile
 components:
-  - openshift:
-      name: mongo
+  - name: mongo
+    openshift:
       reference: mongo-db.yaml
       volumeMounts:
       - name: mongo-persistent-storage
@@ -448,12 +453,12 @@ To specify a container(s) memory limit for `container`, `plugin`, use the `memor
 [source,yaml]
 ----
   components:
-   - plugin:
-      name: exec-plugin
+   - name: exec-plugin
+     plugin:
       id: eclipse/che-machine-exec-plugin/0.0.1
       memoryLimit: 1Gi
-   - container:
-      name: maven
+   -   name: maven
+     container:
       image: eclipe/maven-jdk8:latest
       memoryLimit: 512M
 ----
@@ -472,13 +477,13 @@ To specify a container(s) memory request for `plugin` use the `memoryRequest` pa
 [source,yaml]
 ----
   components:
-   - plugin:
-      name: exec-plugin
+   - name: exec-plugin
+     plugin:
       id: eclipse/che-machine-exec-plugin/0.0.1
       memoryLimit: 1Gi
       memoryRequest: 512M
-   - container:
-      name: maven
+   - name: maven
+     container:
       image: eclipe/maven-jdk8:latest
       memoryLimit: 512M
       memoryRequest: 256M
@@ -498,12 +503,12 @@ To specify a container(s) CPU limit for `plugin` or `container` use the `cpuLimi
 [source,yaml]
 ----
   components:
-   - plugin:
-      name: exec-plugin
+   - name: exec-plugin
+     plugin:
        id: eclipse/che-machine-exec-plugin/0.0.1
        cpuLimit: 1.5
-   - container:
-      name: maven
+   - name: maven
+     container:
       image: eclipe/maven-jdk8:latest
       cpuLimit: 750m
 ----
@@ -522,13 +527,13 @@ To specify a container(s) CPU request for `plugin` or `container` use the `cpuRe
 [source,yaml]
 ----
   components:
-   - plugin:
-      name: exec-plugin
+   - name: exec-plugin
+     plugin:
       id: eclipse/che-machine-exec-plugin/0.0.1
       cpuLimit: 1.5
       cpuRequest: 0.225
-   - container:
-      name: maven
+   - name: maven
+     container:
       image: eclipe/maven-jdk8:latest
       cpuLimit: 750m
       cpuRequest: 450m
@@ -552,8 +557,8 @@ schemaVersion: 2.0.0
 metadata:
   name: MyDevfile
 components:
-  - container:
-      name: go
+  - name: go
+    container:
       image: golang
       memoryLimit: 512Mi
       mountSources: true
@@ -561,8 +566,8 @@ components:
       env:
         - name: GOPATH
           value: $(CHE_PROJECTS_ROOT)/go
-  - plugin:
-      name: theia-editor
+  - name: theia-editor
+    plugin:
       id: eclipse/che-theia/next
       memoryLimit: 2Gi
       env:
@@ -615,10 +620,11 @@ projects:
   - name: my-go-project
     clonePath: go/src/github.com/acme/my-go-project
     git:
-      location: https://github.com/acme/my-go-project.git
+      remotes:
+        origin: "https://github.com/acme/my-go-project.git"
 components:
-  - container:
-      name: go
+  - name: go
+    container:
       image: golang
       memoryLimit: 512Mi
       mountSources: true
@@ -636,8 +642,8 @@ components:
           public: true
           protocol: tcp
           scheme: http
-  - container:
-      name: postgres
+  - name: postgres
+    container:
       image: postgres
       memoryLimit: 512Mi
       env:
@@ -685,8 +691,8 @@ schemaVersion: 2.0.0
 metadata:
   name: MyDevfile
 components:
-  - plugin:
-      name: theia-editor
+  - name: theia-editor
+    plugin:
       id: eclipse/che-theia/next
       endpoints:
       - name: 'theia-extra-endpoint'
@@ -758,9 +764,11 @@ projects:
   - name: my-go-project
     clonePath: go/src/github.com/acme/my-go-project
     git:
-      location: https://github.com/acme/my-go-project.git
+      remotes:
+        origin: "https://github.com/acme/my-go-project.git"
 components:
-  -  kubernetes:
+  - name: MyDevfile
+    kubernetes:
       reference: ../relative/path/postgres.yaml
 ----
 
@@ -842,9 +850,11 @@ projects:
   - name: my-go-project
     clonePath: go/src/github.com/acme/my-go-project
     git:
-      location: https://github.com/acme/my-go-project.git
+      remotes:
+        origin: "https://github.com/acme/my-go-project.git"
 components:
-  - kubernetes:
+  - name: MyDevfile
+    kubernetes:
       reference: ../relative/path/postgres.yaml
       selector:
         app: postgres
@@ -859,8 +869,8 @@ A devfile allows to specify commands to be available for execution in a workspac
 [source,yaml]
 ----
  commands:
-   - exec:
-      id: build
+   - id: build
+     exec:
       component: mysql
       commandLine: mvn clean
       workingDir: /projects/spring-petclinic
@@ -880,7 +890,7 @@ Each {prod-short}-specific command features:
 
  * An `commandLine` attribute that is a command to execute.
  * A `component` attribute that specifies the container in which to execute the command.
- 
+
  The commands are run using the default shell in the container.
 
 [source,yaml]
@@ -892,10 +902,11 @@ projects:
   - name: my-go-project
     clonePath: go/src/github.com/acme/my-go-project
     git:
-      location: https://github.com/acme/my-go-project.git
+      remotes:
+        origin: "https://github.com/acme/my-go-project.git"
 components:
-  - container:
-      name: go-cli
+  - name: go-cli
+    container:
       image: golang
       memoryLimit: 512Mi
       mountSources: true
@@ -906,8 +917,8 @@ components:
         - name: GOCACHE
           value: /tmp/go-cache
 commands:
-  - exec:
-      id: compile and run
+  - id: compile and run
+    exec:
       component: go-cli
       commandLine: “go get -d && go run main.go”
       workingDir: “${CHE_PROJECTS_ROOT}/src/github.com/acme/my-go-project”
@@ -934,9 +945,11 @@ projects:
   - name: my-go-project
     clonePath: go/src/github.com/acme/my-go-project
     git:
-      location: https://github.com/acme/my-go-project.git
+      remotes:
+        origin: "https://github.com/acme/my-go-project.git"
 commands:
-  - vscode-task:
+  - id: task
+    vscode-task:
       name: tasks
       referenceContent: >
           {
@@ -968,25 +981,26 @@ projects:
   - name: my-maven-project
     clonePath: maven/src/github.com/acme/my-maven-project
     git:
-      location: https://github.com/acme/my-maven-project.git
+      remotes:
+        origin: "https://github.com/acme/my-maven-project.git"
 components:
-  - container:
-      name: maven
+  - name: maven
+    container:
       image: eclipe/maven-jdk8:latest
       mountSources: true
       command: ['tail']
 commands:
-  - exec:
-      id: package
+  - id: package
+    exec:
       component: maven
       commandLine: “mvn package”
-      group: 
+      group:
         kind: build
-  - exec:
-      id: install
+  - id: install
+    exec:
       component: maven
       commandLine: “mvn install”
-      group: 
+      group:
         kind: build
         isDefault: true
 ----
@@ -1004,29 +1018,30 @@ projects:
   - name: my-maven-project
     clonePath: maven/src/github.com/acme/my-maven-project
     git:
-      location: https://github.com/acme/my-maven-project.git
+      remotes:
+        origin: "https://github.com/acme/my-maven-project.git"
 components:
-  - container:
-      name: maven
+  - name: maven
+    container:
       image: eclipe/maven-jdk8:latest
       mountSources: true
       command: ['tail']
 commands:
-  - exec:
-      id: package
+  - id: package
+    exec:
       component: maven
       commandLine: “mvn package”
-      group: 
+      group:
         kind: build
-  - exec:
-      id: install
+  - id: install
+    exec:
       component: maven
       commandLine: “mvn install”
-      group: 
+      group:
         kind: build
         isDefault: true
-  - composite:
-      id: installAndPackage
+  - id: installAndPackage
+    composite:
       commands:
         - install
         - package
@@ -1040,8 +1055,8 @@ It is possible to specify a preview URL for commands that expose web UI. This UR
 [source,yaml]
 ----
 commands:
-    - exec:
-        id: tasks
+    - id: tasks
+      exec:
         previewUrl:
           port: 8080     <1>
           path: /myweb   <2>
@@ -1056,7 +1071,7 @@ The example above opens `++http://__<server-domain>__/myweb++`, where `_<server-
 
 ==== Setting the default way of opening preview URLs
 
-By default, a notification that asks the user about the URL opening preference is displayed. 
+By default, a notification that asks the user about the URL opening preference is displayed.
 
 To specify the preferred way of previewing a service URL:
 
@@ -1086,8 +1101,8 @@ schemaVersion: 2.0.0
 metadata:
   name: petclinic-dev-environment
 components:
-  - kubernetes:
-      name: myApp
+  - name: myApp
+    kubernetes:
       local: my-app.yaml
 attributes:
   editorFree: true
@@ -1106,7 +1121,8 @@ metadata:
 projects:
   - name: petclinic
     git:
-      location: 'https://github.com/che-samples/web-java-spring-petclinic.git'
+      remotes:
+        origin: "https://github.com/che-samples/web-java-spring-petclinic.git"
 attributes:
   persistVolumes: false
 ----
