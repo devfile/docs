@@ -22,7 +22,7 @@ jobs:
         with:
          antora_playbook: antora-playbook.yml
       - name: "Upload generated site"
-        uses: actions/upload-artifact@v1.0.0
+        uses: actions/upload-artifact@v2
         with:
           name: site
           path: "${{ github.workspace }}/build/${{ env.SITE_DIR }}"
@@ -41,12 +41,12 @@ jobs:
        with:
           persist-credentials: false
      - name: Download generated site
-       uses: actions/download-artifact@v1
+       uses: actions/download-artifact@v2
        with:
          name: site
          path: "${{ github.workspace }}/${{ env.SITE_DIR }}"
      - name: Deploy to GitHub Pages
-       uses: JamesIves/github-pages-deploy-action@3.5.5
+       uses: JamesIves/github-pages-deploy-action@3.7.1
        with:
         # ACCESS_TOKEN: # optional
         GITHUB_TOKEN: "${{ secrets.DOCS_DEPLOY_TOKEN}}"
