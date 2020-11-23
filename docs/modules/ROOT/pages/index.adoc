@@ -1,9 +1,11 @@
 = Devfile
 :description: Software Defined Development Environments
 
-Devfiles describe and define a cloud native development environment.
+Devfiles are YAML files that describe and define an environment in Che, including the source code and development components, like IDE tools and application runtimes. Che uses these devfiles to make a cloud workspace composed of multiple containers.
 
-Devfiles are consumed by tools that transform the definition into a cloud workspace composed of multiple cloud native resources. Any number of identical workspaces can be created from the same devfile. They can be shared in various ways including a devfile registry or together with the source code of a project.
+Within your devfile workspace, you can create multiple projects. In the components of the project, like the editor, plugin, or environment, the devfile commands build, test, and run your application. Also, any number of workspaces can be created from the same devfile. This way, workspaces can be shared and worked on by different teams. So now you can easily transfer, collaborate and expand your work.
+
+Visit the following documentation to learn how to work with devfiles:
 
 == API Reference
 
@@ -23,3 +25,7 @@ See xref:migration_guide.adoc[Devfile v2 Migration Guide].
 == Devfile v2.0 Examples
 
 See https://github.com/devfile/api/tree/master/samples/devfiles[Devfile Samples].
+
+== Additional Resources
+
+For a visual and audible demonstration of devfiles, see the YouTube video, https://youtu.be/vnsLwtRz--w[Customize your own online IDE with a devifle].
