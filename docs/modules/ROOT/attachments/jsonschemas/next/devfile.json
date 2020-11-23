@@ -1432,6 +1432,29 @@
           "description": "Optional semver-compatible version",
           "type": "string",
           "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)(\\-[0-9a-z-]+(\\.[0-9a-z-]+)*)?(\\+[0-9A-Za-z-]+(\\.[0-9A-Za-z-]+)*)?$"
+        },
+        "displayName": {
+          "description": "Optional devfile display name",
+          "type": "string"
+        },
+        "description": {
+          "description": "Optional devfile description",
+          "type": "string"
+        },
+        "tags": {
+          "description": "Optional devfile tags",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "icon": {
+          "description": "Optional devfile icon",
+          "type": "string"
+        },
+        "globalMemoryLimit": {
+          "description": "Optional devfile global memory limit",
+          "type": "string"
         }
       },
       "additionalProperties": true
