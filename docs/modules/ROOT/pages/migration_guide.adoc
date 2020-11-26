@@ -1,11 +1,11 @@
-= Devfile v2 Migration Guide
-:description: A guide to migrate a v1 Devfile to v2
+= Migrating from devfile v1.0 to devfile v2.0
+:description: A guide to migrate a v1.0 Devfile to v2.0
 
 This guide explains how to migrate an existing v1.0 devfile to v2.0.
 
-== Schema Version
+== Schema version
 
-Attribute `apiVersion` has been renamed `schemaVersion`:
+Attribute `apiVersion` has been renamed to `schemaVersion`:
 
 [cols="1a,1a"]
 |====
@@ -29,13 +29,13 @@ metadata:
 ----
 |====
 
-Details can be found in the https://github.com/che-incubator/devworkspace-api/issues/7[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/7[Devfile should have a `schemaVersion` attribute].
 
-== How to migrate projects
+== Migrating projects
 
-There are NO major changes in the `projects` section of the devfile. A project specified in a v1.0 devfile will work as it is in a devfile v2.0. The only major change is the addition of a new kind of project: `starterProjects`. Those are supposed to be used in interactive mode only (user pick one) and the git repo get not be cloned but only source code get copied (kind of what `git archive --remote=<repository URL> | tar -t` would do).
+A project specified in a v1.0 devfile works as is in a devfile v2.0. The only major change is the addition of a new kind of project: `starterProjects`. Those are supposed to be used in interactive mode only (user must pick one) and the Git repository cannot be cloned. Instead, only source code is to be copied (for example, `git archive --remote=_<repository URL>_ | tar -t`).
 
-=== starterProjects and projects description
+=== `starterProjects` and `projects` description
 
 [source,yaml]
 ----
@@ -48,15 +48,15 @@ starterProjects:
     description: "Use this app to get a simple "hello world" nodejs application"
 ----
 
-Details can be found in the https://github.com/che-incubator/devworkspace-api/issues/42[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/42[starterProjects and projects description].
 
-== How to migrate components
+== Migrating components
 
-There ARE major changes in the `components` section of the devfile. A component specified in a v1.0 devfile will NOT work as it is in a devfile v2.0.
+There are major changes in the `components` section of the devfile. A component specified in a v1.0 devfile does not work as is in a devfile v2.0.
 
-=== Component is a polymophic type
+=== Component is a polymorphic type
 
-For a better syntax validation component now is defined as a polymorphic type and can be implemented as `container`, `kubernetes`, `openshift`, `plugin` or `volume`.
+For better syntax validation, a component now is defined as a polymorphic type and can be implemented as `container`, `kubernetes`, `openshift`, `plugin`, or `volume`.
 
 [source,yaml]
 ----
@@ -73,39 +73,39 @@ components:
        reference: https://.../mongo.yaml
 ----
 
-Details can be found in the https://github.com/che-incubator/devworkspace-api/issues/4[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/4[Polymorphic component type UX in a devfile].
 
-=== Shared Volumes Across Components
+=== Shared volumes across components
 
-Details can be found in the https://github.com/che-incubator/devworkspace-api/issues/19[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/19[Allow volumes to be shared across components].
 
-=== Out of Main Pod Compoenents
+=== Out of main pod components
 
-Details can be found in the  https://github.com/devfile/api/issues/48[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/48[Out of main pod containers].
 
-=== Replace Alias with Name
+=== Replace alias with name
 
-Details can be found in the  https://github.com/che-incubator/devworkspace-api/issues/9[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/9[Names field mandatory for k8s/openshift, optional for plugins].
 
-=== Renaming dockerimage component type
+=== Renaming `dockerimage` component type
 
-Details can be found in the  https://github.com/che-incubator/devworkspace-api/issues/8[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/8[Renaming dockerimage component type].
 
-=== Specify sources path for containers
+=== Specifying sources path for containers
 
-Details can be found in the  https://github.com/che-incubator/devworkspace-api/issues/17[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/17[Specify the source mapping path for component containers].
 
-=== Specify size of volume for component
+=== Specifying volume size for components
 
-Details can be found in the https://github.com/che-incubator/devworkspace-api/issues/14[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/14[Allow the size of a component's volume to be specified in a Devfile].
 
 === Containers endpoints (routes/ingresses)
 
-Details can be found in the https://github.com/che-incubator/devworkspace-api/issues/33[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/33[Containers endpoints (routes/ingresses)].
 
-== How to migrate plugins
+== Migrating plug-ins
 
-There ARE major changes about the definition of plugins in a devfile. Plugins are now specified using a devfile. A plugin specified in a v1.0 meta.yaml will NOT work as it is in a devfile v2.0.
+Plug-ins are specified using a devfile. A plug-in specified in a v1.0 `meta.yaml` does not work as is in a devfile v2.0.
 
 [source,yaml]
 ----
@@ -173,47 +173,47 @@ components:
                              # `kubernetes`
 ----
 
-Details can be found in the https://github.com/che-incubator/devworkspace-api/issues/31[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/31[Better plugin mechanism].
 
-== How to migrate commands
+== Migrating commands
 
 There ARE major changes in the `commands` section of the devfile. A command specified in a v1.0 devfile will NOT work as it is in a devfile v2.0.
 
-=== Command Groups: build,run,test,debug
+=== Command Groups: build, run, test, debug
 
-Details can be found in the https://github.com/che-incubator/devworkspace-api/issues/27[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/27[Command group (application lifecycle)].
 
-=== Apply Command
+=== Applying command
 
-Details can be found in the https://github.com/devfile/api/issues/56[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/56[New type of command to `apply` a component].
 
-=== Environment Varibables for a Specific Command
+=== Environment variables for a specific command
 
-Details can be found in the https://github.com/che-incubator/devworkspace-api/issues/21[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/21[Environment variables for a specific command].
 
-=== Renaming workdir into workingDir
+=== Renaming `workdir` into `workingDir`
 
-Details can be found in the https://github.com/che-incubator/devworkspace-api/issues/22[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/22[Renaming workdir into workingDir].
 
-=== Id and label for Composite Commands
+=== `Id` and `label` for composite commands
 
-Details can be found in the https://github.com/che-incubator/devworkspace-api/issues/18[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/18[Composite commands label and id].
 
 === Run exec Commands as Specific User
 
-Details can be found in the https://github.com/che-incubator/devworkspace-api/issues/34[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/34[Run exec commands as specified user].
 
 === Devfile metadata: add a link to an external website
 
-Details can be found in the https://github.com/che-incubator/devworkspace-api/issues/38[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/38[Devfile metadata: add a link to an external website].
 
 === Stack/Devfile Matching Rules
 
-Details can be found in the https://github.com/che-incubator/devworkspace-api/issues/40[corresponding issue].
+For more details, see link:https://github.com/devfile/api/issues/40[Stacks/Devfile matching rules].
 
 == Using parent devfiles to build reusable stacks
 
-One of the major changes in the 2.0.0 specification is the addition of the concept of parent. That allows refering a devfile (the parent) from a distinct devfile and makes it possible to reuse in multiple devfiles the same parent (the stack).
+One of the major changes in the 2.0.0 specification is the addition of the concept of parent. That allows referring a devfile (the parent) from a distinct devfile and makes it possible to reuse in multiple devfiles the same parent (the stack).
 
 [source,yaml]
 ----
@@ -239,7 +239,7 @@ commands:                                 # <--- commands are added to parent's 
    (...)
 ----
 
-Details are in the https://github.com/che-incubator/devworkspace-api/issues/25[corresponding issue].
+Details are in the link:https://github.com/devfile/api/issues/25[Parent Devfiles].
 
 == Adding event bindings
 
@@ -282,11 +282,107 @@ events:
     - "openFile"
 ----
 
-Details are in the https://github.com/che-incubator/devworkspace-api/issues/32[corresponding issue].
+Details are in the link:https://github.com/devfile/api/issues/32[Add lifecycle bindings to bind commands to specific events].
 
 == New metadata
 
-In v2 of the devfile we have added some new metadata like `version` (this is the https://github.com/che-incubator/devworkspace-api/issues/10[corresponding issue]) and some mandatory metadata for plugins (this is the https://github.com/devfile/api/issues/31[corresponding issue]).
+Version 2 of the devfile adds new metadata, including `version` (see link:https://github.com/devfile/api/issues/10[The devfile schema/samples should have version and name]) and some mandatory metadata for plug-ins (see link:https://github.com/devfile/api/issues/31[Better plugin mechanism]).
 
+== The `exec` command requires a defined component
 
+`exec` now must have a component explicitly defined.
 
+[cols="1a,1a"]
+|====
+| 
+[source,yaml]
+----
+v1.0
+---
+  - name: helloWorld
+      exec:
+        env:
+          - name: "USER"
+            value: "John Doe"
+        commandLine: 'echo "Hello ${USER}"'
+        component: build-tools
+----
+|
+[source,yaml]
+----
+v2.0
+---
+  - id: helloWorld
+    exec:
+      component: "mycomponent"
+      env:
+        - name: "USER"
+          value: "John Doe"
+      commandLine: 'echo "Hello ${USER}"'
+      component: build-tools
+----
+|====
+For more details, see link:https://github.com/devfile/api/issues/152[Exec command should make component required]
+
+== Support of multiple remotes for a Git project
+Devfile v2 supports multiple remotes for a Git project.
+
+.Example of a project with multiple remotes defined
+[source,yaml]
+----
+projects:
+  - name: project   
+    git:
+      remotes:
+        origin: "https://github.com/amisevsk/web-nodejs-sample.git"
+        upstream: "https://github.com/che-samples/web-nodejs-sample.git"
+        gh-collaborator: "https://github.com/gh-collaborator/web-nodejs-sample.git"  
+      checkoutFrom: <1> 
+        revision: foo <2> 
+        remote: upstream <3> 
+----
+<1> Mandatory if there is more than one remote.
+<2> The revision that should be used checked out. May be a branch name, tag, or commit id. Default branch should be checked out if missing.
+<3> The remote name that should be used as init. Required if there are more than one remote configured.
+
+For more details, see https://github.com/devfile/api/issues/104[Support multiple remotes for projects to support forking workflow].
+
+== `name` and `id` moved to a top-level
+[cols="1a,1a"]
+|====
+| 
+[source,yaml]
+----
+v1.0
+---
+components:
+  - container:
+      name: tools
+----
+|
+[source,yaml]
+----
+v2.0
+---
+components:
+  - name: tools
+    container:
+----
+|====
+
+More details are in the https://github.com/devfile/api/issues/102[corresponding issue].
+
+== `mountSources` are true by default
+
+The `mountSources` field is defined as `true` for all non-plug-in components and components that do not set `dedicatedPod` to `true`.
+For more details, see link:https://github.com/devfile/api/issues/75[mountsources default value for containers].
+
+== `hotReloadCapable` added to `exec` commands
+
+The `hotReloadCapable` fields defines whether the command is capable of reloading itself when source code changes. If set to `true`, the command is not restarted, and it is expected to handle file changes on its own. 
+Default value is `false`.
+
+For more details, see link:https://github.com/devfile/api/issues/64[configuration option to avoid unncessary restarts of process].
+
+== `CommandGroupType` has been renamed to `CommandGroupKind`
+For more details, see link:https://github.com/devfile/api/issues/59[Rename command group type].
