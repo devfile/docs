@@ -1,0 +1,6 @@
+:description: Defining Kubernetes resources
+:navtitle: Defining Kubernetes resources
+:keywords: authoring, stack, components
+:page-aliases: 
+
+include::partial$proc_defining-kubernetes-resources.adoc[]

@@ -1,0 +1,17 @@
+[id="con_devfile_{context}"]
+= Devfile
+
+[role="_abstract"]
+
+A devfile describes and defines a cloud native development environment.
+
+Devfiles are consumed by tools that transform the definition into a cloud workspace composed of multiple cloud native resources. Any number of identical workspaces can be created from the same devfile. They can be shared in various ways including a devfile registry or together with the source code of a project.
+
+
+[role="_additional-resources"]
+.Additional resources
+
+* xref:api-reference.adoc[]
+* xref:authoring-stacks.adoc[]
+* xref:migrating-to-devfile-v2.adoc[]
+* xref:devfile-samples.adoc[]

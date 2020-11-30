@@ -1,0 +1,12 @@
+[id="ref_api-reference_{context}"]
+= API Reference
+
+This section describes the devfile API.
+
+++++
+<iframe src="./_attachments/api-reference/next/index.html" style="border:none;width: 100%;min-height:50em;height:-webkit-fill-available;"></iframe>
+++++
+
+.Additional resources
+
+* link:{attachmentsdir}/jsonschemas/next/devfile.json[Download the current JSON Schema]

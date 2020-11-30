@@ -1,0 +1,6 @@
+:description: Adding a name to a devfile
+:navtitle: Adding a name
+:keywords: authoring, stack, name, generatedname
+:page-aliases: 
+
+include::partial$proc_adding-a-name-to-a-devfile.adoc[]

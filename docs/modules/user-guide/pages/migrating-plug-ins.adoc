@@ -1,0 +1,6 @@
+:description: Migrating plug-ins
+:navtitle: Migrating plug-ins
+:keywords: migrating, stack, plug-ins
+:page-aliases: 
+
+include::partial$proc_migrating-plug-ins.adoc[]

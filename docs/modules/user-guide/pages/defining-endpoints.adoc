@@ -1,0 +1,6 @@
+:description: Defining endpoints
+:navtitle: Defining endpoints
+:keywords: authoring, stack, components
+:page-aliases: 
+
+include::partial$proc_defining-endpoints.adoc[]

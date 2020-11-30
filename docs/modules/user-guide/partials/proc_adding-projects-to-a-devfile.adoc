@@ -1,0 +1,135 @@
+[id="proc_adding-projects-to-a-devfile_{context}"]
+= Adding projects to a devfile
+
+[role="_abstract"]
+This section describes how to add one or more projects to a devfile.
+
+
+.Prerequisites
+
+* xref:adding-schema-version-to-a-devfile.adoc[]
+* xref:adding-a-name-to-a-devfile.adoc[]
+
+
+.Procedure
+
+. Add a `projects` section in the devfile, containing a list of one or more projects.
+
++
+.A minimal devfile with one single project
+====
+[source,yaml]
+----
+schemaVersion: 2.0.0
+metadata:
+  name: petclinic-dev-environment
+projects:
+  - name: petclinic
+    git:
+      location: 'https://github.com/spring-projects/spring-petclinic.git'
+      branch: master
+----
+====
++
+.A devfile with multiple projects
+====
+[source,yaml]
+----
+schemaVersion: 2.0.0
+metadata:
+  name: example-devfile
+projects:
+- name: frontend
+  git:
+    location: https://github.com/acmecorp/frontend.git
+- name: backend
+  git:
+    location: https://github.com/acmecorp/backend.git
+----
+====
+
+. For each project, define an unique value for the mandatory `name` attribute.
+
+
+
+. For each project, define a mandatory source of one of the following types: `git`, `github` and `zip`.
+
+`git`:: Projects with sources in Git. The location points to a clone link.
++
+.Project-source type: git
+====
+[source,yaml]
+----
+projects:
+  - name: my-project1
+    git:
+      remotes:
+        origin: "https://github.com/my-org/project1.git"
+      checkoutFrom:
+        revision: master           <1>
+      tag: 7.2.0
+      commitId: 36fe587
+      branch: master
+----
+<1> `startPoint` is the general value for `tag`, `commitId`, and `branch`. The `startPoint`, `tag`, `commitId`, and `branch` parameters are mutually exclusive. When more than one is supplied, the following order is used: `startPoint`, `tag`, `commitId`, `branch`.
+====
+
+`github`:: Same as `git` but for projects hosted on link:https://github.com/[GitHub] only. Use `git` for projects that do not use GitHub-specific features.
+
+`zip`:: Projects with sources in a ZIP archive. Location points to a ZIP file.
++
+.Project-source type: zip
+====
+[source,yaml]
+----
+source:
+    zip:
+      location: http://host.net/path/project-src.zip
+----
+====
+
+
+. For each project, define the optional `clonePath` attribute to specify the path into which the project is to be cloned. The path must be relative to the `/projects/` directory, and it cannot leave the `/projects/` directory. The default value is the project name.
++
+.Defining the `clonePath` attribute
+====
+[source,yaml]
+----
+schemaVersion: 2.0.0
+metadata:
+  name: my-project-dev
+projects:
+  - name: my-project-resource
+    clonePath: resources/my-project
+    zip:
+      location: http://host.net/path/project-res.zip
+  - name: my-project2
+      git:
+        remotes:
+          origin: "https://github.com/my-org/project2.git"
+        checkoutFrom:
+          revision: develop
+----
+====
+
+. For each project, define the optional `sparseCheckoutDir` attribute to populate the project sparsely with selected directories.
++
+[NOTE]
+====
+* Set to `/my-module/` to create only the root `my-module` directory (and its content).
+
+* Omit the leading slash (`my-module/`) to create all `my-module` directories that exist in the project. Including, for example, `/addons/my-module/`.
++
+The trailing slash indicates that only directories with the given name (including their content) are created.
+
+* Use wildcards to specify more than one directory name. For example, setting `module-*` checks out all directories of the given project that start with `module-`.
+
+For more information, see link:https://git-scm.com/docs/git-read-tree#_sparse_checkout[Sparse checkout in Git documentation].
+
+====
+
+[role="_additional-resources"]
+.Additional resources
+
+* xref:api-reference.adoc[]
+* xref:devfile-samples.adoc[]

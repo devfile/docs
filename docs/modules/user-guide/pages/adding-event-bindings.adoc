@@ -1,0 +1,6 @@
+:description: Adding event bindings
+:navtitle: Adding event bindings
+:keywords: migrating, stack, adding-event-bindings
+:page-aliases: 
+
+include::partial$proc_adding-event-bindings.adoc[]

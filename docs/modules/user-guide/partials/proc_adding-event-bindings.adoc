@@ -1,0 +1,57 @@
+[id="proc_adding-event-bindings_{context}"]
+= Adding event bindings
+
+[role="_abstract"]
+Adding event bindings.
+
+.Prerequisites
+
+
+
+.Procedure
+
+. Add an `events` section in the devfile, containing a list of `preStart` and `postStart` commands.
+
+====
+[source,yaml]
+----
+# v2.0
+---
+components:
+  - container:
+      name: "copier"
+      image: ''
+  - container:
+      name: "maven"
+      image: ''
+  - plugin:
+      id: theia
+Commands:
+containerBuild:
+reference: 
+composite:
+ 
+  - exec:
+      name: "copyNeededFiles"
+      component: "copier"
+      commandLine: "cp somefile"
+  - exec:
+      name: "buildAll"
+      component: "maven"
+      commandLine: "mvn ..."
+  - vsCodeTask:
+      name: "openFile"
+      component: "theia"
+events:
+  preStart:
+    - "copyNeededFiles"
+  postStart:
+    - "buildAll"
+    - "openFile"
+----
+====
+
+[role="_additional-resources"]
+.Additional resources
+* See https://github.com/che-incubator/devworkspace-api/issues/32[corresponding issue].
+

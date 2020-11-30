@@ -1,0 +1,31 @@
+ifdef::context[:parent-context-of-assembly_authoring-stacks: {context}]
+
+
+ifndef::context[]
+[id="assembly_authoring-stacks"]
+endif::[]
+ifdef::context[]
+[id="assembly_authoring-stacks_{context}"]
+endif::[]
+= Authoring stacks
+
+:context: assembly_authoring-stacks
+
+
+[role="_abstract"]
+This section describes how to write a stack using {prod}.
+
+* xref:adding-schema-version-to-a-devfile.adoc[]
+* xref:adding-a-name-to-a-devfile.adoc[]
+* xref:adding-projects-to-a-devfile.adoc[]
+* xref:adding-commands-to-a-devfile.adoc[]
+* xref:adding-components-to-a-devfile.adoc[]
+* xref:adding-attributes-to-a-devfile.adoc[]
+* xref:refering-to-a-parent-devfile-in-a-devfile.adoc[]
+
+// [role="_additional-resources"]
+// == Additional resources (or Next steps)
+
+ifdef::parent-context-of-assembly_authoring-stacks[:context: {parent-context-of-assembly_authoring-stacks}]
+ifndef::parent-context-of-assembly_authoring-stacks[:!context:]
+

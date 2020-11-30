@@ -1,0 +1,36 @@
+[id="proc_adding-components-to-a-devfile_{context}"]
+= Adding components to a devfile
+
+[role="_abstract"]
+Each component in a single devfile must have a unique name.
+
+.Prerequisites
+
+* xref:adding-schema-version-to-a-devfile.adoc[]
+* xref:adding-a-name-to-a-devfile.adoc[]
+
+.Procedure
+
+. Add a `components` section in the devfile, containing a list of one or more components.
+
+. For each component, define an unique value for the mandatory `name` attribute.
+
+. For each component, define a mandatory type of one of the following types: `plugin`, `kubernetes` or `container`.
+
+. xref:adding-plugin-component-to-a-devfile.adoc[]
+. xref:adding-kubernetes-component-to-a-devfile.adoc[]
+. xref:adding-container-component-to-a-devfile.adoc[]
+. xref:specifying-persistent-storage.adoc[]
+. xref:limiting-resources-usage.adoc[]
+. xref:defining-environment-variables.adoc[]
+. xref:defining-endpoints.adoc[]
+. xref:defining-kubernetes-resources.adoc[]
+
+
+
+[role="_additional-resources"]
+.Additional resources
+
+
+* xref:api-reference.adoc[]
+* xref:devfile-samples.adoc[]

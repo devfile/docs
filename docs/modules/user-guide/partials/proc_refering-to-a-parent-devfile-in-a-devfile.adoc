@@ -1,0 +1,68 @@
+[id="proc_refering-to-a-parent-devfile-in-a-devfile_{context}"]
+= Refering to a parent devfile in a devfile
+
+[role="_abstract"]
+It is possible to refer to another devfile as a parent to a given devfile. If a parent is specified, the devfile will inherit all behaviour from the parent. Part of the content of the parent can be overridden in the child devfile. That allows refering a devfile (the parent) from a distinct devfile and makes it possible to reuse in multiple devfiles the same parent (the stack).
+
+.Prerequisites
+
+* xref:adding-schema-version-to-a-devfile.adoc[]
+* xref:adding-a-name-to-a-devfile.adoc[]
+
+
+.Procedure
+
+* A parent devfile can be referenced in 3 different ways: `registry`, `uri` or `kubernetes`.
++
+.Parent referred by registry
+====
+Using its `id` if it has been published in a registry.
+
+[source,yaml]
+----
+schemaVersion: 2.0.0
+metadata:
+  name: my-project-dev
+parent:
+    id: redhat/nodejs/11.6
+    registry: https://devfile-registry.io/
+----
+====
++
+.Parent referred by uri
+====
+Using the URI if it has been published on a static http server (like gist or pastebin).
+
+[source,yaml]
+----
+schemaVersion: 2.0.0
+metadata:
+  name: my-project-dev
+parent:
+    id: redhat/nodejs/11.6
+    uri: https://raw.githubusercontent.com/eclipse/che-devfile-registry/master/devfiles/nodejs/devfile.yaml
+----
+====
++
+.Parent identified by a Kubernetes resource
+====
+Using a Kubernetes resource name, namespace and selector if it has been deployed on a Kubernete cluster.
+
+[source,yaml]
+----
+schemaVersion: 2.0.0
+metadata:
+  name: my-project-dev
+parent:
+    kubernetes:
+        name: mydevworkspacetemplate
+        namespace: mynamespace
+        selector: mykey=myvalue
+----
+====
+
+[role="_additional-resources"]
+.Additional resources
+
+* xref:api-reference.adoc[]
+* xref:devfile-samples.adoc[]

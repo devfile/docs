@@ -1,0 +1,6 @@
+:description: Limiting resources usage
+:navtitle: Limiting resources usage
+:keywords: authoring, stack, components
+:page-aliases: 
+
+include::partial$proc_limiting-resources-usage.adoc[]

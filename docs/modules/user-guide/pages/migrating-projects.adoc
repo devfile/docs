@@ -1,0 +1,6 @@
+:description: Migrating projects
+:navtitle: Migrating projects
+:keywords: migrating, stack, projects
+:page-aliases: 
+
+include::partial$proc_migrating-projects.adoc[]

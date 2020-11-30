@@ -1,0 +1,56 @@
+[id="proc_migrating-components_{context}"]
+= Migrating components
+
+[role="_abstract"]
+This section describes how to migrate components to devfile v2. There ARE major changes in the `components` section of the devfile. A component specified in a v1.0 devfile will NOT work as it is in a devfile v2.0.
+
+.Procedure
+
+. Component is a polymophic type
++
+For a better syntax validation component now is defined as a polymorphic type and can be implemented as `container`, `kubernetes`, `openshift`, `plugin` or `volume`.
++
+[source,yaml]
+----
+v2.0
+---
+components:
+  - container:
+        image: maven
+        ...
+  - container:
+        image: nodejs
+        ...
+  - kubernetes:
+       reference: https://.../mongo.yaml
+----
++
+See https://github.com/che-incubator/devworkspace-api/issues/4[corresponding issue].
+
+. Shared Volumes Across Components. See https://github.com/che-incubator/devworkspace-api/issues/19[corresponding issue].
+
+. Out of Main Pod Compoenents. See  https://github.com/devfile/api/issues/48[corresponding issue].
+
+. Replace Alias with Name. See  https://github.com/che-incubator/devworkspace-api/issues/9[corresponding issue].
+
+. Renaming dockerimage component type. See  https://github.com/che-incubator/devworkspace-api/issues/8[corresponding issue].
+
+. Specify sources path for containers. See  https://github.com/che-incubator/devworkspace-api/issues/17[corresponding issue].
+
+. Specify size of volume for component. See https://github.com/che-incubator/devworkspace-api/issues/14[corresponding issue].
+
+. Containers endpoints (routes/ingresses). See https://github.com/che-incubator/devworkspace-api/issues/33[corresponding issue].
+
+
+[role="_additional-resources"]
+.Additional resources
+
+
+* Component is a polymophic type. See https://github.com/che-incubator/devworkspace-api/issues/4[corresponding issue].
+* Shared Volumes Across Components. See https://github.com/che-incubator/devworkspace-api/issues/19[corresponding issue].
+* Out of Main Pod Compoenents. See  https://github.com/devfile/api/issues/48[corresponding issue].
+* Replace Alias with Name. See  https://github.com/che-incubator/devworkspace-api/issues/9[corresponding issue].
+* Renaming dockerimage component type. See  https://github.com/che-incubator/devworkspace-api/issues/8[corresponding issue].
+* Specify sources path for containers. See  https://github.com/che-incubator/devworkspace-api/issues/17[corresponding issue].
+* Specify size of volume for component. See https://github.com/che-incubator/devworkspace-api/issues/14[corresponding issue].
+* Containers endpoints (routes/ingresses). See https://github.com/che-incubator/devworkspace-api/issues/33[corresponding issue].

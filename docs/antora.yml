@@ -1,4 +1,7 @@
+---
 name: devfile
-version: master
 nav:
-- modules/ROOT/nav.adoc
+  - modules/user-guide/nav.adoc
+start_page: user-guide:index.adoc
+title: Devfile User Guide
+version: master

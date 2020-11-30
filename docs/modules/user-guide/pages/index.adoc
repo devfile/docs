@@ -1,0 +1,6 @@
+:description: Software Defined Development Environments
+:navtitle: Overview
+:keywords: devfile
+// :page-aliases: 
+
+include::partial$con_devfile.adoc[]

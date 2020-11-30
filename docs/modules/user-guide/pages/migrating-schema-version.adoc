@@ -1,0 +1,6 @@
+:description: Migrating schema-version
+:navtitle: Migrating schema version
+:keywords: migrating, stack, schema-version
+:page-aliases: 
+
+include::partial$proc_migrating-schema-version.adoc[]
