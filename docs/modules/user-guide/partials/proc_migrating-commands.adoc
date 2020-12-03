@@ -1,0 +1,34 @@
+[id="proc_migrating-commands_{context}"]
+= Migrating commands
+
+[role="_abstract"]
+This section describes how to migrate plug-ins to devfile v2. There ARE major changes in the `commands` section of the devfile. A command specified in a v1.0 devfile will NOT work as it is in a devfile v2.0. 
+
+.Procedure
+
+. Command Groups: build,run,test,debug. 
+. Apply Command. 
+. Environment Varibables for a Specific Command. 
+. Renaming workdir into workingDir. 
+. Id and label for Composite Commands. 
+. Run exec Commands as Specific User. 
+. Devfile metadata: add a link to an external website.
+. Stack/Devfile Matching Rules. 
+
+[role="_additional-resources"]
+.Additional resources
+
+* Command Groups: build,run,test,debug. See https://github.com/che-incubator/devworkspace-api/issues/27[corresponding issue].
+* Apply Command. See https://github.com/devfile/api/issues/56[corresponding issue].
+
+* Environment Varibables for a Specific Command. See https://github.com/che-incubator/devworkspace-api/issues/21[corresponding issue].
+
+* Renaming workdir into workingDir. See https://github.com/che-incubator/devworkspace-api/issues/22[corresponding issue].
+
+* Id and label for Composite Commands. See https://github.com/che-incubator/devworkspace-api/issues/18[corresponding issue].
+
+* Run exec Commands as Specific User. See https://github.com/che-incubator/devworkspace-api/issues/34[corresponding issue].
+
+* Devfile metadata: add a link to an external website. See https://github.com/che-incubator/devworkspace-api/issues/38[corresponding issue].
+
+* Stack/Devfile Matching Rules. See https://github.com/che-incubator/devworkspace-api/issues/40[corresponding issue].

@@ -1,0 +1,6 @@
+:description: Migrating commands
+:navtitle: Migrating commands
+:keywords: migrating, stack, commands
+:page-aliases: 
+
+include::partial$proc_migrating-commands.adoc[]

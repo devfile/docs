@@ -1,0 +1,6 @@
+:description: API reference
+:navtitle: API reference
+:keywords: devfile, api, reference
+:page-aliases: _attachments:api-reference, .:api_reference, .:api_reference.html
+
+include::partial$ref_api-reference.adoc[]

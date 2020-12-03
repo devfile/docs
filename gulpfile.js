@@ -14,14 +14,17 @@ const serverConfig = { name: 'Preview Site', livereload, host: '0.0.0.0', port: 
 const antoraArgs = ['--playbook', playbookFilename]
 const watchPatterns = playbook.content.sources.filter((source) => !source.url.includes(':')).reduce((accum, source) => {
   accum.push(`./antoraplaybook.yml`)
+  accum.push(`./gulpfile.js`)
   accum.push(`./docs/antora.yml`)
-  accum.push(`./docs/modules/**/*`)
+  accum.push(`./docs/modules/**/**/*`)
   accum.push(`./supplemental-ui/**/*`)
   return accum
 }, [])
 
 
 function generate (done) {
+  require('./generate-api-reference.js')
+  done()
   generator(antoraArgs, process.env)
     .then(() => done())
     .catch((err) => {

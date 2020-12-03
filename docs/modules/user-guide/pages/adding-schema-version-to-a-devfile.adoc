@@ -1,0 +1,6 @@
+:description: Adding schema version to a devfile
+:navtitle: Adding schema version
+:keywords: authoring, stack, schemaVersion
+:page-aliases: 
+
+include::partial$proc_adding-schema-version-to-a-devfile.adoc[]

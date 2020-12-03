@@ -1,0 +1,6 @@
+:description: Adding kubernetes component to a devfile
+:navtitle: Adding kubernetes component
+:keywords: authoring, stack, components
+:page-aliases: 
+
+include::partial$proc_adding-kubernetes-component-to-a-devfile.adoc[]

@@ -1,0 +1,6 @@
+:description: Migrating to devfile v2
+:navtitle: Migrating to devfile v2
+:keywords: migrating
+:page-aliases: migration_guide
+
+include::partial$assembly_migrating-to-devfile-v2.adoc[]

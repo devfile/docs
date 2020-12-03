@@ -1,0 +1,6 @@
+[id="ref_devfile-samples_{context}"]
+= Devfile Samples
+
+.Additional Resources
+
+* https://github.com/devfile/api/tree/master/samples/devfiles[Devfile Samples]

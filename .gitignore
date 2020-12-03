@@ -1,9 +1,9 @@
+.cache
+.DS_Store
+.yarnrc
 /build/
 /node_modules/
 /workspace/
-
-.yarnrc
+docs/modules/user-guide/attachments/api-reference/
+docs/modules/user-guide/examples/api-reference/
 yarn-error.log
-docs/modules/ROOT/attachments/api-reference/
-docs/modules/ROOT/examples/api-reference/
-.DS_Store

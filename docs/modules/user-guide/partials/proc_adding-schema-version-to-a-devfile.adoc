@@ -1,0 +1,24 @@
+[id="proc_adding-schema-version-to-a-devfile_{context}"]
+= Adding schema version to a devfile
+
+[role="_abstract"]
+The `schemaVersion` attribute is mandatory in a devfile.
+
+
+.Procedure
+
+* Define the `schemaVersion` attribute in the devfile:
+
+.Adding schema version to a devfile
+====
+[source,yaml]
+----
+schemaVersion: 2.0.0
+----
+====
+
+
+[role="_additional-resources"]
+.Additional resources
+
+* xref:api-reference.adoc[]

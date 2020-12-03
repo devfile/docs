@@ -1,0 +1,6 @@
+:description: Adding projects to a devfile
+:navtitle: Adding projects
+:keywords: authoring, stack, projects
+:page-aliases: 
+
+include::partial$proc_adding-projects-to-a-devfile.adoc[]

@@ -1,9 +1,0 @@
-= API Reference
-:description: Devfile API reference
-:navtitle: Devfile API reference
-:keywords: devfile, api, reference
-:page-aliases: _attachments:api-reference
-
-++++
-include::example$api-reference/next/body.html[]
-++++

@@ -1,0 +1,6 @@
+:description: Specifying persistent storage
+:navtitle: Specifying persistent storage
+:keywords: authoring, stack, components
+:page-aliases: 
+
+include::partial$proc_specifying-persistent-storage.adoc[]

@@ -1,0 +1,6 @@
+:description: Defining environment variables
+:navtitle: Defining environment variables
+:keywords: authoring, stack, components
+:page-aliases: 
+
+include::partial$proc_defining-environment-variables.adoc[]

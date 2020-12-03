@@ -1,0 +1,38 @@
+[id="proc_migrating-schema-version_{context}"]
+= Migrating schema version
+
+[role="_abstract"]
+This section describes how to migrate schema version.
+
+.Procedure
+
+* Replace `apiVersion: 1.0.0` by `schemaVersion: 2.0.0`:
+
+[cols="1a,1a"]
+|====
+| 
+[source,yaml]
+----
+v1.0
+---
+apiVersion: 1.0.0
+metadata:
+  name: che-in-che-out
+----
+|
+[source,yaml]
+----
+v2.0
+---
+schemaVersion: 2.0.0
+metadata:
+  name: che-in-che-out
+----
+|====
+
+
+
+[role="_additional-resources"]
+.Additional resources
+* See link:https://github.com/che-incubator/devworkspace-api/issues/7[corresponding issue]
+

@@ -1,0 +1,6 @@
+:description: Adding components to a devfile
+:navtitle: Adding components
+:keywords: authoring, stack, components
+:page-aliases: 
+
+include::partial$proc_adding-components-to-a-devfile.adoc[]
