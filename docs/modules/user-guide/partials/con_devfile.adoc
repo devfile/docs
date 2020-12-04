@@ -3,15 +3,38 @@
 
 [role="_abstract"]
 
-A devfile describes and defines a cloud native development environment.
+Devfiles are YAML files that describe and define developer workspaces or cloud-native development environments. Devfiles also describe best practices for end-to-end application development and customize or extend the application development to fit a team's current development practices. Instead of forcing a new workflow or tools, devfiles provide instructions for automating manual processes.
 
-Devfiles are consumed by tools that transform the definition into a cloud workspace composed of multiple cloud native resources. Any number of identical workspaces can be created from the same devfile. They can be shared in various ways including a devfile registry or together with the source code of a project.
+Development tools consume devfiles and transform the definition into a cloud workspace composed of multiple containers and cloud-native resources. Also, users can create any number of identical workspaces from the same devfile. This way, different teams can use and share workspaces in various ways, including a devfile registry or together with the source code of a project.
 
+A devfile includes:
 
-[role="_additional-resources"]
+* Guidance about runtime images
+* Example code
+* Build and CI commands
+* Deployment options
+
+Benefits of devfiles:
+
+* Reducing the gap between development and deployment
+* Having a registry for finding and hosting devfiles
+* Producing consistent build and run behaviors
+* Allowing easy devfile customization
+
+.Who can use devfiles?
+
+Stack providers use devfiles to develop their runtime stacks once and then use these runtime stacks across different tools. Therefore, with devfiles, stack providers do not need to build and maintain custom development tools.
+
+Tool providers use devfiles to build runtime support for each runtime. Now, the devfile runtime teams build and run applications on their servers, giving tool providers more time.
+
+Developers use devfiles to focus only on developing their applications. With devfiles, developers do not need to set up the environment for building and running their applications. Instead, developers have the flexibility to use different tools, like Che and odo.
+
 .Additional resources
 
-* xref:api-reference.adoc[]
-* xref:authoring-stacks.adoc[]
-* xref:migrating-to-devfile-v2.adoc[]
-* xref:devfile-samples.adoc[]
+[role="_additional-resources"]
+
+* Example tool: link:https://developers.redhat.com/products/odo/overview[odo]
+* Devfile terminologies: xref:api-reference.adoc[]
+* Work with devfiles: xref:authoring-stacks.adoc[]
+* Update devfiles: xref:migrating-to-devfile-v2.adoc[]
+* Learn more about devfiles: xref:devfile-samples.adoc[]
