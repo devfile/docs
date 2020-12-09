@@ -25,7 +25,7 @@ components:
       command: ['sleep', 'infinity']
       env:
         - name: GOPATH
-          value: $(CHE_PROJECTS_ROOT)/go
+          value: $(PROJECTS_ROOT)/go
 ----
 ====
 
@@ -55,4 +55,3 @@ metadata:
 
 * The predefined variables are available for use in custom definitions.
 ====
-
