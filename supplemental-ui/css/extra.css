@@ -44,11 +44,10 @@ i.fa.icon-caution::before {
     background: no-repeat url("../img/caution.svg");
 }
 
-/* Che logo in navigation bar */
+/* Devfile logo in navigation bar */
 .navbar-item img.navbar-logo {
     margin-right: 1ex;
-    height: 90%;
-    width: auto;
+    width: 10%;
 }
 
 /* Burger menu in navigation bar indented less than Antora default */
