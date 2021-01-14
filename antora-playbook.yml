@@ -9,7 +9,6 @@ asciidoc:
     prod: Devfile
     prod-short: Devfile
     prod-id-short: devfile
-    prod-ver: 2.0
 content:
   sources: 
   - branches: HEAD
