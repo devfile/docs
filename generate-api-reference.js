@@ -3,12 +3,12 @@
 const { Bootprint } = require('bootprint/index')
 const bootprintJsonSchema = require('bootprint-json-schema')
 const bootprintConfig = require('./reference-generator/config.js')
-const glob = require('glob-fs')();
 const fs = require('fs');
 
 fs.readdir('./docs/modules/user-guide/attachments/jsonschemas/', (err, files) => {
     if (err) throw err;
     files.forEach((version) => {
+        var glob = require('glob-fs')();
         var schemas = glob.readdirSync('./docs/modules/user-guide/attachments/jsonschemas/' + version + '/devfile*.json');
         if (! schemas.empty) {
             var schemaPath = schemas[0]
