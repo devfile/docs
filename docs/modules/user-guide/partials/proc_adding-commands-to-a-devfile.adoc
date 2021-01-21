@@ -20,7 +20,6 @@ A devfile allows to specify commands to be available for execution in a workspac
 . For each command, define a mandatory type of one of the following types: `exec` or `vscode-tasks`.
 +
 .Sample command
-====
 [source,yaml]
 ----
  commands:
@@ -30,14 +29,12 @@ A devfile allows to specify commands to be available for execution in a workspac
       commandLine: mvn clean
       workingDir: /projects/spring-petclinic
 ----
-====
 
 . Define attributes for the `exec` command to run using the default shell in the container.
 +
  * A `commandLine` attribute that is a command to execute.
  * A `component` attribute that specifies the container in which to execute the command.
 +
-====
 [source,yaml]
 ----
 schemaVersion: 2.0.0
@@ -58,31 +55,28 @@ components:
       command: ['sleep', 'infinity']
       env:
         - name: GOPATH
-          value: $(CHE_PROJECTS_ROOT)/go
+          value: $(PROJECTS_ROOT)/go
         - name: GOCACHE
           value: /tmp/go-cache
 commands:
   - id: compile and run
     exec:
       component: go-cli
-      commandLine: “go get -d && go run main.go”
-      workingDir: “${CHE_PROJECTS_ROOT}/src/github.com/acme/my-go-project”
+      commandLine: "go get -d && go run main.go"
+      workingDir: "${PROJECTS_ROOT}/src/github.com/acme/my-go-project"
       runAsUser: root
 ----
-====
 +
 [NOTE]
-====
-* Any component on which commands are executed must define a `name` attribute. This name is used to reference the component in the command definition. Example: `name: go-cli` in the component definition and `component: go-cli` in the command definition. This ensures that {che-prod} can find the correct container to run the command in.
+
+* Any component on which commands are executed must define a `name` attribute. This name is used to reference the component in the command definition. Example: `name: go-cli` in the component definition and `component: go-cli` in the command definition.
 
 * A command can have only one action, though you can use `composite` commands to execute several commands either sequentially or in parallel.
-====
 
 . Define attributes for the `vscode-task` or `vscode-launch` command to run using the Editor.
 +
-If the editor in the workspace supports it, the devfile can specify additional configuration in the editor-specific format. This is dependent on the integration code present in the workspace editor itself and so is not a generic mechanism. However, the default Che-Theia editor within {che-prod} is equipped to understand the `tasks.json` and `launch.json` files provided in the devfile.
+If the editor in the workspace supports it, the devfile can specify additional configuration in the editor-specific format. This is dependent on the integration code present in the workspace editor itself and so is not a generic mechanism.
 +
-====
 [source,yaml]
 ----
 schemaVersion: 2.0.0
@@ -111,14 +105,12 @@ commands:
           }
 ----
 
-This example shows association of a `tasks.json` file with a devfile. Notice the `vscode-task` type that instructs the Che-Theia editor to interpret this command as a tasks definition and `referenceContent` attribute that contains the contents of the file itself. You can also save this file separately from the devfile and use `reference` attribute to specify a relative or absolute URL to it.
-====
+This example shows association of a `tasks.json` file with a devfile. Notice the `vscode-task` type that instructs the editor to interpret this command as a tasks definition and `referenceContent` attribute that contains the contents of the file itself. You can also save this file separately from the devfile and use `reference` attribute to specify a relative or absolute URL to it.
 
 . Command group
 +
 A given command can be assigned to one or more groups that represents the nature of the command.  The support groups are: `build`, `run`, `test` and `debug`. For each of the groups, one default command can be defined in each group by specifying the `isDefault` value.
 +
-====
 [source,yaml]
 ----
 schemaVersion: 2.0.0
@@ -140,24 +132,22 @@ commands:
   - id: package
     exec:
       component: maven
-      commandLine: “mvn package”
+      commandLine: "mvn package"
       group:
         kind: build
   - id: install
     exec:
       component: maven
-      commandLine: “mvn install”
+      commandLine: "mvn install"
       group:
         kind: build
         isDefault: true
 ----
-====
 
 . Composite command
 +
 A composite command can be defined to chain multiple commands together. The individual commands that are called from a composite command can be referenced by the `name` of the command.  A `parallel` boolean can be specified to determine if the commands within a composite command are being executed sequentially or in parallel.
 +
-====
 [source,yaml]
 ----
 schemaVersion: 2.0.0
@@ -179,13 +169,13 @@ commands:
   - id: package
     exec:
       component: maven
-      commandLine: “mvn package”
+      commandLine: "mvn package"
       group:
         kind: build
   - id: install
     exec:
       component: maven
-      commandLine: “mvn install”
+      commandLine: "mvn install"
       group:
         kind: build
         isDefault: true
@@ -196,13 +186,11 @@ commands:
         - package
       parallel: false
 ----
-====
 
 . Command preview URL
 +
 It is possible to specify a preview URL for commands that expose web UI. This URL is offered for opening when the command is executed.
 +
-====
 [source,yaml]
 ----
 commands:
@@ -213,14 +201,12 @@ commands:
           path: /myweb   <2>
         component: go-cli
         commandLine: "go run webserver.go"
-        workingDir: ${CHE_PROJECTS_ROOT}/webserver
+        workingDir: ${PROJECTS_ROOT}/webserver
 ----
 <1> TCP port where the application listens. Mandatory parameter.
 <2> The path part of the URL to the UI. Optional parameter. The default is root (`/`).
 
 The example above opens `++http://__<server-domain>__/myweb++`, where `_<server-domain>_` is the URL to the dynamically created Kubernetes Ingress or OpenShift Route.
-====
-
 
 [role="_additional-resources"]
 .Additional resources

@@ -10,14 +10,14 @@ This section describes how to migrate schema version.
 
 [cols="1a,1a"]
 |====
-| 
+|
 [source,yaml]
 ----
 v1.0
 ---
 apiVersion: 1.0.0
 metadata:
-  name: che-in-che-out
+  name: devfile-sample
 ----
 |
 [source,yaml]
@@ -26,7 +26,7 @@ v2.0
 ---
 schemaVersion: 2.0.0
 metadata:
-  name: che-in-che-out
+  name: devfile-sample
 ----
 |====
 
@@ -35,4 +35,3 @@ metadata:
 [role="_additional-resources"]
 .Additional resources
 * See link:https://github.com/che-incubator/devworkspace-api/issues/7[corresponding issue]
-

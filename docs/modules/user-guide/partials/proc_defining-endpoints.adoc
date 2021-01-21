@@ -30,7 +30,7 @@ components:
       command: ['sleep', 'infinity']
       env:
         - name: GOPATH
-          value: $(CHE_PROJECTS_ROOT)/go
+          value: $(PROJECTS_ROOT)/go
         - name: GOCACHE
           value: /tmp/go-cache
       endpoints:

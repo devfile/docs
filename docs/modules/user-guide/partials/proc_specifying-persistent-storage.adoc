@@ -43,7 +43,7 @@ components:
       id: eclipse/che-theia/next
       env:
       - name: HOME
-        value: $(CHE_PROJECTS_ROOT)
+        value: $(PROJECTS_ROOT)
       volumeMounts:
       - name: cache
         path: /.cache

@@ -10,39 +10,33 @@ Adding a name to a devfile is mandatory. Both `name` and `generateName` are opti
 
 .Procedure
 
-. To specify a static name for the workspace, define the `name` attribute. 
+. To specify a static name for the workspace, define the `name` attribute.
 +
 .Adding a static name to a devfile
-====
+
 [source,yaml]
 ----
 schemaVersion: 2.0.0
 metadata:
   name: devfile-sample
 ----
-====
 
-. To specify a prefix for automatically generated workspace names, define the `generateName` attribute and don't define the `name` attribute. The workspace name will be in the `<generateName>YYYYY` format (for example, `che-2y7kp`). `Y` is random `[a-z0-9]` character.
+. To specify a prefix for automatically generated workspace names, define the `generateName` attribute and don't define the `name` attribute. The workspace name will be in the `<generateName>YYYYY` format (for example, `devfile-sample-2y7kp`). `Y` is random `[a-z0-9]` character.
 +
 .Adding a generated name to a devfile
-====
+
 [source,yaml]
 ----
 schemaVersion: 2.0.0
 metadata:
-  generateName: che-
+  generateName: devfile-sample-
 ----
-====
-
 
 [NOTE]
-====
-For workspaces created using a factory, defining `name` or `generateName` has the same effect. The defined value is used as the name prefix: `<name>YYYYY` or `<generateName>YYYYY`. When both `generateName` and `name` are defined, `generateName` takes precedence.
-====
 
+For workspaces created using a factory, defining `name` or `generateName` has the same effect. The defined value is used as the name prefix: `<name>YYYYY` or `<generateName>YYYYY`. When both `generateName` and `name` are defined, `generateName` takes precedence.
 
 [role="_additional-resources"]
 .Additional resources
 
 * xref:api-reference.adoc[]
-

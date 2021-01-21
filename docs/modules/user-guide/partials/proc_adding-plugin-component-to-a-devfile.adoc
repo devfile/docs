@@ -23,7 +23,7 @@ This section describes how to add a `plugin` component to a devfile.
   components:
    - name: exec-plugin
      plugin:
-      id: eclipse/che-machine-exec-plugin/0.0.1
+      id: machine-exec-plugin/0.0.1
 ----
 ====
 
@@ -36,7 +36,7 @@ This section describes how to add a `plugin` component to a devfile.
   components:
    - name: exec-plugin
      plugin:
-      id: eclipse/che-machine-exec-plugin/0.0.1
+      id: machine-exec-plugin/0.0.1
       registryUrl: https://my-customregistry.com
 ----
 ====
