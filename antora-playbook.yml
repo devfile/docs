@@ -14,9 +14,9 @@ content:
   - branches: HEAD
     start_path: docs
     url: ./
-  - branches: v2.0.x
+  - branches: [v2.*]
     start_path: docs
-    url: ./
+    url: https://github.com/devfile/docs
 output:
   destinations:
     - clean: true
