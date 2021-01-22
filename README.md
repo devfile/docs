@@ -101,17 +101,18 @@ from the newly created ```v.2.0.x``` branch.
    version: '2.1.0'
    prerelease: -alpha
    ```
-1. Modify `antora-playbook.yaml` to add content for the new release created:
+1. Modify `antora-playbook.yaml` to add content for the new release created (if not already covered by branch pattern ```v2.0.*```:
    ```
    content:
      sources:
        - branches: HEAD
          start_path: docs
          url: ./
-       - branches: v2.0.x
+       - branches: [v2.*]
          start_path: docs
-         url: ./
+         url: https://github.com/devfile/docs
    ```
+   Note: pulling the release branches from github rather than locally is required for the docs build workflow. 
 1. Build, test, commit and merge the changes     
    
    
