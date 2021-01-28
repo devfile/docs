@@ -2,21 +2,22 @@
 = Adding event bindings
 
 [role="_abstract"]
+<<<<<<< HEAD
 Commands can be bound to events to form four different types of events: `preStart`, `postStart`, `preStop`, and `postStop`.
+=======
+This section describes how to add an event to v2.0 devfiles. An event specified in a v1.0 devfile still works in a v2.0 devfile.
+>>>>>>> 0a125b6... made migrating docs adhere to style guide
 
-.Prerequisites
+Add an `events` section in your devfile and make sure it contains a list of `preStart` and `postStart` commands.
 
-
-
-.Procedure
-
-. Add an `events` section in the devfile, containing a list of `preStart` and `postStart` commands.
+For an example, see the following yaml:
 
 ====
 [source,yaml]
 ----
 # v2.0
 ---
+<<<<<<< HEAD
 commands:
   - id: init-project
     apply:
@@ -36,6 +37,33 @@ commands:
       commands:
         - copy-artifacts
         - init-cache
+=======
+components:
+  - container:
+      name: "copier"
+      image: ''
+  - container:
+      name: "maven"
+      image: ''
+  - plugin:
+      id: theia
+Commands:
+containerBuild:
+reference:
+composite:
+
+  - exec:
+      name: "copyNeededFiles"
+      component: "copier"
+      commandLine: "cp somefile"
+  - exec:
+      name: "buildAll"
+      component: "maven"
+      commandLine: "mvn ..."
+  - vsCodeTask:
+      name: "openFile"
+      component: "theia"
+>>>>>>> 0a125b6... made migrating docs adhere to style guide
 events:
   preStart:
     - init-project
@@ -46,4 +74,8 @@ events:
 
 [role="_additional-resources"]
 .Additional resources
+<<<<<<< HEAD
 * See https://github.com/che-incubator/devworkspace-api/issues/32[corresponding issue].
+=======
+To learn more about events in v2.0 devfiles, go to the events' link:https://github.com/che-incubator/devworkspace-api/issues/32[GitHub issue].
+>>>>>>> 0a125b6... made migrating docs adhere to style guide

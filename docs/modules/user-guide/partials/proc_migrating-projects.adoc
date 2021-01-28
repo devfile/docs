@@ -2,12 +2,10 @@
 = Migrating projects
 
 [role="_abstract"]
-There are NO major changes in the `projects` section of the devfile. A project specified in a v1.0 devfile will work as it is in a devfile v2.0.
+This section describes how to migrate projects to v2.0 devfiles. A project specified in a v1.0 devfile still works in a v2.0 devfile.
 
-.Procedure
+A major change in v2.0 devfile is the addition of a new kind of project: `starterProjects`. You should only pick one `starterProject` and only use this project in interactive mode. Also, you only need to copy your source code. You no longer need to clone your git repo.
 
-*  The only major change is the addition of a new kind of project: `starterProjects`. Those are supposed to be used in interactive mode only (user pick one) and the git repo get not be cloned but only source code get copied (kind of what `git archive --remote=<repository URL> | tar -t` would do).
-+
 .starterProjects and projects description
 ====
 [source,yaml]
@@ -18,10 +16,10 @@ starterProjects:
   - name: "kafka-project"
     description: "Use this app to get a nodejs application for working with kafka"
   - name: "simple-project"
-    description: "Use this app to get a simple "hello world" nodejs application"
+    description: "Use this app to get a simple 'hello world' nodejs application"
 ----
 ====
 
 [role="_additional-resources"]
 .Additional resources
-* See link:https://github.com/che-incubator/devworkspace-api/issues/42[corresponding issue].
+To learn more about starterProjects in v2.0 devfiles, go to starterProjects' link:https://github.com/che-incubator/devworkspace-api/issues/42[GitHub issue].
