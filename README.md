@@ -8,23 +8,23 @@ The generated JSON Schema documentation for the Devfile 2.x is available here: h
 
 ## Contributing
 
-The repository contains multiple versions of the documentation so be sure to modify and test the version of the documentation for your contribution.
-* For the latest version use the master branch.
-* For a previous version use the ```v<n>.<m>.x``` branch where n is the major version of the release, amd m the minor version. For example ```v2.0.x```.
+The repository contains multiple versions of the documentation, so be sure to modify and test the version of the documentation for your contribution.
+* For the latest version, use the master branch.
+* For a previous version, use the ```v<n>.<m>.x``` branch where `n` is the major version of the release, and `m` is the minor version. For example, ```v2.0.x```.
    * Be sure when merging any changes for a previous release to merge into the correct branch and not master.
 
-Build is the same for each branch. To build the documentation locally you need [Antora](https://antora.org/), node v10.12 or higher and yarn. Then from the root of this repository run:
+Build is the same for each branch. To build the documentation locally, you need [Antora](https://antora.org/), node v10.12 or higher, and yarn. Then from the root of this repository, run:
 
 ```bash
 yarn install; yarn run generate-api-reference
 antora antora-playbook.yml
 ```
 
-These commands will generate the html documentation in folder `build/site`. Open `build/site/index.html` in the browser. However, note that the build 
-may build multiple versions of the documentation so be sure to select and view the version you are editing when viewing in the browser.
+These commands generate the html documentation in folder `build/site`. Open `build/site/index.html` in the browser. However, note that the build 
+may build multiple versions of the documentation, so be sure to select and view the version you are editing when viewing in the browser.
 
 Additionally, when pushing to a branch or working on a PR, the site is built by a GH action and
-made available in a ZIP file as a GH action build artifact, and can be tested locally.
+made available in a ZIP file as a GH action build artifact and can be tested locally.
 
 
 # Issue tracking repo
@@ -62,7 +62,7 @@ Set the new branch to be specific to the release version. For example, if the re
         attributes:
           prod-ver: 2.0
       ```
-1. Modify .gitignore to not ignore the doc generated from the schema for the release:
+1. Modify .gitignore to ignore the doc generated from the schema which are not for the release:
       ```
       docs/modules/user-guide/attachments/api-reference/next
       docs/modules/user-guide/attachments/api-reference/stable
@@ -105,7 +105,7 @@ from the newly created ```v.2.0.x``` branch.
    version: '2.1.0'
    prerelease: -alpha
    ```
-1. Modify `antora-playbook.yaml` to add content for the new release created (if not already covered by branch pattern ```v2.0.*```:
+1. Modify `antora-playbook.yaml` to add content for the new release created (if not already covered by branch pattern ```v2.*```:
    ```
    content:
      sources:
