@@ -1,0 +1,165 @@
+[id="ref_devfile-reference_{context}"]
+= Devfile reference
+
+Use this page to work with yaml files of devfile properties. See the following table of contents to go to the devfile property you want to work with:
+
+== schemaVersion
+
+```yaml
+schemaVersion: 2.0.0
+```
+
+* Key: schemaVersion
+* Type: string
+* Description: 2.0.0 of the schema
+* For more information, go to: xref:migrating-schema-version.adoc[]
+
+== metadata
+
+```yaml
+metadata:
+  name: nodejs
+  version: 1.0.0
+```
+
+* Key: metadataObject
+* Type: metadataObject
+* Description: metadata to be used
+
+== starter projects
+
+```yaml
+starterProjects:
+  - name: quarkus-quickstart
+    description: minimal CRUD app with quarkus
+    subDir: /getting-started/ # optional checkout dir
+    git:
+      location: https://github.com/quarkusio/quarkus-quickstarts
+      branch: master
+      startPoint: 1.7.0.Final # tag or commit to start at
+```
+
+* Key: starterProjectObject
+* Type: starterProjectObject
+* Description: starter projects to be used
+* For more information, go to: xref:migrating-projects.adoc[]
+
+== components
+
+```yaml
+components:
+  - name: appsodyrun
+    container:
+      image: 'ajymau/java-openliberty-dev:latest'
+      memoryLimit: 1512Mi
+      mountSources: true
+      endpoints:
+        - name: 9080/tcp
+          exposure: public
+          public: true
+          protocol: http
+          targetPort: 9080
+      env:
+        - name: MODE2
+          value: TEST2
+        - name: myprop2
+          value: myval2
+      volumeMounts:
+        - name: myvol
+          path: /home/user/myvolpath
+  - name: myvol
+    volume:
+      size: 3Gi
+```
+
+* Key: componentObject
+* Type: componentObject
+* Description: components to be used
+* For more information, go to: xref:migrating-components.adoc[]
+
+== commands
+
+```yaml
+commands:
+  - id: install
+    exec:
+      component: runtime
+      commandLine: npm install
+      workingDir: ${PROJECTS_ROOT}
+      group:
+        kind: build
+        isDefault: false
+  - id: mkdir
+    exec:
+      component: runtime
+      commandLine: mkdir /projects/testfolder
+      workingDir: ${PROJECTS_ROOT}
+  - id: run
+    exec:
+      component: runtime
+      commandLine: npm start
+      workingDir: ${PROJECTS_ROOT}
+      group:
+        kind: run
+        isDefault: true
+  - id: buildAndMkdir
+    composite:
+         label: Build and Mkdir
+         commands:
+           - mkdir
+           - install
+         parallel: false
+         group:
+            kind: build
+            isDefault: true
+```
+
+* Key: commandObject
+* Type: commandObject
+* Description: commands to be executed in an existing component container
+* For more information, go to: xref:migrating-commands.adoc[]
+
+== events
+
+```yaml
+commands:
+  - id: copy
+    exec:
+      commandLine: "cp /tools/myfile.txt tools.txt"
+      component: tools
+      workingDir: /
+  - id: initCache
+    exec:
+      commandLine: "./init_cache.sh"
+      component: tools
+      workingDir: /
+  - id: connectDB
+    exec:
+      commandLine: "./connect_db.sh"
+      component: runtime
+      workingDir: /
+  - id: disconnectDB
+    exec:
+      commandLine: "./disconnect_db.sh"
+      component: runtime
+      workingDir: /
+  - id: cleanup
+    exec:
+      commandLine: "./cleanup.sh"
+      component: tools
+      workingDir: /
+events:
+  preStart:
+    - "connectDB"
+  postStart:
+    - "copy"
+    - "initCache"
+  preStop:
+    - "disconnectDB"
+  postStop:
+    - "cleanup"
+```
+
+* Key: eventObject
+* Type: eventObject
+* Description: events to be executed during a project lifecycle
