@@ -2,7 +2,7 @@
 = Adding event bindings
 
 [role="_abstract"]
-Adding event bindings.
+Commands can be bound to events to form four different types of events: `preStart`, `postStart`, `preStop`, and `postStop`.
 
 .Prerequisites
 
@@ -17,41 +17,33 @@ Adding event bindings.
 ----
 # v2.0
 ---
-components:
-  - container:
-      name: "copier"
-      image: ''
-  - container:
-      name: "maven"
-      image: ''
-  - plugin:
-      id: theia
-Commands:
-containerBuild:
-reference: 
-composite:
- 
-  - exec:
-      name: "copyNeededFiles"
-      component: "copier"
-      commandLine: "cp somefile"
-  - exec:
-      name: "buildAll"
-      component: "maven"
-      commandLine: "mvn ..."
-  - vsCodeTask:
-      name: "openFile"
-      component: "theia"
+commands:
+  - id: init-project
+    apply:
+      component: tools
+  - id: copy-artifacts
+    exec:
+      component: tools
+      commandLine: "cp files"
+      workingDir: $PROJECTS_ROOT
+  - id: init-cache
+    exec:
+      component: tools
+      commandLine: "init cache"
+      workingDir: /.m2
+  - id: pre-compile-cmd
+    composite:
+      commands:
+        - copy-artifacts
+        - init-cache
 events:
   preStart:
-    - "copyNeededFiles"
+    - init-project
   postStart:
-    - "buildAll"
-    - "openFile"
+    - pre-compile-cmd
 ----
 ====
 
 [role="_additional-resources"]
 .Additional resources
 * See https://github.com/che-incubator/devworkspace-api/issues/32[corresponding issue].
-

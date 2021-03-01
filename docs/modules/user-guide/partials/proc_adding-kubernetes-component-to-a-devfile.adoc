@@ -1,8 +1,8 @@
 [id="proc_adding-kubernetes-component-to-a-devfile_{context}"]
-= Adding `kubernetes` component to a devfile
+= Adding a `kubernetes` or `openshift` component to a devfile
 
 [role="_abstract"]
-This section describes how to add a `kubernetes` component to a devfile. A complex component type that allows to apply configuration from a list of Kubernetes or OpenShift components.
+This section describes how to add either a `kubernetes` or `openshfit` component to a devfile. You can apply configurations to your devfile with  `kubernetes` or `openshift` components.
 
 .Prerequisites
 
@@ -12,116 +12,45 @@ This section describes how to add a `kubernetes` component to a devfile. A compl
 
 .Procedure
 
-. Define a component using the type `kubernetes`.
+. Define a component using the type `kubernetes` or `openshift`.
 
-. The content can be provided through the `reference` attribute, which points to the file with the component content.
+. Provide the content through the `uri` or `inlined` property.
 +
-.Adding `kubernetes` component using the `reference` attribute
+.Adding `openshift` component using the `uri` property
 ====
 [source,yaml]
 ----
   components:
     - name: mysql
-      kubernetes:
-        reference: petclinic.yaml
-        selector:
-          app.kubernetes.io/name: mysql
-          app.kubernetes.io/component: database
-          app.kubernetes.io/part-of: petclinic
+      openshift:
+        uri: petclinic.yaml
 ----
 ====
-
-. Alternatively, to post a devfile with such components to REST API, the contents of the Kubernetes or OpenShift list can be embedded into the devfile using the `referenceContent` field:
 +
-.Adding `kubernetes` component using the `referenceContent` attribute
+.Adding a `kubernetes` component using the `inlined` property
 ====
 [source,yaml]
 ----
   components:
-    - name: mysql
-      kubernetes:
-        reference: petclinic.yaml
-        referenceContent: |
-             kind: List
-             items:
-              -
-               apiVersion: v1
-               kind: Pod
-               metadata:
-                name: ws
-               spec:
-                containers:
-               ... etc
+  - name: myk8deploy
+    kubernetes:
+      inlined: |
+        apiVersion: batch/v1
+        kind: Job
+        metadata:
+          name: pi
+        spec:
+          template:
+            spec:
+              containers:
+              - name: job
+                image: myimage
+                command: ["some",  "command"]
+              restartPolicy: Never
 ----
 ====
++
+. Specify the endpoint through the endpoint property with `kubernetes` or `openshift` components.
 
-. Overriding container entrypoints. As with the xref:component-type-container{context}[`container` component], it is possible to override the entrypoint of the containers contained in the Kubernetes or OpenShift list using the `command` and `args` properties (as link:https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#notes[understood] by Kubernetes).
+. Associate `kubernetes` or `openshift` components with `Apply` commands. If you do not associate `Apply` commands, they are assumed to be applied at start up.
 +
-There can be more containers in the list (contained in Pods or Pod templates of deployments). It is therefore necessary to select which containers to apply the entrypoint changes to as follows:
-+
-.Overriding container entrypoints
-====
-[source,yaml]
-----
-  components:
-    - name: appDeployment
-      kubernetes:
-        reference: app-deployment.yaml
-        entrypoints:
-        - parentName: mysqlServer
-          command: ['sleep']
-          args: ['infinity']
-        - parentSelector:
-          app: prometheus
-          args: ['-f', '/opt/app/prometheus-config.yaml']
-----
-====
-+
-The `entrypoints` list contains constraints for picking the containers along with the `command` and `args` parameters to apply to them. In the example above, the constraint is `parentName: mysqlServer`, which will cause the command to be applied to all containers defined in any parent object called `mysqlServer`. The parent object is assumed to be a top level object in the list defined in the referenced file, which is `app-deployment.yaml` in the example above.
-+
-Other types of constraints (and their combinations) are possible:
-+
-`containerName`:: the name of the container
-`parentName`:: the name of the parent object that (indirectly) contains the containers to override
-`parentSelector`:: the set of labels the parent object needs to have
-+
-A combination of these constraints can be used to precisely locate the containers inside the referenced Kubernetes list.
-
-. Overriding container environment variables
-+
-To provision or override entrypoints in a Kubernetes or OpensShift component, configure it in the following way:
-+
-.Overriding container environment variables
-====
-[source,yaml]
-----
-  components:
-    - name: appDeployment
-      kubernetes:
-        reference: app-deployment.yaml
-        env:
-          - name: ENV_VAR
-            value: value
-----
-====
-+
-This is useful for temporary content or without access to editing the referenced content. The specified environment variables are provisioned into each init container and containers inside all Pods and Deployments.
-
-. Specifying mount-source option
-+
-To specify a project sources directory mount into container(s), use the `mountSources` parameter:
-+
-.Specifying mount-source option
-====
-[source,yaml]
-----
-   components:
-      - name: appDeployment
-        kubernetes:
-          reference: app-deployment.yaml
-          mountSources: true
-----
-====
-+
-If enabled, project sources mounts will be applied to every container of the given component.
-This parameter is also applicable for `plugin` type components.

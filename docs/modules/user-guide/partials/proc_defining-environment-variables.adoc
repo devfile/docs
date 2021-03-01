@@ -2,20 +2,20 @@
 = Defining environment variables
 
 [role="_abstract"]
-Environment variables are supported by the following component types: `container`, `plugin`, `kubernetes`, `openshift`.
+Environment variables are supported by the `container` component and `exec` command.
 If the component has multiple containers, environment variables will be provisioned for each container.
 
 .Procedure
 
 . Specify environment variables for `container` components
 +
-.Specify environment variables for a `container` components
+.Specifying environment variables for a `container` component
 ====
 [source,yaml]
 ----
 schemaVersion: 2.0.0
 metadata:
-  name: MyDevfile
+  name: mydevfile
 components:
   - name: go
     container:
@@ -24,34 +24,7 @@ components:
       mountSources: true
       command: ['sleep', 'infinity']
       env:
-        - name: GOPATH
+        - name: gopath
           value: $(PROJECTS_ROOT)/go
 ----
-====
-
-. Specify environment variables for `plugin` components
-+
-.Specify environment variables for a `plugin` component
-====
-[source,yaml]
-----
-schemaVersion: 2.0.0
-metadata:
-  name: MyDevfile
-  - name: theia-editor
-    plugin:
-      id: eclipse/che-theia/next
-      memoryLimit: 2Gi
-      env:
-      - name: HOME
-        value: $(CHE_PROJECTS_ROOT)
-----
-====
-
-
-[NOTE]
-====
-* The variable expansion works between the environment variables, and it uses the Kubernetes convention for the variable references.
-
-* The predefined variables are available for use in custom definitions.
 ====
