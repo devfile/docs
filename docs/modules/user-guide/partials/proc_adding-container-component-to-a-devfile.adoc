@@ -30,12 +30,9 @@ A component type that allows to define a container image-based configuration of 
        endpoints:
          - name: maven-server
            targetPort: 3101
-           configuration:
-             protocol: tcp
-             scheme: http
-             secure: 'true'
-             public: 'true'
-             discoverable: 'false'
+           protocol: https
+           secure: 'true'
+           exposure: public
        memoryLimit: 1536M
        command: ['tail']
        args: ['-f', '/dev/null']
@@ -46,7 +43,7 @@ A component type that allows to define a container image-based configuration of 
 ----
 schemaVersion: 2.0.0
 metadata:
-    name: MyDevfile
+    name: mydevfile
 components:
   - name: go
     container:
@@ -67,7 +64,7 @@ For the `container` component to have access to the project sources, you must se
 ----
 schemaVersion: 2.0.0
 metadata:
-    name: MyDevfile
+    name: mydevfile
 components:
   - name: go
     container:

@@ -2,7 +2,7 @@
 = Adding attributes to a devfile
 
 [role="_abstract"]
-Devfile attributes can be used to configure various features.
+Devfile attributes can be used to configure various features and properties according to users' and tools' needs. Attributes are implementation-dependant, free-form YAML and can be defined for the following devfile-objects: metadata, components, commands, projects, or starterProjects.
 
 .Prerequisites
 
@@ -13,9 +13,9 @@ Devfile attributes can be used to configure various features.
 .Procedure
 
 
-. Define the optional `editorFree` attribute
+. Define a custom attribute
 +
-When an editor is not specified in a devfile, a default is provided. When no editor is needed, use the `editorFree` attribute. The default value of `false` means that the devfile requests the provisioning of the default editor.
+When no editor is specified, a default editor is provided. To represent this user-defined example, use the `editorFree` attribute as shown in the following example:
 +
 .A devfile without an editor
 ====
@@ -24,33 +24,12 @@ When an editor is not specified in a devfile, a default is provided. When no edi
 schemaVersion: 2.0.0
 metadata:
   name: petclinic-dev-environment
+  attributes:
+     editorFree: true
 components:
-  - name: myApp
+  - name: myapp
     kubernetes:
-      local: my-app.yaml
-attributes:
-  editorFree: true
-----
-====
-
-. Define the optional `persistVolumes` attribute (ephemeral mode)
-+
-By default, volumes and PVCs specified in a devfile are bound to a host folder to persist data even after a container restart. To disable data persistence to make the workspace faster, such as when the volume back end is slow, modify the `persistVolumes` attribute in the devfile. The default value is `true`. Set to `false` to use `emptyDir` for configured volumes and PVC.
-+
-.A devfile with ephemeral mode enabled
-====
-[source,yaml]
-----
-schemaVersion: 2.0.0
-metadata:
-  name: petclinic-dev-environment
-projects:
-  - name: petclinic
-    git:
-      remotes:
-        origin: "https://github.com/che-samples/web-java-spring-petclinic.git"
-attributes:
-  persistVolumes: false
+      uri: my-app.yaml
 ----
 ====
 
