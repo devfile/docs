@@ -2,79 +2,20 @@
 = Migrating plug-ins
 
 [role="_abstract"]
-This section describes how to migrate plug-ins to devfile v2. There ARE major changes about the definition of plugins in a devfile. Plugins are now specified using a devfile. A plugin specified in a v1.0 meta.yaml will NOT work as it is in a devfile v2.0.
+This section describes how to migrate plug-ins to devfile v2.x. There ARE major changes about the definition of plugins in a devfile. Plugins are now specified using a devfile. A plugin specified in a v1.0 meta.yaml will NOT work as it is in a devfile v2.x.
 
-.Procedure
+Additionally, v2.x devfiles include the following new features:
 
-. Plugins are now specified using a devfile. A plugin specified in a v1.0 meta.yaml will NOT work as it is in a devfile v2.0.
-
-[source,yaml]
-----
-v2.0
----
-java8.yaml
----
-schemaVersion: 2.0.0
-metadata:
-  publisher: redhat
-  name: java8
-  version: 0.57.0
-  displayName: Language Support for Java 8
-  title: Language Support for Java(TM) by ...
-  description: Java Linting, Intellisense ...
-  icon: https://.../logo-eclipseche.svg
-  repository: https://github.../vscode-java
-  category: Language
-  firstPublicationDate: "2020-02-20"
-  pluginType: che-theia-vsx # <== mandatory
-                            # for plugins
-                      # Valid types:               
-                      #   che-theia-vsx
-                      #   che-editor, 
-                      #   che-theia-plugin,
-                      #   che-theia-ext,
-                      #   generic-service,
-                      #   generic-ui
-parent:
-  id: redhat/theia-vsx-template/latest
-  components:
-    - container:
-       name: vsx-installer
-       env:
-        - name: VSX_LIST
-          value: java-dbg.vsix,java.vsix
-components:
- - kubernetes:
-    name: ...
-    reference: ...
- - container:
-    image: ...che-sidecar-java
-    name: vscode-java
-    memoryLimit: "1500Mi"
-    volumeMounts:
-     - path: "/home/theia/.m2"
-       name: m2
- - volume:
-    name: m2
-----
-
-. And then can be referenced from a distinct devfile:
-
-[source,yaml]
-----
-v2.0
----
-devfile.yaml
----
-components:
-- plugin:
-    name: java language server
-    id: redhat/java11/0.57.0 # other then by `id`, a plugin
-                             # can be referenced by `uri` and 
-                             # `kubernetes`
-----
+* Parents allow users to reuse an existing devfile and partially replace a plugin's functionality.
+* Che IDEs and their tooling can be specified as attributes in a v2.x devfile or in a distinct yaml file, for example: `.che/che-editor.yaml` or `.che/che-theia-plugin.yaml`.
 
 
 [role="_additional-resources"]
 .Additional resources
-* See https://github.com/che-incubator/devworkspace-api/issues/31[corresponding issue].
+
+To learn more about plugins in v2.x devfiles, go to the GitHub issues on the following topics:
+
+* link:https://github.com/eclipse/che/issues/18669[Devfile plugins not suited to specify Che-Theia plugins].
+* link:https://github.com/eclipse/che/issues/18668[Che editors and Che-Theia plugins support in devfile v2.x].
+* link:https://github.com/devfile/api/issues/364[Plugins' replacement].
+* link:https://github.com/devfile/api/issues/31[Better plugin mechanism].
