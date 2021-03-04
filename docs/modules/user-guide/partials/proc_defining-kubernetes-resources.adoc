@@ -21,7 +21,7 @@ Complex deployments can be described using Kubernetes or OpenShift resource list
 ----
 schemaVersion: 2.0.0
 metadata:
-  name: MyDevfile
+  name: mydevfile
 projects:
   - name: my-go-project
     clonePath: go/src/github.com/acme/my-go-project
@@ -29,9 +29,9 @@ projects:
       remotes:
         origin: "https://github.com/acme/my-go-project.git"
 components:
-  - name: MyDevfile
+  - name: mydevfile
     kubernetes:
-      reference: ../relative/path/postgres.yaml
+      uri: ../relative/path/postgres.yaml
 ----
 
 The preceding component references a file that is relative to the location of the devfile itself. Meaning, this devfile is only loadable by a {prod-short} factory to which you supply the location of the devfile and therefore it is able to figure out the location of the referenced Kubernetes resource list.
@@ -82,8 +82,6 @@ items:
         ports:
             - port: 5432
               targetPort: 5432
-        selector:
-            app: postgres
 -
     apiVersion: v1
     kind: PersistentVolumeClaim
@@ -100,26 +98,3 @@ items:
 ----
 
 For a basic example of a devfile with an associated Kubernetes or OpenShift list, see link:https://github.com/redhat-developer/devfile/tree/master/samples/web-nodejs-with-db-sample[web-nodejs-with-db-sample] on redhat-developer GitHub.
-
-If you use generic or large resource lists from which you will only need a subset of resources, you can select particular resources from the list using a selector (which, as the usual Kubernetes selectors, works on the labels of the resources in the list).
-
-[source,yaml]
-----
-schemaVersion: 2.0.0
-metadata:
-  name: MyDevfile
-projects:
-  - name: my-go-project
-    clonePath: go/src/github.com/acme/my-go-project
-    git:
-      remotes:
-        origin: "https://github.com/acme/my-go-project.git"
-components:
-  - name: MyDevfile
-    kubernetes:
-      reference: ../relative/path/postgres.yaml
-      selector:
-        app: postgres
-----
-
-Additionally, it is also possible to modify the entrypoints (command and arguments) of the containers present in the resource list. For details of the advanced use case, see the reference (TODO: link).

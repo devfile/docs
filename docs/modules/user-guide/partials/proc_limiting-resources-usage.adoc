@@ -6,45 +6,15 @@
 
 .Procedure
 
-. Specify container memory limit for components
+. Specify container memory limit and memory request for components
 +
-To specify a container(s) memory limit for `container`, `plugin`, use the `memoryLimit` parameter:
+To specify a container memory limit for `container`, use the `memoryLimit` parameter, and to specify a container memory request, use the `memoryRequest` parameter:
 +
-.Specify container memory limit for components
+.Specify container memory limit and memory request for components
 ====
 [source,yaml]
 ----
   components:
-   - name: exec-plugin
-     plugin:
-      id: eclipse/machine-exec-plugin/0.0.1
-      memoryLimit: 1Gi
-   -   name: maven
-     container:
-      image: eclipe/maven-jdk8:latest
-      memoryLimit: 512M
-----
-====
-+
-This limit will be applied to every container of the given component.
-+
-For `plugin` components, RAM limits can be described in the plug-in descriptor file, typically named `meta.yaml`.
-+
-
-. Specify container memory request for components
-+
-To specify a container(s) memory request for `plugin` use the `memoryRequest` parameter:
-+
-.Specify container memory request for components
-====
-[source,yaml]
-----
-  components:
-   - name: exec-plugin
-     plugin:
-      id: eclipse/machine-exec-plugin/0.0.1
-      memoryLimit: 1Gi
-      memoryRequest: 512M
    - name: maven
      container:
       image: eclipe/maven-jdk8:latest
@@ -53,54 +23,21 @@ To specify a container(s) memory request for `plugin` use the `memoryRequest` pa
 ----
 ====
 +
-This limit will be applied to every container of the given component.
+This limit applies to every container of the given component.
 +
-For `plugin` components, RAM requests can be described in the plug-in descriptor file, typically named `meta.yaml`.
-+
+
 If they are not specified, the values are undetermined: they may or may not be inferred from the application that consumes the devfile or from Kubernetes.
 +
 
-. Specify container CPU limit for components
+. Specify container CPU limit and container CPU request for components
 +
-To specify a container(s) CPU limit for `plugin` or `container` use the `cpuLimit` parameter:
+To specify a container CPU limit for `container`, use the `cpuLimit` parameter, and to specify a container CPU request for `container`, use the `cpuRequest` parameter:
 +
-.Specify container CPU limit for components
+.Specify container CPU limit and CPU request for components
 ====
 [source,yaml]
 ----
   components:
-   - name: exec-plugin
-     plugin:
-       id: eclipse/machine-exec-plugin/0.0.1
-       cpuLimit: 1.5
-   - name: maven
-     container:
-      image: eclipe/maven-jdk8:latest
-      cpuLimit: 750m
-----
-====
-+
-This limit will be applied to every container of the given component.
-+
-For the `plugin` components, CPU limits can be described in the plug-in descriptor file, typically named `meta.yaml`.
-+
-If they are not specified, the values are undetermined: they may or may not be inferred from the application that consumes the devfile or from Kubernetes.
-+
-
-. Specify container CPU request for components
-+
-To specify a container(s) CPU request for `plugin` or `container` use the `cpuRequest` parameter:
-+
-.Specify container CPU request for components
-====
-[source,yaml]
-----
-  components:
-   - name: exec-plugin
-     plugin:
-      id: eclipse/machine-exec-plugin/0.0.1
-      cpuLimit: 1.5
-      cpuRequest: 0.225
    - name: maven
      container:
       image: eclipe/maven-jdk8:latest
@@ -109,9 +46,8 @@ To specify a container(s) CPU request for `plugin` or `container` use the `cpuRe
 ----
 ====
 +
-This limit will be applied to every container of the given component.
+This limit applies to every container of the given component.
 +
-For the `plugin` component type, CPU requests can be described in the plug-in descriptor file, typically named `meta.yaml`.
-+
+
 If they are not specified, the values are undetermined: they may or may not be inferred from the application that consumes the devfile or from Kubernetes.
 +
