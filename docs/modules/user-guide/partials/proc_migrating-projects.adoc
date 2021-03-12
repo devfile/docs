@@ -4,9 +4,12 @@
 [role="_abstract"]
 This section describes how to migrate projects to v2.0 devfiles. A project specified in a v1.0 devfile still works in a v2.0 devfile.
 
+.Procedure
+
 A major change in v2.0 devfile is the addition of a new kind of project: `starterProjects`. You should only pick one `starterProject` and only use this project in interactive mode. Also, you only need to copy your source code. You no longer need to clone your git repo.
 
 .starterProjects and projects description
+
 ====
 [source,yaml]
 ----
@@ -22,4 +25,6 @@ starterProjects:
 
 [role="_additional-resources"]
 .Additional resources
-To learn more about starterProjects in v2.0 devfiles, go to starterProjects' link:https://github.com/che-incubator/devworkspace-api/issues/42[GitHub issue].
+For a deeper understanding of migrating projects, go to the GitHub issue on the following topic:
+
+* link:https://github.com/devfile/api/issues/42[StarterProjects]

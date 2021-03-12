@@ -2,10 +2,13 @@
 = Migrating plugins
 
 [role="_abstract"]
-This section describes how to migrate plugins to v2.0 devfiles. A plugin specified in a meta.yaml in a v1.0 devfile no longer works in a v2.0 devfile. Instead, specify a plugins using a devfile.
+This section describes how to migrate plugins to v2.0 devfiles. The plugins section of v2.0 devfile has major changes. A plugin specified in a meta.yaml in a v1.0 devfile no longer works in a v2.0 devfile.
 
-For an example of the new plugins, see the following yaml:
+.Procedure
 
+. Specify a plugin using a devfile.
+
++
 [source,yaml]
 ----
 v2.0
@@ -55,9 +58,9 @@ components:
  - volume:
     name: m2
 ----
-
-To reference a plugin from a distinct devfile, see the follow yaml:
-
++
+. Reference a plugin from a distinct devfile.
++
 [source,yaml]
 ----
 v2.0
@@ -71,8 +74,11 @@ components:
                              # can be referenced by `uri` and
                              # `kubernetes`
 ----
-
++
 
 [role="_additional-resources"]
 .Additional resources
-To learn more about plugins in v2.0 devfiles, go to the plugins' link:https://github.com/che-incubator/devworkspace-api/issues/31[GitHub issue].
+
+For a deeper understanding of migrating plugins, go to the GitHub issue on the following topic:
+
+* link:https://github.com/devfile/api/issues/31[Plugin mechanism]

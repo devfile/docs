@@ -2,25 +2,36 @@
 = Migrating commands
 
 [role="_abstract"]
-This section describes how to migrate commands to v2.0 devfiles. A command specified in a v1.0 devfile no longer works in a v2.0 devfile.
+This section describes how to migrate commands to v2.0 devfiles. The command section of v2.0 devfile has major changes. A command specified in a v1.0 devfile no longer works in a v2.0 devfile.
+
+.Procedure
+
+. Command groups: build, run, test, debug.
+. Apply command.
+. Environment variables for a specific command.
+. Renaming workdir into workingDir.
+. Id and label for composite commands.
+. Run exec commands as specific user.
+. Devfile metadata: add a link to an external website.
+. Stack or devfile matching rules.
 
 [role="_additional-resources"]
 .Additional resources
 
-To learn more about commands in v2.0 devfiles, go to the commands' GitHub issues on the following topics:
+For a deeper understanding of migrating commands, go to the GitHub issues on the following topics:
 
-* link:https://github.com/che-incubator/devworkspace-api/issues/27[Command groups: build,run,test,debug]
+* link:https://github.com/devfile/api/issues/27[Command groups: build, run, test, debug]
 
 * link:https://github.com/devfile/api/issues/56[Apply command]
 
-* link:https://github.com/che-incubator/devworkspace-api/issues/21[Environment varibables for a specific command]
+* link:https://github.com/devfile/api/issues/21[Environment variables for a specific command]
 
-* link:https://github.com/che-incubator/devworkspace-api/issues/22[Renaming workdir into workingDir]
+* link:https://github.com/devfile/api/issues/22[Renaming workdir into workingDir]
 
-* link:https://github.com/che-incubator/devworkspace-api/issues/18[Id and label for composite commands]
+* link:https://github.com/devfile/api/issues/18[Id and label for composite commands]
 
-* link:https://github.com/che-incubator/devworkspace-api/issues/34[Run exec commands as specific user]
+* link:https://github.com/devfile/api/issues/34[Run exec commands as specific user]
 
-* link:https://github.com/che-incubator/devworkspace-api/issues/38[Devfile metadata: add a link to an external website]
+* link:https://github.com/devfile/api/issues/38[Devfile metadata: add a link to an external website]
 
-* link:https://github.com/che-incubator/devworkspace-api/issues/40[Stack/devfile matching rules]
+* link:https://github.com/devfile/api/issues/40[Stack or devfile matching rules]

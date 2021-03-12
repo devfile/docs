@@ -4,10 +4,10 @@
 [role="_abstract"]
 This section describes how to migrate a schema version to v2.0 devfiles. A schema version specified in a v1.0 devfile still works in a v2.0 devfile.
 
-To migrate a schema version from v1.0 devfiles to v2.0 devfiles, replace `apiVersion: 1.0.0` with `schemaVersion: 2.0.0`.
+.Procedure
 
-For an example, see the following yaml:
-
+. To migrate a schema version from v1.0 devfiles to v2.0 devfiles, replace `apiVersion: 1.0.0` with `schemaVersion: 2.0.0`.
++
 [cols="1a,1a"]
 |====
 |
@@ -29,9 +29,10 @@ metadata:
   name: devfile-sample
 ----
 |====
-
-
++
 
 [role="_additional-resources"]
 .Additional resources
-To learn more about the schema version in v2.0 devfiles, go to schema version's link:https://github.com/che-incubator/devworkspace-api/issues/7[GitHub issue].
+For a deeper understanding of migrating schema versions, go to the GitHub issue on the following topic:
+
+* link:https://github.com/devfile/api/issues/7[SchemaVersion attribute]

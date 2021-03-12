@@ -24,8 +24,10 @@ This guide explains how to migrate an existing v1.0 devfile to a v2.0 devfile.
 [role="_additional-resources"]
 .Additional resources
 
-* New metadata: `version`, go to its link:https://github.com/che-incubator/devworkspace-api/issues/10[GitHub issue].
-* New mandatory metadata for plugins, go to its link:https://github.com/devfile/api/issues/31[GitHub issue].
+For a deeper understanding of migrating devfiles, go to the GitHub issues on the following topics:
+
+* link:https://github.com/devfile/api/issues/10[Devfile schema]
+* link:https://github.com/devfile/api/issues/31[Plugin mechanism]
 
 
 ifdef::parent-context-of-assembly_migrating-to-devfile-v2[:context: {parent-context-of-assembly_migrating-to-devfile-v2}]
