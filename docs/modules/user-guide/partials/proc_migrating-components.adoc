@@ -2,12 +2,11 @@
 = Migrating components
 
 [role="_abstract"]
-This section describes how to migrate components to v2.0 devfiles. A component specified in a v1.0 devfile no longer works in a v2.0 devfile.
+This section describes how to migrate components to v2.0 devfiles. The components section of v2.0 devfile has major changes. A component specified in a v1.0 devfile no longer works in a v2.0 devfile.
 
-To get a better syntax validation, define a component as a polymorphic type and implement it as a `container`, `kubernetes`, `openshift`, `plugin` or `volume`.
+.Procedure
 
-For an example, see the following yaml:
-
+<<<<<<< HEAD
 <<<<<<< HEAD
 . Component is a polymorphic type
 +
@@ -15,6 +14,10 @@ For a better syntax validation component now is defined as a polymorphic type an
 +
 =======
 >>>>>>> 0a125b6... made migrating docs adhere to style guide
+=======
+. To get a better syntax validation, define a component as a polymorphic type and implement it as a `container`, `kubernetes`, `openshift`, `plugin` or `volume`.
++
+>>>>>>> c68d47f... brought back the procedures, updated links, more changes to content for consistency and style guide
 [source,yaml]
 ----
 v2.0
@@ -30,6 +33,7 @@ components:
   - kubernetes:
        uri: https://.../mongo.yaml
 ----
+<<<<<<< HEAD
 <<<<<<< HEAD
 +
 See https://github.com/devfile/api/issues/4[corresponding issue].
@@ -51,11 +55,15 @@ See https://github.com/devfile/api/issues/4[corresponding issue].
 =======
 >>>>>>> 0a125b6... made migrating docs adhere to style guide
 
+=======
++
+>>>>>>> c68d47f... brought back the procedures, updated links, more changes to content for consistency and style guide
 [role="_additional-resources"]
 .Additional resources
 
-To learn more about components in v2.0 devfiles, go to the components' GitHub issues on the following topics:
+For a deeper understanding of migrating components, go to the GitHub issues on the following topics:
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 * Component is a polymorphic type. See https://github.com/devfile/api/issues/4[corresponding issue].
 * Shared Volumes Across Components. See https://github.com/devfile/api/issues/19[corresponding issue].
@@ -75,3 +83,13 @@ To learn more about components in v2.0 devfiles, go to the components' GitHub is
 * link:https://github.com/che-incubator/devworkspace-api/issues/14[Specify size of volume for component]
 * link:https://github.com/che-incubator/devworkspace-api/issues/33[Containers endpoints: routes and ingresses]
 >>>>>>> 0a125b6... made migrating docs adhere to style guide
+=======
+* link:https://github.com/devfile/api/issues/4[Component is a polymophic type]
+* link:https://github.com/devfile/api/issues/19[Shared volumes across components]
+* link:https://github.com/devfile/api/issues/48[Out of main pod components]
+* link:https://github.com/devfile/api/issues/9[Replace alias with name]
+* link:https://github.com/devfile/api/issues/8[Renaming dockerimage component type]
+* link:https://github.com/devfile/api/issues/17[Specify sources path for containers]
+* link:https://github.com/devfile/api/issues/14[Specify size of volume for component]
+* link:https://github.com/devfile/api/issues/33[Containers endpoints: routes and ingresses]
+>>>>>>> c68d47f... brought back the procedures, updated links, more changes to content for consistency and style guide

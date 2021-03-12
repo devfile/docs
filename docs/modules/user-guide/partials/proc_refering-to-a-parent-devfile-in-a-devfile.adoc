@@ -10,15 +10,13 @@
 
 This section teaches you how to specify a parent devfile. You can choose a devfile and refer to another devfile as its parent. If you specify a parent, the child devfile inherits all its behavior from its parent devfile. Still, you can use the child devfile to override certain content from the parent devfile. If you override the correct content, you can reuse the same parent devfile in multiple other devfiles. If you do reuse a parent devfile, the parent turns into a stack that is used in multiple other devfiles.
 
-
+.Procedure
 
 You can refer to a parent devfile in three different ways:
 
-* registry
-
-* uri
-
-* kubernetes
+. registry
+. uri
+. kubernetes
 
 .Parent referred by registry
 ====
@@ -45,7 +43,12 @@ schemaVersion: 2.0.0
 metadata:
   name: my-project-dev
 parent:
+<<<<<<< HEAD
     uri: https://raw.githubusercontent.com/eclipse/che-devfile-registry/master/devfiles/nodejs/devfile.yaml
+=======
+    id: redhat/nodejs/11.6
+    uri: https://raw.githubusercontent.com/devfile/registry/master/stacks/nodejs/devfile.yaml
+>>>>>>> c68d47f... brought back the procedures, updated links, more changes to content for consistency and style guide
 ----
 ====
 
