@@ -6,5 +6,3 @@
 To build and test devfiles, visit our link:https://github.com/devfile/api[GitHub API repository]. Here, you can also view open issues, so you can see the creation of devfiles.
 
 To build and contribute to the documentation, visit our link:https://github.com/devfile/docs[GitHub Docs repository].
-
-If you want to customize your online IDE with a devfile, Red Hat has a demonstration in this link:https://youtu.be/vnsLwtRz--w[YouTube video].
