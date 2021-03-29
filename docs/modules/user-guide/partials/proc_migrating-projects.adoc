@@ -2,11 +2,11 @@
 = Migrating projects
 
 [role="_abstract"]
-This section describes how to migrate projects to v2.0 devfiles. A project specified in a v1.0 devfile still works in a v2.0 devfile.
+This section describes how to migrate projects to devfiles v2.x. A project specified in a devfile v1.x still works in a devfile v2.x.
 
 .Procedure
 
-A major change in v2.0 devfile is the addition of a new kind of project: `starterProjects`. You should only pick one `starterProject` and only use this project in interactive mode. Also, you only need to copy your source code. You no longer need to clone your git repo.
+A major change in devfiles v2.x is the addition of a new kind of project: `starterProjects`. You should only pick one `starterProject` and only use this project in interactive mode. Also, you only need to copy your source code. You no longer need to clone your git repo.
 
 .starterProjects and projects description
 

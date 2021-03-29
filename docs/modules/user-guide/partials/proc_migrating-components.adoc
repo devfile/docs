@@ -2,10 +2,11 @@
 = Migrating components
 
 [role="_abstract"]
-This section describes how to migrate components to v2.0 devfiles. The components section of v2.0 devfile has major changes. A component specified in a v1.0 devfile no longer works in a v2.0 devfile.
+This section describes how to migrate components to devfiles v2.x. The components section of devfiles v2.x has major changes. A component specified in a devfile v1.x no longer works in a devfile v2.x.
 
 .Procedure
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 . Component is a polymorphic type
@@ -16,6 +17,9 @@ For a better syntax validation component now is defined as a polymorphic type an
 >>>>>>> 0a125b6... made migrating docs adhere to style guide
 =======
 . To get a better syntax validation, define a component as a polymorphic type and implement it as a `container`, `kubernetes`, `openshift`, `plugin` or `volume`.
+=======
+. To get a better syntax validation, define a component as a polymorphic type and implement it as a `container`, `kubernetes`, `openshift`, `plug-in` or `volume`.
+>>>>>>> d8b8834... more tweaks for consistent devfile versioning
 +
 >>>>>>> c68d47f... brought back the procedures, updated links, more changes to content for consistency and style guide
 [source,yaml]
@@ -65,6 +69,7 @@ For a deeper understanding of migrating components, go to the GitHub issues on t
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 * Component is a polymorphic type. See https://github.com/devfile/api/issues/4[corresponding issue].
 * Shared Volumes Across Components. See https://github.com/devfile/api/issues/19[corresponding issue].
 * Out of Main Pod Components. See  https://github.com/devfile/api/issues/48[corresponding issue].
@@ -85,6 +90,9 @@ For a deeper understanding of migrating components, go to the GitHub issues on t
 >>>>>>> 0a125b6... made migrating docs adhere to style guide
 =======
 * link:https://github.com/devfile/api/issues/4[Component is a polymophic type]
+=======
+* link:https://github.com/devfile/api/issues/4[Component is a polymorphic type]
+>>>>>>> d8b8834... more tweaks for consistent devfile versioning
 * link:https://github.com/devfile/api/issues/19[Shared volumes across components]
 * link:https://github.com/devfile/api/issues/48[Out of main pod components]
 * link:https://github.com/devfile/api/issues/9[Replace alias with name]

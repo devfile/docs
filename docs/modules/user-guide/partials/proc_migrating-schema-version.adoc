@@ -2,11 +2,11 @@
 = Migrating schema version
 
 [role="_abstract"]
-This section describes how to migrate a schema version to v2.0 devfiles. A schema version specified in a v1.0 devfile still works in a v2.0 devfile.
+This section describes how to migrate a schema version to devfiles v2.x. A schema version specified in a devfile v1.x still works in a devfile v2.x.
 
 .Procedure
 
-. To migrate a schema version from v1.0 devfiles to v2.0 devfiles, replace `apiVersion: 1.0.0` with `schemaVersion: 2.0.0`.
+. To migrate a schema version from devfiles v1.x to devfiles v2.x, replace `apiVersion: 1.0.0` with `schemaVersion: 2.0.0`.
 +
 [cols="1a,1a"]
 |====

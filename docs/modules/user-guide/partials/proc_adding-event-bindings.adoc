@@ -3,10 +3,14 @@
 
 [role="_abstract"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 Commands can be bound to events to form four different types of events: `preStart`, `postStart`, `preStop`, and `postStop`.
 =======
 This section describes how to add an event to v2.0 devfiles. An event specified in a v1.0 devfile still works in a v2.0 devfile.
 >>>>>>> 0a125b6... made migrating docs adhere to style guide
+=======
+This section describes how to add an event to devfiles v2.x. An event specified in a devfile v1.x still works in a devfile v2.x.
+>>>>>>> d8b8834... more tweaks for consistent devfile versioning
 
 .Prerequisites
 
