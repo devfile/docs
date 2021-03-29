@@ -1,8 +1,8 @@
 [id="proc_adding-plugin-component-to-a-devfile_{context}"]
-= Adding `plugin` component to a devfile
+= Adding `plug-in` component to a devfile
 
 [role="_abstract"]
-This section describes how to add a `plugin` component to a devfile.
+This section describes how to add a `plug-in` component to a devfile.
 
 .Prerequisites
 
@@ -12,70 +12,69 @@ This section describes how to add a `plugin` component to a devfile.
 
 .Procedure
 
-. Define a component using the type `plugin`.
+. Define a component using the type `plug-in`.
 
-. Define the `id` attribute. It is slash-separated publisher, name and version of plug-in from the Plug-in registry. List of available {prod-short} plug-ins and more information about registry can be found in the link:https://github.com/eclipse/che-plugin-registry[{prod-short} plug-in registry] GitHub repository.
+. Define the `id` attribute. For the name and version of the plug-in, go to the plug-in registry. To find available {prod-short} plug-ins and more information about their registry, go to the GitHub repository, link:https://github.com/eclipse/che-plugin-registry[{prod-short} plug-in registry].
 +
-.A devfile defining a plug-in `id`
+.Defining a plug-in `id`
 ====
 [source,yaml]
 ----
   components:
-   - name: exec-plugin
-     plugin:
-      id: machine-exec-plugin/0.0.1
+   - name: exec-plug-in
+     plug-in:
+      id: machine-exec-plug-in/0.0.1
 ----
 ====
 
-. Optionally, specify an alternative component registry using the `registryUrl` parameter:
+. Optional: Specify an alternative component registry using the `registryUrl` parameter:
 +
-.A devfile defining a plug-in `id` and an alternative component registry
+.Defining a plug-in `id` and an alternative component registry
 ====
 [source,yaml]
 ----
   components:
-   - name: exec-plugin
-     plugin:
-      id: machine-exec-plugin/0.0.1
+   - name: exec-plug-in
+     plug-in:
+      id: machine-exec-plug-in/0.0.1
       registryUrl: https://my-customregistry.com
 ----
 ====
 
-. Optionally, provide a direct link to the component descriptor (typically named `meta.yaml`) using the `reference` attribute, instead of using the `id`.
+. Optional: Provide a direct link to the component descriptor using the `reference` attribute instead of the `id` attribute. Typically, the component descriptor is named `meta.yaml`.
 +
-.A devfile defining a plug-in with a direct link to the component descriptor
+.Defining a plug-in with a direct link to the component descriptor
 ====
 [source,yaml]
 ----
   components:
-   - name: exec-plugin
-     plugin:
-      reference: https://raw.githubusercontent.com.../plugin/1.0.1/meta.yaml
+   - name: exec-plug-in
+     plug-in:
+      reference: https://raw.githubusercontent.com.../plug-in/1.0.1/meta.yaml
 ----
 ====
 +
-NOTE: It is impossible to mix the `id` and `reference` fields in a single component definition; they are mutually exclusive.
+NOTE: You can never mix the `id` and `reference` attributes in a single component definition because they are mutually exclusive.
 
-
-. Optionally, provide plugin component configuration using the `preferences` attribute
+. Optional: Provide the plug-in component configuration using the `preferences` attribute:
 +
 .Configuring JVM using plug-in preferences
 ====
 [source,yaml]
 ----
   id: redhat/java/0.38.0
-  plugin:
+  plug-in:
     preferences:
        java.jdt.ls.vmargs: '-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication'
 ----
 ====
 +
-.Configuring preferences as an array:
+.Configuring preferences as an array
 ====
 [source,yaml]
 ----
   id: redhat/java/0.38.0
-  plugin:
+  plug--in:
     preferences:
       go.lintFlags: ["--enable-all", "--new"]
 ----
