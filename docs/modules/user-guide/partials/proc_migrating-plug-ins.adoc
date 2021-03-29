@@ -1,12 +1,12 @@
 [id="proc_migrating-plug-ins_{context}"]
-= Migrating plugins
+= Migrating plug-ins
 
 [role="_abstract"]
-This section describes how to migrate plugins to v2.0 devfiles. The plugins section of v2.0 devfile has major changes. A plugin specified in a meta.yaml in a v1.0 devfile no longer works in a v2.0 devfile.
+This section describes how to migrate plug-ins to devfiles v2.x. The plug-ins section of devfile v2.x has major changes. A plug-in specified in a meta.yaml in a devfile v1.x no longer works in a devfile v2.x.
 
 .Procedure
 
-. Specify a plugin using a devfile.
+. Specify a plug-in using a devfile.
 
 +
 [source,yaml]
@@ -27,12 +27,12 @@ metadata:
   repository: https://github.../vscode-java
   category: Language
   firstPublicationDate: "2020-02-20"
-  pluginType: che-theia-vsx # <== mandatory
-                            # for plugins
+  plug-inType: che-theia-vsx # <== mandatory
+                            # for plug-ins
                       # Valid types:
                       #   che-theia-vsx
                       #   che-editor,
-                      #   che-theia-plugin,
+                      #   che-theia-plug-in,
                       #   che-theia-ext,
                       #   generic-service,
                       #   generic-ui
@@ -59,7 +59,7 @@ components:
     name: m2
 ----
 +
-. Reference a plugin from a distinct devfile.
+. Reference a plug-in from a distinct devfile.
 +
 [source,yaml]
 ----
@@ -68,9 +68,9 @@ v2.0
 devfile.yaml
 ---
 components:
-- plugin:
+- plug-in:
     name: java language server
-    id: redhat/java11/0.57.0 # other then by `id`, a plugin
+    id: redhat/java11/0.57.0 # other then by `id`, a plug-in
                              # can be referenced by `uri` and
                              # `kubernetes`
 ----
@@ -79,6 +79,6 @@ components:
 [role="_additional-resources"]
 .Additional resources
 
-For a deeper understanding of migrating plugins, go to the GitHub issue on the following topic:
+For a deeper understanding of migrating plug-ins, go to the GitHub issue on the following topic:
 
-* link:https://github.com/devfile/api/issues/31[Plugin mechanism]
+* link:https://github.com/devfile/api/issues/31[Plug-in mechanism]
