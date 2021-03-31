@@ -29,7 +29,7 @@ This section describes how to add a `plugin` component to a devfile.
 
 . Optional: Specify an alternative devfile registry using the `registryUrl` parameter:
 +
-.Defining a plugin `id` and an alternative devfile registry
+.Defining a plug-in `id` and an alternative devfile registry
 ====
 [source,yaml]
 ----
