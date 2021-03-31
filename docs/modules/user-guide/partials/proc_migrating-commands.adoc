@@ -6,29 +6,29 @@ This section describes how to migrate commands to devfile v2.x. There ARE major 
 
 .Procedure
 
-. Command Groups: build, run, test, debug.
-. Apply Command.
-. Environment Variables for a Specific Command.
+. Command groups: build, run, test, debug.
+. Apply command.
+. Environment variables for a specific command.
 . Renaming workdir into workingDir.
-. Id and label for Composite Commands.
-. Run exec Commands as Specific User.
+. Id and label for composite commands.
+. Run exec commands as specific user.
 . Devfile metadata: add a link to an external website.
-. Stack and Devfile Matching Rules.
+. Stack and devfile matching rules.
 
 [role="_additional-resources"]
 .Additional resources
 
-* Command Groups: build,run,test,debug. See https://github.com/che-incubator/devworkspace-api/issues/27[corresponding issue].
+* Command groups: build, run, test, debug. See https://github.com/che-incubator/devworkspace-api/issues/27[corresponding issue].
 * Apply Command. See https://github.com/devfile/api/issues/56[corresponding issue].
 
-* Environment Variables for a Specific Command. See https://github.com/che-incubator/devworkspace-api/issues/21[corresponding issue].
+* Environment variables for a specific command. See https://github.com/che-incubator/devworkspace-api/issues/21[corresponding issue].
 
 * Renaming workdir into workingDir. See https://github.com/che-incubator/devworkspace-api/issues/22[corresponding issue].
 
-* Id and label for Composite Commands. See https://github.com/che-incubator/devworkspace-api/issues/18[corresponding issue].
+* Id and label for composite commands. See https://github.com/che-incubator/devworkspace-api/issues/18[corresponding issue].
 
-* Run exec Commands as Specific User. See https://github.com/che-incubator/devworkspace-api/issues/34[corresponding issue].
+* Run exec commands as specific user. See https://github.com/che-incubator/devworkspace-api/issues/34[corresponding issue].
 
 * Devfile metadata: add a link to an external website. See https://github.com/che-incubator/devworkspace-api/issues/38[corresponding issue].
 
-* Stack and Devfile Matching Rules. See https://github.com/che-incubator/devworkspace-api/issues/40[corresponding issue].
+* Stack and devfile matching rules. See https://github.com/che-incubator/devworkspace-api/issues/40[corresponding issue].
