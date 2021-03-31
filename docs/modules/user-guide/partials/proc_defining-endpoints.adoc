@@ -57,7 +57,7 @@ components:
 
 Here, there are two container, each defining a single endpoint. Endpoint is an accessible port that can be made accessible inside the workspace or publicly from the UI. Each endpoint has a name and port, which is the port on which certain server running inside the container is listening. The following are a few attributes that you can set on the endpoint:
 
-* `exposure`: When its value is `public`, the endpoint is accessible outside the workspace. Users can access such an endpoint from the {prod-short} user interface and is always exposed on port `80` or `443` depending on whether `tls` is enabled in {prod-short}.
+* `exposure`: When its value is `public`, the endpoint is accessible outside the workspace. Users can access such an endpoint from the {prod-short} user interface and is always exposed on port `80` or `443` depending on whether TLS is enabled in {prod-short}.
 
 * `protocol`: For public endpoints, the protocol is a hint to the UI on how to construct the URL for the endpoint access. Typical values are `http`, `https`, `ws`, `wss`.
 
