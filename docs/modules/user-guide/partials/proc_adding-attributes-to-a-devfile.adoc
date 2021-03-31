@@ -2,7 +2,7 @@
 = Adding attributes to a devfile
 
 [role="_abstract"]
-Devfile attributes can be used to configure various features and properties according to users' and tools' needs. Attributes are implementation-dependant, free-form YAML and can be defined for the following devfile-objects: metadata, components, commands, projects, or starterProjects.
+Devfile attributes can be used to configure various features and properties according to user and tooling needs. Attributes are implementation-dependant, free-form YAML and can be defined for the following devfile objects: `metadata`, `components`, `commands`, `projects`, and `starterProjects`.
 
 .Prerequisites
 
