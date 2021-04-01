@@ -2,7 +2,7 @@
 = Migrating plug-ins
 
 [role="_abstract"]
-This section describes how to migrate plug-ins to devfile v2.x. There ARE major changes about the definition of plugins in a devfile. Plugins are now specified using a devfile. A plugin specified in a v1.0 meta.yaml will NOT work as it is in a devfile v2.x.
+This section describes how to migrate plug-ins to devfile v2.x. Plug-ins are now specified using a devfile. A plug-in specified in a v1.0 `meta.yaml` does not work as it is in a devfile v2.x.
 
 Additionally, v2.x devfiles include the following new features:
 
