@@ -13,7 +13,7 @@ Additionally, v2.x devfiles include the following new features:
 [role="_additional-resources"]
 .Additional resources
 
-To learn more about plugins in v2.x devfiles, go to the GitHub issues on the following topics:
+To learn more about plug-ins in v2.x devfiles, go to the GitHub issues on the following topics:
 
 * link:https://github.com/eclipse/che/issues/18669[Devfile plugins not suited to specify Che-Theia plugins].
 * link:https://github.com/eclipse/che/issues/18668[Che editors and Che-Theia plugins support in devfile v2.x].
