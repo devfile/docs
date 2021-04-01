@@ -29,7 +29,7 @@ metadata:
 ----
 schemaVersion: 2.0.0
 metadata:
-  generateName: devfile-sample-
+  name: devfile-sample
 ----
 
 [NOTE]

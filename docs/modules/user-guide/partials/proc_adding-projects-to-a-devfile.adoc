@@ -26,8 +26,10 @@ metadata:
 projects:
   - name: petclinic
     git:
-      location: 'https://github.com/spring-projects/spring-petclinic.git'
-      branch: master
+      remotes:
+        origin: "https://github.com/spring-projects/spring-petclinic.git"
+      checkoutFrom:
+        revision: master
 ----
 ====
 +
@@ -41,10 +43,12 @@ metadata:
 projects:
 - name: frontend
   git:
-    location: https://github.com/acmecorp/frontend.git
+    remotes:
+      origin: "https://github.com/acmecorp/frontend.git"
 - name: backend
   git:
-    location: https://github.com/acmecorp/backend.git
+    remotes:
+      origin: "https://github.com/acmecorp/backend.git"
 ----
 ====
 
@@ -52,9 +56,9 @@ projects:
 
 
 
-. For each project, define a mandatory source of one of the following types: `git`, `github` and `zip`.
+. For each project, define a mandatory source of either the `git` or `zip` type.
 
-`git`:: Projects with sources in Git. The location points to a clone link.
+`git`:: Projects with sources in Git. `checkoutFrom` refers to the branch being used.
 +
 .Project-source type: git
 ====
@@ -67,16 +71,10 @@ projects:
         origin: "https://github.com/my-org/project1.git"
       checkoutFrom:
         revision: master           <1>
-      tag: 7.2.0
-      commitId: 36fe587
-      branch: master
 ----
-<1> `startPoint` is the general value for `tag`, `commitId`, and `branch`. The `startPoint`, `tag`, `commitId`, and `branch` parameters are mutually exclusive. When more than one is supplied, the following order is used: `startPoint`, `tag`, `commitId`, `branch`.
 ====
 
-`github`:: Same as `git` but for projects hosted on link:https://github.com/[GitHub] only. Use `git` for projects that do not use GitHub-specific features.
-
-`zip`:: Projects with sources in a ZIP archive. Location points to a ZIP file.
+`zip`:: Projects with sources in a ZIP archive. `location` refers to the URL of a ZIP file.
 +
 .Project-source type: zip
 ====
@@ -102,7 +100,7 @@ projects:
   - name: my-project-resource
     clonePath: resources/my-project
     zip:
-      location: http://host.net/path/project-res.zip
+    location: http://host.net/path/project-res.zip
   - name: my-project2
       git:
         remotes:

@@ -2,7 +2,7 @@
 = Specifying persistent storage
 
 [role="_abstract"]
-Components of any type can specify the custom volumes to be mounted on specific locations within the image. Note that the volume names are shared across all components and therefore this mechanism can also be used to share file systems between components.
+A `container` component can specify the volumes to be mounted on specific locations within the image. If the `container` component mounts the volume, then the volume needs a corresponding volume component of the same name. Volume names are shared across all components. Shared volume names can be used to share file systems among components.
 
 .Procedure
 
@@ -14,9 +14,9 @@ Components of any type can specify the custom volumes to be mounted on specific 
 ----
 schemaVersion: 2.0.0
 metadata:
-  name: MyDevfile
+  name: mydevfile
 components:
-  - name: MyDevfile
+  - name: mydevfile
     container:
       image: golang
       memoryLimit: 512Mi
@@ -25,46 +25,8 @@ components:
       volumeMounts:
         - name: cache
           path: /.cache
-----
-====
-
-. Specify volumes for `plugin` type:
-+
-.Specifying volumes for `plugin` type:
-====
-[source,yaml]
-----
-scheamVersion: 2.0.0
-metadata:
-  name: MyDevfile
-components:
-  - name: theia-editor
-    plugin:
-      id: eclipse/che-theia/next
-      env:
-      - name: HOME
-        value: $(PROJECTS_ROOT)
-      volumeMounts:
-      - name: cache
-        path: /.cache
-----
-====
-
-. Specify volumes for `kubernetes`/`openshift` type:
-+
-.Specifying volumes for `kubernetes`/`openshift` type:
-====
-[source,yaml]
-----
-schemaVersion: 2.0.0
-metadata:
-  name: MyDevfile
-components:
-  - name: mongo
-    openshift:
-      reference: mongo-db.yaml
-      volumeMounts:
-      - name: mongo-persistent-storage
-        path: /data/db
+  - name: cache
+    volume:
+          size: 2Gi
 ----
 ====

@@ -14,73 +14,32 @@ This section describes how to add a `plugin` component to a devfile.
 
 . Define a component using the type `plugin`.
 
-. Define the `id` attribute. It is slash-separated publisher, name and version of plug-in from the Plug-in registry. List of available {prod-short} plug-ins and more information about registry can be found in the link:https://github.com/eclipse/che-plugin-registry[{prod-short} plug-in registry] GitHub repository.
+. Define the `id` attribute. It is the stack name in a devfile v2 registry. Devfile v2 registry should follow the convention according to the link:https://github.com/devfile/api/blob/master/docs/proposals/registry/index-server-REST-API.md[proposal].
 +
 .A devfile defining a plug-in `id`
 ====
 [source,yaml]
 ----
   components:
-   - name: exec-plugin
+   - name: plugin-name
      plugin:
-      id: machine-exec-plugin/0.0.1
+      id: nodejs
 ----
 ====
 
-. Optionally, specify an alternative component registry using the `registryUrl` parameter:
+. Optional: Specify an alternative devfile registry using the `registryUrl` parameter:
 +
-.A devfile defining a plug-in `id` and an alternative component registry
+.Defining a plug-in `id` and an alternative devfile registry
 ====
 [source,yaml]
 ----
   components:
-   - name: exec-plugin
+   - name: plugin-name
      plugin:
-      id: machine-exec-plugin/0.0.1
+      id: nodejs
       registryUrl: https://my-customregistry.com
 ----
 ====
-
-. Optionally, provide a direct link to the component descriptor (typically named `meta.yaml`) using the `reference` attribute, instead of using the `id`.
-+
-.A devfile defining a plug-in with a direct link to the component descriptor
-====
-[source,yaml]
-----
-  components:
-   - name: exec-plugin
-     plugin:
-      reference: https://raw.githubusercontent.com.../plugin/1.0.1/meta.yaml
-----
-====
-+
-NOTE: It is impossible to mix the `id` and `reference` fields in a single component definition; they are mutually exclusive.
-
-
-. Optionally, provide plugin component configuration using the `preferences` attribute
-+
-.Configuring JVM using plug-in preferences
-====
-[source,yaml]
-----
-  id: redhat/java/0.38.0
-  plugin:
-    preferences:
-       java.jdt.ls.vmargs: '-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication'
-----
-====
-+
-.Configuring preferences as an array:
-====
-[source,yaml]
-----
-  id: redhat/java/0.38.0
-  plugin:
-    preferences:
-      go.lintFlags: ["--enable-all", "--new"]
-----
-====
-
 
 [role="_additional-resources"]
 .Additional resources
