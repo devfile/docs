@@ -6,7 +6,7 @@ This section describes how to migrate components to devfile v2. There ARE major 
 
 .Procedure
 
-. Component is a polymophic type
+. Component is a polymorphic type
 +
 For a better syntax validation component now is defined as a polymorphic type and can be implemented as `container`, `kubernetes`, `openshift`, `plugin` or `volume`.
 +
@@ -15,6 +15,7 @@ For a better syntax validation component now is defined as a polymorphic type an
 v2.0
 ---
 components:
+  - name: mydevfile
   - container:
         image: maven
         ...
@@ -22,35 +23,35 @@ components:
         image: nodejs
         ...
   - kubernetes:
-       reference: https://.../mongo.yaml
+       uri: https://.../mongo.yaml
 ----
 +
-See https://github.com/che-incubator/devworkspace-api/issues/4[corresponding issue].
+See https://github.com/devfile/api/issues/4[corresponding issue].
 
-. Shared Volumes Across Components. See https://github.com/che-incubator/devworkspace-api/issues/19[corresponding issue].
+. Shared Volumes Across Components. See https://github.com/devfile/api/issues/19[corresponding issue].
 
-. Out of Main Pod Compoenents. See  https://github.com/devfile/api/issues/48[corresponding issue].
+. Out of Main Pod Components. See  https://github.com/devfile/api/issues/48[corresponding issue].
 
-. Replace Alias with Name. See  https://github.com/che-incubator/devworkspace-api/issues/9[corresponding issue].
+. Replace Alias with Name. See  https://github.com/devfile/api/issues/9[corresponding issue].
 
-. Renaming dockerimage component type. See  https://github.com/che-incubator/devworkspace-api/issues/8[corresponding issue].
+. Renaming dockerimage component type. See  https://github.com/devfile/api/issues/8[corresponding issue].
 
-. Specify sources path for containers. See  https://github.com/che-incubator/devworkspace-api/issues/17[corresponding issue].
+. Specify sources path for containers. See  https://github.com/devfile/api/issues/17[corresponding issue].
 
-. Specify size of volume for component. See https://github.com/che-incubator/devworkspace-api/issues/14[corresponding issue].
+. Specify size of volume for component. See https://github.com/devfile/api/issues/14[corresponding issue].
 
-. Containers endpoints (routes/ingresses). See https://github.com/che-incubator/devworkspace-api/issues/33[corresponding issue].
+. Containers endpoints (routes/ingresses). See https://github.com/devfile/api/issues/33[corresponding issue].
 
 
 [role="_additional-resources"]
 .Additional resources
 
 
-* Component is a polymophic type. See https://github.com/che-incubator/devworkspace-api/issues/4[corresponding issue].
-* Shared Volumes Across Components. See https://github.com/che-incubator/devworkspace-api/issues/19[corresponding issue].
-* Out of Main Pod Compoenents. See  https://github.com/devfile/api/issues/48[corresponding issue].
-* Replace Alias with Name. See  https://github.com/che-incubator/devworkspace-api/issues/9[corresponding issue].
-* Renaming dockerimage component type. See  https://github.com/che-incubator/devworkspace-api/issues/8[corresponding issue].
-* Specify sources path for containers. See  https://github.com/che-incubator/devworkspace-api/issues/17[corresponding issue].
-* Specify size of volume for component. See https://github.com/che-incubator/devworkspace-api/issues/14[corresponding issue].
-* Containers endpoints (routes/ingresses). See https://github.com/che-incubator/devworkspace-api/issues/33[corresponding issue].
+* Component is a polymorphic type. See https://github.com/devfile/api/issues/4[corresponding issue].
+* Shared Volumes Across Components. See https://github.com/devfile/api/issues/19[corresponding issue].
+* Out of Main Pod Components. See  https://github.com/devfile/api/issues/48[corresponding issue].
+* Replace Alias with Name. See  https://github.com/devfile/api/issues/9[corresponding issue].
+* Renaming dockerimage component type. See  https://github.com/devfile/api/issues/8[corresponding issue].
+* Specify sources path for containers. See  https://github.com/devfile/api/issues/17[corresponding issue].
+* Specify size of volume for component. See https://github.com/devfile/api/issues/14[corresponding issue].
+* Containers endpoints (routes/ingresses). See https://github.com/devfile/api/issues/27[corresponding issue].
