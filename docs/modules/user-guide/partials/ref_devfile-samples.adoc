@@ -3,6 +3,8 @@
 
 .Additional resources
 
-To build and test devfiles, visit the link:https://github.com/devfile/api[GitHub API repository]. To see the creation of devfiles, review the open issues. 
+To view the source code for the devfile specification, visit the link:https://github.com/devfile/api[GitHub API repository].
+
+To track the creation of devfiles, review the link:https://github.com/devfile/api/issues[open issues].
 
 To build and contribute to the documentation, visit the link:https://github.com/devfile/docs[GitHub Docs repository].
