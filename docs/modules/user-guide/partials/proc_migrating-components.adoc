@@ -8,13 +8,10 @@ This section describes how to migrate components to devfiles v2.x. The component
 
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 . Component is a polymorphic type
 +
 For a better syntax validation component now is defined as a polymorphic type and can be implemented as `container`, `kubernetes`, `openshift`, `plugin` or `volume`.
 +
-=======
->>>>>>> 0a125b6... made migrating docs adhere to style guide
 =======
 . To get a better syntax validation, define a component as a polymorphic type and implement it as a `container`, `kubernetes`, `openshift`, `plugin` or `volume`.
 =======
@@ -38,7 +35,6 @@ components:
        uri: https://.../mongo.yaml
 ----
 <<<<<<< HEAD
-<<<<<<< HEAD
 +
 See https://github.com/devfile/api/issues/4[corresponding issue].
 
@@ -56,8 +52,6 @@ See https://github.com/devfile/api/issues/4[corresponding issue].
 
 . Containers endpoints (routes/ingresses). See https://github.com/devfile/api/issues/33[corresponding issue].
 
-=======
->>>>>>> 0a125b6... made migrating docs adhere to style guide
 
 =======
 +
@@ -69,7 +63,6 @@ For a deeper understanding of migrating components, go to the GitHub issues on t
 
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 * Component is a polymorphic type. See https://github.com/devfile/api/issues/4[corresponding issue].
 * Shared Volumes Across Components. See https://github.com/devfile/api/issues/19[corresponding issue].
 * Out of Main Pod Components. See  https://github.com/devfile/api/issues/48[corresponding issue].
@@ -78,16 +71,6 @@ For a deeper understanding of migrating components, go to the GitHub issues on t
 * Specify sources path for containers. See  https://github.com/devfile/api/issues/17[corresponding issue].
 * Specify size of volume for component. See https://github.com/devfile/api/issues/14[corresponding issue].
 * Containers endpoints (routes/ingresses). See https://github.com/devfile/api/issues/27[corresponding issue].
-=======
-* link:https://github.com/che-incubator/devworkspace-api/issues/4[Component is a polymophic type]
-* link:https://github.com/che-incubator/devworkspace-api/issues/19[Shared volumes across components]
-* link:https://github.com/devfile/api/issues/48[Out of main pod components]
-* link:https://github.com/che-incubator/devworkspace-api/issues/9[Replace alias with name]
-* link:https://github.com/che-incubator/devworkspace-api/issues/8[Renaming dockerimage component type]
-* link:https://github.com/che-incubator/devworkspace-api/issues/17[Specify sources path for containers]
-* link:https://github.com/che-incubator/devworkspace-api/issues/14[Specify size of volume for component]
-* link:https://github.com/che-incubator/devworkspace-api/issues/33[Containers endpoints: routes and ingresses]
->>>>>>> 0a125b6... made migrating docs adhere to style guide
 =======
 * link:https://github.com/devfile/api/issues/4[Component is a polymophic type]
 =======
