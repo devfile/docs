@@ -6,7 +6,6 @@
 ** xref:adding-projects-to-a-devfile.adoc[]
 ** xref:adding-commands-to-a-devfile.adoc[]
 ** xref:adding-components-to-a-devfile.adoc[]
-*** xref:adding-plugin-component-to-a-devfile.adoc[]
 *** xref:adding-kubernetes-component-to-a-devfile.adoc[]
 *** xref:adding-container-component-to-a-devfile.adoc[]
 *** xref:specifying-persistent-storage.adoc[]
