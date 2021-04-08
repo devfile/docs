@@ -2,7 +2,7 @@
 = Migrating commands
 
 [role="_abstract"]
-This section describes how to migrate commands to devfiles v2.x. The command section of devfile v2.x has major changes. A command specified in a devfile v1.x no longer works in a devfile v2.x.
+This section describes how to migrate commands to devfiles v2.x. Major changes have been made from devfiles v1.x to the command section of devfile v2.x. A command specified in a devfile v1.x no longer works in a devfile v2.x.
 
 .Procedure
 
@@ -18,7 +18,7 @@ This section describes how to migrate commands to devfiles v2.x. The command sec
 [role="_additional-resources"]
 .Additional resources
 
-For a deeper understanding of migrating commands, go to the GitHub issues on the following topics:
+Go to the following GitHub issues:
 
 * link:https://github.com/devfile/api/issues/27[Command groups: build, run, test, debug]
 

@@ -2,25 +2,27 @@
 = Refering to a parent devfile in a devfile
 
 [role="_abstract"]
+You can designate a parent devfile to a given devifle. If you designate a parent devfile, the given devfile inherits all its behavior from its parent.
+
 .Prerequisites
 
 * xref:adding-schema-version-to-a-devfile.adoc[]
 * xref:adding-a-name-to-a-devfile.adoc[]
 
 
-This section teaches you how to specify a parent devfile. You can choose a devfile and refer to another devfile as its parent. If you specify a parent, the child devfile inherits all its behavior from its parent devfile. Still, you can use the child devfile to override certain content from the parent devfile. If you override the correct content, you can reuse the same parent devfile in multiple other devfiles. If you do reuse a parent devfile, the parent turns into a stack that is used in multiple other devfiles.
+This section describes how to specify a parent devfile. You can choose a devfile and refer to another devfile as its parent. If you specify a parent, the child devfile inherits all its behavior from its parent devfile. Still, you can use the child devfile to override certain content from the parent devfile. If you override the correct content, you can reuse the same parent devfile in multiple other devfiles. If you do reuse a parent devfile, the parent turns into a stack that is used in multiple other devfiles.
 
 .Procedure
 
 You can refer to a parent devfile in three different ways:
 
-. registry
-. uri
-. kubernetes
+* registry
+* uri
+* kubernetes
 
 .Parent referred by registry
 ====
-Using its `id` if it has been published in a registry.
+Use the `id` if it has been published in a registry.
 
 [source,yaml]
 ----
@@ -35,7 +37,7 @@ parent:
 
 .Parent referred by uri
 ====
-Using the URI if it has been published on a static http server (like gist or pastebin).
+Use the URI if it has been published on a static http server like gist or pastebin.
 
 [source,yaml]
 ----
@@ -54,7 +56,7 @@ parent:
 
 .Parent identified by a Kubernetes resource
 ====
-Using a Kubernetes resource name and namespace if it has been deployed on a Kubernete cluster.
+Use a Kubernetes resource name and namespace if it has been deployed on a Kubernetes cluster.
 
 [source,yaml]
 ----
