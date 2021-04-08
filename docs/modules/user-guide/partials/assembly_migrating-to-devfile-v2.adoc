@@ -24,7 +24,7 @@ This guide explains how to migrate an existing devfile v1.x to a devfile v2.x.
 [role="_additional-resources"]
 .Additional resources
 
-For a deeper understanding of migrating devfiles, go to the GitHub issues on the following topics:
+Go to the following GitHub issues:
 
 * link:https://github.com/devfile/api/issues/10[Devfile schema]
 * link:https://github.com/devfile/api/issues/31[Plug-in mechanism]

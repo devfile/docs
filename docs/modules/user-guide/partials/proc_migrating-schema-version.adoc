@@ -33,6 +33,5 @@ metadata:
 
 [role="_additional-resources"]
 .Additional resources
-For a deeper understanding of migrating schema versions, go to the GitHub issue on the following topic:
 
-* link:https://github.com/devfile/api/issues/7[SchemaVersion attribute]
+Go to the following GitHub issue: link:https://github.com/devfile/api/issues/7[schemaVersion attribute].

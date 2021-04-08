@@ -2,23 +2,14 @@
 = Migrating components
 
 [role="_abstract"]
-This section describes how to migrate components to devfiles v2.x. The components section of devfiles v2.x has major changes. A component specified in a devfile v1.x no longer works in a devfile v2.x.
+This section describes how to migrate components to devfiles v2.x. Major changes have been made from devfiles v1.x to the components section in devfiles v2.x. A component specified in a devfile v1.x no longer works in a devfile v2.x.
 
 .Procedure
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 . Component is a polymorphic type
 +
-For a better syntax validation component now is defined as a polymorphic type and can be implemented as `container`, `kubernetes`, `openshift`, `plugin` or `volume`.
+For a better syntax, the validation component is now defined as a polymorphic type and can be implemented as `container`, `kubernetes`, `openshift`, `plugin` or `volume`.
 +
-=======
-. To get a better syntax validation, define a component as a polymorphic type and implement it as a `container`, `kubernetes`, `openshift`, `plugin` or `volume`.
-=======
-. To get a better syntax validation, define a component as a polymorphic type and implement it as a `container`, `kubernetes`, `openshift`, `plug-in` or `volume`.
->>>>>>> d8b8834... more tweaks for consistent devfile versioning
-+
->>>>>>> c68d47f... brought back the procedures, updated links, more changes to content for consistency and style guide
 [source,yaml]
 ----
 v2.0
@@ -34,53 +25,18 @@ components:
   - kubernetes:
        uri: https://.../mongo.yaml
 ----
-<<<<<<< HEAD
 +
-See https://github.com/devfile/api/issues/4[corresponding issue].
 
-. Shared Volumes Across Components. See https://github.com/devfile/api/issues/19[corresponding issue].
-
-. Out of Main Pod Components. See  https://github.com/devfile/api/issues/48[corresponding issue].
-
-. Replace Alias with Name. See  https://github.com/devfile/api/issues/9[corresponding issue].
-
-. Renaming dockerimage component type. See  https://github.com/devfile/api/issues/8[corresponding issue].
-
-. Specify sources path for containers. See  https://github.com/devfile/api/issues/17[corresponding issue].
-
-. Specify size of volume for component. See https://github.com/devfile/api/issues/14[corresponding issue].
-
-. Containers endpoints (routes/ingresses). See https://github.com/devfile/api/issues/33[corresponding issue].
-
-
-=======
-+
->>>>>>> c68d47f... brought back the procedures, updated links, more changes to content for consistency and style guide
 [role="_additional-resources"]
 .Additional resources
 
-For a deeper understanding of migrating components, go to the GitHub issues on the following topics:
+Go to the following GitHub issues:
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-* Component is a polymorphic type. See https://github.com/devfile/api/issues/4[corresponding issue].
-* Shared Volumes Across Components. See https://github.com/devfile/api/issues/19[corresponding issue].
-* Out of Main Pod Components. See  https://github.com/devfile/api/issues/48[corresponding issue].
-* Replace Alias with Name. See  https://github.com/devfile/api/issues/9[corresponding issue].
-* Renaming dockerimage component type. See  https://github.com/devfile/api/issues/8[corresponding issue].
-* Specify sources path for containers. See  https://github.com/devfile/api/issues/17[corresponding issue].
-* Specify size of volume for component. See https://github.com/devfile/api/issues/14[corresponding issue].
-* Containers endpoints (routes/ingresses). See https://github.com/devfile/api/issues/27[corresponding issue].
-=======
-* link:https://github.com/devfile/api/issues/4[Component is a polymophic type]
-=======
-* link:https://github.com/devfile/api/issues/4[Component is a polymorphic type]
->>>>>>> d8b8834... more tweaks for consistent devfile versioning
+* link:https://github.com/devfile/api/issues/4[Polymorphic component type]
 * link:https://github.com/devfile/api/issues/19[Shared volumes across components]
-* link:https://github.com/devfile/api/issues/48[Out of main pod components]
+* link:https://github.com/devfile/api/issues/48[Out of main pod containers]
 * link:https://github.com/devfile/api/issues/9[Replace alias with name]
-* link:https://github.com/devfile/api/issues/8[Renaming dockerimage component type]
-* link:https://github.com/devfile/api/issues/17[Specify sources path for containers]
-* link:https://github.com/devfile/api/issues/14[Specify size of volume for component]
-* link:https://github.com/devfile/api/issues/33[Containers endpoints: routes and ingresses]
->>>>>>> c68d47f... brought back the procedures, updated links, more changes to content for consistency and style guide
+* link:https://github.com/devfile/api/issues/8[Rename dockerimage component type]
+* link:https://github.com/devfile/api/issues/17[Specify source path for containers]
+* link:https://github.com/devfile/api/issues/14[Specify size of volume for components]
+* link:https://github.com/devfile/api/issues/27[Container endpoints: routes and ingresses]
