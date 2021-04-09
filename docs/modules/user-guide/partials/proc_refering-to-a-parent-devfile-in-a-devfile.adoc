@@ -2,15 +2,12 @@
 = Refering to a parent devfile in a devfile
 
 [role="_abstract"]
-You can designate a parent devfile to a given devifle. If you designate a parent devfile, the given devfile inherits all its behavior from its parent.
+This section describes how to designate a parent devfile to a given devifle. If you designate a parent devfile, the given devfile inherits all its behavior from its parent.  Still, you can use the child devfile to override certain content from the parent devfile. If you override the correct content, you can reuse the same parent devfile in multiple other devfiles. If you do reuse a parent devfile, the parent turns into a stack that is used in multiple other devfiles.
 
 .Prerequisites
 
-* xref:adding-schema-version-to-a-devfile.adoc[]
-* xref:adding-a-name-to-a-devfile.adoc[]
-
-
-This section describes how to specify a parent devfile. You can choose a devfile and refer to another devfile as its parent. If you specify a parent, the child devfile inherits all its behavior from its parent devfile. Still, you can use the child devfile to override certain content from the parent devfile. If you override the correct content, you can reuse the same parent devfile in multiple other devfiles. If you do reuse a parent devfile, the parent turns into a stack that is used in multiple other devfiles.
+* Define the schemaVersion to v2.x. If you need to define your schemaVersion, go to xref:adding-schema-version-to-a-devfile.adoc[].
+* Define a name for the devfile. If you need to define a name for your devfile go to xref:adding-a-name-to-a-devfile.adoc[].
 
 .Procedure
 
@@ -72,6 +69,8 @@ parent:
 
 [role="_additional-resources"]
 .Additional resources
+
+For a deeper understanding of referring to parent devfiles, go to the following topics:
 
 * xref:api-reference.adoc[]
 * xref:devfile-samples.adoc[]
