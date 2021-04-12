@@ -6,7 +6,11 @@ This section describes how to migrate projects to devfiles v2.x. A project speci
 
 .Procedure
 
+<<<<<<< HEAD
  Devfiles v2.x has a new kind of project: `starterProjects`. Pick only one `starterProject` and use it in interactive mode. With a `starterProject`, you only need to copy your source code, so you no longer need to clone your git repository.
+=======
+ Devfiles v2.x has a new kind of project: `starterProjects`. Pick only one `starterProject` and use it in the interactive mode. With a `starterProject`, you only need to copy your source code, so you no longer need to clone your git repository.
+>>>>>>> 6471455677b28b0e892adc4c24e14acfc17678a4
 
 .starterProjects and projects description
 
@@ -26,4 +30,8 @@ starterProjects:
 [role="_additional-resources"]
 .Additional resources
 
+<<<<<<< HEAD
 For a deeper understanding of migrating projects, go to the following GitHub issue: link:https://github.com/devfile/api/issues/42[starterProjects].
+=======
+Go to the following GitHub issue: link:https://github.com/devfile/api/issues/42[starterProjects].
+>>>>>>> 6471455677b28b0e892adc4c24e14acfc17678a4

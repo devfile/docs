@@ -43,4 +43,8 @@ events:
 [role="_additional-resources"]
 .Additional resources
 
+<<<<<<< HEAD
 For a deeper understanding of adding event bindings, go to the following GitHub issue: link:https://github.com/devfile/api/issues/32[Lifecycle bindings to bind commands]. 
+=======
+Go to the following GitHub issue: link:https://github.com/devfile/api/issues/32[Lifecycle bindings to bind commands]
+>>>>>>> 6471455677b28b0e892adc4c24e14acfc17678a4

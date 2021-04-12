@@ -11,7 +11,11 @@ endif::[]
 
 :context: assembly_migrating-to-devfile-v2
 
+<<<<<<< HEAD
 The following documents explain how to migrate an existing devfile v1.x to a devfile v2.x:
+=======
+This guide explains how to migrate an existing devfile v1.x to a devfile v2.x.
+>>>>>>> 6471455677b28b0e892adc4c24e14acfc17678a4
 
 * xref:migrating-schema-version.adoc[]
 * xref:migrating-projects.adoc[]
@@ -24,7 +28,11 @@ The following documents explain how to migrate an existing devfile v1.x to a dev
 [role="_additional-resources"]
 .Additional resources
 
+<<<<<<< HEAD
 For a deeper understanding of migrating devfiles, go to the following GitHub issues:
+=======
+Go to the following GitHub issues:
+>>>>>>> 6471455677b28b0e892adc4c24e14acfc17678a4
 
 * link:https://github.com/devfile/api/issues/10[Devfile schema]
 * link:https://github.com/devfile/api/issues/31[Plug-in mechanism]
