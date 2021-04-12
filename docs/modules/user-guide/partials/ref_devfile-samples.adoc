@@ -3,5 +3,8 @@
 
 .Additional resources
 
-* link:https://github.com/devfile/api/issues[Creating devfiles].
-* link:https://github.com/devfile/docs[Documenting devfiles].
+To view the source code for the devfile specification, visit the link:https://github.com/devfile/api[GitHub API repository].
+
+To track the development of the devfile specification, visit the link:https://github.com/devfile/api/issues[issue tracker].
+
+To build and contribute to the documentation, visit the link:https://github.com/devfile/docs[GitHub Docs repository].
