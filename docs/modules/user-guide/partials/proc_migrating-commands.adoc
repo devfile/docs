@@ -2,7 +2,7 @@
 = Migrating commands
 
 [role="_abstract"]
-This section describes how to migrate the `commands` section to devfile v2.x. A command specified in a v1.0 devfile does not work as it is in a devfile v2.x.
+This section describes how to migrate the `commands` section to devfiles v2.x. A command specified in a devfile v1.x does not work in a devfile v2.x.
 
 .Procedure
 
@@ -18,17 +18,13 @@ This section describes how to migrate the `commands` section to devfile v2.x. A 
 [role="_additional-resources"]
 .Additional resources
 
-* Command groups: build, run, test, debug. See https://github.com/che-incubator/devworkspace-api/issues/27[corresponding issue].
-* Apply Command. See https://github.com/devfile/api/issues/56[corresponding issue].
+For a deeper understanding of migrating commands, go to the following GitHub issues:
 
-* Environment variables for a specific command. See https://github.com/che-incubator/devworkspace-api/issues/21[corresponding issue].
-
-* Renaming workdir into workingDir. See https://github.com/che-incubator/devworkspace-api/issues/22[corresponding issue].
-
-* Id and label for composite commands. See https://github.com/che-incubator/devworkspace-api/issues/18[corresponding issue].
-
-* Run exec commands as specific user. See https://github.com/che-incubator/devworkspace-api/issues/34[corresponding issue].
-
-* Devfile metadata: add a link to an external website. See https://github.com/che-incubator/devworkspace-api/issues/38[corresponding issue].
-
-* Stack and devfile matching rules. See https://github.com/che-incubator/devworkspace-api/issues/40[corresponding issue].
+* link:https://github.com/devfile/api/issues/27[Command groups: build, run, test, debug]
+* link:https://github.com/devfile/api/issues/56[Apply command]
+* link:https://github.com/devfile/api/issues/21[Environment variables for a specific command]
+* link:https://github.com/devfile/api/issues/22[Renaming workdir into workingDir]
+* link:https://github.com/devfile/api/issues/18[Id and label for composite commands]
+* link:https://github.com/devfile/api/issues/34[Run exec commands as specific user]
+* link:https://github.com/devfile/api/issues/38[Devfile metadata: add a link to an external website]
+* link:https://github.com/devfile/api/issues/40[Stack or devfile matching rules]
