@@ -2,16 +2,12 @@
 = Adding event bindings
 
 [role="_abstract"]
-Commands can be bound to events to form four different types of events: `preStart`, `postStart`, `preStop`, and `postStop`.
-
-.Prerequisites
-
-
+This section describes how to add an event to devfiles v2.x. An event specified in a devfile v1.x still works in a devfile v2.x.
 
 .Procedure
 
 . Add an `events` section in the devfile, containing a list of `preStart` and `postStart` commands.
-
++
 ====
 [source,yaml]
 ----
@@ -43,7 +39,12 @@ events:
     - pre-compile-cmd
 ----
 ====
-
++
 [role="_additional-resources"]
 .Additional resources
-* See https://github.com/che-incubator/devworkspace-api/issues/32[corresponding issue].
+
+<<<<<<< HEAD
+For a deeper understanding of adding event bindings, go to the following GitHub issue: link:https://github.com/devfile/api/issues/32[Lifecycle bindings to bind commands]. 
+=======
+Go to the following GitHub issue: link:https://github.com/devfile/api/issues/32[Lifecycle bindings to bind commands]
+>>>>>>> 6471455677b28b0e892adc4c24e14acfc17678a4

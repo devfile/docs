@@ -11,7 +11,11 @@ endif::[]
 
 :context: assembly_migrating-to-devfile-v2
 
-This guide explains how to migrate an existing v1.0 devfile to v2.0.
+<<<<<<< HEAD
+The following documents explain how to migrate an existing devfile v1.x to a devfile v2.x:
+=======
+This guide explains how to migrate an existing devfile v1.x to a devfile v2.x.
+>>>>>>> 6471455677b28b0e892adc4c24e14acfc17678a4
 
 * xref:migrating-schema-version.adoc[]
 * xref:migrating-projects.adoc[]
@@ -24,10 +28,15 @@ This guide explains how to migrate an existing v1.0 devfile to v2.0.
 [role="_additional-resources"]
 .Additional resources
 
-* New metadata: `version`. See link:https://github.com/che-incubator/devworkspace-api/issues/10[corresponding issue].
-* New mandatory metadata for plugins. See link:https://github.com/devfile/api/issues/31[corresponding issue].
+<<<<<<< HEAD
+For a deeper understanding of migrating devfiles, go to the following GitHub issues:
+=======
+Go to the following GitHub issues:
+>>>>>>> 6471455677b28b0e892adc4c24e14acfc17678a4
+
+* link:https://github.com/devfile/api/issues/10[Devfile schema]
+* link:https://github.com/devfile/api/issues/31[Plug-in mechanism]
 
 
 ifdef::parent-context-of-assembly_migrating-to-devfile-v2[:context: {parent-context-of-assembly_migrating-to-devfile-v2}]
 ifndef::parent-context-of-assembly_migrating-to-devfile-v2[:!context:]
-

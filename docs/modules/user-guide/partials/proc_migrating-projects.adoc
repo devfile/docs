@@ -2,13 +2,18 @@
 = Migrating projects
 
 [role="_abstract"]
-There are NO major changes in the `projects` section of the devfile. A project specified in a v1.0 devfile will work as it is in a devfile v2.0.
+This section describes how to migrate projects to devfiles v2.x. A project specified in a devfile v1.x still works in a devfile v2.x.
 
 .Procedure
 
-*  The only major change is the addition of a new kind of project: `starterProjects`. Those are supposed to be used in interactive mode only (user pick one) and the git repo get not be cloned but only source code get copied (kind of what `git archive --remote=<repository URL> | tar -t` would do).
-+
+<<<<<<< HEAD
+ Devfiles v2.x has a new kind of project: `starterProjects`. Pick only one `starterProject` and use it in interactive mode. With a `starterProject`, you only need to copy your source code, so you no longer need to clone your git repository.
+=======
+ Devfiles v2.x has a new kind of project: `starterProjects`. Pick only one `starterProject` and use it in the interactive mode. With a `starterProject`, you only need to copy your source code, so you no longer need to clone your git repository.
+>>>>>>> 6471455677b28b0e892adc4c24e14acfc17678a4
+
 .starterProjects and projects description
+
 ====
 [source,yaml]
 ----
@@ -18,10 +23,15 @@ starterProjects:
   - name: "kafka-project"
     description: "Use this app to get a nodejs application for working with kafka"
   - name: "simple-project"
-    description: "Use this app to get a simple "hello world" nodejs application"
+    description: "Use this app to get a simple 'hello world' nodejs application"
 ----
 ====
 
 [role="_additional-resources"]
 .Additional resources
-* See link:https://github.com/che-incubator/devworkspace-api/issues/42[corresponding issue].
+
+<<<<<<< HEAD
+For a deeper understanding of migrating projects, go to the following GitHub issue: link:https://github.com/devfile/api/issues/42[starterProjects].
+=======
+Go to the following GitHub issue: link:https://github.com/devfile/api/issues/42[starterProjects].
+>>>>>>> 6471455677b28b0e892adc4c24e14acfc17678a4

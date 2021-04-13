@@ -2,21 +2,30 @@
 = Refering to a parent devfile in a devfile
 
 [role="_abstract"]
-It is possible to refer to another devfile as a parent to a given devfile. If a parent is specified, the devfile will inherit all behaviour from the parent. Part of the content of the parent can be overridden in the child devfile. That allows refering a devfile (the parent) from a distinct devfile and makes it possible to reuse in multiple devfiles the same parent (the stack).
+<<<<<<< HEAD
+This section describes how to designate a parent devfile to a given devifle. If you designate a parent devfile, the given devfile inherits all its behavior from its parent.  Still, you can use the child devfile to override certain content from the parent devfile. If you override the correct content, you can reuse the same parent devfile in multiple other devfiles. If you do reuse a parent devfile, the parent turns into a stack that is used in multiple other devfiles.
+=======
+You can designate a parent devfile to a given devifle. If you designate a parent devfile, the given devfile inherits all its behavior from its parent.
+>>>>>>> 6471455677b28b0e892adc4c24e14acfc17678a4
 
 .Prerequisites
 
-* xref:adding-schema-version-to-a-devfile.adoc[]
-* xref:adding-a-name-to-a-devfile.adoc[]
+* Define the schemaVersion to v2.x. If you need to define your schemaVersion, go to xref:adding-schema-version-to-a-devfile.adoc[].
+* Define a name for the devfile. If you need to define a name for your devfile go to xref:adding-a-name-to-a-devfile.adoc[].
 
+This section describes how to specify a parent devfile. You can choose a devfile and refer to another devfile as its parent. If you specify a parent, the child devfile inherits all its behavior from its parent devfile. Still, you can use the child devfile to override certain content from the parent devfile. If you override the correct content, you can reuse the same parent devfile in multiple other devfiles. If you do reuse a parent devfile, the parent turns into a stack that is used in multiple other devfiles.
 
 .Procedure
 
-* A parent devfile can be referenced in 3 different ways: `registry`, `uri` or `kubernetes`.
-+
+You can refer to a parent devfile in three different ways:
+
+* registry
+* uri
+* kubernetes
+
 .Parent referred by registry
 ====
-Using its `id` if it has been published in a registry.
+Use the `id` if it has been published in a registry.
 
 [source,yaml]
 ----
@@ -28,10 +37,10 @@ parent:
     registry: https://devfile-registry.io/
 ----
 ====
-+
+
 .Parent referred by uri
 ====
-Using the URI if it has been published on a static http server (like gist or pastebin).
+Use the URI if it has been published on a static http server like gist or pastebin.
 
 [source,yaml]
 ----
@@ -39,13 +48,18 @@ schemaVersion: 2.0.0
 metadata:
   name: my-project-dev
 parent:
+<<<<<<< HEAD
     uri: https://raw.githubusercontent.com/eclipse/che-devfile-registry/master/devfiles/nodejs/devfile.yaml
+=======
+    id: redhat/nodejs/11.6
+    uri: https://raw.githubusercontent.com/devfile/registry/master/stacks/nodejs/devfile.yaml
+>>>>>>> c68d47f... brought back the procedures, updated links, more changes to content for consistency and style guide
 ----
 ====
-+
+
 .Parent identified by a Kubernetes resource
 ====
-Using a Kubernetes resource name and namespace if it has been deployed on a Kubernete cluster.
+Use a Kubernetes resource name and namespace if it has been deployed on a Kubernetes cluster.
 
 [source,yaml]
 ----
@@ -61,6 +75,8 @@ parent:
 
 [role="_additional-resources"]
 .Additional resources
+
+For a deeper understanding of referring to parent devfiles, go to the following topics:
 
 * xref:api-reference.adoc[]
 * xref:devfile-samples.adoc[]
