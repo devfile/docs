@@ -2,7 +2,7 @@
 = Adding event bindings
 
 [role="_abstract"]
-This section describes how to add an event to devfiles v2.x. An event specified in a devfile v1.x still works in a devfile v2.x.
+This section describes how to add an event to v2.x devfiles. An event specified in a v1.x devfile still works in a v2.x devfile.
 
 .Procedure
 
@@ -43,4 +43,4 @@ events:
 [role="_additional-resources"]
 .Additional resources
 
-For a deeper understand of adding event bindings, go to the following GitHub issue: link:https://github.com/devfile/api/issues/32[lifecycle bindings to bind commands].
+For more information on adding event bindings, go to the following GitHub issue: link:https://github.com/devfile/api/issues/32[lifecycle bindings to bind commands].

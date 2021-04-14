@@ -2,20 +2,20 @@
 = Migrating plug-ins
 
 [role="_abstract"]
-This section describes how to migrate plug-ins to devfile v2.x. A plug-in specified in a meta.yaml in a devfile v1.x no longer works in a devfile v2.x.
+This section describes how to migrate plug-ins to a v2.x devfile. A plug-in specified in a `meta.yaml` in a v1.x devfile no longer works in a v2.x devfile.
 
-Additionally, devfiles v2.x include the following new features:
+Additionally, v2.x devfiles include the following new features:
 
 * Parents allow users to reuse an existing devfile and partially replace plug-in functionality.
-* Eclipse Che IDEs and their tooling can be specified as attributes in a devfile v2.x or in a distinct YAML file, for example: `.che/che-editor.yaml` or `.che/che-theia-plugin.yaml`.
+* Eclipse Che IDEs and their tooling can be specified as attributes in a v2.x devfile or in a distinct YAML file, for example: `.che/che-editor.yaml` or `.che/che-theia-plugin.yaml`.
 
 
 [role="_additional-resources"]
 .Additional resources
 
-For a deeper understanding about plug-ins in devfiles v2.x, go to the following GitHub issues:
+For more information on plug-ins in v2.x devfiles, go to the following GitHub issues:
 
 * link:https://github.com/eclipse/che/issues/18669[Devfile plug-ins not suited to specify Che-Theia plug-ins]
-* link:https://github.com/eclipse/che/issues/18668[Che editors and Che-Theia plug-ins support in devfile v2.x]
+* link:https://github.com/eclipse/che/issues/18668[Che editors and Che-Theia plug-ins support in v2.x devfile]
 * link:https://github.com/devfile/api/issues/364[Plug-ins' replacement]
 * link:https://github.com/devfile/api/issues/31[Better plug-in mechanism]

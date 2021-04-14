@@ -1,8 +1,8 @@
 [id="proc_refering-to-a-parent-devfile-in-a-devfile_{context}"]
-= Refering to a parent devfile in a devfile
+= Referring to a parent devfile in a devfile
 
 [role="_abstract"]
-This section describes how to designate a parent devfile to a given devifle. If you designate a parent devfile, the given devfile inherits all its behavior from its parent.  Still, you can use the child devfile to override certain content from the parent devfile. If you override the correct content, you can reuse the same parent devfile in multiple other devfiles. If you do reuse a parent devfile, the parent turns into a stack that is used in multiple other devfiles.
+This section describes how to designate a parent devfile to a given devfile. If you designate a parent devfile, the given devfile inherits all its behavior from its parent.  Still, you can use the child devfile to override certain content from the parent devfile. If you override the correct content, you can reuse the same parent devfile in multiple other devfiles. If you do reuse a parent devfile, the parent turns into a stack that is used in multiple other devfiles.
 
 .Prerequisites
 
@@ -67,7 +67,7 @@ parent:
 [role="_additional-resources"]
 .Additional resources
 
-For a deeper understanding of referring to parent devfiles, go to the following topics:
+For more information on referring to parent devfiles, go to the following topics:
 
 * xref:api-reference.adoc[]
 * xref:devfile-samples.adoc[]

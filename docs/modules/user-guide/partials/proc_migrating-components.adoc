@@ -2,13 +2,13 @@
 = Migrating components
 
 [role="_abstract"]
-This section describes how to migrate components to devfiles v2.x. A component specified in a devfile v1.x no longer works in a devfile v2.x
+This section describes how to migrate components to v2.x devfiles. A component specified in a v1.x devfile no longer works in a v2.x devfile.
 
 .Procedure
 
 . Component is a polymorphic type
 +
-For a better syntax, the validation component is now defined as a polymorphic type and can be implemented as `container`, `kubernetes`, `openshift`, `plugin` or `volume`.
+The validation component is now defined as a polymorphic type and can be implemented as `container`, `kubernetes`, `openshift`, `plugin` or `volume`.
 +
 [source,yaml]
 ----
@@ -30,7 +30,7 @@ components:
 [role="_additional-resources"]
 .Additional resources
 
-For a deeper understanding of migrating components, go to the following GitHub issues:
+For more information on migrating components, go to the following GitHub issues:
 
 * link:https://github.com/devfile/api/issues/4[Polymorphic component type]
 * link:https://github.com/devfile/api/issues/19[Shared volumes across components]
