@@ -6,17 +6,17 @@ This section describes how to designate a parent devfile to a given devfile. If 
 
 .Prerequisites
 
-* Define the schemaVersion to v2.x. If you need to define your schemaVersion, go to xref:adding-schema-version-to-a-devfile.adoc[].
-* Define a name for the devfile. If you need to define a name for your devfile go to xref:adding-a-name-to-a-devfile.adoc[].
+* Define the `schemaVersion` to v2.x. If you need to define your `schemaVersion`, go to xref:adding-schema-version-to-a-devfile.adoc[].
+* Define a name for the devfile. If you need to define a name for your devfile, go to xref:adding-a-name-to-a-devfile.adoc[].
 
 
 .Procedure
 
 You can refer to a parent devfile in three different ways:
 
-* registry
-* uri
-* kubernetes
+* `registry`
+* `uri`
+* `kubernetes`
 
 +
 .Parent referred by registry
