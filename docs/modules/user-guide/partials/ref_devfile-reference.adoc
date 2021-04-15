@@ -1,34 +1,37 @@
 [id="ref_devfile-reference_{context}"]
 = Devfile reference
 
+[role="_abstract"]
 Use this page to work with yaml files of devfile properties. See the following table of contents to go to the devfile property you want to work with:
 
 == schemaVersion
 
-```yaml
+[source,yaml]
+----
+v2.0
+---
 schemaVersion: 2.0.0
-```
+----
 
-* Key: schemaVersion
-* Type: string
-* Description: 2.0.0 of the schema
-* For more information, go to: xref:migrating-schema-version.adoc[]
+For more information, go to: xref:migrating-schema-version.adoc[].
 
 == metadata
 
-```yaml
+[source,yaml]
+----
+v2.0
+---
 metadata:
   name: nodejs
   version: 1.0.0
-```
-
-* Key: metadataObject
-* Type: metadataObject
-* Description: metadata to be used
+----
 
 == starter projects
 
-```yaml
+[source,yaml]
+----
+v2.0
+---
 starterProjects:
   - name: quarkus-quickstart
     description: minimal CRUD app with quarkus
@@ -37,16 +40,16 @@ starterProjects:
       location: https://github.com/quarkusio/quarkus-quickstarts
       branch: master
       startPoint: 1.7.0.Final # tag or commit to start at
-```
+----
 
-* Key: starterProjectObject
-* Type: starterProjectObject
-* Description: starter projects to be used
-* For more information, go to: xref:migrating-projects.adoc[]
+For more information, go to: xref:migrating-projects.adoc[].
 
 == components
 
-```yaml
+[source,yaml]
+----
+v2.0
+---
 components:
   - name: appsodyrun
     container:
@@ -70,16 +73,16 @@ components:
   - name: myvol
     volume:
       size: 3Gi
-```
+----
 
-* Key: componentObject
-* Type: componentObject
-* Description: components to be used
-* For more information, go to: xref:migrating-components.adoc[]
+For more information, go to: xref:migrating-components.adoc[].
 
 == commands
 
-```yaml
+[source,yaml]
+----
+v2.0
+---
 commands:
   - id: install
     exec:
@@ -112,16 +115,16 @@ commands:
          group:
             kind: build
             isDefault: true
-```
+----
 
-* Key: commandObject
-* Type: commandObject
-* Description: commands to be executed in an existing component container
-* For more information, go to: xref:migrating-commands.adoc[]
+For more information, go to: xref:migrating-commands.adoc[].
 
 == events
 
-```yaml
+[source,yaml]
+----
+v2.0
+---
 commands:
   - id: copy
     exec:
@@ -158,8 +161,4 @@ events:
     - "disconnectDB"
   postStop:
     - "cleanup"
-```
-
-* Key: eventObject
-* Type: eventObject
-* Description: events to be executed during a project lifecycle
+----
