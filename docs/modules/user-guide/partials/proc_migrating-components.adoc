@@ -8,7 +8,7 @@ This section describes how to migrate components to v2.x devfiles. A component s
 
 . Component is a polymorphic type
 +
-The validation component is now defined as a polymorphic type and can be implemented as, `container`, `kubernetes`, `openshift`, `plugin` or `volume`.
+The validation component is now defined as a polymorphic type and can be implemented as `container`, `kubernetes`, `openshift`, `plugin`, or `volume`.
 +
 [source,yaml]
 ----
