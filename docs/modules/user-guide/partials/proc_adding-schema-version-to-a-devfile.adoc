@@ -13,7 +13,12 @@ The `schemaVersion` attribute is mandatory in a devfile.
 ====
 [source,yaml]
 ----
+v2.0
+---
 schemaVersion: 2.0.0
+metadata:
+  name: devfile-sample
+  version: 2.0.0
 ----
 ====
 
