@@ -16,7 +16,7 @@
 
 ** xref:adding-attributes-to-a-devfile.adoc[]
 ** xref:adding-event-bindings.adoc[]
-** xref:refering-to-a-parent-devfile-in-a-devfile.adoc[]
+** xref:referring-to-a-parent-devfile-in-a-devfile.adoc[]
 
 * xref:migrating-to-devfile-v2.adoc[]
 ** xref:migrating-schema-version.adoc[]
@@ -25,7 +25,7 @@
 ** xref:migrating-plug-ins.adoc[]
 ** xref:migrating-commands.adoc[]
 ** xref:adding-event-bindings.adoc[]
-** xref:refering-to-a-parent-devfile-in-a-devfile.adoc[]
+** xref:referring-to-a-parent-devfile-in-a-devfile.adoc[]
 
 * xref:api-reference.adoc[]
 * xref:devfile-samples.adoc[]
