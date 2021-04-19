@@ -1,0 +1,5 @@
+[id="con_devfile-registry_{context}"]
+= Devfile registry
+
+[role="_abstract"]
+// TODO

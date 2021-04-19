@@ -4,8 +4,10 @@ asciidoc:
     prod-ver: 2.1
 name: devfile
 nav:
-  - modules/user-guide/nav.adoc
-start_page: user-guide:index.adoc
+  - modules/spec/nav.adoc
+  - modules/api/nav.adoc
+  - modules/registry/nav.adoc
+start_page: spec:index.adoc
 title: Devfile User Guide 2.1.0
 version: '2.1.0'
 prerelease: -alpha
