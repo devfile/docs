@@ -19,6 +19,7 @@ Adding a name to a devfile is mandatory. Both `name` and `generateName` are opti
 schemaVersion: 2.0.0
 metadata:
   name: devfile-sample
+  version: 2.0.0
 ----
 
 . To specify a prefix for automatically generated workspace names, define the `generateName` attribute and don't define the `name` attribute. The workspace name will be in the `<generateName>YYYYY` format (for example, `devfile-sample-2y7kp`). `Y` is random `[a-z0-9]` character.
@@ -30,6 +31,7 @@ metadata:
 schemaVersion: 2.0.0
 metadata:
   name: devfile-sample
+  version: 2.0.0
 ----
 
 [NOTE]
