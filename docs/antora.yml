@@ -5,8 +5,6 @@ asciidoc:
 name: devfile
 nav:
   - modules/spec/nav.adoc
-  - modules/api/nav.adoc
-  - modules/registry/nav.adoc
 start_page: spec:index.adoc
 title: Devfile User Guide 2.1.0
 version: '2.1.0'

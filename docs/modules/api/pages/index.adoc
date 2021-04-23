@@ -1,6 +1,0 @@
-:description: Devfile library and API
-:navtitle: Overview
-:keywords: devfile
-// :page-aliases:
-
-include::partial$con_devfile-library.adoc[]

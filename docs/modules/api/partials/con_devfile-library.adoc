@@ -1,7 +1,0 @@
-[id="con_devfile-library_{context}"]
-= Devfile library and API
-
-[role="_abstract"]
-// TODO
-
-Coming soon: an overview of the devfile library and API. 

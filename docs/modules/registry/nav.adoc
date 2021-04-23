@@ -1,3 +1,0 @@
-.Devfile registry
-
-* xref:index.adoc[]

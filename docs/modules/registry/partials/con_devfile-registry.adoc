@@ -1,7 +1,0 @@
-[id="con_devfile-registry_{context}"]
-= Devfile registry
-
-[role="_abstract"]
-// TODO
-
-Coming soon: an overview of the devfile registry. 

@@ -1,3 +1,0 @@
-.Devfile library and API
-
-* xref:index.adoc[]
