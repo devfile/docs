@@ -1,0 +1,258 @@
+[id="proc_devfile-properties_{context}"]
+= Devfile properties 
+
+[role="_abstract"]
+Use this page to work with yaml files of devfile properties. See the following table of contents to go to the devfile property you want to work with:
+
+== SchemaVersion
+
+[source,yaml]
+----
+v2.0
+---
+schemaVersion: 2.0.0
+----
+
+[cols="1,1"]
+|===
+|Key
+|schemaVersion
+
+|Type
+|string
+
+|Required
+|yes
+
+|Description
+|v2.0.0 of the schema
+|===
+
+For more information, go to: xref:migrating-schema-version.adoc[].
+
+== Metadata
+
+[source,yaml]
+----
+v2.0
+---
+metadata:
+  name: devfile-sample
+  version: 2.0.0
+----
+
+[cols="1,1"]
+|===
+|Key
+|metadataObject
+
+|Type
+|metadataObject
+
+|Required
+|no
+
+|Description
+|metadata to be used
+|===
+
+For more information, go to: xref:adding-projects-to-a-devfile.adoc[].
+
+== Starter projects
+
+[source,yaml]
+----
+v2.0
+---
+starterProjects:
+  - name: quarkus-quickstart
+    description: minimal CRUD app with quarkus
+    subDir: /getting-started/
+    git:
+      location: https://github.com/quarkusio/quarkus-quickstarts
+      branch: master
+      startPoint: 1.7.0.Final
+----
+
+[cols="1,1"]
+|===
+|Key
+|starterProjectObject
+
+|Type
+|starterProjectObject
+
+|Required
+|no
+
+|Description
+|list of starter projects to be used
+|===
+
+For more information, go to: xref:migrating-projects.adoc[].
+
+== Components
+
+[source,yaml]
+----
+v2.0
+---
+components:
+  - name: appsodyrun
+    container:
+      image: 'ajymau/java-openliberty-dev:latest'
+      memoryLimit: 1512Mi
+      mountSources: true
+      endpoints:
+        - name: 9080/tcp
+          exposure: public
+          public: true
+          protocol: http
+          targetPort: 9080
+      env:
+        - name: MODE2
+          value: TEST2
+        - name: myprop2
+          value: myval2
+      volumeMounts:
+        - name: myvol
+          path: /home/user/myvolpath
+  - name: myvol
+    volume:
+      size: 3Gi
+----
+
+[cols="1,1"]
+|===
+|Key
+|componentObject
+
+|Type
+|componentObject
+
+|Required
+|no
+
+|Description
+|list of components to be used
+|===
+
+For more information, go to: xref:migrating-components.adoc[].
+
+== Commands
+
+[source,yaml]
+----
+v2.0
+---
+commands:
+  - id: install
+    exec:
+      component: runtime
+      commandLine: npm install
+      workingDir: ${PROJECTS_ROOT}
+      group:
+        kind: build
+        isDefault: false
+  - id: mkdir
+    exec:
+      component: runtime
+      commandLine: mkdir /projects/testfolder
+      workingDir: ${PROJECTS_ROOT}
+  - id: run
+    exec:
+      component: runtime
+      commandLine: npm start
+      workingDir: ${PROJECTS_ROOT}
+      group:
+        kind: run
+        isDefault: true
+  - id: buildAndMkdir
+    composite:
+         label: Build and Mkdir
+         commands:
+           - mkdir
+           - install
+         parallel: false
+         group:
+            kind: build
+            isDefault: true
+----
+
+[cols="1,1"]
+|===
+|Key
+|commandObject
+
+|Type
+|commandObject
+
+|Required
+|no
+
+|Description
+|command to be executed in an existing component container
+|===
+
+For more information, go to: xref:migrating-commands.adoc[].
+
+== Events
+
+[source,yaml]
+----
+v2.0
+---
+commands:
+  - id: copy
+    exec:
+      commandLine: "cp /tools/myfile.txt tools.txt"
+      component: tools
+      workingDir: /
+  - id: initCache
+    exec:
+      commandLine: "./init_cache.sh"
+      component: tools
+      workingDir: /
+  - id: connectDB
+    exec:
+      commandLine: "./connect_db.sh"
+      component: runtime
+      workingDir: /
+  - id: disconnectDB
+    exec:
+      commandLine: "./disconnect_db.sh"
+      component: runtime
+      workingDir: /
+  - id: cleanup
+    exec:
+      commandLine: "./cleanup.sh"
+      component: tools
+      workingDir: /
+events:
+  preStart:
+    - "connectDB"
+  postStart:
+    - "copy"
+    - "initCache"
+  preStop:
+    - "disconnectDB"
+  postStop:
+    - "cleanup"
+----
+
+[cols="1,1"]
+|===
+|Key
+|eventObject
+
+|Type
+|eventObject
+
+|Required
+|no
+
+|Description
+|events to be executed during a project lifecycle
+|===
+
+For more information, go to: xref:adding-event-bindings.adoc[].
