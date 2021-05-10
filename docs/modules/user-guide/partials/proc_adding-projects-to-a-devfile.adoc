@@ -56,8 +56,6 @@ projects:
 
 . For each project, define an unique value for the mandatory `name` attribute.
 
-
-
 . For each project, define a mandatory source of either the `git` or `zip` type.
 
 `git`:: Projects with sources in Git. `checkoutFrom` refers to the branch being used.
@@ -113,20 +111,19 @@ projects:
 ----
 ====
 
-. For each project, define the optional `sparseCheckoutDir` attribute to populate the project sparsely with selected directories.
+. For each project, define the optional `sparseCheckoutDir` attribute to populate the project with selected directories.
 +
 [NOTE]
 ====
-* Set to `/my-module/` to create only the root `my-module` directory (and its content).
+* Set your project to `/my-module/` to create only the root `my-module` directory along with its content.
 
-* Omit the leading slash (`my-module/`) to create all `my-module` directories that exist in the project. Including, for example, `/addons/my-module/`.
-+
-The trailing slash indicates that only directories with the given name (including their content) are created.
+* Omit the leading slash,`my-module/`, to create all `my-module` directories that exist in the project, including, `/addons/my-module/`.
 
-* Use wildcards to specify more than one directory name. For example, setting `module-*` checks out all directories of the given project that start with `module-`.
+** The trailing slash indicates that only directories and their content with the given name are created.
+
+* Use wildcards to specify more than one directory name. For example, the setting `module-*` checks out all directories of the given project that start with `module-`.
 
 For more information, see link:https://git-scm.com/docs/git-read-tree#_sparse_checkout[Sparse checkout in Git documentation].
-
 ====
 
 [role="_additional-resources"]
