@@ -28,7 +28,7 @@ schemaVersion: 2.0.0
 |v2.0.0 of the schema
 |===
 
-For more information on the schemaVersion in devfiles, go to: xref:migrating-schema-version.adoc[].
+For more information on the schemaVersion in devfiles, see: xref:migrating-schema-version.adoc[].
 
 == Metadata
 
@@ -56,7 +56,7 @@ metadata:
 |metadata to be used
 |===
 
-For more information on the metadata in devfiles, go to: xref:adding-projects-to-a-devfile.adoc[].
+For more information on the metadata in devfiles, see: xref:adding-projects-to-a-devfile.adoc[].
 
 == StarterProjects
 
@@ -89,7 +89,7 @@ starterProjects:
 |list of starter projects to be used
 |===
 
-This starterProject example uses a Quarkus framework. For more information on the starterProjects in devfiles, go to: xref:migrating-projects.adoc[].
+This starterProject example uses a Quarkus framework. For more information on the starterProjects in devfiles, see: xref:migrating-projects.adoc[].
 
 == Components
 
@@ -137,7 +137,7 @@ components:
 |list of components to be used
 |===
 
-This component example uses an Open Liberty container, For more information on the components in devfiles, go to: xref:migrating-components.adoc[].
+This component example uses an Open Liberty container, For more information on the components in devfiles, see: xref:migrating-components.adoc[].
 
 == Commands
 
@@ -194,7 +194,7 @@ commands:
 |command to be executed in an existing component container
 |===
 
-This commands example uses an Open Liberty container. For more information on the commands in devfiles, go to: xref:migrating-commands.adoc[].
+This commands example uses an Open Liberty container. For more information on the commands in devfiles, see: xref:migrating-commands.adoc[].
 
 == Events
 
@@ -255,4 +255,4 @@ events:
 |events to be executed during a project lifecycle
 |===
 
-This events example uses an Open Liberty container. For more information on the events in devfiles, go to: xref:adding-event-bindings.adoc[].
+This events example uses an Open Liberty container. For more information on the events in devfiles, see: xref:adding-event-bindings.adoc[].
