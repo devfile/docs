@@ -1,4 +1,4 @@
-[id="proc_refering-to-a-parent-devfile-in-a-devfile_{context}"]
+[id="proc_referring-to-a-parent-devfile-in-a-devfile_{context}"]
 = Referring to a parent devfile in a devfile
 
 [role="_abstract"]
