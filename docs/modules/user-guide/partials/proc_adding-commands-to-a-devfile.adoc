@@ -2,7 +2,7 @@
 = Adding commands to a devfile
 
 [role="_abstract"]
-A devfile allows to specify commands to be available for execution in a workspace. Every command can contain a subset of actions, which are related to a specific component in whose container it will be executed.
+In your devfile, specify the commands to be executed in a workspace. Every command can contain a subset of actions. These subsets are related to a specific component and are executed in the container within the component.
 
 .Prerequisites
 
@@ -68,11 +68,11 @@ commands:
 +
 [NOTE]
 
-* A command can have only one action, though you can use `composite` commands to execute several commands either sequentially or in parallel.
+* A command only has one action. Still, you can use `composite` commands to execute several commands either sequentially or in parallel.
 
 . Command group
 +
-A given command can be assigned to one or more groups that represents the nature of the command.  The support groups are: `build`, `run`, `test` and `debug`. For each of the groups, one default command can be defined in each group by specifying the `isDefault` value.
+You can assign a given command to one or more groups that represents the nature of the command.  The support groups are: `build`, `run`, `test` and `debug`. For each of the groups, define one default command in each group by specifying the `isDefault` value.
 +
 [source,yaml]
 ----
@@ -109,7 +109,7 @@ commands:
 
 . Composite command
 +
-A composite command can be defined to chain multiple commands together. The individual commands that are called from a composite command can be referenced by the `name` of the command.  A `parallel` boolean can be specified to determine if the commands within a composite command are being executed sequentially or in parallel.
+You can define a composite command to chain multiple commands together. Reference the individual commands that are called from a composite command by the `name` of the command.  Specify a `parallel` boolean to determine if the commands within a composite command are being executed sequentially or in parallel.
 +
 [source,yaml]
 ----
