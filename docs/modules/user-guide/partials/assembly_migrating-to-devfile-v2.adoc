@@ -18,7 +18,7 @@ The following documents explain how to migrate an existing v1.x devfile to a v2.
 * xref:migrating-components.adoc[]
 * xref:migrating-plug-ins.adoc[]
 * xref:migrating-commands.adoc[]
-* xref:refering-to-a-parent-devfile-in-a-devfile.adoc[]
+* xref:referring-to-a-parent-devfile-in-a-devfile.adoc[]
 * xref:adding-event-bindings.adoc[]
 
 [role="_additional-resources"]
