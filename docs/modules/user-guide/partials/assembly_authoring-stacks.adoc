@@ -21,7 +21,7 @@ Use the following documents to learn how to write a stack by using devfiles:
 * xref:adding-commands-to-a-devfile.adoc[]
 * xref:adding-components-to-a-devfile.adoc[]
 * xref:adding-attributes-to-a-devfile.adoc[]
-* xref:refering-to-a-parent-devfile-in-a-devfile.adoc[]
+* xref:referring-to-a-parent-devfile-in-a-devfile.adoc[]
 
 // [role="_additional-resources"]
 // == Additional resources (or Next steps)

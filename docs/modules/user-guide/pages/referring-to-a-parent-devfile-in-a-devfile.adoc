@@ -1,0 +1,6 @@
+:description: Referring to a parent devfile in a devfile
+:navtitle: Referring to a parent
+:keywords: authoring, stack, referring, parent
+:page-aliases:
+
+include::partial$proc_referring-to-a-parent-devfile-in-a-devfile.adoc[]
