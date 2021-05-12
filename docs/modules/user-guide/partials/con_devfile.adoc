@@ -38,3 +38,5 @@ Developers use devfiles to focus only on developing their applications. With dev
 * Work with devfiles: xref:authoring-stacks.adoc[]
 * Update devfiles: xref:migrating-to-devfile-v2.adoc[]
 * Learn more about devfiles: xref:devfile-samples.adoc[]
+* Devfile registry: link:https://registry.devfile.io/[registry.devfile.io]
+* Devfile registry source: link:https://github.com/devfile/registry[devfile/registry]
