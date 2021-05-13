@@ -36,7 +36,7 @@ parent:
 +
 .Parent referred by uri
 ====
-Using the URI if it has been published on a static http server, like `gist` or `pastebin`.
+Using the URI if it has been published on a static http server, such as `gist` or `pastebin`.
 
 [source,yaml]
 ----
@@ -67,7 +67,7 @@ parent:
 [role="_additional-resources"]
 .Additional resources
 
-For more information on referring to parent devfiles, see:
+For more information about referring to parent devfiles, see:
 
 * xref:api-reference.adoc[]
 * xref:devfile-samples.adoc[]
