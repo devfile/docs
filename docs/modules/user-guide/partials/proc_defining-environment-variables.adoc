@@ -2,12 +2,11 @@
 = Defining environment variables
 
 [role="_abstract"]
-Environment variables are supported by the `container` component and `exec` command.
-If the component has multiple containers, environment variables will be provisioned for each container.
+Environment variables are supported by the `container` component and the `exec` command. If the component has multiple containers, environment variables are provisioned for each container.
 
 .Procedure
 
-. Specify environment variables for `container` components
+. Specify environment variables for `container` components.
 +
 .Specifying environment variables for a `container` component
 ====
