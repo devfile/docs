@@ -37,7 +37,7 @@ metadata:
 
 [NOTE]
 
-If you create workspaces using a factory, defining `name` or `generateName` has the same effect. Use the defined value as the name prefix: `<name>YYYYY` or `<generateName>YYYYY`. If you define both `generateName` and `name`, then the `generateName` takes precedence.
+Defining `name` or `generateName` has the same effect when creating workspaces using a factory. The value forms the name prefix: `<name>YYYYY` or `<generateName>YYYYY`. When defining both `generateName` and `name`, `generateName` takes precedence.
 
 [role="_additional-resources"]
 .Additional resources
