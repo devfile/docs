@@ -117,11 +117,11 @@ projects:
 +
 [NOTE]
 ====
-* Set to `/my-module/` to create only the root `my-module` directory (and its content).
+* Set the project to `/my-module/` to create only the root `my-module` directory along with its content.
 
 * Omit the leading slash (`my-module/`) to create all `my-module` directories that exist in the project. Including, for example, `/addons/my-module/`.
-+
-The trailing slash indicates that only directories with the given name (including their content) are created.
+
+** Add a trailing slash to create only directories with the given name (and its content).
 
 * Use wildcards to specify more than one directory name. For example, setting `module-*` checks out all directories of the given project that start with `module-`.
 
