@@ -2,19 +2,28 @@
 = Defining Kubernetes resources
 
 [role="_abstract"]
-Complex deployments can be described using Kubernetes or OpenShift resource lists that can be referenced in the devfile. This makes them a part of the workspace
+Use Kubernetes or OpenShift resource lists to describe complex deployments. Use devfiles to reference Kubernetes or the OpenShift resource lists; referencing them makes them part of the workspace.
 
 .Procedure
 
 [IMPORTANT]
 ====
-* Because a {prod-short} workspace is internally represented as a single deployment, all resources from the Kubernetes or OpenShift list are merged into that single deployment.
+* Because a devfile workspace is internally represented as a single deployment, all resources from the Kubernetes or OpenShift list are merged into that single deployment.
 
-* Be careful when designing such lists because this can result in name conflicts and other problems.
+* Be careful when designing such lists because they can produce name conflicts.
 
-* Only the following subset of the Kubernetes objects are supported: `deployments`, `pods`, `services`, `persistent volume claims`, `secrets`, and `config maps`. Kubernetes Ingresses are ignored, but OpenShift routes are supported. A workspace created from a devfile using any other object types fails to start.
+* Only the following subset of the Kubernetes objects are supported:
 
-* When running {prod-short} on a Kubernetes cluster, only Kubernetes lists are supported. When running {prod-short} on an OpenShift cluster, both Kubernetes and OpenShift lists are supported.
+** `deployments`
+** `pods`
+** `services`
+** `persistent volume claims`
+** `secrets`
+** `config maps`
+
+Kubernetes Ingresses are ignored, but OpenShift routes are supported. A workspace created from a devfile using any other object types fails to start.
+
+* When running devfiles on a Kubernetes cluster, only Kubernetes lists are supported. When running devfiles on an OpenShift cluster, both Kubernetes and OpenShift lists are supported.
 ====
 
 [source,yaml]
@@ -34,7 +43,7 @@ components:
       uri: ../relative/path/postgres.yaml
 ----
 
-The preceding component references a file that is relative to the location of the devfile itself. Meaning, this devfile is only loadable by a {prod-short} factory to which you supply the location of the devfile and therefore it is able to figure out the location of the referenced Kubernetes resource list.
+The preceding component references a file that is relative to the location of the devfile. Therefore, this devfile is only loadable by a devfile factory. You supply the location of your devfile to the devfile factory, and then your devfile figures out the location of the referenced Kubernetes resource list.
 
 The following is an example of the `postgres.yaml` file.
 
@@ -97,4 +106,4 @@ items:
                 storage: 1Gi
 ----
 
-For a basic example of a devfile with an associated Kubernetes or OpenShift list, see link:https://github.com/redhat-developer/devfile/tree/master/samples/web-nodejs-with-db-sample[web-nodejs-with-db-sample] on redhat-developer GitHub.
+For a basic example of a devfile with an associated Kubernetes or OpenShift list, see link:https://github.com/redhat-developer/devfile/tree/master/samples/web-nodejs-with-db-sample[web-nodejs-with-db-sample].
