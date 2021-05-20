@@ -30,7 +30,7 @@ metadata:
 ----
 schemaVersion: 2.1.0
 metadata:
-  name: devfile-sample
+  generateName: devfile-sample
   version: 2.0.0
 ----
 
