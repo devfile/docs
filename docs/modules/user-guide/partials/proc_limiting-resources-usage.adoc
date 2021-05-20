@@ -21,7 +21,7 @@ To specify a container(s) memory limit for `container`, `plugin`, use the `memor
       memoryLimit: 1Gi
    -   name: maven
      container:
-      image: eclipe/maven-jdk8:latest
+      image: eclipse/maven-jdk8:latest
       memoryLimit: 512M
 ----
 ====
@@ -47,7 +47,7 @@ To specify a container(s) memory request for `plugin` use the `memoryRequest` pa
       memoryRequest: 512M
    - name: maven
      container:
-      image: eclipe/maven-jdk8:latest
+      image: eclipse/maven-jdk8:latest
       memoryLimit: 512M
       memoryRequest: 256M
 ----
@@ -75,7 +75,7 @@ To specify a container(s) CPU limit for `plugin` or `container` use the `cpuLimi
        cpuLimit: 1.5
    - name: maven
      container:
-      image: eclipe/maven-jdk8:latest
+      image: eclipse/maven-jdk8:latest
       cpuLimit: 750m
 ----
 ====
@@ -103,7 +103,7 @@ To specify a container(s) CPU request for `plugin` or `container` use the `cpuRe
       cpuRequest: 0.225
    - name: maven
      container:
-      image: eclipe/maven-jdk8:latest
+      image: eclipse/maven-jdk8:latest
       cpuLimit: 750m
       cpuRequest: 450m
 ----
