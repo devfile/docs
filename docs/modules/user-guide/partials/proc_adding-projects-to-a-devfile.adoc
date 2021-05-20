@@ -103,7 +103,7 @@ projects:
   - name: my-project-resource
     clonePath: resources/my-project
     zip:
-    location: http://host.net/path/project-res.zip
+      location: http://host.net/path/project-res.zip
   - name: my-project2
       git:
         remotes:
