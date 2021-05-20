@@ -88,7 +88,7 @@ projects:
 components:
   - name: maven
     container:
-      image: eclipe/maven-jdk8:latest
+      image: eclipse/maven-jdk8:latest
       mountSources: true
       command: ['tail']
 commands:
@@ -125,7 +125,7 @@ projects:
 components:
   - name: maven
     container:
-      image: eclipe/maven-jdk8:latest
+      image: eclipse/maven-jdk8:latest
       mountSources: true
       command: ['tail']
 commands:
