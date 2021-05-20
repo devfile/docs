@@ -41,7 +41,7 @@ A component type that allows to define a container image-based configuration of 
 .A minimal `container` component*
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
     name: mydevfile
 components:
@@ -62,7 +62,7 @@ For the `container` component to have access to the project sources, you must se
 +
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
     name: mydevfile
 components:
