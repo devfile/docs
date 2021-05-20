@@ -20,7 +20,7 @@ A component type that allows to define a container image-based configuration of 
  components:
    - name: maven
      container:
-      image: eclipe/maven-jdk8:latest
+      image: eclipse/maven-jdk8:latest
       volumeMounts:
         - name: mavenrepo
           path: /root/.m2
