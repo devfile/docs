@@ -30,7 +30,7 @@ projects:
       remotes:
         origin: "https://github.com/spring-projects/spring-petclinic.git"
       checkoutFrom:
-        revision: master
+        revision: main
 ----
 ====
 +
@@ -72,7 +72,7 @@ projects:
       remotes:
         origin: "https://github.com/my-org/project1.git"
       checkoutFrom:
-        revision: master           <1>
+        revision: main           <1>
 ----
 ====
 
