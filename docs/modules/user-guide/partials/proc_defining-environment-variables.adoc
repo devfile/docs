@@ -13,7 +13,7 @@ If the component has multiple containers, environment variables will be provisio
 ====
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
   name: mydevfile
 components:
