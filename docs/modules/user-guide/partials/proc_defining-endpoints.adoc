@@ -77,12 +77,6 @@ schemaVersion: 2.1.0
 metadata:
   name: mydevfile
 components:
-  - name: theia-editor
-      endpoints:
-      - name: 'theia-extra-endpoint'
-        targetPort: 8880
-        exposure: public
-
   - openshift:
       name: webapp
       uri: webapp.yaml
