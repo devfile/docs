@@ -4,6 +4,8 @@
 /build/
 /node_modules/
 /workspace/
-docs/modules/user-guide/attachments/api-reference/
-docs/modules/user-guide/examples/api-reference/
+docs/modules/user-guide/attachments/api-reference/next
+docs/modules/user-guide/attachments/api-reference/stable
+docs/modules/user-guide/examples/api-reference/next
+docs/modules/user-guide/examples/api-reference/stable
 yarn-error.log
