@@ -1,11 +1,11 @@
 ---
 asciidoc:
   attributes:
-    prod-ver: 2.1
+    prod-ver: 2.2
 name: devfile
 nav:
   - modules/user-guide/nav.adoc
 start_page: user-guide:index.adoc
-title: Devfile User Guide 2.1.0
-version: '2.1.0'
+title: Devfile User Guide 2.2.0
+version: '2.2.0'
 prerelease: -alpha
