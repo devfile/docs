@@ -8,11 +8,11 @@ Use Kubernetes or OpenShift resource lists to describe complex deployments. Use 
 
 [IMPORTANT]
 ====
-* Because a devfile workspace is internally represented as a single deployment, all resources from the Kubernetes or OpenShift list are merged into that single deployment.
+* Because a {prod-short} workspace is internally represented as a single deployment, all resources from the Kubernetes or OpenShift list are merged into that single deployment.
 
 * Be careful when designing such lists because they can produce name conflicts.
 
-* Only the following subset of the Kubernetes objects are supported:
+* When running {prod-short} on a Kubernetes cluster, only Kubernetes lists are supported. When running {prod-short} on an OpenShift cluster, both Kubernetes and OpenShift lists are supported:
 
 ** `deployments`
 ** `pods`
@@ -43,7 +43,7 @@ components:
       uri: ../relative/path/postgres.yaml
 ----
 
-The preceding component references a file that is relative to the location of the devfile. Therefore, this devfile is only loadable by a devfile factory. You supply the location of your devfile to the devfile factory, and then your devfile figures out the location of the referenced Kubernetes resource list.
+The preceding component references a file that is relative to the location of the devfile. Therefore, this devfile is only loadable by a {prod-short} factory. You supply the location of your devfile to the devfile factory, and then your devfile determines the location of the referenced Kubernetes resource list.
 
 The following is an example of the `postgres.yaml` file.
 
