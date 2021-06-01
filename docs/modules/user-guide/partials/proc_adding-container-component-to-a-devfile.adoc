@@ -52,7 +52,7 @@ components:
       command: ['sleep', 'infinity']
 ----
 +
-Specify the type of component with the `container` attribute. Use the `image` attribute to name the image used for the component. When naming the `image` attribute, use Docker naming conventions; for instance, the `image` attribute in the preceding example is equal to `docker.io/library/golang:latest`.
+Specify the type of component using the `container` attribute. Use the `image` attribute to specify the image for the component. When defining the `image`, use container naming conventions. For example, the `image` attribute in the preceding example refers to the `docker.io/library/golang:latest` container image.
 +
 With a `container` component, you can augment the image with additional resources and information. You need these recourses and information so you can integrate the tools provided by the devfile image.
 
