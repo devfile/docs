@@ -78,7 +78,7 @@ commands:
 
 . Command group
 +
-You can assign a given command to one or more groups that represents the nature of the command.  The support groups are:
+To assign a given command to one or more groups that represent the nature of the command, use the following supported group types:
 +
 * `build`
 * `run`
