@@ -10,7 +10,7 @@ Reference Kubernetes or OpenShift resource lists in devfiles to describe complex
 ====
 * Because a devfile workspace is internally represented as a single deployment, all resources from the Kubernetes or OpenShift list are merged into that single deployment.
 
-* Be careful when designing such lists because they can produce name conflicts.
+* Avoid name conflicts when designing such lists.
 
 * Only the following subset of the Kubernetes objects are supported:
 
