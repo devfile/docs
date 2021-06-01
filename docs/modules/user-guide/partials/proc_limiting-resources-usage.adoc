@@ -2,7 +2,7 @@
 = Limiting resources usage
 
 [role="_abstract"]
-This section describes how to limit resources usage in devfiles.
+This section describes how to limit resource use in devfiles.
 
 .Procedure
 
