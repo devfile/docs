@@ -2,7 +2,7 @@
 = Defining Kubernetes resources
 
 [role="_abstract"]
-Use Kubernetes or OpenShift resource lists to describe complex deployments. Use devfiles to reference Kubernetes or the OpenShift resource lists; referencing them makes them part of the workspace.
+Reference Kubernetes or OpenShift resource lists in devfiles to describe complex deployments. This them makes them part of the workspace.
 
 .Procedure
 
