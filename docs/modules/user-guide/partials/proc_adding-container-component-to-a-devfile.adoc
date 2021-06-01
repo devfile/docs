@@ -78,7 +78,7 @@ The sources is mounted on a location stored in the `PROJECTS_ROOT` environment v
 
 . Container Entrypoint
 +
-Use the `command` attribute of the `container` to modify the `entrypoint` command of the container created from the image. In devfiles, the container runs indefinitely, so you can consistently connect to it and execute commands in it. The availability of the `sleep` command and the support for the `infinity` argument depend on the base image used in the particular images. Therefore, devfiles cannot automatically include these commands.
+Use the `command` attribute of the `container` type to modify the `entrypoint` command of the container created from the image. When a devfile is used in {che-prod}, the container runs indefinitely, so the user can consistently connect to it and execute commands in it. The availability of the `sleep` command and the support for the `infinity` argument depend on the base image used in the particular images.
 
 [role="_additional-resources"]
 .Additional resources
