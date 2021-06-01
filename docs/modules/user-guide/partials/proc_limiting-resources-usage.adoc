@@ -26,7 +26,7 @@ To specify a container memory limit for `container`, use the `memoryLimit` param
 This limit applies to every container of the given component.
 +
 
-If they are not specified, the values are undetermined, meaning they may or may not be inferred from the application that consumes the devfile or from Kubernetes.
+When not specified, the values may or may not be inferred from the application that consumes the devfile or from the underlying platform (for example, Kubernetes).
 +
 
 . Specify container CPU limit and container CPU request for components
