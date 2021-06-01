@@ -54,7 +54,7 @@ components:
 +
 Specify the type of component using the `container` attribute. Use the `image` attribute to specify the image for the component. When defining the `image`, use container naming conventions. For example, the `image` attribute in the preceding example refers to the `docker.io/library/golang:latest` container image.
 +
-With a `container` component, you can augment the image with additional resources and information. You need these recourses and information so you can integrate the tools provided by the devfile image.
+Use the `container` component to augment the image with additional resources and information to allow for integrating the tooling provided by the image with the application that consumes the devfile, for example, {che-prod}.
 
 . Mounting project sources
 +
