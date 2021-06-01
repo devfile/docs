@@ -12,7 +12,7 @@ A `container` component can specify the volumes to be mounted on specific locati
 ====
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
   name: mydevfile
 components:
@@ -27,6 +27,6 @@ components:
           path: /.cache
   - name: cache
     volume:
-          size: 2Gi
+      size: 2Gi
 ----
 ====

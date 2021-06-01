@@ -1,6 +1,0 @@
-:description: Adding plugin component to a devfile
-:navtitle: Adding plugin component
-:keywords: authoring, stack, components
-:page-aliases: 
-
-include::partial$proc_adding-plugin-component-to-a-devfile.adoc[]

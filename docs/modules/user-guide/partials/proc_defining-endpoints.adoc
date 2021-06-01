@@ -16,7 +16,7 @@ Use any type of component to specify the endpoints that the container exposes. Y
 ====
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
   name: mydevfile
 projects:
@@ -77,16 +77,10 @@ Devfiles autodetect a new server starting within a component, and the UI offers 
 
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
   name: mydevfile
 components:
-  - name: theia-editor
-      endpoints:
-      - name: 'theia-extra-endpoint'
-        targetPort: 8880
-        exposure: public
-
   - openshift:
       name: webapp
       uri: webapp.yaml

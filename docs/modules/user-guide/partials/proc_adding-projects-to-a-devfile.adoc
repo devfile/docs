@@ -20,17 +20,17 @@ This section describes how to add one or more projects to a devfile.
 ====
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
   name: petclinic-dev-environment
-  version: 2.0.0
+  version: 1.0.0
 projects:
   - name: petclinic
     git:
       remotes:
         origin: "https://github.com/spring-projects/spring-petclinic.git"
       checkoutFrom:
-        revision: master
+        revision: main
 ----
 ====
 +
@@ -38,10 +38,10 @@ projects:
 ====
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
   name: example-devfile
-  version: 2.0.0
+  version: 1.0.0
 projects:
 - name: frontend
   git:
@@ -72,7 +72,7 @@ projects:
       remotes:
         origin: "https://github.com/my-org/project1.git"
       checkoutFrom:
-        revision: master           <1>
+        revision: main           <1>
 ----
 ====
 
@@ -95,7 +95,7 @@ source:
 ====
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
   name: my-project-dev
   version: 2.0.0
@@ -103,7 +103,7 @@ projects:
   - name: my-project-resource
     clonePath: resources/my-project
     zip:
-    location: http://host.net/path/project-res.zip
+      location: http://host.net/path/project-res.zip
   - name: my-project2
       git:
         remotes:

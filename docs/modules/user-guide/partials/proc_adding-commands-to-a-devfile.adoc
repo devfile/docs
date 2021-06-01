@@ -37,7 +37,7 @@ A devfile allows to specify commands to be available for execution in a workspac
 +
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
   name: mydevfile
 projects:
@@ -76,7 +76,7 @@ A given command can be assigned to one or more groups that represents the nature
 +
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
   name: mydevfile
 projects:
@@ -88,7 +88,7 @@ projects:
 components:
   - name: maven
     container:
-      image: eclipe/maven-jdk8:latest
+      image: eclipse/maven-jdk8:latest
       mountSources: true
       command: ['tail']
 commands:
@@ -113,7 +113,7 @@ A composite command can be defined to chain multiple commands together. The indi
 +
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
   name: mydevfile
 projects:
@@ -125,7 +125,7 @@ projects:
 components:
   - name: maven
     container:
-      image: eclipe/maven-jdk8:latest
+      image: eclipse/maven-jdk8:latest
       mountSources: true
       command: ['tail']
 commands:
