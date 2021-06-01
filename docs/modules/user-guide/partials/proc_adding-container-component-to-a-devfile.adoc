@@ -2,7 +2,7 @@
 = Adding `container` components to a devfile
 
 [role="_abstract"]
-Use devfile components to define a container image-based configuration of a container in your workspace. The devfile component is identified by its image and can contain one or more components of the `container` type. Use the `container` type of components to incorporate custom tools into your workspace.
+Use the `container` component type to define an image-based configuration of a container in a workspace. This allows to incorporate custom tools into the workspace. A devfile can contain one or more components of the `container` type. The `image` attribute identifies the component.
 
 .Prerequisites
 
