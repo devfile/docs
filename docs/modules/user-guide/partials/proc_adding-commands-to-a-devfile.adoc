@@ -122,7 +122,7 @@ commands:
 
 . Composite command
 +
-You can define a composite command to chain multiple commands together. Reference the individual commands that are called from a composite command by the `name` of the command.  Specify a `parallel` boolean to determine if the commands within a composite command are being executed sequentially or in parallel.
+To chain multiple commands together, define a composite command. To reference the individual commands that are called from a composite command, use the `name` of the command. To specify whether commands within a composite command are to be executed sequentially or in parallel, define the `parallel` boolean.
 +
 [source,yaml]
 ----
