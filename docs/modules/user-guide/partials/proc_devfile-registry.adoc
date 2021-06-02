@@ -1,0 +1,50 @@
+[id="proc_devfile-registry_{context}"]
+= Devfile registry
+
+[role="_abstract"]
+A devfile registry is a service that stores and provides devfile stacks to Kubernetes developer tools like odo, Eclipse Che and the OpenShift Developer Console. Therefore, users can access devfiles through the devfile registry.  Devfile registries are based on the Oracle Cloud Infrastructure (OCI) Specification, and devfile stacks are stored as OCI-artifacts in the registry.
+
+Each devfile stack corresponds to a specific runtime or framework, such as,  NodeJS, Quarkus, and Wildfly. A devfile stack also contains resources, such as, a devfile.yaml, logo, and outerloop resources. These devfile stacks give users a template so they can get started developing with devfiles. For more information on the structure of a devfile registry, see https://github.com/johnmcollier/registry-docs/blob/main/registry-structure.adoc[registry-structure].
+
+== Devfile registry components
+
+A devfile registry is composed of two components, a devfile index server and an OCI registry server.
+
+.Devfile index server
+
+The server, and the resulting container image, does the following:
+
+* Uses the index.json file to obtain metadata about the stacks and samples and hosts this metadata in the registry for tools to consume
+* Bootstraps the OCI registry with the devfile stacks
+* Provides an API to interact with the OCI registry and to retrieve devfile stacks
+
+For more information on the index server, see https://github.com/johnmcollier/registry-docs/blob/main/registry-REST-API.adoc[registry-REST-API].
+
+.OCI registry
+
+The devfile stacks in a devfile registry are stored in an OCI-compatible artifact registry, currently based on the https://github.com/distribution/distribution[reference implementation of an OCI registry].
+
+When a devfile registry is deployed, the stacks belonging to the devfile registry are pushed to the OCI registry as multi-layer artifacts. For more information on the structure of the devfile stacks within the OCI registry, see https://github.com/johnmcollier/registry-docs/blob/main/registry-structure.adoc[registry-structure].
+
+== Types of devfile registries
+
+Users can use multiple types of devfile registries to access devfile stacks and tools.
+
+.Public community registry
+
+The public community registry provides stacks for various community tools to consume. Examples include: https://registry.devfile.io/devfiles/nodejs[NodeJS], https://registry.devfile.io/devfiles/java-quarkus[Quarkus], and https://registry.devfile.io/devfiles/java-openliberty[Open Liberty].
+
+Locate the source repository for the stacks in the public community registry at the https://github.com/devfile/registry[devfile/registry repository].
+
+.On-cluster devfile registry
+
+Private, on-cluster devfile registries can be configured on a user's own Kubernetes cluster, deployed using either the https://github.com/devfile/registry-operator[devfile registry operator] or the https://github.com/devfile/registry-support/tree/master/deploy/chart/devfile-registry[devfile registry helm chart].
+
+The on-cluster devfile registries can be configured with custom devfile stacks suited to users' needs for their organization.
+
+== Additional resources
+
+After understanding the basics of a devfile registry, start working with a devfile registry by going to:
+
+* https://github.com/johnmcollier/registry-docs/blob/main/setting-up-registry.adoc[Setting up registry]
+* https://github.com/johnmcollier/registry-docs/blob/main/deploy-registry.adoc[Deploying registry]
