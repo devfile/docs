@@ -1,4 +1,5 @@
 * xref:index.adoc[]
+* xref:devfile-registry.adoc[]
 
 * Developer
 ** xref:using-stacks.adoc[]
