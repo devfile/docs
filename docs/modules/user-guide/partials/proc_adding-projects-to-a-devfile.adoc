@@ -26,8 +26,10 @@ metadata:
 projects:
   - name: petclinic
     git:
-      location: 'https://github.com/spring-projects/spring-petclinic.git'
-      branch: master
+      remotes:
+        origin: 'https://github.com/spring-projects/spring-petclinic.git'
+      checkoutFrom:
+        revision: master
 ----
 ====
 +
@@ -41,10 +43,12 @@ metadata:
 projects:
 - name: frontend
   git:
-    location: https://github.com/acmecorp/frontend.git
+    remotes:
+      origin: https://github.com/acmecorp/frontend.git
 - name: backend
   git:
-    location: https://github.com/acmecorp/backend.git
+    remotes:
+      origin: https://github.com/acmecorp/backend.git
 ----
 ====
 
@@ -54,7 +58,7 @@ projects:
 
 . For each project, define a mandatory source of one of the following types: `git`, `github` and `zip`.
 
-`git`:: Projects with sources in Git. The location points to a clone link.
+`git`:: Projects with sources in Git.
 +
 .Project-source type: git
 ====
