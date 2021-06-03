@@ -17,7 +17,7 @@ To specify a container memory limit for `container`, use the `memoryLimit` param
   components:
    - name: maven
      container:
-      image: eclipe/maven-jdk8:latest
+      image: eclipse/maven-jdk8:latest
       memoryLimit: 512M
       memoryRequest: 256M
 ----
@@ -40,7 +40,7 @@ To specify a container CPU limit for `container`, use the `cpuLimit` parameter. 
   components:
    - name: maven
      container:
-      image: eclipe/maven-jdk8:latest
+      image: eclipse/maven-jdk8:latest
       cpuLimit: 750m
       cpuRequest: 450m
 ----

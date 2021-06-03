@@ -20,7 +20,7 @@ Use the `container` component type to define an image-based configuration of a c
  components:
    - name: maven
      container:
-      image: eclipe/maven-jdk8:latest
+      image: eclipse/maven-jdk8:latest
       volumeMounts:
         - name: mavenrepo
           path: /root/.m2
@@ -33,15 +33,18 @@ Use the `container` component type to define an image-based configuration of a c
            protocol: https
            secure: 'true'
            exposure: public
+       memoryRequest: 256M
        memoryLimit: 1536M
+       cpuRequest: 0.1
+       cpuLimit: 0.5
        command: ['tail']
        args: ['-f', '/dev/null']
 ----
 +
-.A minimal `container` component*
+.A minimal `container` component
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
     name: mydevfile
 components:
@@ -62,7 +65,7 @@ For the `container` component to have access to the project sources, you must se
 +
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
     name: mydevfile
 components:

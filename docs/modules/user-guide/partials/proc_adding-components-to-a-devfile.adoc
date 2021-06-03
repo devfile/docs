@@ -15,9 +15,8 @@ Each component in a single devfile must have a unique name.
 
 . For each component, define an unique value for the mandatory `name` attribute.
 
-. For each component, define a mandatory type of one of the following types: `plugin`, `kubernetes` or `container`.
+. For each component, define a mandatory type of one of the following types: `kubernetes`, `container` or `volume`.
 
-. xref:adding-plugin-component-to-a-devfile.adoc[]
 . xref:adding-kubernetes-component-to-a-devfile.adoc[]
 . xref:adding-container-component-to-a-devfile.adoc[]
 . xref:specifying-persistent-storage.adoc[]

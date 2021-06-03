@@ -25,7 +25,7 @@ Using its `id` if it has been published in a registry.
 
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
   name: my-project-dev
 parent:
@@ -40,7 +40,7 @@ Using the URI if it has been published on a static http server, such as gist or 
 
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
   name: my-project-dev
 parent:
@@ -54,7 +54,7 @@ Using a Kubernetes resource name and namespace if it has been deployed on a Kube
 
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
   name: my-project-dev
 parent:
