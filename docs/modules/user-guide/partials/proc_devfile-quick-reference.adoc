@@ -1,8 +1,8 @@
-[id="proc_devfile-properties_{context}"]
-= Devfile properties
+[id="proc_devfile-quick-reference_{context}"]
+= Devfile quick reference
 
 [role="_abstract"]
-This page quickly introduces you to devfile properties. The code snippets help you get started developing your own devfile projects. The tables show you what the different devfile properties require if you use these properties. See the following table of contents to go to the devfile property you want to work with:
+This page quickly introduces you to devfile properties. The code snippets help you get started developing your own devfile projects. The tables show you what the different devfile properties require if you use these properties. Refer to the table of contents to go to the devfile property you want to work with.
 
 == SchemaVersion
 
@@ -256,3 +256,8 @@ events:
 |===
 
 This events example uses an Open Liberty container. For more information about the events in devfiles, see: xref:adding-event-bindings.adoc[].
+
+== Additional Resources
+
+* To start working on your own devfile, see xref:authoring-stacks.adoc[].
+* For details on what makes a devfile, see xref:api-reference.adoc[].

@@ -1,5 +1,5 @@
 * xref:index.adoc[]
-* xref:devfile-properties.adoc[]
+* xref:devfile-quick-reference.adoc[]
 
 * xref:authoring-stacks.adoc[]
 ** xref:adding-schema-version-to-a-devfile.adoc[]

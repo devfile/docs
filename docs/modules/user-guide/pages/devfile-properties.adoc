@@ -1,6 +1,0 @@
-:description: Devfile Properties
-:navtitle: devfile-properties
-:keywords: devfile
-// :page-aliases:
-
-include::partial$proc_devfile-properties.adoc[]

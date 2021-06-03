@@ -1,0 +1,6 @@
+:description: Devfile Quick Reference
+:navtitle: devfile-quick-reference
+:keywords: devfile
+// :page-aliases:
+
+include::partial$proc_devfile-quick-reference.adoc[]
