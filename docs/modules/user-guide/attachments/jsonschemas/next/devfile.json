@@ -1,7 +1,7 @@
 {
   "description": "Devfile describes the structure of a cloud-native devworkspace and development environment.",
   "type": "object",
-  "title": "Devfile schema - Version 2.1.0-alpha",
+  "title": "Devfile schema - Version 2.2.0-alpha",
   "required": [
     "schemaVersion"
   ],
@@ -1354,13 +1354,6 @@
                 "maxLength": 63,
                 "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
               },
-              "sparseCheckoutDirs": {
-                "description": "Populate the project sparsely with selected directories.",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "zip": {
                 "description": "Project's Zip source",
                 "type": "object",
@@ -1545,13 +1538,6 @@
             "type": "string",
             "maxLength": 63,
             "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
-          },
-          "sparseCheckoutDirs": {
-            "description": "Populate the project sparsely with selected directories.",
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           },
           "zip": {
             "description": "Project's Zip source",

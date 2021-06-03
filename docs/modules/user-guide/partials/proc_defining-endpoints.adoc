@@ -12,7 +12,7 @@ Components of any type can specify the endpoints that the container exposes. The
 ====
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
   name: mydevfile
 projects:
@@ -73,16 +73,10 @@ When starting a new server within a component, {prod-short} autodetects this, an
 
 [source,yaml]
 ----
-schemaVersion: 2.0.0
+schemaVersion: 2.1.0
 metadata:
   name: mydevfile
 components:
-  - name: theia-editor
-      endpoints:
-      - name: 'theia-extra-endpoint'
-        targetPort: 8880
-        exposure: public
-
   - openshift:
       name: webapp
       uri: webapp.yaml
