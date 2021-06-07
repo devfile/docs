@@ -2,9 +2,9 @@
 = Devfile quick reference
 
 [role="_abstract"]
-This page quickly introduces you to devfile properties. The code snippets help you get started developing your own devfile projects. The tables show you what the different devfile properties require if you use these properties. Refer to the table of contents to go to the devfile property you want to work with.
+This page describes devfile properties and requirements for using them.
 
-== SchemaVersion
+== schemaVersion
 
 [source,yaml]
 ----
@@ -13,20 +13,11 @@ v2.0
 schemaVersion: 2.0.0
 ----
 
-[cols="1,1"]
-|===
-|Key
-|schemaVersion
-
-|Type
-|string
-
-|Required
-|yes
-
-|Description
-|v2.0.0 of the schema
-|===
+[horizontal]
+Key:: schemaVersion
+Type:: string
+Required:: yes
+Description:: v2.0.0 of the schema
 
 For more information about the schemaVersion in devfiles, see: xref:migrating-schema-version.adoc[].
 
@@ -41,20 +32,11 @@ metadata:
   version: 2.0.0
 ----
 
-[cols="1,1"]
-|===
-|Key
-|metadataObject
-
-|Type
-|metadataObject
-
-|Required
-|no
-
-|Description
-|metadata to be used
-|===
+[horizontal]
+Key:: metadataObject
+Type:: metadataObject
+Required:: no
+Description:: metadata to be used
 
 For more information about the metadata in devfiles, see: xref:adding-projects-to-a-devfile.adoc[].
 
@@ -74,22 +56,13 @@ starterProjects:
       startPoint: 1.7.0.Final
 ----
 
-[cols="1,1"]
-|===
-|Key
-|starterProjectObject
+[horizontal]
+Key:: starterProjectObject
+Type:: starterProjectObject
+Required:: no
+Description:: list of starter projects to be used
 
-|Type
-|starterProjectObject
-
-|Required
-|no
-
-|Description
-|list of starter projects to be used
-|===
-
-This starterProject example uses a Quarkus framework. For more information about the starterProjects in devfiles, see: xref:migrating-projects.adoc[].
+This starterProject example uses Quarkus. For more information about the starterProjects in devfiles, see: xref:migrating-projects.adoc[].
 
 == Components
 
@@ -122,22 +95,13 @@ components:
       size: 3Gi
 ----
 
-[cols="1,1"]
-|===
-|Key
-|componentObject
+[horizontal]
+Key:: componentObject
+Type:: componentObject
+Required:: no
+Description:: list of components to be used
 
-|Type
-|componentObject
-
-|Required
-|no
-
-|Description
-|list of components to be used
-|===
-
-This component example uses an Open Liberty container, For more information about the components in devfiles, see: xref:migrating-components.adoc[].
+This component example uses an Open Liberty container. For more information about the components in devfiles, see: xref:migrating-components.adoc[].
 
 == Commands
 
@@ -179,20 +143,11 @@ commands:
             isDefault: true
 ----
 
-[cols="1,1"]
-|===
-|Key
-|commandObject
-
-|Type
-|commandObject
-
-|Required
-|no
-
-|Description
-|command to be executed in an existing component container
-|===
+[horizontal]
+Key:: commandObject
+Type:: commandObject
+Required:: no
+Description:: command to be executed in an existing component container
 
 This commands example uses an Open Liberty container. For more information about the commands in devfiles, see: xref:migrating-commands.adoc[].
 
@@ -240,24 +195,15 @@ events:
     - "cleanup"
 ----
 
-[cols="1,1"]
-|===
-|Key
-|eventObject
-
-|Type
-|eventObject
-
-|Required
-|no
-
-|Description
-|events to be executed during a project lifecycle
-|===
+[horizontal]
+Key:: eventObject
+Type:: eventObject
+Required:: no
+Description:: events to be executed during a project lifecycle
 
 This events example uses an Open Liberty container. For more information about the events in devfiles, see: xref:adding-event-bindings.adoc[].
 
-== Additional Resources
+== Additional resources
 
 * To start working on your own devfile, see xref:authoring-stacks.adoc[].
 * For details on what makes a devfile, see xref:api-reference.adoc[].
