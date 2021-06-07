@@ -14,7 +14,7 @@ A devfile registry is composed of two components, a devfile index server and an 
 
 The devfile index container image does the following actions:
 
-* Uses the index.json file to obtain metadata about the stacks and samples and hosts this metadata in the registry for tools to consume
+* Uses the index.json file to obtain metadata about the stacks and samples and hosts this metadata in the registry for tools to consume.
 * Bootstraps the OCI registry with the devfile stacks.
 * Provides an API to interact with the OCI registry and to retrieve devfile stacks.
 
