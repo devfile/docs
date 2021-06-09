@@ -21,9 +21,9 @@ Reference Kubernetes or OpenShift resource lists in devfiles to describe complex
 ** `secrets`
 ** `config maps`
 
-Kubernetes Ingresses are ignored, but OpenShift routes are supported. A workspace created from a devfile using any other object types fails to start.
+Kubernetes Ingresses are ignored, but OpenShift routes are supported. A workspace created from a {prod-short} using any other object types fails to start.
 
-* When running devfiles on a Kubernetes cluster, only Kubernetes lists are supported. When running devfiles on an OpenShift cluster, both Kubernetes and OpenShift lists are supported.
+* When running {prod-short} on a Kubernetes cluster, only Kubernetes lists are supported. When running {prod-short} on an OpenShift cluster, both Kubernetes and OpenShift lists are supported.
 ====
 
 [source,yaml]
@@ -43,9 +43,9 @@ components:
       uri: ../relative/path/postgres.yaml
 ----
 
-The preceding component references a file that is relative to the location of the devfile. Therefore, this devfile is only loadable by a {prod-short} factory. You supply the location of your devfile to the devfile factory, and then your devfile determines the location of the referenced Kubernetes resource list.
+The preceding component references a file that is relative to the location of the {prod-short} . Therefore, this {prod-short}  is only loadable by a factory. You supply the location of your {prod-short} to the factory, and then your {prod-short} determines the location of the referenced Kubernetes resource list.
 
-The following is an example of the `postgres.yaml` file.
+The following is an example of the `postgres.yaml` file:
 
 [source,yaml]
 ----
