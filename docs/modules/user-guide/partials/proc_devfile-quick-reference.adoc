@@ -62,7 +62,7 @@ Type:: starterProjectObject
 Required:: no
 Description:: list of starter projects to be used
 
-This starterProject example uses Quarkus. For more information about the starterProjects in devfiles, see: xref:migrating-projects.adoc[].
+This starterProjects example uses Quarkus. For more information about the starterProjects in devfiles, see: xref:migrating-projects.adoc[].
 
 == Components
 
