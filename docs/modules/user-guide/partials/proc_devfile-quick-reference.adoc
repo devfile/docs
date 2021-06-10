@@ -21,7 +21,7 @@ Description:: v2.0.0 of the schema
 
 For more information about the schemaVersion in devfiles, see: xref:migrating-schema-version.adoc[].
 
-== Metadata
+== metadata
 
 [source,yaml]
 ----
@@ -40,7 +40,7 @@ Description:: metadata to be used
 
 For more information about the metadata in devfiles, see: xref:adding-projects-to-a-devfile.adoc[].
 
-== StarterProjects
+== starterProjects
 
 [source,yaml]
 ----
@@ -64,7 +64,7 @@ Description:: list of starter projects to be used
 
 This starterProjects example uses Quarkus. For more information about the starterProjects in devfiles, see: xref:migrating-projects.adoc[].
 
-== Components
+== components
 
 [source,yaml]
 ----
@@ -103,7 +103,7 @@ Description:: list of components to be used
 
 This component example uses an Open Liberty container. For more information about the components in devfiles, see: xref:migrating-components.adoc[].
 
-== Commands
+== commands
 
 [source,yaml]
 ----
@@ -151,7 +151,7 @@ Description:: command to be executed in an existing component container
 
 This commands example uses an Open Liberty container. For more information about the commands in devfiles, see: xref:migrating-commands.adoc[].
 
-== Events
+== events
 
 [source,yaml]
 ----
