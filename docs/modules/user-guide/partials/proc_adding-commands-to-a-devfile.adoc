@@ -2,7 +2,7 @@
 = Adding commands to a devfile
 
 [role="_abstract"]
-A devfile allows to specify commands to be available for execution in a workspace. Every command can contain a subset of actions, which are related to a specific component in whose container it will be executed.
+A devfile allows to specify commands to be available for execution in a workspace. Every command can contain a subset of actions. These subsets are related to specific components and are executed in the component containers.
 
 .Prerequisites
 
@@ -17,7 +17,13 @@ A devfile allows to specify commands to be available for execution in a workspac
 
 . For each command, define an unique value for the mandatory `id` attribute.
 
-. For each command, define a mandatory type of one of the following types: `exec`, `apply`, `composite`, or `vscode-tasks`.
+. For each command, define a mandatory type of one of the following types:
+
+* `exec`
+* `apply`
+* `composite`
+* `vscode-tasks`
+
 +
 .Sample command
 [source,yaml]
@@ -72,7 +78,14 @@ commands:
 
 . Command group
 +
-A given command can be assigned to one or more groups that represents the nature of the command.  The support groups are: `build`, `run`, `test` and `debug`. For each of the groups, one default command can be defined in each group by specifying the `isDefault` value.
+To assign a given command to one or more groups that represent the nature of the command, use the following supported group types:
++
+* `build`
+* `run`
+* `test`
+* `debug`
++
+For each of the groups, define one default command by specifying the `isDefault` value.
 +
 [source,yaml]
 ----
@@ -109,7 +122,7 @@ commands:
 
 . Composite command
 +
-A composite command can be defined to chain multiple commands together. The individual commands that are called from a composite command can be referenced by the `name` of the command.  A `parallel` boolean can be specified to determine if the commands within a composite command are being executed sequentially or in parallel.
+To chain multiple commands together, define a composite command. To reference the individual commands that are called from a composite command, use the `name` of the command. To specify whether commands within a composite command are to be executed sequentially or in parallel, define the `parallel` boolean.
 +
 [source,yaml]
 ----
