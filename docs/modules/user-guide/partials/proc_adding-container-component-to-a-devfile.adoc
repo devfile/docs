@@ -2,7 +2,7 @@
 = Adding `container` components to a devfile
 
 [role="_abstract"]
-A component type that allows to define a container image-based configuration of a container in a workspace. A devfile can contain one or more component(s) of the `container` type. The `container` type of component brings in custom tools into the workspace. The component is identified by its image.
+Use the `container` component type to define an image-based configuration of a container in a workspace. This allows to incorporate custom tools into the workspace. A devfile can contain one or more components of the `container` type. The `image` attribute identifies the component.
 
 .Prerequisites
 
@@ -55,9 +55,9 @@ components:
       command: ['sleep', 'infinity']
 ----
 +
-It specifies the type of the component, `container` and the `image` attribute names the image to be used for the component using the usual Docker naming conventions, that is, the above `image` attribute is equal to `docker.io/library/golang:latest`.
+Specify the type of component using the `container` attribute. Use the `image` attribute to specify the image for the component. When defining the `image`, use container naming conventions. For example, the `image` attribute in the preceding example refers to the `docker.io/library/golang:latest` container image.
 +
-A `container` component has many features that enable augmenting the image with additional resources and information needed for meaningful integration of the *tool* provided by the image with {prod}.
+Use the `container` component to augment the image with additional resources and information to allow for integrating the tooling provided by the image with the application that consumes the devfile, for example, {che-prod}.
 
 . Mounting project sources
 +
@@ -81,7 +81,7 @@ The sources is mounted on a location stored in the `PROJECTS_ROOT` environment v
 
 . Container Entrypoint
 +
-The `command` attribute of the `container` along with other arguments, is used to modify the `entrypoint` command of the container created from the image. In {prod} the container is needed to run indefinitely so that you can connect to it and execute arbitrary commands in it at any time. Because the availability of the `sleep` command and the support for the `infinity` argument for it is different and depends on the base image used in the particular images, {prod-short} cannot insert this behavior automatically on its own. However, you can take advantage of this feature to, for example, start up necessary servers with modified configurations, etc.
+Use the `command` attribute of the `container` type to modify the `entrypoint` command of the container created from the image. When a devfile is used in {che-prod}, the container runs indefinitely, so the user can consistently connect to it and execute commands in it. The availability of the `sleep` command and the support for the `infinity` argument depend on the base image used in the particular images.
 
 [role="_additional-resources"]
 .Additional resources

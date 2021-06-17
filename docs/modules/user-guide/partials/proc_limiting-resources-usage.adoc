@@ -2,13 +2,13 @@
 = Limiting resources usage
 
 [role="_abstract"]
-
+This section describes how to limit resource use in devfiles.
 
 .Procedure
 
 . Specify container memory limit and memory request for components
 +
-To specify a container memory limit for `container`, use the `memoryLimit` parameter, and to specify a container memory request, use the `memoryRequest` parameter:
+To specify a container memory limit for `container`, use the `memoryLimit` parameter. To specify a container memory request, use the `memoryRequest` parameter:
 +
 .Specify container memory limit and memory request for components
 ====
@@ -26,12 +26,12 @@ To specify a container memory limit for `container`, use the `memoryLimit` param
 This limit applies to every container of the given component.
 +
 
-If they are not specified, the values are undetermined: they may or may not be inferred from the application that consumes the devfile or from Kubernetes.
+When not specified, the values may or may not be inferred from the application that consumes the devfile or from the underlying platform (for example, Kubernetes).
 +
 
 . Specify container CPU limit and container CPU request for components
 +
-To specify a container CPU limit for `container`, use the `cpuLimit` parameter, and to specify a container CPU request for `container`, use the `cpuRequest` parameter:
+To specify a container CPU limit for `container`, use the `cpuLimit` parameter. To specify a container CPU request for `container`, use the `cpuRequest` parameter:
 +
 .Specify container CPU limit and CPU request for components
 ====
@@ -49,5 +49,5 @@ To specify a container CPU limit for `container`, use the `cpuLimit` parameter, 
 This limit applies to every container of the given component.
 +
 
-If they are not specified, the values are undetermined: they may or may not be inferred from the application that consumes the devfile or from Kubernetes.
+When not specified, the values may or may not be inferred from the application that consumes the devfile or from the underlying platform (for example, Kubernetes).
 +

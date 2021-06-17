@@ -21,7 +21,7 @@ You can refer to a parent devfile in three different ways:
 +
 .Parent referred by registry
 ====
-Using its `id` if it has been published in a registry.
+Using the `id` when published in a registry.
 
 [source,yaml]
 ----
@@ -34,9 +34,9 @@ parent:
 ----
 ====
 +
-.Parent referred by uri
+.Parent referred by URI
 ====
-Using the URI if it has been published on a static http server (like gist or pastebin).
+Using the URI when published on a static HTTP server, such as GitHub Gist or Pastebin.
 
 [source,yaml]
 ----
@@ -67,7 +67,7 @@ parent:
 [role="_additional-resources"]
 .Additional resources
 
-For more information on referring to parent devfiles, go to the following topics:
+For more information about referring to parent devfiles, see:
 
 * xref:api-reference.adoc[]
 * xref:devfile-samples.adoc[]

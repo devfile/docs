@@ -2,7 +2,7 @@
 = Specifying persistent storage
 
 [role="_abstract"]
-A `container` component can specify the volumes to be mounted on specific locations within the image. If the `container` component mounts the volume, then the volume needs a corresponding volume component of the same name. Volume names are shared across all components. Shared volume names can be used to share file systems among components.
+Use a `container` component to specify the volumes to be mounted on specific locations within the container. Volumes mounted in a container require a volume component with the same name. Volume components can be shared across container components. Sharing a volume across container components allows users to share files among these container components.
 
 .Procedure
 
