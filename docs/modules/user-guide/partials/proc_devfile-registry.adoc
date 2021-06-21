@@ -8,7 +8,10 @@ Each devfile stack corresponds to a specific runtime or framework, such as Node.
 
 == Devfile registry components
 
-A devfile registry is composed of two components, a devfile index server and an OCI registry server.
+A devfile registry has two components:
+
+ * Devfile index server
+ * OCI registry server
 
 .Devfile index container
 
