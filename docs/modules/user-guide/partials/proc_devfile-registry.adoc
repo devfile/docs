@@ -41,7 +41,7 @@ Locate the source for the stacks in the public community registry in the link:ht
 
 Devfile registries can be operated on private Kubernetes clusters, deployed using either the devfile registry Operator or the devfile registry Helm Chart.
 
-The on-cluster devfile registries can be configured with custom devfile stacks suited to your needs for your organization.
+The on-cluster devfile registries can be configured with custom devfile stacks suited to the needs of the owner organization.
 
 == Additional resources
 
