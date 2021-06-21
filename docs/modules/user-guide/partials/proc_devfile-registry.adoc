@@ -29,7 +29,7 @@ When a devfile registry is deployed, the stacks belonging to the devfile registr
 
 == Types of devfile registries
 
-As a developer, you can use multiple types of devfile registries to access devfile stacks and tools.
+There are multiple types of devfile registries to access devfile stacks and tools.
 
 .Public community registry
 
