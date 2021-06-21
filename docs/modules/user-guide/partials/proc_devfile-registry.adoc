@@ -45,4 +45,4 @@ The on-cluster devfile registries can be configured with custom devfile stacks s
 
 == Additional resources
 
-After understanding the basics of a devfile registry, start working with a devfile registry by going to xref:authoring-stacks.adoc[].
+* xref:authoring-stacks.adoc[].
