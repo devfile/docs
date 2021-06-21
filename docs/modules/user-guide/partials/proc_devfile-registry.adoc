@@ -35,7 +35,7 @@ As a developer, you can use multiple types of devfile registries to access devfi
 
 The public community registry provides stacks for various community tools to consume, such as Node.js, Quarkus, and Open Liberty.
 
-Locate the source repository for the stacks in the public community registry at the devfile/registry repository.
+Locate the source for the stacks in the public community registry in the link:https://github.com/devfile/registry[devfile/registry repository].
 
 .On-cluster devfile registry
 
