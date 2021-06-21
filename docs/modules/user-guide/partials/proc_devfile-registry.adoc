@@ -1,4 +1,4 @@
-[id="proc_devfile-registry_{context}"]
+[id="devfile-registry_{context}"]
 = Devfile registry
 
 [role="_abstract"]
