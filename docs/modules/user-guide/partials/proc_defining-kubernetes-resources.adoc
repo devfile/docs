@@ -8,7 +8,7 @@ This section explains how to reference Kubernetes or OpenShift resource lists in
 
 [IMPORTANT]
 ====
-* Because a devfile is internally represented as a single deployment, all resources from the Kubernetes or OpenShift list are merged into that single deployment.
+* Because a devfile is internally represented as a single deployment, all resources from the Kubernetes or OpenShift list merge into that single deployment.
 
 * Avoid name conflicts when designing such lists.
 
@@ -43,7 +43,7 @@ components:
       uri: ../relative/path/postgres.yaml
 ----
 
-The preceding component references a file that is relative to the location of the devfile. Therefore, this devfile is only loadable by a factory. You supply the location of your devfile to the factory, and then use your devfile to determine the location of the referenced Kubernetes resource list.
+The preceding component references a file that is relative to the location of the devfile. Therefore, you can only load this devfile through a factory. You supply the location of your devfile to the factory, and then use your devfile to determine the location of the referenced Kubernetes resource list.
 
 The following is an example of the `postgres.yaml` file:
 

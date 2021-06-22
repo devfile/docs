@@ -2,7 +2,7 @@
 = Adding `container` components to a devfile
 
 [role="_abstract"]
-Use the `container` component type to define an image-based configuration of a container in a workspace. This allows to incorporate custom tools into the workspace. A devfile can contain one or more components of the `container` type. The `image` attribute identifies the component.
+Use the `container` component type to define an image-based configuration of a container in a workspace. This `container` component type allows you to incorporate custom tools into your workspace. A devfile can contain one or more components of the `container` type. The `image` attribute identifies the component.
 
 .Prerequisites
 
@@ -52,12 +52,11 @@ components:
     container:
       image: golang
       memoryLimit: 512Mi
-      command: ['sleep', 'infinity']
 ----
 +
-Specify the type of component using the `container` attribute. Use the `image` attribute to specify the image for the component. When defining the `image`, use container naming conventions. For example, the `image` attribute in the preceding example refers to the `docker.io/library/golang:latest` container image.
+Specify the type of component using the `container` attribute. Use the `image` attribute to specify the image for the component. When defining the `image`, use container naming conventions. For example, the `image` attribute in the preceding example refers to the container image,  `docker.io/library/golang:latest`.
 +
-Use the `container` component to augment the image with additional resources and information to allow for integrating the tooling provided by the image with the application that consumes the devfile, for example, {che-prod}.
+Use the `container` component to augment the image with additional resources and information to allow for integrating the tooling provided by the image with the application that consumes the devfile.
 
 . Mounting project sources
 +
@@ -74,14 +73,13 @@ components:
       image: golang
       memoryLimit: 512Mi
       mountSources: true
-      command: ['sleep', 'infinity']
 ----
 +
-The sources is mounted on a location stored in the `PROJECTS_ROOT` environment variable that is made available in the running container of the image. This location defaults to `/projects`. If `sourceMapping` is defined in the container, it overrides the 'PROJECT_ROOT' value if present and mounts the source to the path defined by `sourceMapping`.
+The sources is mounted on a location stored in the `PROJECTS_ROOT` environment variable that is made available in the running container of the image. This location defaults to `/projects`. If `sourceMapping` is defined in the container, it overrides the `PROJECT_ROOT` value and mounts the source to the path defined by `sourceMapping`.
 
 . Container Entrypoint
 +
-Use the `command` attribute of the `container` type to modify the `entrypoint` command of the container created from the image. When a devfile is used in {che-prod}, the container runs indefinitely, so the user can consistently connect to it and execute commands in it. The availability of the `sleep` command and the support for the `infinity` argument depend on the base image used in the particular images.
+Use the `command` attribute of the `container` type to modify the `entrypoint` command of the container created from the image.
 
 [role="_additional-resources"]
 .Additional resources
