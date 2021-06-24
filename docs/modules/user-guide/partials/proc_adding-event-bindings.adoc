@@ -2,7 +2,13 @@
 = Adding event bindings
 
 [role="_abstract"]
-This section describes how to add an event to a v2.x devfile. An event specified in a v1.x devfile still works in a v2.x devfile.
+This section describes how to add an event to a v2.x devfile. An event specified in a v1.x devfile still works in a v2.x devfile. See the following list for event properties in a devfile:
+
+[horizontal]
+Key:: eventObject
+Type:: eventObject
+Required:: no
+Description:: events to be executed during a project lifecycle
 
 .Procedure
 
