@@ -2,7 +2,13 @@
 = Adding a name to a devfile
 
 [role="_abstract"]
-Adding a name to a devfile is mandatory. Use the `name` or `generateName` attributes (or both) to define the name.
+Adding a name to a devfile is mandatory. Use the `name` or `generateName` attributes to define the name. See the following list for metadata properties in a devfile:
+
+[horizontal]
+Key:: metadataObject
+Type:: metadataObject
+Required:: no
+Description:: metadata to be used
 
 .Prerequisites
 
