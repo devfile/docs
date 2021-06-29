@@ -55,7 +55,7 @@ components:
 ----
 ====
 
-This example has two containers, each defining a single endpoint. The endpoint is an accessible port that you can make accessible inside the workspace. Each endpoint has a name and port. The server running inside the container is listening on this port. See the following attributes that you can set on the endpoint:
+This example has two containers, each defining a single endpoint. The endpoint is an accessible port. Each endpoint has a name and port. The server running inside the container is listening on this port. See the following attributes that you can set on the endpoint:
 
 * `exposure`: When its value is `public`, the endpoint is accessible outside the workspace and is exposed on port `80` or `443` depending on whether TLS is enabled in devfiles. Access this endpoint from the devfile user interface.
 
