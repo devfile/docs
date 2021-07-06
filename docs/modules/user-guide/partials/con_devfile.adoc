@@ -1,17 +1,17 @@
 [id="con_devfile_{context}"]
-= Overview of devfiles
+= About devfiles
 
 [role="_abstract"]
 
-.How devfiles work
+.How to use devfiles
 
-As a YAML file, devfiles simplify the development process. Devfiles tell you the steps you must take to get your application up and running from a source code to an actual product.When you download a devfile, it assesses your application development lifecycle, then provides you strategies and best practices for end-to-end application development. Devfiles do not force you to use new workflows nor tools, but rather, provide you instructions to automate your current, manual processes. For example, a devfile can take the repository hosting your application source code, build the code, run the application on your local container, then deploy the application to cloud-native containers. Unlike many development tools, devfiles can build, run, and deploy, automating many of your manual processes and simplifying your end-to-end development.
+Devfiles are YAML files, and they simplify your development process. In your IDE, devfiles tell you which best practices to apply to take your development project from source code to running application. Using the instructions given by devfiles, you can automate your current, manual processes. A devfile can take in the repository hosting your application source code. You can use the devfile to build your code, run your application on your local container, and then deploy your application to cloud-native containers.
 
 .Features and benefits of devfiles
 
-Devfiles provide guidelines and instructions for enhanced development processes. Devfiles uses the command line interface (CLI)  tool, odo, to execute the actions: build run, deploy. By using odo, devfiles provide consistent patterns of behavior for applications written in different languages and create workspaces composed of multiple containers. In these containers, you can make any number of identical workspaces from the same devfile. Creating multiple workspaces lets you share your devfile with different teams. Sharing a single devfile across multiple teams, ensures that each team has the same user experience and the same build, run, deploy behaviors.
+Devfiles give guidelines and instructions for enhanced development processes. Devfiles use the command line interface (CLI)  tool, `odo`, to build run, and deploy your application. By using odo, devfiles provide consistent patterns of behavior for applications written in different languages and create workspaces composed of multiple containers. In these containers, you can create any number of identical workspaces from the same devfile. If you create multiple workspaces, you can share your devfile with different teams. By sharing a single devfile across multiple teams, you can ensure that each team has the same user experience and the same build, run, deploy behaviors.
 
-Leverage the following devfile features:
+Using devfiles, you have the following features:
 
 * Guidance for using runtime images
 * Example code
@@ -21,11 +21,10 @@ Leverage the following devfile features:
 Use devfiles to help you with the following:
 
 * Reduce the gap between development and deployment
-* Have a registry for finding and hosting stacks
+* Set up a registry for finding and hosting stacks
 * Produce consistent build and run behaviors
-* Allow easy devfile customization
 
-For a visual of how simple a devfile is, see the following YAML:
+See the following example of a simple devfile:
 
 .A minimal devfile with one single project
 ====
@@ -47,21 +46,21 @@ projects:
 
 .Roles that use devfiles
 
-Stack providers use devfiles to develop their runtime stacks once and then use these runtime stacks across different tools. Therefore, with devfiles, stack providers do not need to build and maintain custom development tools.
+Stack providers use devfiles to develop their runtime stacks once and then use these runtime stacks across different tools. Therefore, with devfiles, you do not need to build and maintain custom development tools.
 
-Tool providers use devfiles to build runtime support for each runtime. The devfile runtime teams build and run applications on their servers, giving tool providers more time.
+Tool providers use devfiles to build runtime support for each runtime. The devfile runtime teams build and run applications on their servers, giving you more time to work on your tools.
 
-With devfiles, developers do not need to set up the environment for building and running their applications. Instead, developers have the flexibility to use different tools, like Che and odo.
+With devfiles, developers do not need to set up the environment for building and running their applications. Instead, you have the flexibility to use different tools, like Che and `odo`.
 
 .How to work with devfiles
 
-* To access the devfile stacks and images so you can begin creating container workspaces, see the link:https://github.com/devfile/registry/tree/main/stacks[devfile registry stacks].
-* To write your own devfile stack so you can begin using devfiles in your application development, see the xref:authoring-stacks.adoc[].
-* To migrate an existing devfile to the most updated version, see the xref:migrating-to-devfile-v2.adoc[].
-* To understand the schema attributes of devfiles, see the xref:api-reference.adoc[].
+* To access the devfile stacks and images so you can begin creating container workspaces, see link:https://github.com/devfile/registry/tree/main/stacks[devfile registry stacks].
+* To write your own devfile stack so you can begin using devfiles in your application development, see xref:authoring-stacks.adoc[].
+* To migrate an existing devfile to the most updated version, see xref:migrating-to-devfile-v2.adoc[].
+* To understand the schema attributes of devfiles, see xref:api-reference.adoc[].
 
 .Additional resources
 
 [role="_additional-resources"]
 
-If you want to ask questions, view open issues, raise concerns, or communicate directly with the devfile team, see the link:https://github.com/devfile/api[devfile GitHub repository].
+To ask questions, view open issues, raise concerns, or communicate directly with the devfile team, see the link:https://github.com/devfile/api[devfile GitHub repository].
