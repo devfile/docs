@@ -1,5 +1,5 @@
 :description: Devfile samples
-:navtitle: Devfile samples
+:navtitle: Devfile resources
 :keywords: devfile, samples
 :page-aliases: devfile_samples
 
