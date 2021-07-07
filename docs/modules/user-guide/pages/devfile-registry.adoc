@@ -1,5 +1,9 @@
 :description: Devfile Registry
+<<<<<<< HEAD
 :navtitle: Devfile Registry
+=======
+:navtitle: Devfile registry
+>>>>>>> e07538b... changed spelling in devfile registry so its title would render properly in the TOC
 :keywords: devfile
 // :page-aliases:
 
