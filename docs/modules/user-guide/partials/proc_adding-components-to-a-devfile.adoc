@@ -2,7 +2,13 @@
 = Adding components to a devfile
 
 [role="_abstract"]
-Each component in a single devfile must have a unique name.
+Each component in a single devfile must have a unique name. See the following list for component properties in a devfile:
+
+[horizontal]
+Key:: componentObject
+Type:: componentObject
+Required:: no
+Description:: list of components to be used
 
 .Prerequisites
 

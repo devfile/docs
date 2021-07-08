@@ -2,7 +2,13 @@
 = Adding commands to a devfile
 
 [role="_abstract"]
-A devfile allows to specify commands to be available for execution in a workspace. Every command can contain a subset of actions. These subsets are related to specific components and are executed in the component containers.
+A devfile allows to specify commands to be available for execution in a workspace. Every command can contain a subset of actions. These subsets are related to specific components and are executed in the component containers. See the following list for command properties in a devfile:
+
+[horizontal]
+Key:: commandObject
+Type:: commandObject
+Required:: no
+Description:: command to be executed in an existing component container
 
 .Prerequisites
 
