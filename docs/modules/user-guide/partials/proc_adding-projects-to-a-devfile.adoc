@@ -2,13 +2,103 @@
 = Adding projects to a devfile
 
 [role="_abstract"]
-This section describes how to add one or more projects to a devfile. See the following list for project properties in a devfile:
+This section describes how to add one or more projects to a devfile. Each starter project can contain three different objects:
 
-[horizontal]
-Key:: starterProjectObject
-Type:: starterProjectObject
-Required:: no
-Description:: list of starter projects to be used
+* git
+* github
+* zip
+
+See the following tables for project properties in a devfile:
+
+.starterProject object
+[cols="1,1,1,1"]
+|===
+|Key |Type| Required| Description
+
+|name
+|string
+|no
+|The name of your devfile.
+
+|description
+|string
+|no
+|The description of your starterProject.
+
+|clonePath
+|string
+|no
+|The path relative to the root of your projects. Clone your projects into this path.
+|===
+
+
+.gitObject
+[cols="1,1,1,1"]
+|===
+|Key |Type| Required| Description
+
+|location
+|string
+|no
+|The location of your git repository.
+
+|branch
+|string
+|no
+|The branch that you use.
+
+|spareCheckoutDir
+|string
+|no
+|The directory that you use when you pull from your repository.
+
+|startPoint
+|string
+|no
+|The tag or commit from where you start.
+|===
+
+.githubObject
+[cols="1,1,1,1"]
+|===
+|Key |Type| Required| Description
+
+|location
+|string
+|no
+|The location of your git repository.
+
+|branch
+|string
+|no
+|The branch that you use.
+
+|spareCheckoutDir
+|string
+|no
+|The directory that you use when you pull from your repository.
+
+|startPoint
+|string
+|no
+|The tag or commit from where you start.
+|===
+
+.zipObject
+[cols="1,1,1,1"]
+|===
+|Key |Type| Required| Description
+
+|location
+|string
+|no
+|The location of your zip.
+
+|spareCheckoutDir
+|string
+|no
+|The directory that you use when you pull from your repository.
+|===
 
 .Prerequisites
 

@@ -2,13 +2,17 @@
 = Adding schema version to a devfile
 
 [role="_abstract"]
-The `schemaVersion` attribute is mandatory in a devfile. See the following list for `schemaVersion` properties in a devfile:
+The `schemaVersion` attribute is mandatory in a devfile. See the following table for `schemaVersion` properties in a devfile:
 
-[horizontal]
-Key:: schemaVersion
-Type:: string
-Required:: yes
-Description:: v2.1.0 of the schema
+[cols="1,1,1,1"]
+|===
+|Key |Type| Required| Description
+
+|schemaVersion
+|string
+|yes
+|The version of the devfile schema that the devfile uses.
+|===
 
 .Procedure
 

@@ -2,13 +2,38 @@
 = Adding event bindings
 
 [role="_abstract"]
-This section describes how to add an event to a v2.x devfile. An event specified in a v1.x devfile still works in a v2.x devfile. See the following list for event properties in a devfile:
+This section describes how to add an event to a v2.x devfile. An event specified in a v1.x devfile still works in a v2.x devfile. An event can have three different type of objects:
 
-[horizontal]
-Key:: eventObject
-Type:: eventObject
-Required:: no
-Description:: events to be executed during a project lifecycle
+. preStartObject
+. postStartObject
+. preStopObject
+
+.preStartObject
+You can execute preStart events as init containers for the project pod in the order you specify the preStart events. The devfile `commandLine` and `workingDir` are the commands for the init container. As a result, the init container overwrites either the devfile or the container image `command` and `args`. If you use a composite command with `parallel: true`, the composite command executes as Kubernetes init containers.
+
+.postStartObject
+When you create the Kubernetes deployment for the `odo` component, execute the postStart events.
+
+.preStopObject
+Before you delete the Kubernetes deployment for the `odo` component, execute the preStop events.
+
+See the following list for event properties in a devfile:
+
+.envObject
+[cols="1,1,1,1"]
+|===
+|Key |Type| Required| Description
+
+|name
+|string
+|yes
+|The name of the environment variable.
+
+|value
+|string
+|yes
+|The value of the environment variable.
+|===
 
 .Procedure
 
