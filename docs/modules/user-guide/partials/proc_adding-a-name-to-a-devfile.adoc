@@ -2,13 +2,22 @@
 = Adding a name to a devfile
 
 [role="_abstract"]
-Adding a name to a devfile is mandatory. Use the `name` or `generateName` attributes to define the name. See the following list for metadata properties in a devfile:
+Adding a name to a devfile is mandatory. Use the `name` attribute to define the name. See the following table for metadata properties in a devfile:
 
-[horizontal]
-Key:: metadataObject
-Type:: metadataObject
-Required:: no
-Description:: metadata to be used
+[cols="1,1,1,1"]
+|===
+|Key |Type| Required| Description
+
+|name
+|string
+|yes
+|The name of your devfile. This name links you to the devfile registry if listed.
+
+|version
+|string
+|yes
+|The version of your devfile.
+|===
 
 .Prerequisites
 
@@ -27,23 +36,6 @@ metadata:
   name: devfile-sample
   version: 2.0.0
 ----
-
-. To specify a prefix for automatically generated workspace names, define the `generateName` attribute and not the `name` attribute.
-** The workspace name is in the `<generateName>YYYYY` format, for example, `devfile-sample-2y7kp`. `Y` is a random charater, `[a-z0-9]`.
-+
-.Adding a generated name to a devfile
-
-[source,yaml]
-----
-schemaVersion: 2.1.0
-metadata:
-  generateName: devfile-sample
-  version: 2.0.0
-----
-
-[NOTE]
-
-Defining `name` or `generateName` has the same effect when creating workspaces using a factory. The value forms the name prefix: `<name>YYYYY` or `<generateName>YYYYY`. When defining both `generateName` and `name`, `generateName` takes precedence.
 
 [role="_additional-resources"]
 .Additional resources
