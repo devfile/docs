@@ -55,11 +55,11 @@ components:
 ----
 ====
 
-This example has two containers, each defining a single endpoint. The endpoint is an accessible port. Each endpoint has a name and port. The server running inside the container is listening on this port. See the following attributes that you can set on the endpoint:
+This example has two containers, each defining a single endpoint. The endpoint is a port that can be made accessible inside the workspace. Each endpoint has a name and a port. The server running inside the container is listening on this port. See the following attributes that you can set on the endpoint:
 
 * `exposure`: When its value is `public`, the endpoint is accessible outside the workspace and is exposed on port `80` or `443` depending on whether TLS is enabled in devfiles. Access this endpoint from the devfile user interface.
 
-* `protocol`: For public endpoints, the protocol is a hint to the UI on how to construct the URL for the endpoint access. Typical values are `http`, `https`, `ws`, `wss`.
+* `protocol`: For public endpoints, the protocol is a hint to the UI of the application that consumes the devfile on how to construct the URL for the endpoint access. Typical values are `http`, `https`, `ws`, `wss`.
 
 * `secure`: A boolean defaulting to `false` that specifies whether the endpoint is put behind a JWT proxy requiring a JWT workspace token to grant access. The JWT proxy is deployed in the same Pod as the server and assumes the server listens only on the local loopback interface, such as `127.0.0.1`.
 +
