@@ -55,7 +55,7 @@ components:
 ----
 ====
 
-This example has two containers, each defining a single endpoint. The endpoint is a port that can be made accessible inside the workspace. Each endpoint has a name and a port. The server running inside the container is listening on this port. See the following attributes that you can set on the endpoint:
+This example has two containers that each define an endpoint. An endpoint has a name and a port that can be made accessible inside the workspace. The server running inside the container is listening on this port. See the following attributes that you can set on the endpoint:
 
 * `exposure`: When its value is `public`, the endpoint is accessible outside the workspace and is exposed on port `80` or `443` depending on whether TLS is enabled in devfiles. Access this endpoint from the devfile user interface.
 
@@ -63,7 +63,7 @@ This example has two containers, each defining a single endpoint. The endpoint i
 
 * `secure`: A boolean defaulting to `false` that specifies whether the endpoint is put behind a JWT proxy requiring a JWT workspace token to grant access. The JWT proxy is deployed in the same Pod as the server and assumes the server listens only on the local loopback interface, such as `127.0.0.1`.
 +
-WARNING: Listening on any other interface than the local loopback poses a security risk because such a server is accessible without the JWT authentication within the cluster network on the corresponding IP addresses.
+WARNING: If you listen on any other interface than the local loopback, you pose a security risk. A server other than the local loopback is accessible without the JWT authentication within the cluster network on the corresponding IP addresses.
 
 * `path`: The URL of the endpoint.
 

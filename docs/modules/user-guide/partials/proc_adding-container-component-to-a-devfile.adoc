@@ -57,7 +57,7 @@ components:
 +
 Specify the type of component using the `container` attribute. Use the `image` attribute to specify the image for the component. When defining the `image`, use container naming conventions. For example, the `image` attribute in the preceding example refers to the container image,  `docker.io/library/golang:latest`.
 +
-Use the `container` component to augment the image with additional resources and information to allow for integrating the tooling provided by the image with the application that consumes the devfile.
+Use the `container` component to augment the image with additional resources and information. By augmenting this image, you allow for integrating the tooling provided by the image with the application that consumes the devfile.
 
 . Mounting project sources
 +
@@ -77,7 +77,7 @@ components:
       command: ['sleep', 'infinity']
 ----
 +
-The sources is mounted on a location stored in the `PROJECTS_ROOT` environment variable that is made available in the running container of the image. This location defaults to `/projects`. If `sourceMapping` is defined in the container, it overrides the `PROJECT_ROOT` value and mounts the source to the path defined by `sourceMapping`.
+The sources are mounted on a location stored in the `PROJECTS_ROOT` environment variable that is made available in the running container of the image. This location defaults to `/projects`. If `sourceMapping` is defined in the container, it overrides the `PROJECT_ROOT` value and mounts the source to the path defined by `sourceMapping`.
 
 . Container Entrypoint
 +
