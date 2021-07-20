@@ -29,4 +29,4 @@
 ** xref:referring-to-a-parent-devfile-in-a-devfile.adoc[]
 
 * xref:api-reference.adoc[]
-* xref:devfile-samples.adoc[]
+* xref:devfile-resources.adoc[]

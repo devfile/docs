@@ -1,0 +1,6 @@
+:description: Devfile resources
+:navtitle: Devfile resources
+:keywords: devfile, resources
+:page-aliases: devfile_resources
+
+include::partial$ref_devfile-resources.adoc[]

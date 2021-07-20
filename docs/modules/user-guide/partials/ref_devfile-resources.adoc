@@ -1,4 +1,4 @@
-[id="ref_devfile-samples_{context}"]
+[id="ref_devfile-resources_{context}"]
 = Devfile resources
 
 .Additional resources
