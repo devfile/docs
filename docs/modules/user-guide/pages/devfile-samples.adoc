@@ -1,6 +1,0 @@
-:description: Devfile samples
-:navtitle: Devfile samples
-:keywords: devfile, samples
-:page-aliases: devfile_samples
-
-include::partial$ref_devfile-samples.adoc[]

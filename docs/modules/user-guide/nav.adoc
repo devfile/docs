@@ -33,4 +33,4 @@
 ** xref:devfile-registry.adoc[]
 
 * xref:api-reference.adoc[]
-* xref:devfile-samples.adoc[]
+* xref:devfile-resources.adoc[]
