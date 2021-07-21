@@ -3,33 +3,35 @@
 
 [role="_abstract"]
 
-Devfiles are YAML files that describe and define developer workspaces or cloud-native development environments. Devfiles also describe best practices for end-to-end application development and customize or extend the application development to fit a team's current development practices. Instead of forcing a new workflow or tools, devfiles provide instructions for automating manual processes.
+.What a devfile does for you
 
-You can use devfiles to automate and simplify your development process. With devfiles, you record the instructions for configuring and running your build environment as a YAML-formatted text file. Then, optionally, you can distribute those devfiles to other build tools and IDEs that support devfiles. Finally, to automatically configure and build a running application from a development project, you run the devfile instructions. You can also use devfiles to provide consistent build processes across different languages and tools.
+Devfiles are YAML files, and they simplify your development process. Devfiles capture instructions on how to set up your development environment and provide these instructions to your tools and IDE. The tools and IDE understand the instructions and support devfiles in order to take your development project from source code to a running application. By using devfiles, you can guarantee consistent patterns of behavior for applications written in different languages and using different tools. Devfiles also provide automation steps to your tools and IDE so that they can automate your current, manual processes. Using the recommended best practices from the devfile, the tools and IDE can: take in the repository hosting your application source code, build your code, run your application on your local container, and then deploy your application to cloud-native containers.
 
-A devfile includes:
+.Benefits of devfiles
 
-* Guidance about runtime images
+With devfiles, you can make workspaces composed of multiple containers. In these containers, you can create any number of identical workspaces from the same devfile. If you create multiple workspaces, you can share your devfile with different teams. By sharing a single devfile across multiple teams, you can ensure that each team has the same user experience and the same build, run, deploy behaviors.
+
+Use devfiles so that you have the following features:
+
+* Guidance for using runtime images
 * Example code
 * Build and CI commands
 * Deployment options
 
-Benefits of devfiles:
+Use devfiles to help you with the following:
 
-* Reducing the gap between development and deployment
-* Having a registry for finding and hosting devfiles
-* Producing consistent build and run behaviors
-* Allowing easy devfile customization
+* Reduce the gap between development and deployment
+* Find available devfile stacks or samples in a devfile registry
+* Produce consistent build and run behaviors
 
-
-.Who can use devfiles?
+.Roles that use devfiles
 
 Stack providers use devfiles to develop their runtime stacks once and then use these runtime stacks across different tools. Therefore, with devfiles, stack providers do not need to build and maintain custom development tools.
 
 Tool providers use devfiles to build runtime support for each runtime. Now, the devfile runtime teams build and run applications on their servers, giving tool providers more time.
 
 * To access the devfile stacks so you can begin creating container workspaces, see link:https://github.com/devfile/registry/tree/main/stacks[devfile registry stacks].
-* To write a devfile stack so you can begin using devfiles in your application development, see xref:authoring-stacks.adoc[].
+* To write your own devfile stack so you can begin using devfiles in your application development, see xref:authoring-stacks.adoc[].
 * To migrate an existing devfile to the most updated version, see xref:migrating-to-devfile-v2.adoc[].
 * To understand the schema attributes of devfiles, see xref:api-reference.adoc[].
 
