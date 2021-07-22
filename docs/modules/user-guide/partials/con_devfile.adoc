@@ -27,7 +27,10 @@ Stack providers use devfiles to develop their runtime stacks once and then use t
 
 Tool providers use devfiles to build runtime support for each runtime. Now, the devfile runtime teams build and run applications on their servers, giving tool providers more time.
 
-Developers use devfiles to focus only on developing their applications. With devfiles, developers do not need to set up the environment for building and running their applications. Instead, developers have the flexibility to use different tools, like Che and odo.
+* To access the devfile stacks so you can begin creating container workspaces, see link:https://github.com/devfile/registry/tree/main/stacks[devfile registry stacks].
+* To write a devfile stack so you can begin using devfiles in your application development, see xref:authoring-stacks.adoc[].
+* To migrate an existing devfile to the most updated version, see xref:migrating-to-devfile-v2.adoc[].
+* To understand the schema attributes of devfiles, see xref:api-reference.adoc[].
 
 .Additional resources
 
