@@ -21,6 +21,7 @@ Benefits of devfiles:
 * Producing consistent build and run behaviors
 * Allowing easy devfile customization
 
+
 .Who can use devfiles?
 
 Stack providers use devfiles to develop their runtime stacks once and then use these runtime stacks across different tools. Therefore, with devfiles, stack providers do not need to build and maintain custom development tools.
