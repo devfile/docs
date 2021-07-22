@@ -18,7 +18,7 @@ Use devfiles so that you have the following features:
 * Build and CI commands
 * Deployment options
 
-Use devfiles to help you with the following:
+Devfiles have the following benefits:
 
 * Reduce the gap between development and deployment
 * Find available devfile stacks or samples in a devfile registry
