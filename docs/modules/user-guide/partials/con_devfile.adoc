@@ -28,7 +28,7 @@ Use devfiles to help you with the following:
 
 Stack providers use devfiles to develop their runtime stacks once and then use these runtime stacks across different tools. Therefore, with devfiles, you do not need to build and maintain custom development tools.
 
-Tool providers use devfiles to build runtime support for each runtime. The devfile runtime teams build and run applications on their servers, giving tool providers more time.
+Tool providers use devfiles to build runtime support for each runtime. The devfile runtime teams create the devfiles for building and running applications on their servers, giving you more time to work on your tools.
 
 With devfiles, developers do not need to set up the environment for building and running their applications. Instead, developers have the flexibility to use different tools, like Che and odo.
 
