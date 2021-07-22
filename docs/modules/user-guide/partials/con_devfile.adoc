@@ -11,7 +11,7 @@ Devfiles are YAML files, and they simplify your development process. Devfiles ca
 
 With devfiles, you can make workspaces composed of multiple containers. In these containers, you can create any number of identical workspaces from the same devfile. If you create multiple workspaces, you can share your devfile with different teams. By sharing a single devfile across multiple teams, you can ensure that each team has the same user experience and build, run, deploy behaviors.
 
-Use devfiles so that you have the following features:
+Devfiles include the following features:
 
 * Guidance for using runtime images
 * Example code
