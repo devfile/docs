@@ -5,7 +5,14 @@
 
 .What a devfile does for you
 
-Devfiles are YAML files, and they simplify your development process. Devfiles capture instructions on how to set up your development environment and provide these instructions to your tools and IDE. The tools and IDE understand the instructions and support devfiles in order to take your development project from source code to a running application. By using devfiles, you can guarantee consistent patterns of behavior for applications written in different languages and using different tools. Devfiles also provide automation steps to your tools and IDE so that they can automate your current, manual processes. Using the recommended best practices from the devfile, the tools and IDE can: take in the repository hosting your application source code, build your code, run your application on your local container, and then deploy your application to cloud-native containers.
+You can use devfiles to automate and simplify your development process. With devfiles, you record the instructions for configuring and running your software build environment as a YAML-formatted text file. Then, optionally, you can distribute those instructions to other software build tools and IDEs that support devfiles. Finally, to automatically configure and build a running application from a development project, you run the devfile instructions. You can also use devfiles to provide consistent software build processes across different languages and tools. 
+
+Using the recommended best practices from the devfile, the tools and IDE can:
+
+* Take in the repository hosting your application source code.
+* Build your code.
+* Run your application on your local container.
+* Deploy your application to cloud-native containers.
 
 .Benefits of devfiles
 
