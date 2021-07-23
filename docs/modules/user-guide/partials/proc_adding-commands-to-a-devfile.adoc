@@ -74,7 +74,7 @@ A devfile allows you to specify commands to be available for execution in a work
 |commands
 |string
 |no
-|The exec commands that constitute the composite command.
+|The exec commands that constitute the composite command and chains multiple commands together. 
 
 |parallel
 |boolean
@@ -106,7 +106,7 @@ A devfile allows you to specify commands to be available for execution in a work
 |boolean
 |no
 |Identifies if it is the default command to run. Only one default command can be defined for each group.
-|=== 
+|===
 
 .Prerequisites
 

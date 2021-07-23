@@ -2,13 +2,7 @@
 = Adding projects to a devfile
 
 [role="_abstract"]
-This section describes how to add one or more projects to a devfile. Each starter project can contain three different objects:
-
-* git
-* github
-* zip
-
-See the following tables for project properties in a devfile:
+This section describes how to add one or more projects to a devfile. Each starter project can contain either a `git` or `zip` object. See the following tables for project properties in a devfile:
 
 .starterProject object
 [cols="1,1,1,1"]
@@ -17,7 +11,7 @@ See the following tables for project properties in a devfile:
 
 |name
 |string
-|no
+|yes
 |The name of your devfile.
 
 |description
@@ -37,51 +31,15 @@ See the following tables for project properties in a devfile:
 |===
 |Key |Type| Required| Description
 
-|location
+|checkoutFrom
 |string
 |no
 |The location of your git repository.
 
-|branch
+|remotes
 |string
 |no
 |The branch that you use.
-
-|spareCheckoutDir
-|string
-|no
-|The directory that you use when you pull from your repository.
-
-|startPoint
-|string
-|no
-|The tag or commit from where you start.
-|===
-
-.githubObject
-[cols="1,1,1,1"]
-|===
-|Key |Type| Required| Description
-
-|location
-|string
-|no
-|The location of your git repository.
-
-|branch
-|string
-|no
-|The branch that you use.
-
-|spareCheckoutDir
-|string
-|no
-|The directory that you use when you pull from your repository.
-
-|startPoint
-|string
-|no
-|The tag or commit from where you start.
 |===
 
 .zipObject
@@ -93,11 +51,6 @@ See the following tables for project properties in a devfile:
 |string
 |no
 |The location of your zip.
-
-|spareCheckoutDir
-|string
-|no
-|The directory that you use when you pull from your repository.
 |===
 
 .Prerequisites

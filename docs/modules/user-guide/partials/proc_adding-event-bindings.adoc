@@ -2,7 +2,7 @@
 = Adding event bindings
 
 [role="_abstract"]
-This section describes how to add an event to a v2.x devfile. An event specified in a v1.x devfile still works in a v2.x devfile. An event can have three different type of objects:
+This section describes how to add an event to a v2.x devfile. An event can have three different type of objects:
 
 . preStartObject
 . postStartObject

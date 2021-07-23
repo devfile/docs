@@ -2,7 +2,7 @@
 = Adding components to a devfile
 
 [role="_abstract"]
-Each component in a single devfile must have a unique name and use the `container` object. See the following tables for component properties in a devfile:
+Each component in a single devfile must have a unique name and use one of the objects: `container`, `kubernetes`, `openshift`, or `volume`. See the following tables for component properties in a devfile:
 
 .Component object
 [cols="1,1,1,1"]
@@ -79,7 +79,7 @@ Each component in a single devfile must have a unique name and use the `containe
 |exposure
 |string
 |no
-|Use the following attributes to describe how to expose the endpoints on the network: `public`, `internal`, `none`.
+|Use the following attributes to describe how to expose the endpoints on the network: `public`, `internal`, `none`. If not specified, the default attribute is `public`.
 
 |path
 |string
@@ -89,7 +89,7 @@ Each component in a single devfile must have a unique name and use the `containe
 |protocol
 |string
 |no
-|Use the following attributes to describe the application and transport protocols of the traffic that goes through the endpoint: `http`, `https`, `ws`, `wss`, `tcp`, `udp`.
+|Use the following attributes to describe the application and transport protocols of the traffic that goes through the endpoint: `http`, `https`, `ws`, `wss`, `tcp`, `udp`. If not specified, the default attribute is `public`. 
 
 |secure
 |boolean
