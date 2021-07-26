@@ -2,7 +2,7 @@
 = Migrating components
 
 [role="_abstract"]
-This section describes how to migrate components to v2.x devfiles. A component specified in a v1.x devfile no longer works in a v2.x devfile.
+This section describes how to migrate components to v2.x devfiles.
 
 .Procedure
 
