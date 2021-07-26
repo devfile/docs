@@ -2,7 +2,7 @@
 = Adding `container` components to a devfile
 
 [role="_abstract"]
-To incorporate custom tools into the workspace, you can define an image-based configuration of a container in a workspace. You can do this by using the `container` component type. 
+To incorporate custom tools into the workspace, define an image-based configuration of a container in a workspace. Define this configuration by using the `container` component type.
 
 A devfile can contain one or more components of the `container` type. The `component name` attribute identifies each component, including the container.
 
@@ -59,7 +59,7 @@ components:
 +
 Specify the type of component using the `container` attribute. Use the `image` attribute to specify the image for the component. When defining the `image`, use container naming conventions. For example, the `image` attribute in the preceding example refers to the container image,  `docker.io/library/golang:latest`.
 +
-Use the `container` component to augment the image with additional resources and information. By augmenting this image, you allow for integrating the tooling provided by the image with the application that consumes the devfile.
+Use the `container` component to augment the image with additional resources and information. This component allows you to integrate the tooling provided by the image with the application that consumes the devfile.
 
 . Mounting project sources
 +

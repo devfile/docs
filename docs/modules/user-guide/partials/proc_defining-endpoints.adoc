@@ -63,7 +63,7 @@ This example has two containers that each define an endpoint. An endpoint has a 
 
 * `secure`: Boolean. The default value is `false`. Setting this value to `true` puts the endpoint behind a JWT proxy. When the endpoint is secured this way, clients must supply a JWT workspace token to call this endpoint. The JWT proxy is deployed in the same Pod as the server and assumes the server listens only on the local loopback interface, such as `127.0.0.1`.
 +
-WARNING: If you listen on any other interface than the local loopback, you pose a security risk. A server other than the local loopback is accessible without the JWT authentication within the cluster network on the corresponding IP addresses.
+WARNING: Listening on any other interface than the local loopback poses a security risk. Such a server is accessible without the JWT authentication within the cluster network on the corresponding IP addresses.
 
 * `path`: The URL of the endpoint.
 
