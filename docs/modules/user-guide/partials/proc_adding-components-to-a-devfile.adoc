@@ -15,7 +15,7 @@ Each component in a single devfile must have a unique name and use one of the ob
 |The list of containers that you use.
 |===
 
-.containerObject
+.container object
 [cols="1,1,1,1"]
 |===
 |Key |Type| Required| Description
@@ -61,7 +61,7 @@ Each component in a single devfile must have a unique name and use one of the ob
 |The list of environment variables to use.
 |===
 
-.endpointObject
+.endpoint object
 [cols="1,1,1,1"]
 |===
 |Key |Type| Required| Description
@@ -89,7 +89,7 @@ Each component in a single devfile must have a unique name and use one of the ob
 |protocol
 |string
 |no
-|Use the following attributes to describe the application and transport protocols of the traffic that goes through the endpoint: `http`, `https`, `ws`, `wss`, `tcp`, `udp`. If not specified, the default attribute is `public`. 
+|Use the following attributes to describe the application and transport protocols of the traffic that goes through the endpoint: `http`, `https`, `ws`, `wss`, `tcp`, `udp`. If not specified, the default attribute is `http`.
 
 |secure
 |boolean
@@ -97,7 +97,7 @@ Each component in a single devfile must have a unique name and use one of the ob
 |Choose to define the endpoint as secure or not.
 |===
 
-.volumeObject
+.volume object
 [cols="1,1,1,1"]
 |===
 |Key |Type| Required| Description
