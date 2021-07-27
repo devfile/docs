@@ -26,7 +26,7 @@ This section describes how to add one or more projects to a devfile. Each starte
 |===
 
 
-.gitObject
+.git object
 [cols="1,1,1,1"]
 |===
 |Key |Type| Required| Description
@@ -38,11 +38,11 @@ This section describes how to add one or more projects to a devfile. Each starte
 
 |remotes
 |string
-|no
+|yes
 |The branch that you use.
 |===
 
-.zipObject
+.zip object
 [cols="1,1,1,1"]
 |===
 |Key |Type| Required| Description
