@@ -5,7 +5,11 @@
 
 Devfiles are YAML files that describe and define developer workspaces or cloud-native development environments. Devfiles also describe best practices for end-to-end application development and customize or extend the application development to fit a team's current development practices. Instead of forcing a new workflow or tools, devfiles provide instructions for automating manual processes.
 
+<<<<<<< HEAD
 Development tools consume devfiles and transform the definition into a cloud workspace composed of multiple containers and cloud-native resources. Also, users can create any number of identical workspaces from the same devfile. This way, different teams can use and share workspaces in various ways, including a devfile registry or together with the source code of a project.
+=======
+You can use devfiles to automate and simplify your development process. With devfiles, you record the instructions for configuring and running your build environment as a YAML-formatted text file. Then, optionally, you can distribute those devfiles to other build tools and IDEs that support devfiles. Finally, to automatically configure and build a running application from a development project, you run the devfile instructions. You can also use devfiles to provide consistent build processes across different languages and tools. 
+>>>>>>> 34d94f6... sentence change and removed redudancy of software
 
 A devfile includes:
 
