@@ -32,4 +32,4 @@ Each component in a single devfile must have a unique name.
 
 
 * xref:api-reference.adoc[]
-* xref:devfile-samples.adoc[]
+* xref:devfile-resources.adoc[]
