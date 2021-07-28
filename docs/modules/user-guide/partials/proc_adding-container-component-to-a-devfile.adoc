@@ -87,4 +87,4 @@ Use the `command` attribute of the `container` type to modify the `entrypoint` c
 .Additional resources
 
 * xref:api-reference.adoc[]
-* xref:devfile-samples.adoc[]
+* xref:devfile-resources.adoc[]

@@ -152,4 +152,4 @@ Each component in a single devfile must have a unique name and use one of the ob
 
 
 * xref:api-reference.adoc[]
-* xref:devfile-samples.adoc[]
+* xref:devfile-resources.adoc[]

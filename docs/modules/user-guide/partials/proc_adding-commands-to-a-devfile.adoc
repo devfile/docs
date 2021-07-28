@@ -74,7 +74,7 @@ A devfile allows you to specify commands to be available for execution in a work
 |commands
 |string
 |no
-|The exec commands that constitute the composite command and chains multiple commands together. 
+|The exec commands that constitute the composite command and chains multiple commands together.
 
 |parallel
 |boolean
@@ -270,4 +270,4 @@ commands:
 .Additional resources
 
 * xref:api-reference.adoc[]
-* xref:devfile-samples.adoc[]
+* xref:devfile-resources.adoc[]
