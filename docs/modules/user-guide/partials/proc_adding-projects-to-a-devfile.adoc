@@ -181,4 +181,4 @@ For more information, see link:https://git-scm.com/docs/git-read-tree#_sparse_ch
 .Additional resources
 
 * xref:api-reference.adoc[]
-* xref:devfile-samples.adoc[]
+* xref:devfile-resources.adoc[]

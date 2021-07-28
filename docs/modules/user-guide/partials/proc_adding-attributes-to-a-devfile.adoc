@@ -43,4 +43,4 @@ components:
 .Additional resources
 
 * xref:api-reference.adoc[]
-* xref:devfile-samples.adoc[]
+* xref:devfile-resources.adoc[]

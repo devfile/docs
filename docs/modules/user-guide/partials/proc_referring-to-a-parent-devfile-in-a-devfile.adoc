@@ -70,4 +70,4 @@ parent:
 For more information about referring to parent devfiles, see:
 
 * xref:api-reference.adoc[]
-* xref:devfile-samples.adoc[]
+* xref:devfile-resources.adoc[]
