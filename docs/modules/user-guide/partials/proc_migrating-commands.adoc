@@ -2,7 +2,7 @@
 = Migrating commands
 
 [role="_abstract"]
-This section describes how to migrate the `commands` section to a v2.x devfile. A command specified in a v1.x devfile does not work in a v2.x devfile.
+This section describes how to migrate the `commands` section to a v2.x devfile. 
 
 .Procedure
 

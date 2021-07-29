@@ -2,7 +2,7 @@
 = Migrating projects
 
 [role="_abstract"]
-This section describes how to migrate projects to v2.x devfiles. A project specified in a v1.x devfile still works in a v2.x devfile.
+This section describes how to migrate projects to v2.x devfiles. 
 
 .Procedure
 
