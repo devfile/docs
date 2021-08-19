@@ -2,55 +2,16 @@ name: Devfile Docs Build
 
 on:
   push:
-env:
-  SITE_DIR: 'site'
 jobs:
-  build_site:
-    name: "Build site with Antora"
-    runs-on: [ubuntu-latest]
+  dispatch:
+    strategy:
+      matrix:
+        repo: ['braden-wilson/landing-page']  # Changed
+    runs-on: ubuntu-latest
     steps:
-      - name: Setup Node.js for use with actions
-        uses: actions/setup-node@v1
+      - name: Repository dispatch
+        uses: peter-evans/repository-dispatch@v1
         with:
-          version: 12.x
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: "Generate API Reference"
-        run: yarn install && yarn run generate-api-reference
-      - name: "Generate site using antora site action"
-        uses: kameshsampath/antora-site-action@master
-        with:
-         antora_playbook: antora-playbook.yml
-      - name: "Upload generated site"
-        uses: actions/upload-artifact@v2
-        with:
-          name: site
-          path: "${{ github.workspace }}/build/${{ env.SITE_DIR }}"
-  deploy_site:
-    if: success() && github.ref == 'refs/heads/master'
-    runs-on: [ubuntu-latest]
-    needs: [build_site]
-    name: "Deploy GitHub Pages"
-    steps:
-     - name: Setup Node.js for use with actions
-       uses: actions/setup-node@v1
-       with:
-         version: 12.x
-     - name: Checkout
-       uses: actions/checkout@v2
-       with:
-          persist-credentials: false
-     - name: Download generated site
-       uses: actions/download-artifact@v2
-       with:
-         name: site
-         path: "${{ github.workspace }}/${{ env.SITE_DIR }}"
-     - name: Deploy to GitHub Pages
-       uses: JamesIves/github-pages-deploy-action@3.7.1
-       with:
-        # ACCESS_TOKEN: # optional
-        GITHUB_TOKEN: "${{ secrets.DOCS_DEPLOY_TOKEN}}"
-        FOLDER: "${{ env.SITE_DIR }}"
-        REPOSITORY_NAME: 'devfile/devfile.github.io'
-        BRANCH: 'master'
-        COMMIT_MESSAGE: "[CI] Publish Documentation for ${{ github.sha }}"
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: ${{ matrix.repo }}
+          event-type: build-and-deploy
