@@ -13,7 +13,7 @@ endif::[]
 
 
 [role="_abstract"]
-Use the following documents to learn how to write a stack by using devfiles:
+Use the following documents to work with a stack by using devfiles:
 
 * xref:adding-schema-version-to-a-devfile.adoc[]
 * xref:adding-a-name-to-a-devfile.adoc[]
