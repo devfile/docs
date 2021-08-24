@@ -6,7 +6,7 @@ jobs:
   dispatch:
     strategy:
       matrix:
-        repo: ['braden-wilson/landing-page']  # Changed
+        repo: ['devfile/landing-page']
     runs-on: ubuntu-latest
     steps:
       - name: Repository dispatch
