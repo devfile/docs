@@ -20,7 +20,7 @@ content:
 output:
   destinations:
     - clean: true
-      path: build/site
+      path: out/docs
       provider: fs
 runtime:
   cache_dir: ./.cache/antora
