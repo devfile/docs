@@ -1,7 +1,7 @@
 .cache
 .DS_Store
 .yarnrc
-/build/
+/out/
 /node_modules/
 /workspace/
 docs/modules/user-guide/attachments/api-reference/

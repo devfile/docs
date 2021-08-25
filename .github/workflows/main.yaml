@@ -2,6 +2,8 @@ name: Devfile Docs Build
 
 on:
   push:
+    branches:
+      - master
 jobs:
   dispatch:
     strategy:
