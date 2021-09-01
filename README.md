@@ -42,7 +42,7 @@ To enable this the following release process must be followed:
 Set the new branch to be specific to the release version. For example, if the release version is 2.0.0:
 
 1. Prior to this process the api repo is updated to copy a final version of the schema to a directory for that version. For example:
-   `docs/modules/user-guide/attachments/jsonschemas/2.0.0/devfile.json
+   `docs/modules/user-guide/attachments/jsonschemas/2.0.0/devfile.json`
 1. Create the new branch for the tag:
    `git fetch --all`
    `git checkout -b v2.0.x v2.0.0`
