@@ -44,14 +44,16 @@ Set the new branch to be specific to the release version. For example, if the re
 1. Prior to this process the api repo is updated to copy a final version of the schema to a directory for that version. For example:
    `docs/modules/user-guide/attachments/jsonschemas/2.0.0/devfile.json`
 1. Create the new branch for the tag:
-   `git fetch --all`
-   `git checkout -b v2.0.x v2.0.0`
+   ```bash
+   git fetch --all
+   git checkout -b v2.0.x v2.0.0`
+   ```
 1. Modify `docs/antora.yaml`:
    1. Set the correct title and version.
    1. Remove the pre-release attribute.
    1. Set `.asciidoc .attributes .prod-ver` for the release
    1. For example if release is 2.0.0
-      ```
+      ```yaml
       name: devfile
       nav:
         - modules/user-guide/nav.adoc
@@ -95,10 +97,10 @@ Now the master branch can be updated for the next release and to link the previo
 from the newly created `v.2.0.x` branch.
 
 1. Modify 'docs/antora.yaml' to set the correct title,version,pre-release and prod-ver. For example:
-   ```
+   ```yaml
    asciidoc:
-      attributes:
-        prod-ver: 2.1
+     attributes:
+       prod-ver: 2.1
    name: devfile
    nav:
      - modules/user-guide/nav.adoc
@@ -108,7 +110,7 @@ from the newly created `v.2.0.x` branch.
    prerelease: -alpha
    ```
 1. Modify `antora-playbook.yaml` to add content for the new release created (if not already covered by branch pattern `v2.*`:
-   ```
+   ```yaml
    content:
      sources:
        - branches: HEAD
