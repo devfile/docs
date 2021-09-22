@@ -1,5 +1,5 @@
 :description: Devfile Registry
-:navtitle: devfile-registry
+:navtitle: Devfile Registry
 :keywords: devfile
 // :page-aliases:
 
