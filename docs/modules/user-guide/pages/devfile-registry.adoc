@@ -3,4 +3,4 @@
 :keywords: devfile
 // :page-aliases:
 
-include::partial$con_devfile-registry.adoc[]
+include::partial$assembly_devfile-registry.adoc[]

@@ -31,6 +31,10 @@
 
 * Registry Administrator
 ** xref:devfile-registry.adoc[]
+*** xref:con_devfile-registry.adoc[]
+*** xref:assembly_building-custom-devfile-registry.adoc[]
+*** xref:assembly_deploying-devfile-registry.adoc[]
+*** xref:assembly_registry-schema.adoc[]
 
 * xref:api-reference.adoc[]
 * xref:devfile-resources.adoc[]
