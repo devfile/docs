@@ -13,7 +13,7 @@ endif::[]
 
 
 [role="_abstract"]
-This section describes how to write a stack using {prod}.
+Use the following documents to work with a stack by using devfiles:
 
 * xref:adding-schema-version-to-a-devfile.adoc[]
 * xref:adding-a-name-to-a-devfile.adoc[]

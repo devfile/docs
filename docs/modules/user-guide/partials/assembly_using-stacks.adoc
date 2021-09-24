@@ -1,0 +1,25 @@
+ifdef::context[:parent-context-of-assembly_using-stacks: {context}]
+
+
+ifndef::context[]
+[id="assembly_using-stacks"]
+endif::[]
+ifdef::context[]
+[id="assembly_using-stacks_{context}"]
+endif::[]
+= Using stacks
+
+:context: assembly_using-stacks
+
+
+[role="_abstract"]
+Use the following documents to learn how to write a stack by using devfiles:
+
+* xref:adding-schema-version-to-a-devfile.adoc[]
+* xref:adding-a-name-to-a-devfile.adoc[]
+
+// [role="_additional-resources"]
+// == Additional resources (or Next steps)
+
+ifdef::parent-context-of-assembly_using-stacks[:context: {parent-context-of-assembly_using-stacks}]
+ifndef::parent-context-of-assembly_using-stacks[:!context:]

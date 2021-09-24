@@ -1,0 +1,6 @@
+:description: Using stacks
+:navtitle: Using stacks
+:keywords: using, stack
+:page-aliases: using_stacks
+
+include::partial$assembly_using-stacks.adoc[]
