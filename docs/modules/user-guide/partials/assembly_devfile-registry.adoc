@@ -15,7 +15,7 @@ endif::[]
 [role="_abstract"]
 Get started with devfile registries:
 
-* xref:con_devfile-registry.adoc[]
-* xref:assembly_building-custom-devfile-registry.adoc[]
-* xref:assembly_deploying-devfile-registry.adoc[]
-* xref:assembly_registry-schema.adoc[]
+* xref:overview-devfile-registry.adoc[]
+* xref:building-custom-devfile-registry.adoc[]
+* xref:deploying-devfile-registry.adoc[]
+* xref:registry-schema.adoc[]

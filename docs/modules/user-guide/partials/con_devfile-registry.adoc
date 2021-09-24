@@ -1,4 +1,4 @@
-[id="devfile-registry_{context}"]
+[id="overview-devfile-registry_{context}"]
 = Overview of devfile registry
 
 [role="_abstract"]
@@ -45,4 +45,4 @@ The on-cluster devfile registries can be configured with custom devfile stacks s
 
 == Additional resources
 
-* xref:authoring-stacks.adoc[].
+* xref:building-custom-devfile-registry.adoc[].
