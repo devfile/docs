@@ -1,0 +1,24 @@
+[id="building-custom-devfile-registry_{context}"]
+= Creating a git repository
+
+[role="_abstract"]
+Set up a Git repository to store the devfile stacks to package into the devfile registry.
+
+.Procedure
+
+. Fork the repository, link:https://github.com/devfile/registry[devfile/registry].
+. Name your forked repository.
+. Add or remove any stacks you need from this repository.
+* These stacks already include the test resources and necessary build tools, including: Dockerfile and build scripts.
+. Create a `stacks/` folder for storing the devfile stacks. Each folder under `stacks/` must correspond to a specific stack, for example, `stacks/java-wildfly/`.
+. To package any external devfile stacks or samples in your devfile registry, go to the root of your repository and specify an `extraDevfileEntries.YAML`.
+* See the example of an link:https://github.com/devfile/registry/blob/main/extraDevfileEntries.yaml[extraDevfileEntries.YAML].
+. Add your devfile stacks to your `stacks/` folder.
+* Make sure every devfile stack contains at least one devfile.YAML file. Add other required files for your selected stack. These files can include: VSX plugins, Dockerfiles, or Kubernetes manifests.
+
+The registry build tool automatically validates your customized registry.
+
+[role="_additional-resources"]
+.Additional resources
+
+* To create your devfile stacks, see xref:authoring-stacks.adoc[].

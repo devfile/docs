@@ -1,0 +1,18 @@
+[id="building-custom-devfile-registry_{context}"]
+= Tagging and pushing a registry container image
+
+[role="_abstract"]
+Use the devfile index container image to create a container in which you build, run, and deploy your application.
+
+.Procedure
+
+. Choose a container registry.
+. Push the devfile index container image to your chosen container registry by running the following commands in order:
+* `$ docker tag -f devfile-index <registry-hostname>/<registry-username>/devfile-index:latest`
+* `$ docker push <registry-hostname>/<registry-username>/devfile-index:latest`
+. If your container did not build properly, consult the documentation for your container registry.
+
+[role="_additional-resources"]
+.Additional resources
+
+* For information on deploying the devfile index container image, see xref:deploying-devfile-registry.adoc[].
