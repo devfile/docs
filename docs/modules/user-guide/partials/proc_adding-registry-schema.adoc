@@ -1,0 +1,423 @@
+[id="registry-schema_{context}"]
+= Adding devfile registry schema
+
+[role="_abstract"]
+Add the file, `extraDevfileEntries.yaml`, under the root of your devfile registry, so that you can add samples and stacks from other repositories. This file contains the location information of the extra samples and stacks.
+
+.extraDevfileEntries.yaml schema
+* samples: schema[] - the sample list
+* stacks: schema[] - the stack list Stack/Sample attributes:
+* name: string - the stack name
+* displayName: string - the display name of devfile
+* description: string - the description of devfile
+* tags: string[] - the tags associated to devfile
+* icon: string - the devfile icon
+* language: string - the project language that is used in the devfile
+* git: *git - the information of remote repositories
+
+.extraDevfileEntries.yaml sample
+
+====
+----
+schemaVersion: 1.0.0
+samples:
+  - name: nodejs-basic
+    displayName: Basic NodeJS
+    description: A simple Hello World Node.js application
+    icon: https://github.com/maysunfaisal/node-bulletin-board-2/blob/main/nodejs-icon.png
+    tags: ["NodeJS", "Express"]
+    projectType: nodejs
+    language: nodejs
+    git:
+      remotes:
+        origin: https://github.com/redhat-developer/devfile-sample.git
+  - name: code-with-quarkus
+    displayName: Basic Quarkus
+    description: A simple Hello World Java application using Quarkus
+    icon: .devfile/icon/quarkus.png
+    tags: ["Java", "Quarkus"]
+    projectType: quarkus
+    language: java
+    git:
+      remotes:
+        origin: https://github.com/elsony/devfile-sample-code-with-quarkus.git
+  - name: java-springboot-basic
+    displayName: Basic Spring Boot
+    description: A simple Hello World Java Spring Boot application using Maven
+    icon: .devfile/icon/spring-logo.png
+    tags: ["Java", "Spring"]
+    projectType: springboot
+    language: java
+    git:
+      remotes:
+        origin: https://github.com/elsony/devfile-sample-java-springboot-basic.git
+  - name: python-basic
+    displayName: Basic Python
+    description: A simple Hello World application using Python
+    icon: .devfile/icon/python.png
+    tags: ["Python"]
+    projectType: python
+    language: python
+    git:
+      remotes:
+        origin: https://github.com/elsony/devfile-sample-python-basic.git
+----
+====
+
+
+The file, index.json, contains the metadata of the stacks and samples in the registry. This metadata is also known as the devfile index schema. From the devfile index schema, you can get the stack and sample generic information such as: name, language, and resources.
+
+.Devfile index schema
+* name: string - the stack name
+* version: string - the stack version
+* attributes: map[string]apiext.JSON - map of implementation-dependant free-form YAML attributes
+* displayName: string - the display name of devfile
+* description: string - the description of devfile
+* type: DevfileType - the type of the devfile, currently supports stack and sample
+* tags: string[] - the tags associated to devfile
+* icon: string - the devfile icon
+* globalMemoryLimit: string - the devfile global memory limit
+* projectType: string - the project framework that is used in the devfile
+* language: string - the project language that is used in the devfile
+* links: map[string]string - links related to the devfile
+* resources: string[] - the file resources that compose a devfile stack.
+* starterProjects: string[] - the project templates that can be used in the devfile
+* git: *git - the information of remote repositories
+
+.Index.json sample
+
+====
+----
+[
+  {
+    "name": "java-maven",
+    "version": "1.1.0",
+    "displayName": "Maven Java",
+    "description": "Upstream Maven and OpenJDK 11",
+    "type": "stack",
+    "tags": [
+      "Java",
+      "Maven"
+    ],
+    "projectType": "maven",
+    "language": "java",
+    "links": {
+      "self": "devfile-catalog/java-maven:latest"
+    },
+    "resources": [
+      "devfile.yaml"
+    ],
+    "starterProjects": [
+      "springbootproject"
+    ]
+  },
+  {
+    "name": "java-openliberty",
+    "version": "0.5.0",
+    "displayName": "Open Liberty",
+    "description": "Java application stack using Open Liberty runtime",
+    "type": "stack",
+    "projectType": "docker",
+    "language": "java",
+    "links": {
+      "self": "devfile-catalog/java-openliberty:latest"
+    },
+    "resources": [
+      "devfile.yaml"
+    ],
+    "starterProjects": [
+      "user-app"
+    ]
+  },
+  {
+    "name": "java-quarkus",
+    "version": "1.1.0",
+    "displayName": "Quarkus Java",
+    "description": "Upstream Quarkus with Java+GraalVM",
+    "type": "stack",
+    "tags": [
+      "Java",
+      "Quarkus"
+    ],
+    "projectType": "quarkus",
+    "language": "java",
+    "links": {
+      "self": "devfile-catalog/java-quarkus:latest"
+    },
+    "resources": [
+      "devfile.yaml"
+    ],
+    "starterProjects": [
+      "community",
+      "redhat-product"
+    ]
+  },
+  {
+    "name": "java-springboot",
+    "version": "1.1.0",
+    "displayName": "Spring Boot®",
+    "description": "Spring Boot® using Java",
+    "type": "stack",
+    "tags": [
+      "Java",
+      "Spring"
+    ],
+    "icon": "https://www.eclipse.org/che/images/logo-eclipseche.svg",
+    "globalMemoryLimit": "2674Mi",
+    "projectType": "spring",
+    "language": "java",
+    "links": {
+      "self": "devfile-catalog/java-springboot:latest"
+    },
+    "resources": [
+      "devfile.yaml"
+    ],
+    "starterProjects": [
+      "springbootproject"
+    ]
+  },
+  {
+    "name": "java-vertx",
+    "version": "1.1.0",
+    "displayName": "Vert.x Java",
+    "description": "Upstream Vert.x using Java",
+    "type": "stack",
+    "tags": [
+      "Java",
+      "Vert.x"
+    ],
+    "projectType": "vertx",
+    "language": "java",
+    "links": {
+      "self": "devfile-catalog/java-vertx:latest"
+    },
+    "resources": [
+      "devfile.yaml"
+    ],
+    "starterProjects": [
+      "vertx-http-example",
+      "vertx-istio-circuit-breaker-booster",
+      "vertx-istio-routing-booster",
+      "vertx-secured-http-example-redhat",
+      "vertx-crud-example-redhat",
+      "vertx-istio-security-booster",
+      "vertx-crud-example",
+      "vertx-circuit-breaker-example",
+      "vertx-configmap-example",
+      "vertx-circuit-breaker-example-redhat",
+      "vertx-cache-example-redhat",
+      "vertx-cache-example",
+      "vertx-secured-http-example",
+      "vertx-health-checks-example-redhat",
+      "vertx-http-example-redhat",
+      "vertx-health-checks-example",
+      "vertx-configmap-example-redhat",
+      "vertx-messaging-work-queue-booster",
+      "vertx-istio-distributed-tracing-booster"
+    ]
+  },
+  {
+    "name": "java-wildfly",
+    "version": "1.0.2",
+    "displayName": "WildFly Java",
+    "description": "Upstream WildFly",
+    "type": "stack",
+    "tags": [
+      "Java",
+      "WildFly"
+    ],
+    "projectType": "wildfly",
+    "language": "java",
+    "links": {
+      "self": "devfile-catalog/java-wildfly:latest"
+    },
+    "resources": [
+      "devfile.yaml"
+    ],
+    "starterProjects": [
+      "microprofile-config",
+      "microprofile-fault-tolerance",
+      "microprofile-health",
+      "microprofile-jwt",
+      "microprofile-metrics",
+      "microprofile-openapi",
+      "microprofile-opentracing",
+      "microprofile-rest-client"
+    ]
+  },
+  {
+    "name": "java-wildfly-bootable-jar",
+    "version": "1.0.2",
+    "displayName": "WildFly Bootable Jar",
+    "description": "Java stack with WildFly in bootable Jar mode, OpenJDK 11 and Maven 3.5",
+    "type": "stack",
+    "tags": [
+      "RHEL8",
+      "Java",
+      "OpenJDK",
+      "Maven",
+      "WildFly",
+      "Microprofile",
+      "WildFly Bootable"
+    ],
+    "projectType": "WildFly",
+    "language": "java",
+    "links": {
+      "self": "devfile-catalog/java-wildfly-bootable-jar:latest"
+    },
+    "resources": [
+      "devfile.yaml"
+    ],
+    "starterProjects": [
+      "microprofile-config",
+      "microprofile-fault-tolerance",
+      "microprofile-health",
+      "microprofile-jwt",
+      "microprofile-metrics",
+      "microprofile-openapi",
+      "microprofile-opentracing",
+      "microprofile-rest-client"
+    ]
+  },
+  {
+    "name": "nodejs",
+    "version": "1.0.0",
+    "displayName": "NodeJS Runtime",
+    "description": "Stack with NodeJS 12",
+    "type": "stack",
+    "tags": [
+      "NodeJS",
+      "Express",
+      "ubi8"
+    ],
+    "projectType": "nodejs",
+    "language": "nodejs",
+    "links": {
+      "self": "devfile-catalog/nodejs:latest"
+    },
+    "resources": [
+      "devfile.yaml"
+    ],
+    "starterProjects": [
+      "nodejs-starter"
+    ]
+  },
+  {
+    "name": "python",
+    "version": "1.0.0",
+    "displayName": "Python",
+    "description": "Python Stack with Python 3.7",
+    "type": "stack",
+    "tags": [
+      "Python",
+      "pip"
+    ],
+    "projectType": "python",
+    "language": "python",
+    "links": {
+      "self": "devfile-catalog/python:latest"
+    },
+    "resources": [
+      "devfile.yaml"
+    ],
+    "starterProjects": [
+      "python-example"
+    ]
+  },
+  {
+    "name": "python-django",
+    "version": "1.0.0",
+    "displayName": "Django",
+    "description": "Python3.7 with Django",
+    "type": "stack",
+    "tags": [
+      "Python",
+      "pip",
+      "Django"
+    ],
+    "projectType": "django",
+    "language": "python",
+    "links": {
+      "self": "devfile-catalog/python-django:latest"
+    },
+    "resources": [
+      "devfile.yaml"
+    ],
+    "starterProjects": [
+      "django-example"
+    ]
+  },
+  {
+    "name": "nodejs-basic",
+    "displayName": "Basic NodeJS",
+    "description": "A simple Hello World Node.js application",
+    "type": "sample",
+    "tags": [
+      "NodeJS",
+      "Express"
+    ],
+    "icon": "https://github.com/maysunfaisal/node-bulletin-board-2/blob/main/nodejs-icon.png",
+    "projectType": "nodejs",
+    "language": "nodejs",
+    "git": {
+      "remotes": {
+        "origin": "https://github.com/redhat-developer/devfile-sample.git"
+      }
+    }
+  },
+  {
+    "name": "code-with-quarkus",
+    "displayName": "Basic Quarkus",
+    "description": "A simple Hello World Java application using Quarkus",
+    "type": "sample",
+    "tags": [
+      "Java",
+      "Quarkus"
+    ],
+    "icon": ".devfile/icon/quarkus.png",
+    "projectType": "quarkus",
+    "language": "java",
+    "git": {
+      "remotes": {
+        "origin": "https://github.com/elsony/devfile-sample-code-with-quarkus.git"
+      }
+    }
+  },
+  {
+    "name": "java-springboot-basic",
+    "displayName": "Basic Spring Boot",
+    "description": "A simple Hello World Java Spring Boot application using Maven",
+    "type": "sample",
+    "tags": [
+      "Java",
+      "Spring"
+    ],
+    "icon": ".devfile/icon/spring-logo.png",
+    "projectType": "springboot",
+    "language": "java",
+    "git": {
+      "remotes": {
+        "origin": "https://github.com/elsony/devfile-sample-java-springboot-basic.git"
+      }
+    }
+  },
+  {
+    "name": "python-basic",
+    "displayName": "Basic Python",
+    "description": "A simple Hello World application using Python",
+    "type": "sample",
+    "tags": [
+      "Python"
+    ],
+    "icon": ".devfile/icon/python.png",
+    "projectType": "python",
+    "language": "python",
+    "git": {
+      "remotes": {
+        "origin": "https://github.com/elsony/devfile-sample-python-basic.git"
+      }
+    }
+  }
+]
+----
+====
