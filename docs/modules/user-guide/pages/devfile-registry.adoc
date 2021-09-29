@@ -1,0 +1,6 @@
+:description: Devfile Registry
+:navtitle: Devfile Registry
+:keywords: devfile
+// :page-aliases:
+
+include::partial$con_devfile-registry.adoc[]
