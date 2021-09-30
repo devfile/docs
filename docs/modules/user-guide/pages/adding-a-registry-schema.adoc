@@ -1,0 +1,6 @@
+:description: Adding a registry schema
+:navtitle: {description}
+:keywords: devfile
+// :page-aliases:
+
+include::partial$proc_adding-a-registry-schema.adoc[]
