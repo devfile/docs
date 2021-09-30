@@ -1,0 +1,6 @@
+:description: Understanding a devfile registry
+:navtitle: {description}
+:keywords: devfile
+// :page-aliases:
+
+include::partial$con_understanding-a-devfile-registry.adoc[]
