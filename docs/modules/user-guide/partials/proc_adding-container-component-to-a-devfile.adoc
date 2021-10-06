@@ -87,4 +87,4 @@ The `command` attribute of the `container` along with other arguments, is used t
 .Additional resources
 
 * xref:api-reference.adoc[]
-* xref:devfile-samples.adoc[]
+* xref:devfile-resources.adoc[]

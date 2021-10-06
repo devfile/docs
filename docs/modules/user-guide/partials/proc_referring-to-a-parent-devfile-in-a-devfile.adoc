@@ -44,7 +44,7 @@ schemaVersion: 2.1.0
 metadata:
   name: my-project-dev
 parent:
-    uri: https://raw.githubusercontent.com/eclipse/che-devfile-registry/master/devfiles/nodejs/devfile.yaml
+    uri: https://raw.githubusercontent.com/devfile/registry/main/stacks/nodejs/devfile.yaml
 ----
 ====
 +
@@ -70,4 +70,4 @@ parent:
 For more information on referring to parent devfiles, go to the following topics:
 
 * xref:api-reference.adoc[]
-* xref:devfile-samples.adoc[]
+* xref:devfile-resources.adoc[]
