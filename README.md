@@ -16,12 +16,20 @@ The repository contains multiple versions of the documentation, so be sure to mo
 Build is the same for each branch. To build the documentation locally, you need [Antora](https://antora.org/), node v10.12 or higher, and yarn. Then from the root of this repository, run:
 
 ```bash
-yarn install; yarn run generate-api-reference
-antora antora-playbook.yml
+$ yarn install
+$ yarn run generate-api-reference
+$ antora antora-playbook-for-development.yml
 ```
 
 These commands generate the html documentation in folder `build/site`. Open `build/site/index.html` in the browser. However, note that the build 
 may build multiple versions of the documentation, so be sure to select and view the version you are editing when viewing in the browser.
+
+Alternatively, to build and run a preview server on http://0.0.0.0:4000, run:
+
+```bash
+$ yarn install
+$ gulp
+```
 
 Additionally, when pushing to a branch or working on a PR, the site is built by a GH action and
 made available in a ZIP file as a GH action build artifact and can be tested locally.
