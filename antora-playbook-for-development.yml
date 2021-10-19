@@ -11,21 +11,18 @@ asciidoc:
     prod-id-short: devfile
 content:
   sources:
-    - branches: [v2.*]
+    - branches: HEAD
       start_path: docs
-      url: https://github.com/devfile/docs
+      url: ./
 output:
-  destinations:
-    - clean: true
-      path: build/site
-      provider: fs
+  clean: true
 runtime:
   cache_dir: ./.cache/antora
 site:
   robots: allow
   start_page: devfile::index.adoc
   title: Devfile Documentation
-  url: https://docs.devfile.io/
+  # url: Disabled on purpose in the development playbook to avoid htmltest crawling the live website.
 ui:
   bundle:
     snapshot: true
