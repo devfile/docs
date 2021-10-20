@@ -1,6 +1,7 @@
 .cache
 .DS_Store
 .yarnrc
+/build/
 /out/
 /node_modules/
 /workspace/
