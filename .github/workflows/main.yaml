@@ -17,32 +17,3 @@ jobs:
           token: ${{ secrets.DOCS_DEPLOY_TOKEN }}
           repository: ${{ matrix.repo }}
           event-type: build-and-deploy
-## Deployment disabled. It would unpublish API reference for v2.1.x
-  # deploy_site:
-  #   if: success() && github.ref == 'refs/heads/master'
-  #   runs-on: [ubuntu-latest]
-  #   needs: [build_site]
-  #   name: "Deploy GitHub Pages"
-  #   steps:
-  #    - name: Setup Node.js for use with actions
-  #      uses: actions/setup-node@v1
-  #      with:
-  #        version: 12.x
-  #    - name: Checkout
-  #      uses: actions/checkout@v2
-  #      with:
-  #         persist-credentials: false
-  #    - name: Download generated site
-  #      uses: actions/download-artifact@v2
-  #      with:
-  #        name: site
-  #        path: "${{ github.workspace }}/${{ env.SITE_DIR }}"
-  #    - name: Deploy to GitHub Pages
-  #      uses: JamesIves/github-pages-deploy-action@3.7.1
-  #      with:
-  #       # ACCESS_TOKEN: # optional
-  #       GITHUB_TOKEN: "${{ secrets.DOCS_DEPLOY_TOKEN}}"
-  #       FOLDER: "${{ env.SITE_DIR }}"
-  #       REPOSITORY_NAME: 'devfile/devfile.github.io'
-  #       BRANCH: 'master'
-  #       COMMIT_MESSAGE: "[CI] Publish Documentation for ${{ github.sha }}"
