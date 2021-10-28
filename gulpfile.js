@@ -16,7 +16,7 @@ const watchPatterns = playbook.content.sources.filter((source) => !source.url.in
   accum.push(`./antoraplaybook.yml`)
   accum.push(`./gulpfile.js`)
   accum.push(`./docs/antora.yml`)
-  accum.push(`./docs/modules/**/**/*.adoc`)
+  accum.push(`./docs/modules/**/**/*`)
   accum.push(`./supplemental-ui/**/*`)
   return accum
 }, [])
