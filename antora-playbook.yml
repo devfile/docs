@@ -11,7 +11,7 @@ asciidoc:
     prod-id-short: devfile
 content:
   sources:
-    - branches: [v2.*]
+    - branches: [master, v2.*]
       start_path: docs
       url: https://github.com/devfile/docs
 output:
