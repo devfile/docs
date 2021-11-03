@@ -116,8 +116,9 @@ A devfile allows you to specify commands to be available for execution in a work
 
 
 .Procedure
+.Adding a command
 
-. Add a `commands` section in the devfile, containing a list of one or more commands.
+. Add a `commands` section in the devfile that contains a list of one or more commands.
 
 . For each command, define an unique value for the mandatory `id` attribute.
 
@@ -177,18 +178,19 @@ commands:
 +
 [NOTE]
 
-* A command can have only one action, though you can use `composite` commands to execute several commands either sequentially or in parallel.
+* A command can have only one action, though you can use `composite` commands to execute several commands either in sequence or in parallel.
 
-. Command group
-+
-To assign a given command to one or more groups that represent the nature of the command, use the following supported group types:
+.Adding a command group
+
+. Assign a given command to one or more groups that represent the nature of the command.
+. Use the following supported group types:
 +
 * `build`
 * `run`
 * `test`
 * `debug`
 +
-For each of the groups, define one default command by specifying the `isDefault` value.
+. For each of the groups, define one default command by specifying the `isDefault` value.
 +
 [source,yaml]
 ----
@@ -223,9 +225,12 @@ commands:
         isDefault: true
 ----
 
-. Composite command
-+
-To chain multiple commands together, define a composite command. To reference the individual commands that are called from a composite command, use the `name` of the command. To specify whether commands within a composite command are to be executed sequentially or in parallel, define the `parallel` boolean.
+.Adding composite commands
+
+. Chain multiple commands together by defining a composite command.
+. Reference the individual commands that are called from a composite command by using the `name` of the command.
+. Specify whether commands within a composite command are to be executed in sequence or in parallel.
+. Define the `parallel` boolean.
 +
 [source,yaml]
 ----
