@@ -14,7 +14,7 @@ This section describes how to designate a parent devfile to a given devfile. If 
 
 You can refer to a parent devfile in three different ways:
 
-* `registry`
+* `id`
 * `uri`
 * `kubernetes`
 
@@ -30,7 +30,7 @@ metadata:
   name: my-project-dev
 parent:
     id: redhat/nodejs
-    registry: https://devfile-registry.io/
+    registryUrl: https://devfile-registry.io/
 ----
 ====
 +
