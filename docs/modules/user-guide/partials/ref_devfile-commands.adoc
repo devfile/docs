@@ -1,0 +1,108 @@
+[id="ref_devfile-commands_{context}"]
+= Devfile commands
+
+See the following tables for command properties in a devfile:
+
+.commandObject
+[cols="1,1,1,1"]
+|===
+|Key |Type| Required| Description
+
+|exec
+|execObject
+|no
+|The exec command to run.
+
+|composite
+|compositeObject
+|no
+|The composite command to run.
+|===
+
+.execObject
+[cols="1,1,1,1"]
+|===
+|Key |Type| Required| Description
+
+|id
+|string
+|yes
+|The ID of the command.
+
+|commandLine
+|string
+|yes
+|The command to run.
+
+|component
+|string
+|no
+|The component to which the action relates.
+
+|label
+|string
+|no
+|The optional label to describe the command.
+
+|workingDir
+|string
+|no
+|The working directory where you execute the command.
+
+|group
+|groupObject
+|no
+|The group to which the command belongs.
+
+|environment
+|envObject
+|no
+|The list of environment variables you use.
+|===
+
+.compositeObject
+[cols="1,1,1,1"]
+|===
+|Key |Type| Required| Description
+
+|id
+|string
+|yes
+|The ID of the command.
+
+|commands
+|string
+|no
+|The exec commands that constitute the composite command and chains multiple commands together.
+
+|parallel
+|boolean
+|no
+|The flag that indicates if commands are executed in parallel.
+
+|label
+|string
+|no
+|The optional label to describe the command.
+
+|group
+|groupObject
+|no
+|The group to which the composite command belongs. The composite command cannot be of the `run` kind.
+|===
+
+.groupObject
+[cols="1,1,1,1"]
+|===
+|Key |Type| Required| Description
+
+|kind
+|string
+|yes
+|The group to which the command belongs, such as: `build`, `run`, `test`, and `debug`.
+
+|isDefault
+|boolean
+|no
+|Identifies if it is the default command to run. Only one default command can be defined for each group.
+|===

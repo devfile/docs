@@ -1,0 +1,24 @@
+ifdef::context[:parent-context-of-assembly_adding-commands-to-a-devfile: {context}]
+
+
+ifndef::context[]
+[id="assembly_adding-commands-to-a-devfile"]
+endif::[]
+ifdef::context[]
+[id="assembly_adding-commands-to-a-devfile_{context}"]
+endif::[]
+= Adding commands to a devfile
+
+[role="_abstract"]
+A devfile allows you to specify commands to be available for execution in a workspace. Every command can contain a subset of actions. These subsets are related to specific components and are executed in the component containers.
+
+* xref:devfile-commands.adoc[]
+* xref:adding-a-command-section-to-a-devfile.adoc[]
+* xref:adding-a-command-group-to-a-devfile.adoc[]
+* xref:adding-composite-commands-to-a-devfile.adoc[]
+
+[role="_additional-resources"]
+.Additional resources
+
+* xref:api-reference.adoc[]
+* xref:devfile-resources.adoc[]

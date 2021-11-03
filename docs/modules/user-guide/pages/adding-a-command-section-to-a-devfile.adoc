@@ -1,0 +1,6 @@
+:description: Adding a command section to a devfile
+:navtitle: Adding a command section to a devfile
+:keywords: command, devfile
+
+
+include::partial$proc_adding-a-command-section-to-a-devfile.adoc[]

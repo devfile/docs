@@ -1,6 +1,6 @@
 :description: Adding commands to a devfile
 :navtitle: Adding commands
 :keywords: authoring, stack, commands
-:page-aliases: 
+:page-aliases:
 
-include::partial$proc_adding-commands-to-a-devfile.adoc[]
+include::partial$assembly_adding-commands-to-a-devfile.adoc[]

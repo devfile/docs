@@ -1,0 +1,56 @@
+[id="proc_adding-a-command-group-to-a-devfile_{context}"]
+= Adding a command group to a devfile
+[role="_abstract"]
+
+Create command groups to help the automation process of your devfile.
+
+.Prerequisites
+
+* xref:adding-schema-version-to-a-devfile.adoc[]
+* xref:adding-a-name-to-a-devfile.adoc[]
+* xref:adding-projects-to-a-devfile.adoc[]
+
+.Procedure
+
+. Assign a given command to one or more groups that represent the nature of the command.
+. Use the following supported group types:
++
+* `build`
+* `run`
+* `test`
+* `debug`
++
+. For each group, define a default command by specifying the `isDefault` value.
++
+[source,yaml]
+----
+schemaVersion: 2.1.0
+metadata:
+  name: mydevfile
+projects:
+  - name: my-maven-project
+    clonePath: maven/src/github.com/acme/my-maven-project
+    git:
+      remotes:
+        origin: "https://github.com/acme/my-maven-project.git"
+components:
+  - name: maven
+    container:
+      image: eclipse/maven-jdk8:latest
+      mountSources: true
+      command: ['tail']
+commands:
+  - id: package
+    exec:
+      component: maven
+      commandLine: "mvn package"
+      group:
+        kind: build
+  - id: install
+    exec:
+      component: maven
+      commandLine: "mvn install"
+      group:
+        kind: build
+        isDefault: true
+----

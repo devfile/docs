@@ -1,0 +1,6 @@
+:description: Devfile commands
+:navtitle: Devfile commands
+:keywords: command, devfile
+
+
+include::partial$ref_devfile-commands.adoc[]
