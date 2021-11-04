@@ -1,0 +1,6 @@
+:description: Updating the devfile library schema
+:navtitle: Updating the devfile library schema
+:keywords: devfile, library
+
+
+include::partial$proc_updating-the-devfile-library-schema.adoc[]

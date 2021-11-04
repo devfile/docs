@@ -1,0 +1,13 @@
+[id="proc_updating-the-devfile-library-schema_{context}"]
+= Updating the devfile library schema
+
+Update the schema version to ensure that you develop with the latest code from devfile properties:
+
+. To fetch the latest `github.com/devfile/api` Go module and to update the schema saved under `pkg/devfile/parser/data`, run, `./scripts/updateApi.sh`.
+. Update the devile schema version by running, `./updateAPI.sh 2.x.x`.
+If you run the script with no arguments, it updates the latest devfile version.
+
+== Additional resources
+
+* To run tests and API tests, see link:https://github.com/devfile/library/blob/main/tests/README.md[devfile/library/tests repository].
+* For more information, see the link:https://github.com/devfile/library[devfile/library repository].
