@@ -31,6 +31,9 @@
 
 * Registry Administrator
 ** xref:devfile-registry.adoc[]
+** xref:devfile-library.adoc[]
+*** xref:using-the-devfile-library.adoc[]
+*** xref:updating-the-devfile-library-schema.adoc[]
 
 * xref:api-reference.adoc[]
 * xref:devfile-resources.adoc[]
