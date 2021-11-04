@@ -12,7 +12,7 @@ It is possible to refer to another devfile as a parent to a given devfile. If a 
 
 .Procedure
 
-* A parent devfile can be referenced in 3 different ways: `registry`, `uri` or `kubernetes`.
+* A parent devfile can be referenced in 3 different ways: `id`, `uri` or `kubernetes`.
 +
 .Parent referred by registry
 ====
@@ -24,8 +24,8 @@ schemaVersion: 2.0.0
 metadata:
   name: my-project-dev
 parent:
-    id: redhat/nodejs/11.6
-    registry: https://devfile-registry.io/
+    id: nodejs
+    registryUrl: https://devfile-registry.io/
 ----
 ====
 +
@@ -39,7 +39,6 @@ schemaVersion: 2.0.0
 metadata:
   name: my-project-dev
 parent:
-    id: redhat/nodejs/11.6
     uri: https://raw.githubusercontent.com/eclipse/che-devfile-registry/master/devfiles/nodejs/devfile.yaml
 ----
 ====
@@ -57,7 +56,6 @@ parent:
     kubernetes:
         name: mydevworkspacetemplate
         namespace: mynamespace
-        selector: mykey=myvalue
 ----
 ====
 
