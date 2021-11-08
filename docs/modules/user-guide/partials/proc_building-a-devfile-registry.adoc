@@ -1,0 +1,47 @@
+[id="building-a-custom-devfile-registry_{context}"]
+= Building a custom devfile registry
+
+[role="_abstract"]
+Make your repository into a devfile registry by building a `devfile index` container image. Deploy the `devfile index` image to your cloud or cluster to form the devfile registry.
+
+.Prerequisites
+* Golang 1.13.x or higher
+* Docker 17.05 or higher
+* Git
+
+.Procedure
+
+. Run `./build_image.sh <path-to-devfile-registry-folder>` to  build a devfile registry repository.
+. In a multi-stage Docker build, add a Dockerfile to your devfile registry repository. Make sure the Dockerfile contains the following:
++
+.Dockerfile
+====
+----
+FROM quay.io/openshift-pipeline/golang:1.15-alpine AS builder
+# Install dependencies
+RUN apk add --no-cache git bash
+COPY . /registry
+# Download the registry build tools
+RUN git clone https://github.com/devfile/registry-support.git /registry-support
+# Run the registry build tools
+RUN /registry-support/build-tools/build.sh /registry /build
+FROM quay.io/devfile/devfile-index-base:next
+COPY --from=builder /build/index.json /index.json
+COPY --from=builder /build/stacks /stacks
+----
+====
++
+. Run `docker build -t devfile-index` to build the devfile registry into a container image.
+
+The build script builds the index generator, generates the `index.json` file from the specified devfile registry, and builds the stacks and `index.json` into a devfile index container image. The registry build process takes the contents of your devfile registry Git repository and:
+
+. Packages the content of each devfile stack based on the supported media types for the devfile registry.
+. Validates the content of the devfile registry repository based on the expected registry structure.
+. Generates `index.json` from the stacks in the repository and from any extra stacks or samples mentioned in the `extraDevfileEntries.yaml` file.
+. Builds a devfile index container image with the devfile stack contents and `index.json`.
+
+[role="_additional-resources"]
+.Additional resources
+
+* For examples on how to add Dockerfiles to your devfile registry, see the link:https://github.com/devfile/registry/blob/master/.ci/Dockerfile[devfile/registry repository's Dockerfile].
+* To run the registry build outside a container build, see the link:https://github.com/devfile/registry-support/tree/master/build-tools[devfile registry build tools].

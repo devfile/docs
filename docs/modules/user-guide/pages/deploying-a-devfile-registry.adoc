@@ -1,0 +1,22 @@
+:description: Deploying a devfile registry
+:navtitle: {description}
+:keywords: devfile, deploy
+// :page-aliases:
+
+= {description}
+
+Deploy a devfile registry to allow access to the devfile stacks that provide templates for containerized development.
+
+To use the devfile Operator to deploy a devfile registry, use:
+
+* Operator Lifecycle Manager (OLM)
+* Devfile registry Helm chart
+
+.Prerequisites
+* A built devfile registry container image. To build your own devfile registry, see xref:building-a-custom-devfile-registry.adoc[].
+* If you do not have publicly signed certificates for your cluster, disable TLS for the devfile registry so that you can use the devfile registry with `odo`.
+
+
+include::partial$proc_deploying-a-devfile-registry-with-olm.adoc[leveloffset=+1]
+
+include::partial$proc_deploying-a-devfile-registry-with-helm-chart.adoc[leveloffset=+1]

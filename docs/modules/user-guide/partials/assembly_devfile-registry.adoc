@@ -1,0 +1,23 @@
+ifdef::context[:parent-context-of-assembly_devfile-registry: {context}]
+
+
+ifndef::context[]
+[id="assembly_devfile-registry"]
+endif::[]
+ifdef::context[]
+[id="assembly_devfile-registry_{context}"]
+endif::[]
+= Devfile registry
+
+:context: assembly_devfile-registry
+
+
+[role="_abstract"]
+Get started with devfile registries:
+
+* xref:understanding-a-devfile-registry.adoc[]
+* xref:building-a-custom-devfile-registry.adoc[]
+* xref:deploying-a-devfile-registry.adoc[]
+* xref:adding-a-registry-schema.adoc[]
+
+For more information on the devfile registry, see the link:https://github.com/johnmcollier/registry-docs/blob/main/registry-REST-API.adoc[Registry REST API]. 
