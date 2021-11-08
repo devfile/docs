@@ -23,8 +23,8 @@ Using the devfile library, you can:
 
 The library is written in Golang, and the following projects consume the library as a Golang dependency:
 
-* link:https://github.com/openshift/odo[Odo]
-* link:https://github.com/openshift/console[OpenShift Console]
+* Odo
+* OpenShift Console
 
 == Additional resources
 * xref:using-the-devfile-library.adoc[]
