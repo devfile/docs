@@ -1,7 +1,10 @@
 [id="proc_using-the-devfile-library_{context}"]
 = Using the devfile library
 
-With the devfile library, you can parse any devfile, helping you develop your containerized applications.
+[role="_abstract"]
+Using the devfile library, you can parse any devfile, helping you maintain consistent development environments and making it easier for teams to collaborate across shared projects.
+
+.Procedure
 
 * Parse a devfile by running:
 
@@ -83,7 +86,7 @@ commands, err := devfile.Data.GetCommands(DevfileOptions{
 
 ====
 ----
-// To update an existing component in devfile object
+// To update an existing component in the devfile object
 err := devfile.Data.UpdateComponent(v1.Component{
 	    Name: "component1",
 	    ComponentUnion: v1.ComponentUnion{
@@ -95,7 +98,7 @@ err := devfile.Data.UpdateComponent(v1.Component{
      },
 })
 
-// To add a new component to devfile object
+// To add a new component to the devfile object
 err := devfile.Data.AddComponents([]v1.Component{
      {
         Name: "component2",
@@ -118,7 +121,7 @@ err := devfile.Data.DeleteComponent(componentName)
 
 ====
 ----
-// If the devfile object has been created with devfile path already set, can simply call WriteYamlDevfile to writes the devfile
+// If the devfile object has been created with the devfile path already set, can simply call WriteYamlDevfile to write the devfile
 err := devfile.WriteYamlDevfile()
 
 
@@ -129,7 +132,7 @@ devfileData, err := data.NewDevfileData(devfileVersion)
 // set schema version
 devfileData.SetSchemaVersion(devfileVersion)
 
-// add devfile content use library APIs
+// To add devfile content, use library APIs
 devfileData.AddComponents([]v1.Component{...})
 devfileData.AddCommands([]v1.Commands{...})
 ......
@@ -149,8 +152,8 @@ err = devfile.WriteYamlDevfile()
 ----
 ====
 
-== Additional resources
+.Additional resources
 
-* For more information on parsing a devfile, see link:https://github.com/devfile/library/blob/main/pkg/devfile/parse.go[parse.go source file].
-* For more information on generating Kubernetes objects with a devfile, see link:https://github.com/devfile/library/blob/main/pkg/devfile/generator/generators.go[generators.go].
-* For information on validating a devfile, see link:https://github.com/devfile/library/blob/main/pkg/devfile/validate/validate.go[writer.go source file].
+* For more information on parsing a devfile, see the link:https://github.com/devfile/library/blob/main/pkg/devfile/parse.go[parse.go source file].
+* For more information on generating Kubernetes objects with a devfile, see the link:https://github.com/devfile/library/blob/main/pkg/devfile/generator/generators.go[generators.go source file].
+* For information on validating a devfile, see the link:https://github.com/devfile/library/blob/main/pkg/devfile/validate/validate.go[writer.go source file].

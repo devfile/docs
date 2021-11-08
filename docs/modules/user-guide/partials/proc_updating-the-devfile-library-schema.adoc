@@ -1,13 +1,35 @@
 [id="proc_updating-the-devfile-library-schema_{context}"]
 = Updating the devfile library schema
 
-Update the schema version to ensure that you develop with the latest code from devfile properties:
+[role="_abstract"]
+To ensure that you develop with the latest code from devfile properties, update the devfile library schema to the latest version.
 
-. To fetch the latest `github.com/devfile/api` Go module and to update the schema saved under `pkg/devfile/parser/data`, run, `./scripts/updateApi.sh`.
-. Update the devile schema version by running, `./updateAPI.sh 2.x.x`.
-If you run the script with no arguments, it updates the latest devfile version.
+.Procedure
 
-== Additional resources
+. Add execute permissions for everyone on this script:
++
+[source,terminal]
+----
+$ chmod a+x r./scripts/updateApi.sh
+----
 
-* To run tests and API tests, see link:https://github.com/devfile/library/blob/main/tests/README.md[devfile/library/tests repository].
+. To fetch the latest `github.com/devfile/api` Go module and to update the schema saved under `pkg/devfile/parser/data`, enter:
++
+[source, terminal]
+----
+ $ ./scripts/updateApi.sh
+----
+
+. Update the devile schema version by running:
++
+[source, terminal]
+----
+$ ./updateAPI.sh 2.x.x
+----
+
+**Note:** Running the script this way, with no arguments, updates the devfile to the latest version.
+
+.Additional resources
+
+* To run tests and API tests, see the link:https://github.com/devfile/library/blob/main/tests/README.md[devfile/library/tests repository].
 * For more information, see the link:https://github.com/devfile/library[devfile/library repository].
