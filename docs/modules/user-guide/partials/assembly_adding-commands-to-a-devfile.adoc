@@ -10,7 +10,7 @@ endif::[]
 = Adding commands to a devfile
 
 [role="_abstract"]
-A devfile allows you to specify commands to be available for execution in a workspace. Every command can contain a subset of actions. These subsets are related to specific components and are executed in the component containers.
+A devfile allows you to specify commands to run in a workspace. Every command can contain a subset of actions. These subsets are related to specific components and are run in the component containers.
 
 * xref:devfile-commands.adoc[]
 * xref:adding-a-command-section-to-a-devfile.adoc[]

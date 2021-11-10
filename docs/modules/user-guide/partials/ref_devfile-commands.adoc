@@ -47,7 +47,7 @@ See the following tables for command properties in a devfile:
 |workingDir
 |string
 |no
-|The working directory where you execute the command.
+|The working directory where you run the command.
 
 |group
 |groupObject
@@ -78,7 +78,7 @@ See the following tables for command properties in a devfile:
 |parallel
 |boolean
 |no
-|The flag that indicates if commands are executed in parallel.
+|The flag that indicates if commands are run in parallel.
 
 |label
 |string

@@ -2,7 +2,7 @@
 = Adding a command section to a devfile
 [role="_abstract"]
 
-Specify the commands you want to execute in your workspace.
+Specify the commands you want to run in your workspace.
 
 .Prerequisites
 
@@ -36,8 +36,8 @@ Specify the commands you want to execute in your workspace.
 
 . Define attributes for the `exec` command to run using the default shell in the container.
 +
- * A `commandLine` attribute that is a command to execute.
- * A `component` attribute that specifies the container in which to execute the command.
+ * A `commandLine` attribute that is a command to run.
+ * A `component` attribute that specifies the container in which to run the command.
 +
 [source,yaml]
 ----
@@ -72,4 +72,4 @@ commands:
 +
 [NOTE]
 
-* A command can have only one action, though you can use `composite` commands to execute several commands either in sequence or in parallel.
+* A command can have only one action, though you can use `composite` commands to run several commands either in sequence or in parallel.
