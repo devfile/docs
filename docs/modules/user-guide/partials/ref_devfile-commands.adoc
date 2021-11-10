@@ -73,7 +73,7 @@ The following tables describe command properties that you can include in a devfi
 |commands
 |string
 |no
-|The exec commands that constitute the composite command and chains multiple commands together.
+|The exec commands that constitute the composite command that chains multiple commands together.
 
 |parallel
 |boolean
