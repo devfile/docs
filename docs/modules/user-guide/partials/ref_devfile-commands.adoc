@@ -104,5 +104,5 @@ The following tables describe command properties that you can include in a devfi
 |isDefault
 |boolean
 |no
-|Identifies if it is the default command to run. Only one default command can be defined for each group.
+|Identifies whether it is the default command to run. Only one default command can be defined for each group.
 |===
