@@ -2,7 +2,7 @@
 = Adding a command group to a devfile
 [role="_abstract"]
 
-Create command groups to help the automation process of your devfile.
+Create command groups to help automate your devfile.
 
 .Prerequisites
 
