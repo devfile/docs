@@ -28,4 +28,3 @@ The library is written in Golang, and the following projects consume the library
 
 == Additional resources
 * xref:using-the-devfile-library.adoc[]
-* xref:updating-the-devfile-library-schema.adoc[]

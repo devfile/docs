@@ -2,7 +2,7 @@
 = Using the devfile library
 
 [role="_abstract"]
-Using the devfile library, you can parse any devfile, helping you maintain consistent development environments and making it easier for teams to collaborate across shared projects.
+Using the devfile library, you can parse and write any devfile, helping you maintain consistent development environments and making it easier for teams to collaborate across shared projects.
 
 .Procedure
 
@@ -151,9 +151,3 @@ devfile := parser.DevfileObj{
 err = devfile.WriteYamlDevfile()
 ----
 ====
-
-.Additional resources
-
-* For more information on parsing a devfile, see the link:https://github.com/devfile/library/blob/main/pkg/devfile/parse.go[parse.go source file].
-* For more information on generating Kubernetes objects with a devfile, see the link:https://github.com/devfile/library/blob/main/pkg/devfile/generator/generators.go[generators.go source file].
-* For information on validating a devfile, see the link:https://github.com/devfile/library/blob/main/pkg/devfile/validate/validate.go[writer.go source file].
