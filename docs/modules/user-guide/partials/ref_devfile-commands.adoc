@@ -1,7 +1,7 @@
 [id="ref_devfile-commands_{context}"]
 = Devfile commands
 
-See the following tables for command properties in a devfile:
+The following tables describe command properties that you can include in a devfile:
 
 .commandObject
 [cols="1,1,1,1"]
