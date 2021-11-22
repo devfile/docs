@@ -1,0 +1,6 @@
+:description: Adding exec commands to a devfile
+:navtitle: Adding exec commands to a devfile
+:keywords: command, devfile
+
+
+include::partial$proc_adding-exec-commands-to-a-devfile.adoc[]

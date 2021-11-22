@@ -13,14 +13,14 @@ Create command groups to help automate your devfile.
 .Procedure
 
 . Assign a given command to one or more groups that represent the nature of the command.
-. Use the following supported group types:
+. Use the following supported group kinds:
 +
 * `build`
 * `run`
 * `test`
 * `debug`
 +
-. For each group, define a default command by specifying the `isDefault` value.
+. At most, there can only be one default command for each group kind. Set the default command by specifying a `true` value for `isDefault`.
 +
 [source,yaml]
 ----
