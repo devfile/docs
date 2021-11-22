@@ -1,6 +1,6 @@
-:description: Devfile Registry
+:description: Devfile registry
 :navtitle: Devfile registry
-:keywords: devfile
-// :page-aliases:
+:keywords: devfile, registry
 
-include::partial$con_devfile-registry.adoc[]
+
+include::partial$assembly_devfile-registry.adoc[]

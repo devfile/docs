@@ -1,0 +1,26 @@
+[id="deploying-a-devfile-registry-with-helm-chart_{context}"]
+= Deploying a devfile registry with Helm chart
+
+[role="_abstract"]
+If the Operator Lifecycle Manager (OLM) is not installed on your Kubernetes cluster, use the devfile registry Helm chart in order to use the devfile registry Operator to deploy the devfile registry.
+
+.Procedure
+. Clone the repository containing the Helm chart:
++
+[sub="+quotes"]
+----
+$ git clone https://github.com/devfile/registry-support
+----
++
+. Navigate to the `deploy/chart/devfile-registry` directory.
+. Open the `values.yaml` file in an editor and make the following changes:
+.. Set `devfileIndex.image` to the image containing your devfile stacks.
+.. Set `devfileIndex.tag` to the image tag for your devfile index image.
+.. If installing on Kubernetes, set `global.Ingress.domain` to the Ingress domain of your cluster.
+.. If installing on OpenShift, set `global.isOpenShift` to `true`.
+. Run `helm install devfile-registry ./` to install the Helm chart.
+
+[role="_additional-resources"]
+.Additional resources
+
+* For information on the devfile registry Helm chart, see the link:https://github.com/devfile/registry-support/blob/master/deploy/chart/devfile-registry/README.md[registry Helm chart Git repository readme].

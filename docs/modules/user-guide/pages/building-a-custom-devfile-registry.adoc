@@ -1,0 +1,20 @@
+:description: Building a custom devfile registry
+:navtitle: {description}
+:keywords: devfile, registry, stacks
+//:page-aliases:
+
+= {description}
+
+Provide your developers a devfile registry so they can access devfile stacks and samples, enabling them to use devfiles to simplify and improve their containerized application development.
+
+To create a devfile registry for your team’s container development:
+
+. Create a Git repository.
+. Build a devfile registry.
+. Tag and push the registry container image.
+
+include::partial$proc_creating-a-git-repository.adoc[leveloffset=+1]
+
+include::partial$proc_building-a-devfile-registry.adoc[leveloffset=+1]
+
+include::partial$proc_tagging-and-pushing-a-registry-container-image.adoc[leveloffset=+1]

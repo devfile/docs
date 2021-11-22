@@ -31,6 +31,10 @@
 
 * Registry Administrator
 ** xref:devfile-registry.adoc[]
+*** xref:understanding-a-devfile-registry.adoc[]
+*** xref:building-a-custom-devfile-registry.adoc[]
+*** xref:deploying-a-devfile-registry.adoc[]
+*** xref:adding-a-registry-schema.adoc[]
 
 * xref:api-reference.adoc[]
 * xref:devfile-resources.adoc[]
