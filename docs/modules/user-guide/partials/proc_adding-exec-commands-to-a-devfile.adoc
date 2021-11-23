@@ -41,4 +41,4 @@ commands:
 ----
 +
 [NOTE]
-* A command can have only one action, though you can use `composite` commands to run several commands either in sequence or in parallel.
+A command can have only one action, though you can use `composite` commands to run several commands either in sequence or in parallel.
