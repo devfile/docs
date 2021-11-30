@@ -1,0 +1,6 @@
+:description: Adding a command group to a devfile
+:navtitle: Adding a command group to a devfile
+:keywords: command, devfile
+
+
+include::partial$proc_adding-a-command-group-to-a-devfile.adoc[]

@@ -1,0 +1,6 @@
+:description: Adding composite commands to a devfile
+:navtitle: Adding composite commands to a devfile
+:keywords: command, devfile
+
+
+include::partial$proc_adding-composite-commands-to-a-devfile.adoc[]

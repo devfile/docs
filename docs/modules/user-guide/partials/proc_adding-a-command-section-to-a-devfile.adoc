@@ -1,0 +1,35 @@
+[id="proc_adding-a-command-section-to-a-devfile_{context}"]
+= Adding a command section to a devfile
+[role="_abstract"]
+
+Specify the commands you want to run in your workspace.
+
+.Prerequisites
+
+* xref:adding-schema-version-to-a-devfile.adoc[]
+* xref:adding-a-name-to-a-devfile.adoc[]
+* xref:adding-projects-to-a-devfile.adoc[]
+
+.Procedure
+
+. Add a `commands` section to a devfile that contains a list of one or more commands.
+
+. For each command, define a unique value for the mandatory `id` attribute.
+
+. For each command, define a mandatory kind of one of the following kinds:
+
+* `exec`
+* `apply`
+* `composite`
+
++
+.Sample command
+[source,yaml]
+----
+ commands:
+   - id: build
+     exec:
+      component: mysql
+      commandLine: mvn clean
+      workingDir: /projects/spring-petclinic
+----

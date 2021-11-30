@@ -1,0 +1,56 @@
+[id="proc_adding-composite-commands-to-a-devfile_{context}"]
+= Adding composite commands to a devfile
+[role="_abstract"]
+
+Connect multiple commands together by defining a composite command.
+
+.Prerequisites
+
+* xref:adding-schema-version-to-a-devfile.adoc[]
+* xref:adding-a-name-to-a-devfile.adoc[]
+* xref:adding-projects-to-a-devfile.adoc[]
+
+.Procedure
+
+. Reference the individual commands that are called from a composite command by using the `name` of the command.
+. Specify whether to run the commands within a composite command in sequence or parallel.
+. Define the `parallel` boolean.
++
+[source,yaml]
+----
+schemaVersion: 2.1.0
+metadata:
+  name: mydevfile
+projects:
+  - name: my-maven-project
+    clonePath: maven/src/github.com/acme/my-maven-project
+    git:
+      remotes:
+        origin: "https://github.com/acme/my-maven-project.git"
+components:
+  - name: maven
+    container:
+      image: eclipse/maven-jdk8:latest
+      mountSources: true
+      command: ['tail']
+commands:
+  - id: package
+    exec:
+      component: maven
+      commandLine: "mvn package"
+      group:
+        kind: build
+  - id: install
+    exec:
+      component: maven
+      commandLine: "mvn install"
+      group:
+        kind: build
+        isDefault: true
+  - id: installandpackage
+    composite:
+      commands:
+        - install
+        - package
+      parallel: false
+----
