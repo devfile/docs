@@ -4,3 +4,9 @@
 :page-aliases: 
 
 include::partial$proc_adding-a-name-to-a-devfile.adoc[]
+
+// change in partial$proc_adding-a-name-to-a-devfile.adoc
+
+// For Che workspaces created using factories
+
+// ie I need context, I might not know what a 'workspace' is
