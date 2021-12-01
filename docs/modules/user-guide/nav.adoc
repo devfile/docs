@@ -29,10 +29,11 @@
 *** xref:adding-event-bindings.adoc[]
 *** xref:referring-to-a-parent-devfile-in-a-devfile.adoc[]
 
-* Registry Administrator
-** xref:devfile-registry.adoc[]
 ** xref:devfile-library.adoc[]
 *** xref:using-the-devfile-library.adoc[]
+
+* Registry Administrator
+** xref:devfile-registry.adoc[]
 
 * xref:api-reference.adoc[]
 * xref:devfile-resources.adoc[]
