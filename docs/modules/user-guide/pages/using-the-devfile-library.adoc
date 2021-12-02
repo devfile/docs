@@ -1,0 +1,6 @@
+:description: Using the devfile library
+:navtitle: Using the devfile library
+:keywords: devfile, library
+
+
+include::partial$proc_using-the-devfile-library.adoc[]
