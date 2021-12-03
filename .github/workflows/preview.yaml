@@ -11,8 +11,8 @@ jobs:
         with:
           surge_token: ${{ secrets.SURGE_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          dist: build/site
-          teardown: 'true'
+          dist: out/docs
+          teardown: "true"
           build: |
             npm install -g @antora/cli
             yarn install
