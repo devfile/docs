@@ -15,7 +15,10 @@ content:
       start_path: docs
       url: ./
 output:
-  clean: true
+  destinations:
+    - clean: true
+      path: out/docs
+      provider: fs
 runtime:
   cache_dir: ./.cache/antora
 site:
