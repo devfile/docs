@@ -1,0 +1,6 @@
+:description: Devfile library
+:navtitle: Devfile library
+:keywords: devfile, library
+
+
+include::partial$assembly_devfile-library.adoc[]
