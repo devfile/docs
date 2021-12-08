@@ -13,7 +13,7 @@ endif::[]
 
 
 [role="_abstract"]
-Use the following documents to work with a stack by using devfiles:
+Since a devfile is simply a `yaml` file or "stack" you can easily modify or add to the devfile based off your development needs. Essentially, you are the author of your own devfile stack. 
 
 * xref:adding-schema-version-to-a-devfile.adoc[]
 * xref:adding-a-name-to-a-devfile.adoc[]
