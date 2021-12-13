@@ -1,0 +1,29 @@
+ifdef::context[:parent-context-of-assembly_authoring-devfiles: {context}]
+
+
+ifndef::context[]
+[id="assembly_authoring-devfiles"]
+endif::[]
+ifdef::context[]
+[id="assembly_authoring-devfiles_{context}"]
+endif::[]
+= Authoring devfiles
+
+:context: assembly_authoring-devfiles
+
+[role="_abstract"]
+Because a devfile is a `yaml` file, you can easily configure the devfile based on your development needs. See the following documents to help you author your devfile:
+
+* xref:adding-schema-version-to-a-devfile.adoc[]
+* xref:adding-a-name-to-a-devfile.adoc[]
+* xref:adding-projects-to-a-devfile.adoc[]
+* xref:adding-commands-to-a-devfile.adoc[]
+* xref:adding-components-to-a-devfile.adoc[]
+* xref:adding-attributes-to-a-devfile.adoc[]
+* xref:referring-to-a-parent-devfile-in-a-devfile.adoc[]
+
+// [role="_additional-resources"]
+// == Additional resources (or Next steps)
+
+ifdef::parent-context-of-assembly_authoring-devfiles[:context: {parent-context-of-assembly_authoring-devfiles}]
+ifndef::parent-context-of-assembly_authoring-devfiles[:!context:]
