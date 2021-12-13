@@ -1,0 +1,6 @@
+:description: Using devfiles
+:navtitle: Using devfiles
+:keywords: using, devfiles
+:page-aliases: using_devfiles
+
+include::partial$assembly_using-devfiles.adoc[]
