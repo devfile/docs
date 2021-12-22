@@ -1,6 +1,0 @@
-:description: Authoring stacks
-:navtitle: Authoring stacks
-:keywords: authoring, stack
-:page-aliases: assembly_making-a-workspace-portable-using-a-devfile
-
-include::partial$assembly_authoring-stacks.adoc[]
