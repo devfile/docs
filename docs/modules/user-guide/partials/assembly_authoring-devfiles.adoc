@@ -12,7 +12,7 @@ endif::[]
 :context: assembly_authoring-devfiles
 
 [role="_abstract"]
-Because a devfile is a `yaml` file, you can easily configure the devfile based on your development needs. See the following documents to help you author your devfile:
+A devfile is a `yaml` file. See the following documents to help you author a devfile based on your development needs:
 
 * xref:adding-schema-version-to-a-devfile.adoc[]
 * xref:adding-a-name-to-a-devfile.adoc[]
