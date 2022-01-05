@@ -1,0 +1,36 @@
+[id="proc_developing-with-devfiles_{context}"]
+= Developing with devfiles
+[role="_abstract"]
+
+Develop a node.js “Hello World” application, using the devfile specification. Developing this application introduces you to how a devfile automates and simplifies your development process.
+
+.Prerequisites
+
+* To develop an application by using the devfile specification, you need to be on a cluster. To create a cluster, install link:https://minikube.sigs.k8s.io/docs/start/[minikube start].
+* To access your namespaces, download link:https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/[kubectl].
+* To execute the devfile specification, install the link:https://access.redhat.com/documentation/en-us/openshift_container_platform/4.6/html/cli_tools/developer-cli-odo#installing-odo[odo cli tool].
+
+.Procedure
+
+. Build your Kubernetes cluster by running `minikube start`.
+. When you use minikube for the first time, you must enable Ingress in order to access your devfile projects. Enable Ingress by running `minikube addons enable ingress`.
+. Confirm you are on the default namespace by running `kubectl get namespaces`.
+. View the available devfiles by running `odo catalog list components`.
+. Create a devfile project by running `odo create nodejs <name of your project> --starter`.
+* Adding `--starter` tells odo to include the starter project currently inside the nodejs devfile specification, making it easier for you to develop an application.
+. Make odo read the devfile and create Kuberentes objects with the devfile by running, `odo push`.
+. Access your container by running, `kubectl get pod`.
+. Find your cluster IP by running, `minikube IP`.
+. Create an ingress in order to access your application by running, `odo url create <name you give the url> --ingress --host <IP address>.nip.io`.
+* With this command, you create an ingress inside the cluster. You need to get the cluster IP. To get the cluster IP, you need to run `minikube IP`.
+* Example: `odo url create myfirstproject --ingress --host 192.168.64.2.nip.io`.
+. Build the URL with `odo push`.
+
+.Verification steps
+
+. To verify that you built your node.js "Hello World" application, copy and paste the URL odo provided you.
+. Go the the URL and view your "Hello World" application.
+
+.Additional resources
+
+To continue working with devfiles, go to xref:using-devfiles.adoc[]
