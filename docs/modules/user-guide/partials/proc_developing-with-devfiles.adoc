@@ -2,7 +2,7 @@
 = Developing with devfiles
 [role="_abstract"]
 
-Develop a node.js “Hello World” application, using the devfile specification. Developing this application introduces you to how a devfile automates and simplifies your development process.
+Use the devfile specification to develop a node.js “Hello World” application. Developing this application introduces you to how a devfile automates and simplifies your development process.
 
 .Prerequisites
 
