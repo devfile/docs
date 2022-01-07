@@ -6,7 +6,7 @@ Use the devfile specification to develop a node.js “Hello World” application
 
 .Prerequisites
 
-* To develop an application by using the devfile specification, you need to be on a cluster. To create a cluster, install link:https://minikube.sigs.k8s.io/docs/start/[minikube start].
+* To develop an application by using the devfile specification, you need to create a Kubernetes cluster on your local machine. To create such a cluster, install link:https://minikube.sigs.k8s.io/docs/start/[minikube start].
 * To access your namespaces, download link:https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/[kubectl].
 * To execute the devfile specification, install the link:https://access.redhat.com/documentation/en-us/openshift_container_platform/4.6/html/cli_tools/developer-cli-odo#installing-odo[odo cli tool].
 
