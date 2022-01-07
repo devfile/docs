@@ -21,7 +21,7 @@ Use the devfile specification to develop a node.js “Hello World” application
 . Run `odo push`. Doing so instructs odo to create the Kubernetes objects specified in the devfile.
 . Run `kubectl get pod` to access your container.
 . Run `minkube IP` to find your cluster IP address.
-. Create an ingress in order to access your application by running, `odo url create <name you give the url> --ingress --host <IP address>.nip.io`.
+. Run `odo url create <name you give the url> --ingress --host <IP address>.nip.io`. Doing so creates an ingress inside your cluster that you can use to access your application using the cluster IP address.
 * With this command, you create an ingress inside the cluster. You need to get the cluster IP. To get the cluster IP, you need to run `minikube IP`.
 * Example: `odo url create myfirstproject --ingress --host 192.168.64.2.nip.io`.
 . Build the URL with `odo push`.
