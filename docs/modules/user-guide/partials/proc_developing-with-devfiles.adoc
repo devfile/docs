@@ -20,7 +20,7 @@ Use the devfile specification to develop a node.js “Hello World” application
 * Adding `--starter` tells odo to include the starter project currently inside the nodejs devfile specification, which makes it easier for you to develop an application.
 . Run `odo push`. Doing so instructs odo to create the Kubernetes objects specified in the devfile.
 . Run `kubectl get pod` to access your container.
-. Find your cluster IP by running, `minikube IP`.
+. Run `minkube IP` to find your cluster IP address.
 . Create an ingress in order to access your application by running, `odo url create <name you give the url> --ingress --host <IP address>.nip.io`.
 * With this command, you create an ingress inside the cluster. You need to get the cluster IP. To get the cluster IP, you need to run `minikube IP`.
 * Example: `odo url create myfirstproject --ingress --host 192.168.64.2.nip.io`.
