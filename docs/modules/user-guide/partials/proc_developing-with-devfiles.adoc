@@ -14,7 +14,7 @@ Use the devfile specification to develop a node.js “Hello World” application
 
 . Build your Kubernetes cluster by running `minikube start`.
 . When you use minikube for the first time, you must enable Ingress to access your devfile projects. Enable Ingress by running `minikube addons enable ingress`.
-. Confirm you are on the default namespace by running `kubectl get namespaces`.
+. Confirm you are in the default namespace by running `kubectl get namespaces`.
 . View the available devfiles by running `odo catalog list components`.
 . Create a devfile project by running `odo create nodejs <name of your project> --starter`.
 * Adding `--starter` tells odo to include the starter project currently inside the nodejs devfile specification, making it easier for you to develop an application.
