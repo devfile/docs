@@ -27,7 +27,7 @@ Use the devfile specification to develop a node.js “Hello World” application
 
 .Verification steps
 
-. To verify that you built your node.js "Hello World" application, copy and paste the URL odo provided you.
+* To verify that you built your node.js "Hello World" application successfully, view the application in a web browser by copying and pasting the URL that was produced by running the `odo push` command. 
 . Go the the URL and view your "Hello World" application.
 
 .Additional resources
