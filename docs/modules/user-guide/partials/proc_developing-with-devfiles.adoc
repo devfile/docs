@@ -32,4 +32,4 @@ Use the devfile specification to develop a node.js “Hello World” application
 
 .Additional resources
 
-To continue working with devfiles, go to xref:using-devfiles.adoc[]
+To continue working with devfiles, go to xref:using-devfiles.adoc[Using devfiles]
