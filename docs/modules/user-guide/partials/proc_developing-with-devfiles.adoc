@@ -23,7 +23,7 @@ Use the devfile specification to develop a node.js “Hello World” application
 . Run `minkube IP` to find your cluster IP address.
 . Run `odo url create <name you give the url> --ingress --host <IP address>.nip.io`. Doing so creates an ingress inside your cluster that you can use to access your application using the cluster IP address.
 * Example: `odo url create myfirstproject --ingress --host 192.168.64.2.nip.io`.
-. Build the URL with `odo push`.
+. Run `odo push` to build the URL.
 
 .Verification steps
 
