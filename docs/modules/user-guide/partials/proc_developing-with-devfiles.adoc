@@ -26,7 +26,7 @@ Use the devfile specification to develop a node.js “Hello World” application
 * Example: `odo url create myfirstproject --ingress --host 192.168.64.2.nip.io`.
 . Run `odo push` to build the URL.
 
-.Verification steps
+.Verification
 
 * To verify that you built your node.js "Hello World" application successfully, view the application in a web browser by copying and pasting the URL that was produced by running the `odo push` command.
 . Go to the URL and view your "Hello World" application.
