@@ -6,7 +6,7 @@ Use the devfile specification to develop a node.js “Hello World” application
 
 .Prerequisites
 
-* To develop an application by using the devfile specification, you need to create a Kubernetes cluster on your local machine. To create such a cluster, install link:https://minikube.sigs.k8s.io/docs/start/[minikube start].
+* To develop an application by using the devfile specification, you need to create a Kubernetes cluster on your local machine. To create such a cluster, install link:https://minikube.sigs.k8s.io/docs/start/[minikube].
 * To access your namespaces, download link:https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/[kubectl].
 * When you use minikube for the first time, you must enable Ingress to access your devfile projects:
 ** Set up link:https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/[Ingress on minikube].
