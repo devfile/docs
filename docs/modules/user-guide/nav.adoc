@@ -4,7 +4,6 @@
 ** xref:using-devfiles.adoc[]
 *** xref:adding-schema-version-to-a-devfile.adoc[]
 *** xref:adding-a-name-to-a-devfile.adoc[]
-** xref:authoring-devfiles.adoc[]
 *** xref:adding-projects-to-a-devfile.adoc[]
 *** xref:adding-commands-to-a-devfile.adoc[]
 **** xref:devfile-commands.adoc[]
