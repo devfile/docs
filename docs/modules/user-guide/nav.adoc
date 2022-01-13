@@ -1,7 +1,7 @@
 * xref:index.adoc[]
 
 * Developer
-** xref:using-devfiles.adoc[]
+** xref:authoring-devfiles.adoc[]
 *** xref:adding-schema-version-to-a-devfile.adoc[]
 *** xref:adding-a-name-to-a-devfile.adoc[]
 *** xref:adding-projects-to-a-devfile.adoc[]
