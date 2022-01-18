@@ -1,0 +1,6 @@
+:description: Installing the devfile-converter
+:navtitle: Installing the devfile-converter
+:keywords: devfile, converter
+:page-aliases:
+
+include::partial$proc_installing-the-devfile-converter.adoc[]

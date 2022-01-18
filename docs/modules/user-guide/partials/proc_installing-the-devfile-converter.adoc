@@ -1,0 +1,21 @@
+[id="proc_installing-the-devfile-converter_{context}"]
+= Installing the devfile-converter
+
+[role="_abstract"]
+As you migrate an existing v1.x devfile to a v2.x devfile, consider using the devfile-converter.
+
+.Procedure
+
+* Install the devfile-converter:
++
+----
+$ import * as devfileConverter from '@eclipse-che/devfile-converter';
+----
++
+----
+$ async function v2ToV1(devfileV2: Devfile, externalContentAccess?: (filename: string) => Promise<string>): Promise<che.workspace.devfile.Devfile>
+----
++
+----
+$ async function v1ToV2(devfileV1: che.workspace.devfile.Devfile): Promise<Devfile>
+----

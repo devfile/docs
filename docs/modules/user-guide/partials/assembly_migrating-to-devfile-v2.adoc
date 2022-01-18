@@ -13,6 +13,7 @@ endif::[]
 
 The following documents explain how to migrate an existing v1.x devfile to a v2.x devfile:
 
+* xref:installing-the-devfile-converter.adoc[] 
 * xref:migrating-schema-version.adoc[]
 * xref:migrating-projects.adoc[]
 * xref:migrating-components.adoc[]

@@ -26,6 +26,7 @@
 *** xref:referring-to-a-parent-devfile-in-a-devfile.adoc[]
 
 ** xref:migrating-to-devfile-v2.adoc[]
+*** xref:installing-the-devfile-converter.adoc[]
 *** xref:migrating-schema-version.adoc[]
 *** xref:migrating-projects.adoc[]
 *** xref:migrating-components.adoc[]
