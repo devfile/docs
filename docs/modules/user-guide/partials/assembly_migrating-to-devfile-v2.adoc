@@ -11,9 +11,9 @@ endif::[]
 
 :context: assembly_migrating-to-devfile-v2
 
-The following documents explain how to migrate an existing v1.x devfile to a v2.x devfile:
+To migrate a devfile from version 1.x to 2.x, see the following documents:  
 
-* xref:installing-the-devfile-converter.adoc[] 
+* xref:installing-the-devfile-converter.adoc[]
 * xref:migrating-schema-version.adoc[]
 * xref:migrating-projects.adoc[]
 * xref:migrating-components.adoc[]
