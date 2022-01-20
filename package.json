@@ -1,10 +1,10 @@
 {
   "dependencies": {
+    "@antora/cli": "^3.0.0",
+    "@antora/site-generator-default": "^3.0.0",
     "bootprint": "^4.0.4",
     "bootprint-json-schema": "^4.0.4",
     "glob-fs": "^0.1.7",
-    "@antora/cli": "^2.3.4",
-    "@antora/site-generator-default": "^2.3.4",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.3.0",
     "gulp-connect": "^5.7.0",
