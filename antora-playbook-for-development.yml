@@ -34,3 +34,6 @@ ui:
 urls:
   # html_extension_style: indexify
   redirect_facility: static
+antora:
+  extensions:
+  - '@antora/lunr-extension'
