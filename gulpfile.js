@@ -8,7 +8,7 @@ const { series, src, watch } = require('gulp')
 const yaml = require('js-yaml')
 
 const playbookFilename = 'antora-playbook-for-development.yml'
-const playbook = yaml.safeLoad(fs.readFileSync(playbookFilename, 'utf8'))
+const playbook = yaml.load(fs.readFileSync(playbookFilename, 'utf8'))
 const outputDir = (playbook.output || {}).dir || './out/docs'
 const serverConfig = { name: 'Preview Site', livereload, host: '0.0.0.0', port: 4000, root: outputDir }
 const antoraArgs = ['--playbook', playbookFilename]
