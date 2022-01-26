@@ -1,4 +1,4 @@
-[id="proc_adding-kubernetes-component-to-a-devfile_{context}"]
+[id="proc_adding-kubernetes--or-openshift-component-to-a-devfile_{context}"]
 = Adding a `kubernetes` or `openshift` component to a devfile
 
 [role="_abstract"]

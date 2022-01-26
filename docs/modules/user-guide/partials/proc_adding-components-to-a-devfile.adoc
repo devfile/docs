@@ -137,7 +137,7 @@ Each component in a single devfile must have a unique name and use one of the ob
 
 . For each component, define a mandatory type of one of the following types: `kubernetes`, `container` or `volume`.
 
-. xref:adding-kubernetes-component-to-a-devfile.adoc[]
+. xref:adding-kubernetes-or-openshift-component-to-a-devfile.adoc[]
 . xref:adding-container-component-to-a-devfile.adoc[]
 . xref:specifying-persistent-storage.adoc[]
 . xref:limiting-resources-usage.adoc[]
