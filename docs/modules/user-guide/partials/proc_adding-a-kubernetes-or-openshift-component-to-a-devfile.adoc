@@ -1,8 +1,8 @@
-[id="proc_adding-kubernetes--or-openshift-component-to-a-devfile_{context}"]
-= Adding a `kubernetes` or `openshift` component to a devfile
+[id="proc_adding-a-kubernetes--or-openshift-component-to-a-devfile_{context}"]
+= Adding a kubernetes or openshift component to a devfile
 
 [role="_abstract"]
-This section describes how to add either a `kubernetes` or `openshfit` component to a devfile. You can apply configurations to your devfile with  `kubernetes` or `openshift` components.
+You can add either a `kubernetes` or `openshfit` component to a devfile, enabling you to configure your devfile to your unique development needs. 
 
 .Prerequisites
 

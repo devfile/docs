@@ -1,8 +1,8 @@
-[id="proc_adding-volume_{context}"]
-= Adding `volume` components to a devfile
+[id="proc_adding-a-volume-component-to-a-devfile_{context}"]
+= Adding a volume component to a devfile
 
 [role="_abstract"]
-Use volume components in order to share files among container components, making it easier to collaborate with other teams during the development process.
+You can use a volume component in order to share files among container components, making it easier to collaborate with other teams during the development process.
 
 .Prerequisites
 
@@ -12,7 +12,7 @@ Use volume components in order to share files among container components, making
 
 .Procedure
 
-* Define a component using the type `volume`.
+* Define a `volume` component in your devfile.
 +
 .A minimal `volume` component
 [source,yaml]

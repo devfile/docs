@@ -1,0 +1,6 @@
+:description: Adding a volume component to a devfile
+:navtitle: Adding a volume component
+:keywords: authoring, stack, components, volume
+
+
+include::partial$proc_adding-a-volume-component-to-a-devfile.adoc[]
