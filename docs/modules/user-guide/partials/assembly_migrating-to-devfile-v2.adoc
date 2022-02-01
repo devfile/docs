@@ -11,7 +11,7 @@ endif::[]
 
 :context: assembly_migrating-to-devfile-v2
 
-The following documents explain how to migrate an existing v1.x devfile to a v2.x devfile:
+To migrate a devfile from version 1.x to 2.x, see the following documents:
 
 * xref:migrating-schema-version.adoc[]
 * xref:migrating-projects.adoc[]
@@ -24,8 +24,9 @@ The following documents explain how to migrate an existing v1.x devfile to a v2.
 [role="_additional-resources"]
 .Additional resources
 
-For more information on migrating devfiles, go to the following GitHub issues:
+For more information on migrating devfiles, see the following resources and GitHub issues:
 
+* link:https://www.npmjs.com/package/@eclipse-che/devfile-converter[Devfile-converter]
 * link:https://github.com/devfile/api/issues/10[Devfile schema]
 * link:https://github.com/devfile/api/issues/31[Plug-in mechanism]
 
