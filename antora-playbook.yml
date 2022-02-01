@@ -21,6 +21,9 @@ output:
       provider: fs
 runtime:
   cache_dir: ./.cache/antora
+antora:
+  extensions:
+  - '@antora/lunr-extension'
 site:
   robots: allow
   start_page: devfile::index.adoc

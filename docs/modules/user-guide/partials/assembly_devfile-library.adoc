@@ -21,9 +21,9 @@ Using the devfile library, you can:
 * Generate Kubernetes objects for various devfile resources.
 * Define the `util` functions for the devfile.
 
-The library is written in Golang, and the following projects consume the library as a Golang dependency:
+The library is written in Go and the following projects consume the library as a Go dependency:
 
-* Odo
+* odo
 * OpenShift Console
 
 == Additional resources

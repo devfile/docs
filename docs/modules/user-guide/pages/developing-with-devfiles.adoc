@@ -1,0 +1,5 @@
+:description: Developing with devfiles
+:navtitle: Developing with devfiles
+:keywords: developing, devfiles
+
+include::partial$proc_developing-with-devfiles.adoc[]
