@@ -2,7 +2,7 @@
 = Adding a volume component to a devfile
 
 [role="_abstract"]
-You can use a volume component in order to share files among container components, making it easier to collaborate with other teams during the development process.
+You can use a volume component to share files among container components and collaborate easily with other teams during the development process.
 
 .Prerequisites
 
@@ -25,7 +25,7 @@ components:
     volume:
       size: 2Gi
 ----
-+
+
 
 [role="_additional-resources"]
 .Additional resources

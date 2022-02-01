@@ -2,7 +2,7 @@
 = Adding a kubernetes or openshift component to a devfile
 
 [role="_abstract"]
-You can add either a `kubernetes` or `openshfit` component to a devfile, enabling you to configure your devfile to your unique development needs. 
+You can add either a `kubernetes` or `openshfit` component to a devfile. Doing so enables you to configure your devfile to your unique development needs.
 
 .Prerequisites
 
@@ -12,11 +12,11 @@ You can add either a `kubernetes` or `openshfit` component to a devfile, enablin
 
 .Procedure
 
-. Define a component using the type `kubernetes` or `openshift`.
+. Define a component using the `kubernetes` or `openshift` type.
 
 . Provide the content through the `uri` or `inlined` property.
 +
-.Adding `openshift` component using the `uri` property
+.Adding a `openshift` component using the `uri` property
 ====
 [source,yaml]
 ----
