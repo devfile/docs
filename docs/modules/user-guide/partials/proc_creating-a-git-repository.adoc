@@ -20,4 +20,4 @@ The registry build tool automatically validates your customized registry.
 .Additional resources
 
 * Example of link:https://github.com/devfile/registry/blob/main/extraDevfileEntries.yaml[extraDevfileEntries.yaml].
-* To create devfile stacks, see xref:authoring-stacks.adoc[].
+* To create devfile stacks, see xref:authoring-devfiles.adoc[]
