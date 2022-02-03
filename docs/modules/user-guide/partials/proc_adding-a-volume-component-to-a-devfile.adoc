@@ -1,0 +1,34 @@
+[id="proc_adding-a-volume-component-to-a-devfile_{context}"]
+= Adding a volume component to a devfile
+
+[role="_abstract"]
+You can use a volume component to share files among container components and collaborate easily with other teams during the development process.
+
+.Prerequisites
+
+* xref:adding-schema-version-to-a-devfile.adoc[]
+* xref:adding-a-name-to-a-devfile.adoc[]
+* xref:adding-components-to-a-devfile.adoc[]
+
+.Procedure
+
+* Define a `volume` component in your devfile.
++
+.A minimal `volume` component
+[source,yaml]
+----
+schemaVersion: 2.1.0
+metadata:
+    name: mydevfile
+components:
+  - name: mydevfile
+    volume:
+      size: 2Gi
+----
+
+
+[role="_additional-resources"]
+.Additional resources
+
+* xref:api-reference.adoc[]
+* xref:devfile-resources.adoc[]
