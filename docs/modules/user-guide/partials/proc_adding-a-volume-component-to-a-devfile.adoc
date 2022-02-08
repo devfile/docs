@@ -13,22 +13,9 @@ You can use a volume component to share files among container components and col
 .Procedure
 
 . Define a `volume` component in your devfile and specify a volume size for it.
-+
-.A minimal `volume` component
-[source,yaml]
-----
-schemaVersion: 2.1.0
-metadata:
-    name: mydevfile
-components:
-  - name: mydevfile
-    volume:
-      size: 2Gi
-----
-
 . Store an ephemeral `volume` component for it to be persistent across restarts.
 +
-.An ephemeral `volume` component
+.Ephemeral `volume` example
 
 [source,yaml]
 ----
@@ -44,8 +31,7 @@ components:
 
 [NOTE]
 ====
- * Implementing the size of the `volume` component is dependent on the tools you use, and therefore, might be subject to the limitations of the tools.
- * For more details, refer to the documentation for your tools.
+ Specifying the size of the `volume` component is dependent on the tools you use, and therefore, might be subject to the limitations of the tools. For more details, refer to the documentation for your tools.
 ====
 
 [role="_additional-resources"]
