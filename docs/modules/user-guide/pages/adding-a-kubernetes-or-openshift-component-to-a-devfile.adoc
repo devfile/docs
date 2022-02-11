@@ -1,5 +1,5 @@
-:description: Adding a kubernetes or openshift component to a devfile
-:navtitle: Adding a Kubernetes or Openshift component
+:description: Adding a Kubernetes or OpenShift component to a devfile
+:navtitle: Adding a Kubernetes or OpenShift component
 :keywords: authoring, stack, components
 :page-aliases:
 
