@@ -1,5 +1,5 @@
 [id="proc_adding-a-container-component-to-a-devfile_{context}"]
-= Adding a `container` component to a devfile
+= Adding a container component to a devfile
 
 [role="_abstract"]
 To incorporate custom tools into the workspace, define an image-based configuration of a container in a workspace. Define this configuration by using the `container` component type.
