@@ -2,7 +2,7 @@
 = Understanding a devfile registry
 
 [role="_abstract"]
-A devfile registry is a service that stores and provides devfile stacks to Kubernetes developer tools like `odo`, Eclipse Che, and the OpenShift Developer Console. Therefore, you can access devfiles through the devfile registry.  Devfile registries are based on the Oracle Cloud Infrastructure (OCI) Specification, and devfile stacks are stored as OCI artifacts in the registry.
+A devfile registry is a service that stores and provides devfile stacks to Kubernetes developer tools like `odo`, Eclipse Che, and the OpenShift Developer Console. Therefore, you can access devfiles through the devfile registry.  Devfile registries are based on the Open Container Initiative (OCI) Specification, and devfile stacks are stored as OCI artifacts in the registry.
 
 Each devfile stack corresponds to a specific runtime or framework, such as Node.js, Quarkus, or WildFly. A devfile stack also contains resources like a `devfile.yaml` file, logo, and outer loop resources. Outer loop runs on containers and entails code reviews and integration tests, typically automated by continuous integration/continuous delivery (CI/CD) pipelines. These devfile stacks provide developers with templates to get started developing cloud-native applications.
 
