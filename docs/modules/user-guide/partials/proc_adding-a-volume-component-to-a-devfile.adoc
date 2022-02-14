@@ -12,7 +12,7 @@ You can use a `volume` component to share files among container components and c
 
 .Procedure
 
-* Store an ephemeral `volume` component for it to be persistent across restarts.
+* Add an ephemeral `volume` component for it to be persistent across restarts.
 +
 .Ephemeral `volume` example
 
