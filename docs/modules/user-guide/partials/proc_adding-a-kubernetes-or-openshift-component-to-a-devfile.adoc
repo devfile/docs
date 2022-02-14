@@ -2,7 +2,7 @@
 = Adding a Kubernetes or OpenShift component to a devfile
 
 [role="_abstract"]
-You can add either a `kubernetes` or `openshift` component to a devfile. Doing so enables you to configure your devfile to your unique development needs.
+You can add either a `kubernetes` or `openshift` component to a devfile.
 
 .Prerequisites
 
