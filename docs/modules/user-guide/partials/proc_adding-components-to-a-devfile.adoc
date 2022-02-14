@@ -133,7 +133,7 @@ Each component in a single devfile must have a unique name and use one of the ob
 
 . Add a `components` section in the devfile, containing a list of one or more components.
 
-. For each component, define an unique value for the mandatory `name` attribute.
+. For each component, define a unique value for the mandatory `name` attribute.
 
 . For each component, define a mandatory type of one of the following types: `kubernetes`, `container`, `openshift`, or `volume`.
 
