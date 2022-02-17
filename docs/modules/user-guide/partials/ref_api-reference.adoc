@@ -4,7 +4,7 @@
 This section describes the devfile API.
 
 ++++
-<iframe src="./_attachments/api-reference/2.0.0/index.html" style="border:none;width: 100%;min-height:50em;height:-webkit-fill-available;"></iframe>
+<iframe src="../_attachments/api-reference/2.0.0/index.html" style="border:none;width: 100%;min-height:50em;height:-webkit-fill-available;"></iframe>
 ++++
 
 .Additional resources
