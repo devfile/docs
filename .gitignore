@@ -1,5 +1,7 @@
 .cache
 .DS_Store
+.github/styles/
+.vale.ini
 .yarnrc
 /build/
 /out/
