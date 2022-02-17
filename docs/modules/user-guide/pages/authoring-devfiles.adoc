@@ -1,6 +1,6 @@
 :description: Authoring devfiles
 :navtitle: Authoring devfiles
 :keywords: authoring, devfiles
-:page-aliases: assembly_making-a-workspace-portable-using-a-devfile
+:page-aliases: assembly_making-a-workspace-portable-using-a-devfile, authoring-stacks
 
 include::partial$assembly_authoring-devfiles.adoc[]
