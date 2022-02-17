@@ -55,7 +55,7 @@ This section describes how to add a `kubernetes` component to a devfile. A compl
 ----
 ====
 
-. Overriding container entrypoints. As with the xref:component-type-container{context}[`container` component], it is possible to override the entrypoint of the containers contained in the Kubernetes or OpenShift list using the `command` and `args` properties (as link:https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#notes[understood] by Kubernetes).
+. Overriding container entrypoints. As with the xref:proc_adding-container-component-to-a-devfile_{context}[`container` component], it is possible to override the entrypoint of the containers contained in the Kubernetes or OpenShift list using the `command` and `args` properties (as link:https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#notes[understood] by Kubernetes).
 +
 There can be more containers in the list (contained in Pods or Pod templates of deployments). It is therefore necessary to select which containers to apply the entrypoint changes to as follows:
 +
