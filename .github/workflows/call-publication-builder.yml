@@ -16,4 +16,4 @@ on:
 jobs:
   call-publication-builder:
     name: "Call publication builder"
-    uses: devfile/docs/.github/workflows/publication-builder.yml@main
+    uses: devfile/docs/.github/workflows/publication-builder.yml@master
