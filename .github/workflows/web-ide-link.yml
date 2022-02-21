@@ -1,0 +1,24 @@
+---
+#
+# Copyright (c) 2021 Red Hat, Inc.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+name: Add web IDE link
+on:
+  pull_request_target:
+    types:
+      - opened
+jobs:
+  add-web-ide-link:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Add Web IDE link
+        id: try-in-web-ide
+        uses: redhat-actions/try-in-web-ide@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

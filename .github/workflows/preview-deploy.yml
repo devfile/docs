@@ -1,49 +1,52 @@
-name: Preview Deploy
-
+---
+# Copyright (c) 2021 Red Hat, Inc.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+name: Preview deploy
 on:
   workflow_run:
-    workflows: ["Preview Build"]
+    workflows:
+      - Preview build
     types:
       - completed
-
 jobs:
   success:
+    name: Preview deploy
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success'
+    if: github.event.workflow_run.event == 'pull_request'
     steps:
-      - name: download pr artifact
+      - name: Download preview-build artifact
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
-          name: pr
-
-      - name: Save the PR ID
-        id: pr
-        run: echo "::set-output name=id::$(<pr-id.txt)"
-
-      - name: Download dist artifact
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
-          workflow_conclusion: success
-          name: dist
-
-      - name: Upload on Surge
-        id: deploy
+          name: preview-build
+      - name: Set variables
+        id: vars
         run: |
-          export DEPLOY_DOMAIN=https://devfile-docs-preview-pr-${{ steps.pr.outputs.id }}.surge.sh
-          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
-
+          echo "::set-output name=pr_number::$(<PR_NUMBER)"
+          echo "::set-output name=pr_sha::$(<PR_SHA)"
+          echo "::set-output name=deploy_domain::$(echo ${{ github.repository }}-$(<PR_NUMBER).surge.sh | sed s#/#-#)"
+          echo "::set-output name=project::$(find build/ -mindepth 1 -maxdepth 1  -type d)"
+      - name: Deploy
+        id: deploy
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+        run: |
+          npx surge --project ${{ steps.vars.outputs.project }} --domain ${{ steps.vars.outputs.deploy_domain }} --token ${{ secrets.SURGE_TOKEN }}
       - name: Update status Comment
         uses: actions-cool/maintain-one-comment@v1.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            🎊 PR Preview has been successfully built and deployed to https://devfile-docs-preview-pr-${{ steps.pr.outputs.id }}.surge.sh 🎊
+            🎊 Navigate the preview: https://${{ steps.vars.outputs.deploy_domain }} 🎊
             <!-- Sticky Pull Request Comment -->
-          body-include: '<!-- Sticky Pull Request Comment -->'
-          number: ${{ steps.pr.outputs.id }}
-
+          body-include: "<!-- Sticky Pull Request Comment -->"
+          number: ${{ steps.vars.outputs.pr_number }}
       - name: Job failure
         if: ${{ failure() }}
         uses: actions-cool/maintain-one-comment@v1.1.0
@@ -52,29 +55,5 @@ jobs:
           body: |
             Deploy PR Preview failed.
             <!-- Sticky Pull Request Comment -->
-          body-include: '<!-- Sticky Pull Request Comment -->'
-          number: ${{ steps.pr.outputs.id }}
-
-  failed:
-    runs-on: ubuntu-latest
-    if: github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'failure'
-    steps:
-      - name: Download PR artifact
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
-          name: pr
-
-      - name: Save the PR ID
-        id: pr
-        run: echo "::set-output name=id::$(<pr-id.txt)"
-
-      - name: Job failure
-        uses: actions-cool/maintain-one-comment@v1.1.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: |
-            Deploy PR Preview failed.
-            <!-- Sticky Pull Request Comment -->
-          body-include: '<!-- Sticky Pull Request Comment -->'
-          number: ${{ steps.pr.outputs.id }}
+          body-include: "<!-- Sticky Pull Request Comment -->"
+          number: ${{ steps.vars.outputs.pr_number }}
