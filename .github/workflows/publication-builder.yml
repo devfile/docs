@@ -1,0 +1,30 @@
+---
+# Copyright (c) 2021 Red Hat, Inc.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+name: Publication build
+on:
+  # Reusable workflow. Called on push on the content branches.
+  workflow_call:
+jobs:
+  publication-builder:
+    name: Build and publish to publication branch
+    runs-on: ubuntu-latest
+    container: quay.io/antoraformodulardocs/antora-for-modular-docs:main
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Build using antora
+        run: tools/publication-builder.sh
+      - name: Commit artifact to publication branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          force_orphan: true # publish branch with only the latest commit
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: publication
+          publish_dir: build/docs

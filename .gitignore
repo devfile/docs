@@ -1,5 +1,19 @@
+#
+# List of files that Git should ignore.
+# 
+# Copyright (c) 2021 Red Hat, Inc.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
 .cache
+.github/styles
 .DS_Store
+.vale.ini
 .yarnrc
 /build/
 /out/
@@ -10,3 +24,4 @@ docs/modules/user-guide/attachments/api-reference/stable
 docs/modules/user-guide/examples/api-reference/
 yarn-error.log
 *.css.map
+*.code-workspace

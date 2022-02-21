@@ -12,7 +12,7 @@ Set up a Git repository to store the devfile stacks to package into the devfile 
 . Create a `stacks/` directory for storing the devfile stacks. Each directory under `stacks/` must correspond to a specific stack, for example, `stacks/java-wildfly/`.
 . To package any external devfile stacks or samples in your devfile registry, go to the root of your repository and create an `extraDevfileEntries.yaml` file.
 . Add your devfile stacks to your `stacks/` directory.
-. Make sure every devfile stack contains at least one `devfile.yaml` file. Add other required files to the stacks. These files can include VSX plug-ins, Dockerfiles, or Kubernetes manifests.
+. Verify every devfile stack contains at least one `devfile.yaml` file. Add other required files to the stacks. These files can include VSX plug-ins, Dockerfiles, or Kubernetes manifests.
 
 The registry build tool automatically validates your customized registry.
 

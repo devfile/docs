@@ -1,58 +1,55 @@
-# chectl devfile:generate --name=che-docs --git-repo=https://github.com/eclipse/che-docs --dockerimage=docker.io/antora/antora --command=./run_antora.sh
+---
+#
+# Project definition.
+#
+#
+# Copyright (c) 2021 Red Hat, Inc.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 apiVersion: 1.0.0
 metadata:
-  generateName: devfile-docs-
+  generateName: docs-
 
 components:
-  - id: joaompinto/vscode-asciidoctor/latest
-    type: chePlugin
-  - id: ms-vscode/vscode-github-pullrequest/latest
-    type: chePlugin
-  - id: testthedocs/vale/latest
-    type: chePlugin
   - alias: antora
     type: dockerimage
-    image: docker.io/antora/antora
+    image: "quay.io/antoraformodulardocs/antora-for-modular-docs:main"
     memoryLimit: 512M
     mountSources: true
     command:
       - tail
     args:
-      - '-f'
+      - "-f"
       - /dev/null
     endpoints:
       - name: Open-Livereload
         port: 35729
       - name: Open-Preview-server
         port: 4000
-    env:
-      - value: /projects
-        name: HOME
-      - value: /projects/docs/node_modules
-        name: NODE_PATH
-  - alias: linkchecker
-    type: dockerimage
-    image: 'docker.io/linkchecker/linkchecker:latest'
-    memoryLimit: 512M
-    mountSources: true
-    command:
-      - tail
-    args:
-      - '-f'
-      - /dev/null
-    volumes:
-      - name: mnt
-        containerPath: /mnt
-  - alias: newdoc
-    type: dockerimage
-    image: 'docker.io/mrksu/newdoc'
-    memoryLimit: 512M
-    mountSources: true
-    command:
-      - tail
-    args:
-      - '-f'
-      - /dev/null
+        attributes:
+          path: /che-7/overview/introduction-to-eclipse-che/
+  - alias: asciidoctor
+    type: chePlugin
+    reference: https://che-plugin-registry-main.surge.sh/v3/plugins/joaompinto/asciidoctor-vscode/latest/meta.yaml
+  - alias: github
+    type: chePlugin
+    id: ms-vscode/vscode-github-pullrequest/latest
+  - alias: shellcheck
+    type: chePlugin
+    reference: https://che-plugin-registry-main.surge.sh/v3/plugins/timonwong/shellcheck/latest/meta.yaml
+  - alias: vale
+    type: chePlugin
+    preferences:
+      vale.core.useCLI: true
+    reference: https://che-plugin-registry-main.surge.sh/v3/plugins/errata-ai/vale-server/latest/meta.yaml
+  - alias: yaml
+    type: chePlugin
+    id: redhat/vscode-yaml/latest
 
 commands:
   - name: Generate API reference
@@ -66,10 +63,10 @@ commands:
       - type: exec
         component: antora
         workdir: /projects/docs
-        command: yarn install; yarn run gulp
+        command: ./tools/preview.sh
   - name: Validate links
     actions:
       - type: exec
-        component: linkchecker
+        component: antora
         workdir: /projects/docs
-        command: 'linkchecker -f linkcheckerrc http://0.0.0.0:4000'
+        command: htmltest

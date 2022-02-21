@@ -1,4 +1,32 @@
 ---
+# Copyright (c) 2021 Red Hat, Inc.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+# Antora Playbook building current Git HEAD and all `v2.*` branches.
+#
+# See: https://docs.antora.org/antora/latest/playbook/
+#
+site:
+  title: Devfile documentation
+  url: https://devfile.io/docs/
+  start_page: devfile::index.adoc
+  robots: allow
+content:
+  sources:
+    - url: ./
+      branches:
+        - HEAD
+        - v2.*
+      edit_url: "https://github.com/devfile/docs/edit/main/{path}"
+      start_path: docs
+antora:
+  extensions:
+    - require: "@antora/lunr-extension" # https://gitlab.com/antora/antora-lunr-extension/
 asciidoc:
   attributes:
     context: devfile
@@ -9,31 +37,27 @@ asciidoc:
     prod: Devfile
     prod-short: Devfile
     prod-id-short: devfile
-content:
-  sources:
-    - branches: [master, v2.*]
-      start_path: docs
-      url: https://github.com/devfile/docs
-output:
-  destinations:
-    - clean: true
-      path: out/docs
-      provider: fs
-runtime:
-  cache_dir: ./.cache/antora
-antora:
-  extensions:
-  - '@antora/lunr-extension'
-site:
-  robots: allow
-  start_page: devfile::index.adoc
-  title: Devfile Documentation
-  url: https://docs.devfile.io/
+  sourcemap: true
 ui:
   bundle:
-    snapshot: true
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
   supplemental_files: ./supplemental-ui
+  output_dir: _
 urls:
-  # html_extension_style: indexify
+  html_extension_style: indexify
+  latest_version_segment_strategy: replace
   redirect_facility: static
+output:
+  destinations:
+    - provider: fs
+      clean: true
+      path: build/docs/
+runtime:
+  log:
+    level: info
+    failure_level: warn
+    format: pretty
+  fetch: true
+  cache_dir: ./.cache/antora
+
