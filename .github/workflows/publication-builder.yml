@@ -11,6 +11,9 @@ name: Publication build
 on:
   # Reusable workflow. Called on push on the content branches.
   workflow_call:
+    secrets:
+      DOCS_DEPLOY_TOKEN:
+        required: true
 jobs:
   publication-builder:
     name: Build and publish to publication branch
