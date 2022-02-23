@@ -30,3 +30,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: publication
           publish_dir: build/docs
+      - name: Repository dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.DOCS_DEPLOY_TOKEN }}
+          repository: devfile/landing-page
+          event-type: build-and-deploy
