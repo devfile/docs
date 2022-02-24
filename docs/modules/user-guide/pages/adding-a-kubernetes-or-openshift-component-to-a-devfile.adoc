@@ -1,0 +1,6 @@
+:description: Adding a Kubernetes or OpenShift component to a devfile
+:navtitle: Adding a Kubernetes or OpenShift component
+:keywords: authoring, stack, components
+:page-aliases:
+
+include::partial$proc_adding-a-kubernetes-or-openshift-component-to-a-devfile.adoc[]
