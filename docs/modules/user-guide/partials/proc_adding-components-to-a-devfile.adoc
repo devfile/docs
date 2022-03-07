@@ -13,6 +13,21 @@ Each component in a single devfile must have a unique name and use one of the ob
 |componentObject
 |no
 |The list of containers that you use.
+
+|kubernetes
+|componentObject
+|no
+|The kubernetes cluster that you use.
+
+|openshift
+|componentObject
+|no
+|The openshift container that you use.
+
+|volume
+|componentObject
+|no
+|The list of volume components that you use.
 |===
 
 .container object
@@ -97,7 +112,7 @@ Each component in a single devfile must have a unique name and use one of the ob
 |Choose to define the endpoint as secure or not.
 |===
 
-.volume object
+.volumeMount object
 [cols="1,1,1,1"]
 |===
 |Key |Type| Required| Description
@@ -111,6 +126,12 @@ Each component in a single devfile must have a unique name and use one of the ob
 |string
 |no
 |The path in the component container where you mount the volume.
+|===
+
+.volume object
+[cols="1,1,1,1"]
+|===
+|Key |Type| Required| Description
 
 |name
 |string
@@ -122,7 +143,6 @@ Each component in a single devfile must have a unique name and use one of the ob
 |no
 |The size of the storage you create.
 |===
-
 
 .Prerequisites
 
