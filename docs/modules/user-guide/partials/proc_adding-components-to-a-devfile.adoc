@@ -22,7 +22,7 @@ Each component in a single devfile must have a unique name and use one of the ob
 |openshift
 |componentObject
 |no
-|The openshift container that you use.
+|The OpenShift container.
 
 |volume
 |componentObject
