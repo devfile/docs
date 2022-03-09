@@ -109,7 +109,7 @@ Each component in a single devfile must have a unique name and use one of the ob
 |secure
 |boolean
 |no
-|Choose whether or not to define the endpoint as secure.
+|Choose whether to define the endpoint as secure.
 |===
 
 .volumeMount object
