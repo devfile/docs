@@ -12,7 +12,7 @@ Each component in a single devfile must have a unique name and use one of the ob
 |container
 |componentObject
 |no
-|The list of containers that you use.
+|The list of containers.
 
 |kubernetes
 |componentObject
