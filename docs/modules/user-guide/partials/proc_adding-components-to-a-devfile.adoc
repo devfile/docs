@@ -27,7 +27,7 @@ Each component in a single devfile must have a unique name and use one of the ob
 |volume
 |componentObject
 |no
-|The list of volume components that you use.
+|The list of volume components.
 |===
 
 .container object
