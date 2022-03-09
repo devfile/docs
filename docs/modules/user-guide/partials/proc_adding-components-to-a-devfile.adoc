@@ -17,7 +17,7 @@ Each component in a single devfile must have a unique name and use one of the ob
 |kubernetes
 |componentObject
 |no
-|The kubernetes cluster that you use.
+|The Kubernetes cluster.
 
 |openshift
 |componentObject
