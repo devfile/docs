@@ -1,4 +1,4 @@
-# Devfile 2.0 website and documentation.
+# Devfile 2.0 website and documentation
 
 The generated JSON Schema documentation for the Devfile 2.x is available here: https://devfile.github.io/.
 
@@ -8,85 +8,88 @@ The generated JSON Schema documentation for the Devfile 2.x is available here: h
 
 ## Contributing
 
-The repository contains multiple versions of the documentation, so be sure to modify and test the version of the documentation for your contribution.
+The repository has many versions of the documentation. Therefore, ensure you test the version of the documentation for your contribution.
 
-- For the latest version, use the master branch.
-- For a previous version, use the `v<n>.<m>.x` branch where `n` is the major version of the release, and `m` is the minor version. For example, `v2.0.x`.
-  - Be sure when merging any changes for a previous release to merge into the correct branch and not master.
+- For the newest version, use the `master` branch.
+- For an earlier version, use the `v<n>.<m>.x` branch where `n` is the major version of the release, and `m` is the minor version. For example, `v2.0.x`.
+- When merging any changes for an earlier release, merge into the correct branch and not `master`.
 
-Build is the same for each branch. To build the documentation locally, you need [Antora](https://antora.org/), node v10.12 or higher, and yarn. Then from the root of this repository, run:
+Build is the same for each branch. 
+
+### Building and testing the documentation on a local environment
+
+On a local environment, use the same container and tools that all GitHub workflows use to:
+
+1. Generate the API reference HTML single-sourced from the API repository.
+2. Generate the static Antora website in the `build` directory (including all in `v2.*` branches).
+3. Start a preview server listening at http://0.0.0.0:4000.
+3. Validate the language on changed files.
+4. Validate the internal and external links.
+5. Validate the shell scripts.
+
+#### Prerequisites
+
+* The `podman` or `docker` tool is available.
+
+#### Procedure
+
+1. From the root of this repository, run:
 
 ```bash
-$ yarn install
-$ yarn run generate-api-reference
-$ antora antora-playbook-for-development.yml
+$ git fetch --all
+$ ./tools/runnerpreview.sh
 ```
 
-These commands generate the html documentation in folder `out/docs`. Open `out/docs/index.html` in the browser. However, note that the build
-may build multiple versions of the documentation, so be sure to select and view the version you are editing when viewing in the browser.
+2. Watch the output for alert messages about language usage, broken links or errors in shell scripts. 
 
-Alternatively, to build and run a preview server on http://0.0.0.0:4000, run:
+3. Browse the results in the preview server at http://0.0.0.0:4000.
 
-```bash
-$ yarn install
-$ gulp
-```
+### Testing the content of a pull request
 
-Additionally, when pushing to a branch or working on a PR, the site is built by a GH action and
-made available in a ZIP file as a GH action build artifact and can be tested locally.
+* Use the preview links visible in the pull requests comment.
 
-# Issue tracking repo
+# Issue tracking repository
 
-https://github.com/devfile/api with label area/documentation
+https://github.com/devfile/api with the `area/documentation` label.
 
 # Release process
 
-Each release a new git release, tag and branch will be created. The tag marks the initial release documentation
-and the branch is used for any post release updates. Next release work then continues on the master branch.
-To enable this the following release process must be followed:
+Each release, create a Git release, tag, and branch. The tag marks the initial release documentation.
+The publication uses the branch. Add post-release updates to the branch. Further release work continues on the `master` branch.
+To enable this, follow the following release process:
 
-## Changes for the new release branch
+## Creating a release branch
 
-Set the new branch to be specific to the release version. For example, if the release version is 2.0.0:
+Create a branch specific to the release version. For example, if the release version is 2.0.0:
 
-1. Prior to this process the api repo is updated to copy a final version of the schema to a directory for that version. For example:
+1. Prior to this process, update the API repository to copy a final version of the schema to a directory for that version. For example:
    `docs/modules/user-guide/attachments/jsonschemas/2.0.0/devfile.json`
-1. Create the new branch for the tag:
+1. Create the branch for the tag:
    ```bash
    git fetch --all
    git checkout -b v2.0.x v2.0.0`
    ```
-1. Modify `docs/antora.yaml`:
-   1. Set the correct title and version.
-   1. Remove the pre-release attribute.
-   1. Set `.asciidoc .attributes .prod-ver` for the release
+1. Edit the `docs/antora.yaml` file to set the `prod-ver`, `version`, and `prerelease` attributes: 
    1. For example if release is 2.0.0
       ```yaml
-      name: devfile
-      nav:
-        - modules/user-guide/nav.adoc
-      start_page: user-guide:index.adoc
-      title: Devfile User Guide v2.0.0
-      version: '2.0.0'
       asciidoc:
         attributes:
           prod-ver: 2.0
+      # [...]
+      version: '2.0.0'
+      prerelease: false
       ```
-1. Modify .gitignore to ignore the doc generated from the schema which are not for the release:
+1. Edit the `.gitignore` file to ignore the API reference files generated from the schema that are not for the release:
    ```
    docs/modules/user-guide/attachments/api-reference/next
    docs/modules/user-guide/attachments/api-reference/stable
    docs/modules/user-guide/examples/api-reference/next
    docs/modules/user-guide/examples/api-reference/stable
    ```
-1. Modify `docs/modules/user-guide/partials/ref_api-reference.adoc` to pull the iframe and link from the newly generated directories.
+1. Edit the `docs/modules/user-guide/partials/ref_api-reference.adoc` file to pull the iframe and link from the newly generated directories.
 
    ````
-   [id="ref_api-reference_{context}"]
-    = API Reference
-
-    This section describes the devfile API.
-
+   // [...]
     ++++
     <iframe src="./_attachments/api-reference/2.0.0/index.html" style="border:none;width: 100%;min-height:50em;height:-webkit-fill-available;"></iframe>
     ++++
@@ -104,29 +107,24 @@ Set the new branch to be specific to the release version. For example, if the re
 Now the master branch can be updated for the next release and to link the previous release docs
 from the newly created `v.2.0.x` branch.
 
-1. Modify 'docs/antora.yaml' to set the correct title,version,pre-release and prod-ver. For example:
+1. Modify 'docs/antora.yaml' to set the correct `version` and `prod-ver` values. For example:
    ```yaml
    asciidoc:
      attributes:
-       prod-ver: 2.1
-   name: devfile
-   nav:
-     - modules/user-guide/nav.adoc
-   start_page: user-guide:index.adoc
-   title: Devfile User Guide 2.1.0
-   version: '2.1.0'
-   prerelease: -alpha
+       prod-ver: 2.2
+   #[...]
+   version: '2.2.0'
    ```
-1. Modify `antora-playbook.yaml` to add content for the new release created (if not already covered by branch pattern `v2.*`:
-   ```yaml
-   content:
-     sources:
-       - branches: HEAD
-         start_path: docs
-         url: ./
-       - branches: [v2.*]
-         start_path: docs
-         url: https://github.com/devfile/docs
-   ```
-   Note: pulling the release branches from github rather than locally is required for the docs build workflow.
+
 1. Build, test, commit and merge the changes
+
+
+## Publication
+
+The `.github/workflows/publication-builder.yml` worklow:
+
+1. Builds the Antora website.
+2. Commits the artifact to the `publication` branch.
+3. Requests a build in the `devfile/landing-page` repository that publishes the content of the `publication` branch to the live website.
+
+The `.github/workflows/call-publication-builder.yml` workflow calls the `publication-builder.yml` workflow on push on any release branch (`master` or `v*`).
