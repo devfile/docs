@@ -8,11 +8,11 @@ The generated JSON Schema documentation for the Devfile 2.x is available here: h
 
 ## Contributing
 
-The repository has many versions of the documentation. Therefore, be sure to change and test the version of the documentation for your contribution.
+The repository has many versions of the documentation. Therefore, ensure you test the version of the documentation for your contribution.
 
 - For the newest version, use the `master` branch.
-- For a earlier version, use the `v<n>.<m>.x` branch where `n` is the major version of the release, and `m` is the minor version. For example, `v2.0.x`.
-- Be sure when merging any changes for a earlier release to merge into the correct branch and not `master`.
+- For an earlier version, use the `v<n>.<m>.x` branch where `n` is the major version of the release, and `m` is the minor version. For example, `v2.0.x`.
+- When merging any changes for an earlier release, merge into the correct branch and not `master`.
 
 Build is the same for each branch. 
 
@@ -22,14 +22,14 @@ On a local environment, use the same container and tools that all GitHub workflo
 
 1. Generate the API reference HTML single-sourced from the API repository.
 2. Generate the static Antora website in the `build` directory (including all in `v2.*` branches).
-3. Start a preview server listening on http://0.0.0.0:4000.
+3. Start a preview server listening at http://0.0.0.0:4000.
 3. Validate the language on changed files.
 4. Validate the internal and external links.
 5. Validate the shell scripts.
 
 #### Prerequisites
 
-* The Podman or Docker tool is available.
+* The `podman` or `docker` tool is available.
 
 #### Procedure
 
@@ -42,20 +42,20 @@ $ ./tools/runnerpreview.sh
 
 2. Watch the output for alert messages about language usage, broken links or errors in shell scripts. 
 
-3. Browse the results in the preview server on http://0.0.0.0:4000.
+3. Browse the results in the preview server at http://0.0.0.0:4000.
 
 ### Testing the content of a pull request
 
-* Navigate the preview links visible in the pull requests comment.
+* Use the preview links visible in the pull requests comment.
 
 # Issue tracking repository
 
-https://github.com/devfile/api with label `area/documentation`.
+https://github.com/devfile/api with the `area/documentation` label.
 
 # Release process
 
 Each release, create a Git release, tag, and branch. The tag marks the initial release documentation.
-The publication uses the branch. Add post release updates to the branch. Further release work continues on the `master` branch.
+The publication uses the branch. Add post-release updates to the branch. Further release work continues on the `master` branch.
 To enable this, follow the following release process:
 
 ## Creating a release branch
@@ -69,7 +69,7 @@ Create a branch specific to the release version. For example, if the release ver
    git fetch --all
    git checkout -b v2.0.x v2.0.0`
    ```
-1. Edit the `docs/antora.yaml` file to set `prod-ver`, `version`, and `prerelease`: 
+1. Edit the `docs/antora.yaml` file to set the `prod-ver`, `version`, and `prerelease` attributes: 
    1. For example if release is 2.0.0
       ```yaml
       asciidoc:
@@ -107,7 +107,7 @@ Create a branch specific to the release version. For example, if the release ver
 Now the master branch can be updated for the next release and to link the previous release docs
 from the newly created `v.2.0.x` branch.
 
-1. Modify 'docs/antora.yaml' to set the correct `version` and `prod-ver`. For example:
+1. Modify 'docs/antora.yaml' to set the correct `version` and `prod-ver` values. For example:
    ```yaml
    asciidoc:
      attributes:
