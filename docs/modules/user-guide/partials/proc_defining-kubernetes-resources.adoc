@@ -30,7 +30,7 @@ The following component references a file that is relative to the location of th
 
 [source,yaml]
 ----
-schemaVersion: 2.1.0
+schemaVersion: 2.2.0
 metadata:
   name: mydevfile
 projects:

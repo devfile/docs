@@ -16,12 +16,11 @@ A devfile is a `yaml` file. After you include it in your local environment, the 
 
 * xref:adding-schema-version-to-a-devfile.adoc[]
 * xref:adding-a-name-to-a-devfile.adoc[]
-* xref:adding-schema-version-to-a-devfile.adoc[]
-* xref:adding-a-name-to-a-devfile.adoc[]
 * xref:adding-projects-to-a-devfile.adoc[]
 * xref:adding-commands-to-a-devfile.adoc[]
 * xref:adding-components-to-a-devfile.adoc[]
 * xref:adding-attributes-to-a-devfile.adoc[]
+* xref:adding-event-bindings.adoc[]
 * xref:referring-to-a-parent-devfile-in-a-devfile.adoc[]
 
 // [role="_additional-resources"]

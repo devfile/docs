@@ -31,7 +31,7 @@ Adding a name to a devfile is mandatory. Use the `name` attribute to define the 
 
 [source,yaml]
 ----
-schemaVersion: 2.1.0
+schemaVersion: 2.2.0
 metadata:
   name: devfile-sample
   version: 2.0.0
