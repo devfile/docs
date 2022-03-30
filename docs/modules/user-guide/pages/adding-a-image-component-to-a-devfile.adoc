@@ -1,0 +1,6 @@
+:description: Adding an image component to a devfile
+:navtitle: Adding an image component
+:keywords: authoring, stack, components
+:page-aliases:
+
+include::partial$proc_adding-a-image-component-to-a-devfile.adoc[]

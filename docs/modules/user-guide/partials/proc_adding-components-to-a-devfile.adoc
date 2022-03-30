@@ -140,6 +140,7 @@ Each component in a single devfile must have a unique name and use one of the ob
 . xref:adding-a-kubernetes-or-openshift-component-to-a-devfile.adoc[]
 . xref:adding-a-container-component-to-a-devfile.adoc[]
 . xref:adding-a-volume-component-to-a-devfile.adoc[]
+. xref:adding-a-image-component-to-a-devfile.adoc[]
 . xref:specifying-persistent-storage.adoc[]
 . xref:limiting-resources-usage.adoc[]
 . xref:defining-environment-variables.adoc[]
