@@ -1,0 +1,6 @@
+:description: Adding apply commands to a devfile
+:navtitle: Adding apply commands to a devfile
+:keywords: command, devfile
+
+
+include::partial$proc_adding-apply-commands-to-a-devfile.adoc[]

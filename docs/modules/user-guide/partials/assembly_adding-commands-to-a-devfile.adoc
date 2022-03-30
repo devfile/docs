@@ -16,6 +16,7 @@ You can use a devfile to specify commands to run in a workspace. Every command c
 * xref:adding-a-command-section-to-a-devfile.adoc[]
 * xref:adding-a-command-group-to-a-devfile.adoc[]
 * xref:adding-exec-commands-to-a-devfile.adoc[]
+* xref:adding-apply-commands-to-a-devfile.adoc[]
 * xref:adding-composite-commands-to-a-devfile.adoc[]
 
 [role="_additional-resources"]

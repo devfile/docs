@@ -1327,7 +1327,7 @@
                                                                                                                                                                                     
                                                                                                                                                                                 </dt>
                                                                                                                                                                                 <dd>
-                                                                                                                                                                                    <p>Path of source directory to establish build context. Defaults to ${PROJECT_ROOT} in the container</p>
+                                                                                                                                                                                    <p>Path of source directory to establish build context. Defaults to ${PROJECT_SOURCE} in the container</p>
                                                                                                                                                                 
                                                                                                                                                                                     <div class="json-inner-schema">
                                                                                                                                                                                         
@@ -3734,7 +3734,7 @@
                                                                                                                                                                                                                     
                                                                                                                                                                                                                 </dt>
                                                                                                                                                                                                                 <dd>
-                                                                                                                                                                                                                    <p>Path of source directory to establish build context. Defaults to ${PROJECT_ROOT} in the container</p>
+                                                                                                                                                                                                                    <p>Path of source directory to establish build context. Defaults to ${PROJECT_SOURCE} in the container</p>
                                                                                                                                                                                                 
                                                                                                                                                                                                                     <div class="json-inner-schema">
                                                                                                                                                                                                                         
@@ -4787,6 +4787,21 @@
                                                                             <div class="json-inner-schema">
                                                                                 
                                                                                              
+                                                                            </div>
+                                                                        </dd>
+                                                                        <dt data-property-name="version">
+                                                                            <span class="json-property-name">version:</span>
+                                                                            
+                                                                            <span class="json-property-type">string</span>
+                                                                            <span class="json-property-range" title="Value limits"></span>
+                                                                            
+                                                                                <span class="json-property-pattern" title="String pattern">, must match <span class="json-schema--regex">^(latest)|(([1-9])\.([0-9]+)\.([0-9]+)(\-[0-9a-z-]+(\.[0-9a-z-]+)*)?(\+[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?)$</span></span>
+                                                                        </dt>
+                                                                        <dd>
+                                                                            <p>Specific stack/sample version to pull the parent devfile from, when using id in the parent reference. To specify <code>version</code>, <code>id</code> must be defined and used as the import reference source. <code>version</code> can be either a specific stack version, or <code>latest</code>. If no <code>version</code> specified, default version will be used.</p>
+                                                        
+                                                                            <div class="json-inner-schema">
+                                                                                
                                                                             </div>
                                                                         </dd>
                                                             </dl>
