@@ -15,6 +15,7 @@
 .DS_Store
 .vale.ini
 .yarnrc
+.idea/
 /build/
 /out/
 /node_modules/
