@@ -21,7 +21,7 @@ You can refer to a parent devfile in three different ways:
 +
 .Parent referred by registry
 ====
-Using the `id` when published in a registry.
+Using the `id` when published in a registry. Provide the `registryUrl` as well as `version`. `version` can be either the stack version string, or `latest`. If no `version` is provided, the default version for the stack will be used.
 
 [source,yaml]
 ----
@@ -31,6 +31,7 @@ metadata:
 parent:
     id: redhat/nodejs
     registryUrl: https://devfile-registry.io/
+    version: 1.2.0
 ----
 ====
 +
