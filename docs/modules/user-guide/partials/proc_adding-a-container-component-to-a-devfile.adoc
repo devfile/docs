@@ -46,7 +46,7 @@ A devfile can contain one or more components of the `container` type. The `compo
 .A minimal `container` component
 [source,yaml]
 ----
-schemaVersion: 2.1.0
+schemaVersion: 2.2.0
 metadata:
     name: mydevfile
 components:
@@ -67,7 +67,7 @@ For the `container` component to have access to the project sources, you must se
 +
 [source,yaml]
 ----
-schemaVersion: 2.1.0
+schemaVersion: 2.2.0
 metadata:
     name: mydevfile
 components:
@@ -80,6 +80,26 @@ components:
 ----
 +
 The sources are mounted on a location stored in the `PROJECTS_ROOT` environment variable that is made available in the running container of the image. This location defaults to `/projects`. If `sourceMapping` is defined in the container, it overrides the `PROJECT_ROOT` value and mounts the source to the path defined by `sourceMapping`.
+
+. Specify a volume
++
+For the `container` component to have a shared volume. You must define a volume component in the devfile, and reference the volume using `volumeMount` in container component. For more information on volume component, see xref:adding-a-volume-component-to-a-devfile.adoc[]
++
+[source,yaml]
+----
+components:
+  - name: mycontainer
+    container:
+      image: java11-maven:next
+      memoryLimit: 768Mi
+      mountSources: true
+      volumeMounts:
+        - name: m2
+          path: /home/user/.m2
+  - name: m2
+    volume:
+      size: 1Gi
+----
 
 . Container Entrypoint
 +

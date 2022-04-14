@@ -12,7 +12,7 @@ This section describes how to define endpoints and specify their properties.
 ====
 [source,yaml]
 ----
-schemaVersion: 2.1.0
+schemaVersion: 2.2.0
 metadata:
   name: mydevfile
 projects:
@@ -71,7 +71,7 @@ WARNING: Listening on any other interface than the local loopback poses a securi
 
 [source,yaml]
 ----
-schemaVersion: 2.1.0
+schemaVersion: 2.2.0
 metadata:
   name: mydevfile
 components:

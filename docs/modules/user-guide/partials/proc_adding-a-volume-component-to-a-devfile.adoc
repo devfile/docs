@@ -18,7 +18,7 @@ You can use a `volume` component to share files among container components and c
 
 [source,yaml]
 ----
-schemaVersion: 2.1.0
+schemaVersion: 2.2.0
 metadata:
     name: mydevfile
 components:
@@ -33,7 +33,7 @@ components:
 
 [source,yaml]
 ----
-schemaVersion: 2.1.0
+schemaVersion: 2.2.0
 metadata:
     name: mydevfile
 components:

@@ -68,7 +68,7 @@ This section describes how to add one or more projects to a devfile. Each starte
 ====
 [source,yaml]
 ----
-schemaVersion: 2.1.0
+schemaVersion: 2.2.0
 metadata:
   name: petclinic-dev-environment
   version: 1.0.0
@@ -86,7 +86,7 @@ projects:
 ====
 [source,yaml]
 ----
-schemaVersion: 2.1.0
+schemaVersion: 2.2.0
 metadata:
   name: example-devfile
   version: 1.0.0
@@ -143,7 +143,7 @@ source:
 ====
 [source,yaml]
 ----
-schemaVersion: 2.1.0
+schemaVersion: 2.2.0
 metadata:
   name: my-project-dev
   version: 2.0.0

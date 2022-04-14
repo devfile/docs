@@ -52,5 +52,7 @@ You can add either a `kubernetes` or `openshift` component to a devfile.
 +
 . Specify the endpoint through the endpoint property with `kubernetes` or `openshift` components.
 
-. Associate `kubernetes` or `openshift` components with `Apply` commands. If you do not associate `Apply` commands, they are assumed to be applied at start up.
+. By default `kubernetes` or `openshift` components are not going to be deployed. Specify `deployByDefault=true` if you want to apply the component at start up.
+
+. Associate `kubernetes` or `openshift` components with `Apply` commands wth `deploy` command group kind. If the `kubernetes` or `openshift` component uses an image built by an image component defined in the devfile, you can create a composite `deploy` command to build the image and deploy the Kubernetes or openshift component. For more information on `deploy` commands, see xref:adding-a-command-group-to-a-devfile.adoc[]
 +

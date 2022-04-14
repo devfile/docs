@@ -12,7 +12,7 @@ Use a `container` component to specify the volumes to be mounted on specific loc
 ====
 [source,yaml]
 ----
-schemaVersion: 2.1.0
+schemaVersion: 2.2.0
 metadata:
   name: mydevfile
 components:
