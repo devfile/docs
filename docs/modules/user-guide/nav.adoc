@@ -17,6 +17,7 @@
 **** xref:adding-a-container-component-to-a-devfile.adoc[]
 **** xref:adding-a-image-component-to-a-devfile.adoc[]
 **** xref:adding-a-volume-component-to-a-devfile.adoc[]
+**** xref:defining-a-top-level-attribute.adoc[]
 **** xref:specifying-persistent-storage.adoc[]
 **** xref:limiting-resources-usage.adoc[]
 **** xref:defining-environment-variables.adoc[]

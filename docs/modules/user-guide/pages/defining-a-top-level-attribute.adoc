@@ -1,0 +1,6 @@
+:description: Defining a top-level attribute
+:navtitle: Defining a top-level attribute
+:keywords: authoring, stack, components
+:page-aliases: 
+
+include::partial$proc_adding-a-top-level-attribute.adoc[leveloffset=+1]

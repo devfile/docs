@@ -1,0 +1,46 @@
+[id="proc_adding-a-top-level-attribute_{context}"]
+= Adding a top-level attribute
+
+[role="_abstract"]
+
+Add a top-level attributes to your devfile to reuse global attributes in different sections of the same devfile. Reusing these attributes makes it easier to modify your devfile for your various development needs.
+
+.Procedure
+
+Add a devfile variable so you can add a top-level attribute.
+
+. See the devfile 2.x specification that includes global variables which define key value pairs:
++
+[source,yaml,subs="attributes+"]
+----
+variables:
+  my-var: "some value"
+----
+
+. Use `{{my-var}}` to reference the variables in non-string fields within the devfile.
+. Set only the variable field to make different template versions of your devfile.
+
+.Procedure
+
+Add a top-level attribute to define attributes as implementation-dependent, free-form yaml attributes on the top level in a devfile.
+
+. Use `{{attribute-name}}` to refer to the attribute with the key attribute-name.
+. Resolve the variables in your devfile to prevent a non-blocking warning.
+. Add attributes to the top-level and variables field to support merging and overwriting.
+. See the following example of top-level attributes:
++
+[source,yaml,subs="attributes+"]
+----
+schemaVersion: 2.0.0
+metadata:
+  name: java-maven
+  version: 1.1.1
+attributes:
+  javaVersion: 11
+components:
+  - name: tools
+    container:
+      image: quay.io/eclipse/che-java{{javaVersion}}-maven:nightly
+----
+
+If `variables` in a devfile are not resolved, a non-blocking warning is issued to the user. Both attributes on `top-level` and `variables` field support merging and overwriting.

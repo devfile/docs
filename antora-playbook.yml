@@ -56,7 +56,7 @@ output:
 runtime:
   log:
     level: info
-    failure_level: warn
+    failure_level: error
     format: pretty
   fetch: true
   cache_dir: ./.cache/antora
