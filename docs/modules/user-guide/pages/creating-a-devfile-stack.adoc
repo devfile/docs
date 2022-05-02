@@ -1,0 +1,5 @@
+:description: Creating a Devfile stack
+:navtitle: {description}
+:keywords: devfile
+
+include::partial$proc_creating-a-devfile-stack.adoc[]

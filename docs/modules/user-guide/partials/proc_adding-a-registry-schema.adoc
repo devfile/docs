@@ -44,54 +44,112 @@ To add samples and stacks from other repositories, place the `extraDevfileEntrie
 | `git`
 | `git`
 | The information of remote repositories.
+
+| `versions`
+| `version[]`
+| The information of each stack/sample version.
+|===
+
+.version schema
+[cols="3*"]
+|===
+|Name |Type |Description
+
+|`version`
+| `string`
+| The stack version.
+
+|`schemaVersion`
+| `string`
+| The devfile schema version.
+
+|`default`
+| `boolean`
+| The default stack version.
+
+| `git`
+| `git`
+| The information of remote repositories.
+
+| `description`
+| `string`
+| The description of the stack version.
+
+| `tags`
+| `string[]`
+| The tags associated to the stack version.
+
+| `icon`
+| `string`
+| Icon of the stack version.
+
+| `architectures`
+| `string[]`
+| The architectures associated to the stack version.
 |===
 
 .extraDevfileEntries.yaml sample
 
 ====
 ----
-schemaVersion: 1.0.0
+schemaVersion: 2.0.0
 samples:
   - name: nodejs-basic
-    displayName: Basic NodeJS
+    displayName: Basic Node.js
     description: A simple Hello World Node.js application
-    icon: https://github.com/maysunfaisal/node-bulletin-board-2/blob/main/nodejs-icon.png
+    icon: https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg
     tags: ["NodeJS", "Express"]
     projectType: nodejs
     language: nodejs
-    git:
-      remotes:
-        origin: https://github.com/redhat-developer/devfile-sample.git
+    versions:
+      - version: 1.1.0
+        schemaVersion: 2.2.0
+        default: true
+        description: nodejs with devfile v2.2.0
+        git:
+          remotes:
+            origin: https://github.com/nodeshift-starters/devfile-sample.git
   - name: code-with-quarkus
     displayName: Basic Quarkus
     description: A simple Hello World Java application using Quarkus
-    icon: .devfile/icon/quarkus.png
+    icon: https://design.jboss.org/quarkus/logo/final/SVG/quarkus_icon_rgb_default.svg
     tags: ["Java", "Quarkus"]
     projectType: quarkus
     language: java
-    git:
-      remotes:
-        origin: https://github.com/elsony/devfile-sample-code-with-quarkus.git
+    versions:
+      - version: 1.1.0
+        schemaVersion: 2.2.0
+        default: true
+        description: java quarkus with devfile v2.2.0
+        git:
+          remotes:
+            origin: https://github.com/devfile-samples/devfile-sample-code-with-quarkus.git
+      - version: 1.0.0
+        schemaVersion: 2.0.0
+        description: java quarkus with devfile v2.0.0
+        git:
+          remotes:
+            origin: https://github.com/elsony/devfile-sample-code-with-quarkus.git
   - name: java-springboot-basic
     displayName: Basic Spring Boot
     description: A simple Hello World Java Spring Boot application using Maven
-    icon: .devfile/icon/spring-logo.png
+    icon: https://spring.io/images/projects/spring-edf462fec682b9d48cf628eaf9e19521.svg
     tags: ["Java", "Spring"]
     projectType: springboot
     language: java
     git:
       remotes:
-        origin: https://github.com/elsony/devfile-sample-java-springboot-basic.git
+        origin: https://github.com/devfile-samples/devfile-sample-java-springboot-basic.git
   - name: python-basic
     displayName: Basic Python
     description: A simple Hello World application using Python
-    icon: .devfile/icon/python.png
+    icon: https://www.python.org/static/community_logos/python-logo-generic.svg
     tags: ["Python"]
     projectType: python
     language: python
     git:
       remotes:
-        origin: https://github.com/elsony/devfile-sample-python-basic.git
+        origin: https://github.com/devfile-samples/devfile-sample-python-basic.git
 ----
 ====
 
@@ -107,9 +165,9 @@ The `index.json` file contains metadata for the stacks and samples in the regist
 | `string`
 | The stack name.
 
-| `version`
-| `string`
-| The stack version.
+| `versions`
+| `version[]`
+| The information of each stack/sample version.
 
 | `attributes`
 | `map[string]apiext.JSON`
@@ -117,35 +175,70 @@ The `index.json` file contains metadata for the stacks and samples in the regist
 
 | `displayName`
 | `string`
-| The display name of a devfile.
+| The display name of a stack.
 
 | `description`
 | `string`
-| The description of a devfile.
+| The description of a stack.
 
 | `type`
 | `DevfileType`
-| The type of a devfile that currently supports stacks and samples.
+| The type: stack/sample.
 
 | `tags`
 | `string[]`
-| The tags for a devfile.
+| The tags for a stack.
 
 | `icon`
 | `string`
-| A devfile icon.
+| A stack icon.
 
 | `globalMemoryLimit`
 | `string`
-| A devfile global memory limit.
+| A stack global memory limit.
 
 | `projectType`
 | `string`
-| The project framework that is used in a devfile.
+| The project framework that is used in a stack.
 
-| `language`
+|===
+
+.version schema
+[cols="3*"]
+|===
+|Name |Type |Description
+
+|`version`
 | `string`
-| The project language that is used in a devfile.
+| The stack version.
+
+|`schemaVersion`
+| `string`
+| The devfile schema version.
+
+|`default`
+| `boolean`
+| The default stack version.
+
+| `git`
+| `git`
+| The information of remote repositories.
+
+| `description`
+| `string`
+| The description of the stack version.
+
+| `tags`
+| `string[]`
+| The tags associated to the stack version.
+
+| `icon`
+| `string`
+| Icon of the stack version.
+
+| `architectures`
+| `string[]`
+| The architectures associated to the stack version.
 
 | `links`
 | `map[string]string`
@@ -155,14 +248,9 @@ The `index.json` file contains metadata for the stacks and samples in the regist
 | `string[]`
 | The file resources that compose a devfile stack.
 
-| `tarterProjects`
+| `starterProjects`
 | `string[]`
 | The project templates that can be used in a devfile.
-
-| `git`
-| `git`
-| The information of remote repositories.
-
 |===
 
 .Index.json sample
@@ -171,8 +259,60 @@ The `index.json` file contains metadata for the stacks and samples in the regist
 ----
 [
   {
+    "name": "go",
+    "displayName": "Go Runtime",
+    "description": "Stack with the latest Go version",
+    "type": "stack",
+    "tags": [
+      "Go",
+      "testtag"
+    ],
+    "icon": "https://raw.githubusercontent.com/devfile-samples/devfile-stack-icons/main/golang.svg",
+    "projectType": "go",
+    "language": "go",
+    "provider": "Red Hat",
+    "versions": [
+      {
+        "version": "1.1.0",
+        "schemaVersion": "2.0.0",
+        "default": true,
+        "description": "Stack with the latest Go version with devfile v2.0.0 schema verison",
+        "tags": [
+          "Go"
+        ],
+        "icon": "https://raw.githubusercontent.com/devfile-samples/devfile-stack-icons/main/golang.svg",
+        "links": {
+          "self": "devfile-catalog/go:1.1.0"
+        },
+        "resources": [
+          "devfile.yaml"
+        ],
+        "starterProjects": [
+          "go-starter"
+        ]
+      },
+      {
+        "version": "1.2.0",
+        "schemaVersion": "2.1.0",
+        "description": "Stack with the latest Go version with devfile v2.1.0 schema verison",
+        "tags": [
+          "testtag"
+        ],
+        "icon": "https://raw.githubusercontent.com/devfile-samples/devfile-stack-icons/main/golang.svg",
+        "links": {
+          "self": "devfile-catalog/go:1.2.0"
+        },
+        "resources": [
+          "devfile.yaml"
+        ],
+        "starterProjects": [
+          "go-starter"
+        ]
+      }
+    ]
+  },
+  {
     "name": "java-maven",
-    "version": "1.1.0",
     "displayName": "Maven Java",
     "description": "Upstream Maven and OpenJDK 11",
     "type": "stack",
@@ -180,34 +320,38 @@ The `index.json` file contains metadata for the stacks and samples in the regist
       "Java",
       "Maven"
     ],
+    "architectures": [
+      "amd64",
+      "arm64",
+      "s390x"
+    ],
     "projectType": "maven",
     "language": "java",
-    "links": {
-      "self": "devfile-catalog/java-maven:latest"
-    },
-    "resources": [
-      "devfile.yaml"
-    ],
-    "starterProjects": [
-      "springbootproject"
-    ]
-  },
-  {
-    "name": "java-openliberty",
-    "version": "0.5.0",
-    "displayName": "Open Liberty",
-    "description": "Java application stack using Open Liberty runtime",
-    "type": "stack",
-    "projectType": "docker",
-    "language": "java",
-    "links": {
-      "self": "devfile-catalog/java-openliberty:latest"
-    },
-    "resources": [
-      "devfile.yaml"
-    ],
-    "starterProjects": [
-      "user-app"
+    "versions": [
+      {
+        "version": "1.1.0",
+        "schemaVersion": "2.1.0",
+        "default": true,
+        "description": "Upstream Maven and OpenJDK 11",
+        "tags": [
+          "Java",
+          "Maven"
+        ],
+        "architectures": [
+          "amd64",
+          "arm64",
+          "s390x"
+        ],
+        "links": {
+          "self": "devfile-catalog/java-maven:1.1.0"
+        },
+        "resources": [
+          "devfile.yaml"
+        ],
+        "starterProjects": [
+          "springbootproject"
+        ]
+      }
     ]
   }
 ]

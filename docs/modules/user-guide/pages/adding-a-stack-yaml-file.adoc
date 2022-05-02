@@ -1,0 +1,5 @@
+:description: Adding a stack.yaml file
+:navtitle: {description}
+:keywords: devfile
+
+include::partial$proc_adding-a-stack-yaml-file.adoc[]
