@@ -19,5 +19,7 @@ Get started with devfile registries:
 * xref:building-a-custom-devfile-registry.adoc[]
 * xref:deploying-a-devfile-registry.adoc[]
 * xref:adding-a-registry-schema.adoc[]
+* xref:creating-a-devfile-stack.adoc[]
+* xref:adding-a-stack-yaml-file.adoc[]
 
-For more information on the devfile registry, see the link:https://github.com/johnmcollier/registry-docs/blob/main/registry-REST-API.adoc[Registry REST API]. 
+For more information on the devfile registry, see the link:https://github.com/johnmcollier/registry-docs/blob/main/registry-REST-API.adoc[Registry REST API].

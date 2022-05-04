@@ -1,0 +1,60 @@
+[id="adding-a-stack-yaml-file_{context}"]
+= Adding a stack.yaml file
+
+[role="_abstract"]
+To include multiple stack versions in a particular stack, place the `stack.yaml` file under the root of the stack folder.
+
+.stack.yaml schema
+[cols="3*"]
+|===
+|Name |Type |Description
+
+|`name`
+| `string`
+| The stack name.
+
+|`displayName`
+| `string`
+| The display name of a stack.
+
+| `description`
+| `string`
+| The description of a stack.
+
+| `versions`
+| `version[]`
+| The information of each stack version.
+
+| `icon`
+| `string`
+| A stack icon.
+|===
+
+.version spec
+[cols="3*"]
+|===
+|Name |Type |Description
+
+|`version`
+| `string`
+| The stack version.
+
+|`default`
+| `boolean`
+| The default stack version.
+|===
+
+.extraDevfileEntries.yaml sample
+
+====
+----
+name: go
+description: Stack with the latest Go version
+displayName: Go Runtime
+icon: https://raw.githubusercontent.com/devfile-samples/devfile-stack-icons/main/golang.svg
+versions:
+  - version: 1.1.0
+    default: true #should have one and only one default version
+  - version: 1.2.0
+----
+====
