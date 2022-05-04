@@ -1,0 +1,25 @@
+[id="troubleshooting_{context}"]
+= Troubleshooting
+
+This section describes common problems during the devfile migration and potential solutions.
+
+.{che-prod} workspace startup failures after the migration to devfile v2
+
+Workspace fails to start after the conversion:: Try referencing the link:https://quay.io/repository/devfile/universal-developer-image[Universal Developer Image] as the only component in the devfile:
++
+[source,yaml]
+----
+components:
+  - name: tools
+    container:
+      image: quay.io/devfile/universal-developer-image:ubi8-latest
+      memoryLimit: 3Gi
+----
++
+NOTE: link:https://quay.io/repository/devfile/universal-developer-image[Universal Developer Image] provides runtimes for various languages (including Java, Node.js, Python, PHP, Golang) and tools (including `curl`, `jq`, `git`) for development.
+
+.Conversion failures
+
+Conversion fails with `Error processing devfile: failed to merge DevWorkspace volumes: duplicate volume found in devfile: volume_name`:: This means there are multiple volumes defined in the original devfile with the same name. Remove the duplicate volumes and proceed with the conversion.
+
+Conversion fails with `Error provisioning storage: Could not rewrite container volume mounts: volume component 'volume_name' is defined multiple times`:: This means the volume defined in the original devfile conflicts with a `volumeMount` propagated by an editor or a plug-in. Rename the volume in the defvile to be the same as the name of the `volumeMount` it conflicts with, and proceed with the conversion.
