@@ -27,6 +27,7 @@
 ** xref:migrating-commands.adoc[]
 ** xref:adding-event-bindings.adoc[]
 ** xref:refering-to-a-parent-devfile-in-a-devfile.adoc[]
+** xref:troubleshooting.adoc[]
 
 * xref:api-reference.adoc[]
 * xref:devfile-samples.adoc[]

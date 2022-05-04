@@ -20,6 +20,7 @@ This guide explains how to migrate an existing v1.0 devfile to v2.0.
 * xref:migrating-commands.adoc[]
 * xref:refering-to-a-parent-devfile-in-a-devfile.adoc[]
 * xref:adding-event-bindings.adoc[]
+* xref:troubleshooting.adoc[]
 
 [role="_additional-resources"]
 .Additional resources
