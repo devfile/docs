@@ -1,0 +1,6 @@
+:description: Troubleshooting
+:navtitle: Troubleshooting
+:keywords: migrating, devfile
+:page-aliases: 
+
+include::partial$proc_troubleshooting.adoc[]
