@@ -47,7 +47,7 @@ To add samples and stacks from other repositories, place the `extraDevfileEntrie
 
 | `versions`
 | `version[]`
-| The information of each stack/sample version.
+| The information of each stack or sample version.
 |===
 
 .version schema
@@ -167,7 +167,7 @@ The `index.json` file contains metadata for the stacks and samples in the regist
 
 | `versions`
 | `version[]`
-| The information of each stack/sample version.
+| The information of each stack or sample version.
 
 | `attributes`
 | `map[string]apiext.JSON`
@@ -183,7 +183,7 @@ The `index.json` file contains metadata for the stacks and samples in the regist
 
 | `type`
 | `DevfileType`
-| The type: stack/sample.
+| The type: stack or sample.
 
 | `tags`
 | `string[]`
