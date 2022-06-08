@@ -17,6 +17,7 @@ Get started with devfile registries:
 
 * xref:understanding-a-devfile-registry.adoc[]
 * xref:building-a-custom-devfile-registry.adoc[]
+* xref:installation-incluster-registry-offline.adoc[]
 * xref:deploying-a-devfile-registry.adoc[]
 * xref:adding-a-registry-schema.adoc[]
 * xref:creating-a-devfile-stack.adoc[]
