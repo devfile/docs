@@ -1,0 +1,180 @@
+[id="stage-1-build-and-package-a-devfile-registry_{context}"]
+== Stage 1: Build and Package a Devfile Registry
+
+The main goal of this stage is:
+
+. Pull in resources into the registry as part of the registry build.
+. Modify the devfile to update references to those offline resources as part of the registry build.
+
+As part of the offline devfile registry build, we need to do a few steps.
+
+.Prerequisites
+
+* Golang 1.17.x or higher
+* Docker 17.05 or higher / Podman 4.0.x or higher
+* Git
+* Curl
+* Unzip
+
+=== Create Offline Registry
+
+Download / clone the link:https://github.com/devfile/registry[devfile/registry] repository.
+
+.Procedure: `git clone`
+
+* HTTP clone
++
+[source,bash]
+----
+git clone https://github.com/devfile/registry.git /path/to/registry
+----
++
+* SSH clone
++
+[source,bash]
+----
+git clone git@github.com:devfile/registry.git /path/to/registry
+----
+
+.Procedure: Download zip
+
+. Download link:https://github.com/devfile/registry[devfile/registry]
++
+[source,bash]
+----
+curl -L https://github.com/devfile/registry/archive/refs/heads/main.zip \
+  -o registry.zip
+----
++
+. Unzip registry
++
+[source,bash]
+----
+unzip registry.zip -d /path/to/registry
+----
+
+.Additional resources
+
+* Creating your own registry Git repository, see xref:building-a-custom-devfile-registry.adoc[Building a custom devfile registry]
+
+=== Packaging Starter Projects
+
+To package starter projects you will need to download them manually then place them under `/stacks/<stack>/<zip>-offline.zip`.
+
+*Note*: Starter projects must be packaged under a zip archive with the suffix `-offline` to be pulled into the registry.
+
+.Procedure
+
+. Zip - Download zip
++
+[source,bash]
+----
+curl -L <remote-url> -o <registry_root>/stacks/<stack>/<project>-offline.zip
+----
++
+Example
++
+[source,bash]
+----
+cd /path/to/registry
+curl -L https://code.quarkus.io/d?e=io.quarkus%3Aquarkus-resteasy&e=io.quarkus%3Aquarkus-micrometer&e=io.quarkus%3Aquarkus-smallrye-health&e=io.quarkus%3Aquarkus-openshift&cn=devfile \
+  -o stacks/java-quarkus/community-offline.zip
+----
++
+. Git - Package cloned contents into a zip
++
+[source,bash]
+----
+git clone <remote-url> <registry_root>/stacks/<stack>/<project>-offline.zip
+----
++
+Example
++
+[source,bash]
+----
+cd /path/to/registry
+git clone https://github.com/odo-devfiles/nodejs-ex.git \
+  stacks/nodejs/nodejs-starter-offline.zip
+----
++
+. GitHub - Download repository as a zip archive
++
+[source,bash]
+----
+curl -L https://github.com/<user|org>/<stack_repo_name>/archive/refs/heads/<main_branch>.zip \
+  -o <registry_root>/stacks/<stack>/<project>-offline.zip
+----
++
+Example
++
+[source,bash]
+----
+cd /path/to/registry
+curl -L https://github.com/odo-devfiles/nodejs-ex/archive/refs/heads/master.zip \
+  -o stacks/java-quarkus/nodejs-starter-offline.zip
+----
+
+=== Modify Devfile
+
+Modification is to the devfile will be needed to update references to those offline resources as part of the registry build. For all the items pulled into the registry, update the corresponding devfile entries to reference the resources within the offline version in the registry.
+
+.Procedure
+
+. Under `starterProjects`, find the starter project definition you want to make offline
+. Under the definition for the starter project find either `git` or `zip`, as seen here:
++
+.Starter Project Before
+====
+----
+...
+starterProjects:
+  - name: nodejs-starter
+    git:
+      remotes:
+        origin: https://github.com/odo-devfiles/nodejs-ex.git
+...
+----
+====
++
+. Do one of the following depending on the block type:
+  * If `git`, replace all of the `git` block with a `zip` block and add the `location` to be the path to the local file under the stack root directory (`<registry_root>/stacks/<stack>/`). 
+  * If `zip`, just replace the value of `location` to the same as mention for `git`. 
+. In either case, you should end up with something like as seen here:
++
+.Starter Project After
+====
+----
+...
+starterProjects:
+  - name: nodejs-starter
+    zip:
+      location: nodejs-starter-offline.zip
+...
+----
+====
+
+.Additional resources
+
+* More about starter projects in devfiles, see xref:adding-projects-to-a-devfile.adoc[Adding projects to a devfile]
+
+=== Build Registry
+
+.Procedure
+
+. Change to registry root (if not already there)
++
+[source,bash]
+----
+cd /path/to/registry
+----
++
+. Build Registry Image
++
+[source,bash]
+----
+bash .ci/build.sh
+----
+
+.Additional resources
+
+* For more information about building your own registry image, see xref:building-a-custom-devfile-registry.adoc[Building a custom devfile registry]

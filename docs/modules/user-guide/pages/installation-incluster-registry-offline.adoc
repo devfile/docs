@@ -1,0 +1,18 @@
+:description: Installation of In-Cluster Offline Devfile Registry
+:navtitle: Offline Devfile Registry
+:keywords: devfile, registry, stacks
+
+= Installation of In-Cluster Offline Devfile Registry
+
+A devfile refers to various resources, for example container images and starter projects. The current devfile registry currently does not store those supporting resources as part of the registry. This means that a user will need to have access to those resources when using those devfiles.
+
+To support the air gap installation of the devfile registry, the air gap scenario divides into 2 stages:
+
+. Build a devfile registry based on one or more source repositories, e.g. link:https://github.com/devfile/registry[devfile/registry], to build and package up a devfile registry that contains all the resources available for offline installation.
+. Install the devfile registry to a cluster to make it available for users to access the registry.
+
+include::partial$proc_stage-1-build-and-package-a-devfile-registry.adoc[]
+
+include::partial$proc_stage-2-install-a-devfile-registry-to-a-cluster.adoc[]
+
+include::partial$proc_update-strategy-for-refreshing-registry-contents.adoc[]
