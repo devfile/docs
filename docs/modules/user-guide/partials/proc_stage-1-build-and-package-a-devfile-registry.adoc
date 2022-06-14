@@ -14,13 +14,13 @@ As part of the offline devfile registry build, we need to do a few steps.
 * Docker 17.05 or higher / Podman 4.0.x or higher
 * Git
 * Curl
-* Unzip
+* Archive Tools (such as `unzip`)
 
 === Create Offline Registry
 
 Download / clone the link:https://github.com/devfile/registry[devfile/registry] repository.
 
-.Procedure: `git clone`
+.Procedure
 
 * HTTP clone
 +
@@ -36,23 +36,6 @@ git clone https://github.com/devfile/registry.git /path/to/registry
 git clone git@github.com:devfile/registry.git /path/to/registry
 ----
 
-.Procedure: Download zip
-
-. Download link:https://github.com/devfile/registry[devfile/registry]
-+
-[source,bash]
-----
-curl -L https://github.com/devfile/registry/archive/refs/heads/main.zip \
-  -o registry.zip
-----
-+
-. Unzip registry
-+
-[source,bash]
-----
-unzip registry.zip -d /path/to/registry
-----
-
 .Additional resources
 
 * Creating your own registry Git repository, see xref:building-a-custom-devfile-registry.adoc[Building a custom devfile registry]
@@ -61,11 +44,11 @@ unzip registry.zip -d /path/to/registry
 
 To package starter projects you will need to download them manually then place them under `/stacks/<stack>/<zip>-offline.zip`.
 
-*Note*: Starter projects must be packaged under a zip archive with the suffix `-offline` to be pulled into the registry.
+*Note*: Starter projects must be packaged under an archive with the suffix `-offline` to be pulled into the registry.
 
 .Procedure
 
-. Zip - Download zip
+. `zip` - Download archive
 +
 [source,bash]
 ----
@@ -81,7 +64,7 @@ curl -L https://code.quarkus.io/d?e=io.quarkus%3Aquarkus-resteasy&e=io.quarkus%3
   -o stacks/java-quarkus/community-offline.zip
 ----
 +
-. Git - Package cloned contents into a zip
+. `git` - Package cloned contents into an archive
 +
 [source,bash]
 ----
@@ -97,7 +80,7 @@ git clone https://github.com/odo-devfiles/nodejs-ex.git \
   stacks/nodejs/nodejs-starter-offline.zip
 ----
 +
-. GitHub - Download repository as a zip archive
+. GitHub - Download repository as an archive
 +
 [source,bash]
 ----
