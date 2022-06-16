@@ -64,11 +64,19 @@ curl -L https://code.quarkus.io/d?e=io.quarkus%3Aquarkus-resteasy&e=io.quarkus%3
   -o stacks/java-quarkus/community-offline.zip
 ----
 +
-. `git` - Package cloned contents into an archive
+. `git` - Package cloned contents into a directory then archive
+.. Clone repository
 +
 [source,bash]
 ----
-git clone <remote-url> <registry_root>/stacks/<stack>/<project>-offline.zip
+git clone <remote-url> <registry_root>/stacks/<stack>/<project>-offline
+----
++
+.. Archive cloned repository
++
+[source,bash]
+----
+zip -r <registry_root>/stacks/<stack>/<project>-offline.zip <registry_root>/stacks/<stack>/<project>-offline
 ----
 +
 Example
@@ -77,7 +85,9 @@ Example
 ----
 cd /path/to/registry
 git clone https://github.com/odo-devfiles/nodejs-ex.git \
-  stacks/nodejs/nodejs-starter-offline.zip
+  stacks/nodejs/nodejs-starter-offline
+cd stacks/nodejs
+zip -r nodejs-starter-offline.zip nodejs-starter-offline
 ----
 +
 . GitHub - Download repository as an archive
