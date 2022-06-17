@@ -6,12 +6,10 @@ The main goal of this stage is:
 . Pull in resources into the registry as part of the registry build.
 . Modify the devfile to update references to those offline resources as part of the registry build.
 
-As part of the offline devfile registry build, we need to do a few steps.
-
 .Prerequisites
 
 * Golang 1.17.x or higher
-* Docker 17.05 or higher / Podman 4.0.x or higher
+* Docker 17.05 or higher or Podman 4.0.x or higher
 * Git
 * Curl
 * Archive Tools (such as `unzip`)
@@ -38,7 +36,7 @@ git clone git@github.com:devfile/registry.git /path/to/registry
 
 .Additional resources
 
-* Creating your own registry Git repository, see xref:building-a-custom-devfile-registry.adoc[Building a custom devfile registry]
+* To create your own registry Git repository, see xref:building-a-custom-devfile-registry.adoc[Building a custom devfile registry]
 
 === Packaging Starter Projects
 
@@ -109,12 +107,12 @@ curl -L https://github.com/odo-devfiles/nodejs-ex/archive/refs/heads/master.zip 
 
 === Modify Devfile
 
-Modification is to the devfile will be needed to update references to those offline resources as part of the registry build. For all the items pulled into the registry, update the corresponding devfile entries to reference the resources within the offline version in the registry.
+Change the devfile so you can update references to those offline resources as part of the registry build. For all the items pulled into the registry, update the corresponding devfile entries to reference the resources within the offline version in the registry.
 
 .Procedure
 
-. Under `starterProjects`, find the starter project definition you want to make offline
-. Under the definition for the starter project find either `git` or `zip`, as seen here:
+. Under `starterProjects`, find the starter project definition you want to make offline.
+. Under the definition for the starter project find either `git` or `zip`:
 +
 .Starter Project Before
 ====
@@ -131,10 +129,13 @@ starterProjects:
 +
 . Do one of the following depending on the block type:
   * If `git`, replace all of the `git` block with a `zip` block and add the `location` to be the path to the local file under the stack root directory (`<registry_root>/stacks/<stack>/`). 
-  * If `zip`, just replace the value of `location` to the same as mention for `git`. 
-. In either case, you should end up with something like as seen here:
-+
-.Starter Project After
+  * If `zip`, just replace the value of `location` to the local file under the stack root directory (`<registry_root>/stacks/<stack>/`).
+
+.Verification step
+
+To confirm you modified your devfile, verify your altered starter project definition is similar to the following example:
+
+.Altered Starter Project Definition
 ====
 ----
 ...
@@ -148,20 +149,20 @@ starterProjects:
 
 .Additional resources
 
-* More about starter projects in devfiles, see xref:adding-projects-to-a-devfile.adoc[Adding projects to a devfile]
+* To learn more about starter projects in devfiles, see xref:adding-projects-to-a-devfile.adoc[Adding projects to a devfile]
 
 === Build Registry
 
 .Procedure
 
-. Change to registry root (if not already there)
+. If not already at the root of the registry, change to the root of the registry.
 +
 [source,bash]
 ----
 cd /path/to/registry
 ----
 +
-. Build Registry Image
+. Build the registry image.
 +
 [source,bash]
 ----
