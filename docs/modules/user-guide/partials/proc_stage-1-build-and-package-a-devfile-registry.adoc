@@ -20,14 +20,14 @@ Download / clone the link:https://github.com/devfile/registry[devfile/registry] 
 
 .Procedure
 
-* HTTP clone
+* Clone through HTTPS
 +
 [source,bash]
 ----
 git clone https://github.com/devfile/registry.git /path/to/registry
 ----
 +
-* SSH clone
+* Clone through SSH
 +
 [source,bash]
 ----
