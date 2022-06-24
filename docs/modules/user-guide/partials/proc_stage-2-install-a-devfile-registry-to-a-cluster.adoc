@@ -6,7 +6,6 @@ In this stage, install the images to the offline image registry.
 .Prerequisites
 
 * Docker 17.05 or higher or Podman 4.0.x or higher
-* OpenShift Container Platform 4.6 or higher
 
 === Install Image into Cluster Image Registry
 
