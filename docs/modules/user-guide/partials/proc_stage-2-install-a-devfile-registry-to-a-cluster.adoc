@@ -14,16 +14,14 @@ The process of installing the built images into an offline image registry depend
 
 .Procedure
 
-. OpenShift Image Registry
-+
-Use the `docker tag` or the `podman tag` to retag the image using the form `<registry_ip>:<port>/<project>/<image>`:
+. Use the `docker tag` or the `podman tag` to retag the image using the form `<registry_ip>:<port>/<project>/<image>`:
 +
 [source,bash]
 ----
 podman tag localhost/devfile-index <registry_ip>:<port>/<project>/devfile-index
 ----
 +
-Use the `docker push` or `podman push` to push the retagged image to the OpenShift Image Registry at `<registry_ip>:<port>`:
+. Use the `docker push` or `podman push` to push the retagged image to the cluster image registry at `<registry_ip>:<port>`:
 +
 [source,bash]
 ----
