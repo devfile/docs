@@ -48,11 +48,6 @@ To package starter projects you will need to download them manually then place t
 
 . `zip` - Download archive
 +
-[source,bash]
-----
-curl -L <remote-url> -o <registry_root>/stacks/<stack>/<project>-offline.zip
-----
-+
 Example
 +
 [source,bash]
@@ -63,19 +58,6 @@ curl -L https://code.quarkus.io/d?e=io.quarkus%3Aquarkus-resteasy&e=io.quarkus%3
 ----
 +
 . `git` - Package cloned contents into a directory then archive
-.. Clone repository
-+
-[source,bash]
-----
-git clone <remote-url> <registry_root>/stacks/<stack>/<project>-offline
-----
-+
-.. Archive cloned repository
-+
-[source,bash]
-----
-zip -r <registry_root>/stacks/<stack>/<project>-offline.zip <registry_root>/stacks/<stack>/<project>-offline
-----
 +
 Example
 +
