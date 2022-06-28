@@ -87,23 +87,6 @@ git clone https://github.com/odo-devfiles/nodejs-ex.git \
 cd stacks/nodejs
 zip -r nodejs-starter-offline.zip nodejs-starter-offline
 ----
-+
-. GitHub - Download repository as an archive
-+
-[source,bash]
-----
-curl -L https://github.com/<user|org>/<stack_repo_name>/archive/refs/heads/<main_branch>.zip \
-  -o <registry_root>/stacks/<stack>/<project>-offline.zip
-----
-+
-Example
-+
-[source,bash]
-----
-cd /path/to/registry
-curl -L https://github.com/odo-devfiles/nodejs-ex/archive/refs/heads/master.zip \
-  -o stacks/java-quarkus/nodejs-starter-offline.zip
-----
 
 === Modify Devfile
 
