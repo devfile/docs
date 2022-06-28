@@ -13,14 +13,14 @@ The process of installing the built images into an offline image registry depend
 
 .Procedure
 
-. Use the `docker tag` or the `podman tag` to retag the image using the form `<registry_host>:<port>/<project>/<image>`:
+. Use the `docker tag` or the `podman tag` to re-tag the image using the form `<registry_host>:<port>/<project>/<image>`:
 +
 [source,bash]
 ----
 podman tag devfile-index <registry_host>:<port>/<project>/devfile-index
 ----
 +
-. Use the `docker push` or `podman push` to push the retagged image to the cluster image registry at `<registry_host>:<port>`:
+. Use the `docker push` or `podman push` to push the re-tagged image to the cluster image registry at `<registry_host>:<port>`:
 +
 [source,bash]
 ----
