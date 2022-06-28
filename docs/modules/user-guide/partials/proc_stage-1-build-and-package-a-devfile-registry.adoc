@@ -38,9 +38,40 @@ git clone git@github.com:devfile/registry.git /path/to/registry
 
 * To create your own registry Git repository, see xref:building-a-custom-devfile-registry.adoc[Building a custom devfile registry]
 
+=== Install Stack Images
+
+You will first need to collect all the image tags used in the stacks needed for offline access. The image tags collected are to each be pulled, re-tagged, and installed into the image repository accessible by the offline cluster. Procedure here will require you to **change the devfile**.
+
+.Procedure
+. Use the `docker pull` or the `podman pull` to pull down an image for a stack component:
++
+[source,bash]
+----
+podman pull registry.access.redhat.com/ubi8/nodejs-16:latest
+----
++
+. Use the `docker tag` or the `podman tag` to re-tag the image that uses the form `<registry_host>:<port>/<project>/<image>`:
++
+[source,bash]
+----
+podman tag registry.access.redhat.com/ubi8/nodejs-16:latest \
+  <registry_host>:<port>/<project>/nodejs-16:latest
+----
++
+. Use the `docker push` or `podman push` to push the re-tagged image to the image repository at `<registry_host>:<port>`:
++
+[source,bash]
+----
+podman push <registry_host>:<port>/<project>/nodejs-16:latest
+----
+
+.Additional resources
+
+* For more on interacting with the OpenShift Image Registry, see link:https://docs.openshift.com/container-platform/4.10/registry/accessing-the-registry.html[Accessing the registry]
+
 === Packaging Starter Projects
 
-To package starter projects you will need to download them manually then place them under `/stacks/<stack>/<zip>-offline.zip`.
+To package starter projects you will need to download them manually then place them under `/stacks/<stack>/<zip>-offline.zip`. Procedure here will require you to **change the devfile**.
 
 *Note*: Starter projects must be packaged under an archive with the suffix `-offline` to be pulled into the registry.
 
@@ -72,7 +103,10 @@ zip -r nodejs-starter-offline.zip nodejs-starter-offline
 
 === Modify Devfile
 
-Change the devfile so you can update references to those offline resources as part of the registry build. For all the items pulled into the registry, update the corresponding devfile entries to reference the resources within the offline version in the registry.
+Change the devfile so you can update references to those offline resources as part of the registry build. For all the items pulled into the registry, update the corresponding devfile entries to reference the resources within the offline version in the registry:
+
+. All location references to `starterProjects` will change to local paths relative to the stacks directory.
+. Stack component image references will change to use the offline accessible image repository.
 
 .Procedure
 
