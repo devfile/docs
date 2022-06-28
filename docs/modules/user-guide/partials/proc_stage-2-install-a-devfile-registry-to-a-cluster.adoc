@@ -1,7 +1,7 @@
 [id="stage-2-install-a-devfile-registry-to-a-cluster_{context}"]
 == Stage 2: Install a Devfile Registry to a cluster
 
-In this stage, install the images to the offline image registry.
+In this stage, you will push the container images to a registry available to the offline cluster.
 
 .Prerequisites
 

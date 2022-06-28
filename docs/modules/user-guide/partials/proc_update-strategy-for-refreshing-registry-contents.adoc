@@ -3,5 +3,5 @@
 
 Steps to update an already deployed registry in the air gap scenario:
 
-. Rerun the registry build script to rebuild the devfile registry and package up the devfile registry that contains all the resources available for offline installation.
-. Update the existing devfile registry deployment with the new devfile registry to make it available for users to access the registry.
+. Follow offline registry instructions in the above sections and rerun the registry build script to rebuild the devfile registry.
+. Update the existing offline devfile registry deployment with a newly built and updated offline devfile registry image.
