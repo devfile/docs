@@ -1,0 +1,7 @@
+[id="update-strategy-for-refreshing-registry-contents_{context}"]
+== Update strategy for refreshing registry contents
+
+Steps to update an already deployed registry in the air gap scenario:
+
+. Follow offline registry instructions in the above sections and rerun the registry build script to rebuild the devfile registry.
+. Update the existing offline devfile registry deployment with a newly built and updated offline devfile registry image.

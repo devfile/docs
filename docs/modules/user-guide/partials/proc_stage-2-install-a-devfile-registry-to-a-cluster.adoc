@@ -1,0 +1,32 @@
+[id="stage-2-install-a-devfile-registry-to-a-cluster_{context}"]
+== Stage 2: Install a Devfile Registry to a cluster
+
+In this stage, you will push the container images to a registry available to the offline cluster.
+
+.Prerequisites
+
+* Docker 17.05 or higher or Podman 4.0.x or higher
+
+=== Install Image into Cluster Image Registry
+
+The process of installing the built images into an offline image registry depends on which image registry has deployed and which image registry you have access to.
+
+.Procedure
+
+. Use the `docker tag` or the `podman tag` to re-tag the image using the form `<registry_host>:<port>/<project>/<image>`:
++
+[source,bash]
+----
+podman tag devfile-index <registry_host>:<port>/<project>/devfile-index
+----
++
+. Use the `docker push` or `podman push` to push the re-tagged image to the cluster image registry at `<registry_host>:<port>`:
++
+[source,bash]
+----
+podman push <registry_host>:<port>/<project>/devfile-index
+----
+
+.Additional resources
+
+* For more on interacting with the OpenShift Image Registry, see link:https://docs.openshift.com/container-platform/4.10/registry/accessing-the-registry.html[Accessing the registry]

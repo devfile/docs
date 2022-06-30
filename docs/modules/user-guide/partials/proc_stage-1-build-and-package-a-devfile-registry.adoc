@@ -1,0 +1,173 @@
+[id="stage-1-build-and-package-a-devfile-registry_{context}"]
+== Stage 1: Build and Package a Devfile Registry
+
+The main goal of this stage is:
+
+. Pull in resources into the registry as part of the registry build.
+. Modify the devfile to update references to those offline resources as part of the registry build.
+
+.Prerequisites
+
+* Golang 1.17.x or higher
+* Docker 17.05 or higher or Podman 4.0.x or higher
+* Git
+* Curl
+* Archive Tools (such as `unzip`)
+
+=== Create Offline Registry
+
+Download / clone the link:https://github.com/devfile/registry[devfile/registry] repository.
+
+.Procedure
+
+* Clone through HTTPS
++
+[source,bash]
+----
+git clone https://github.com/devfile/registry.git /path/to/registry
+----
++
+* Clone through SSH
++
+[source,bash]
+----
+git clone git@github.com:devfile/registry.git /path/to/registry
+----
+
+.Additional resources
+
+* To create your own registry Git repository, see xref:building-a-custom-devfile-registry.adoc[Building a custom devfile registry]
+
+=== Install Stack Images
+
+You will first need to collect all the image tags used in the stacks needed for offline access. The image tags collected are to each be pulled, re-tagged, and installed into the image repository accessible by the offline cluster. Procedure here will require you to **change the devfile**.
+
+.Procedure
+. Use the `docker pull` or the `podman pull` to pull down an image for a stack component:
++
+[source,bash]
+----
+podman pull registry.access.redhat.com/ubi8/nodejs-16:latest
+----
++
+. Use the `docker tag` or the `podman tag` to re-tag the image that uses the form `<registry_host>:<port>/<project>/<image>`:
++
+[source,bash]
+----
+podman tag registry.access.redhat.com/ubi8/nodejs-16:latest \
+  <registry_host>:<port>/<project>/nodejs-16:latest
+----
++
+. Use the `docker push` or `podman push` to push the re-tagged image to the image repository at `<registry_host>:<port>`:
++
+[source,bash]
+----
+podman push <registry_host>:<port>/<project>/nodejs-16:latest
+----
+
+.Additional resources
+
+* For more on interacting with the OpenShift Image Registry, see link:https://docs.openshift.com/container-platform/4.10/registry/accessing-the-registry.html[Accessing the registry]
+
+=== Packaging Starter Projects
+
+To package starter projects you will need to download them manually then place them under `/stacks/<stack>/<zip>-offline.zip`. Procedure here will require you to **change the devfile**.
+
+*Note*: Starter projects must be packaged under an archive with the suffix `-offline` to be pulled into the registry.
+
+.Procedure
+
+. `zip` - Download archive
++
+Example
++
+[source,bash]
+----
+cd /path/to/registry
+curl -L https://code.quarkus.io/d?e=io.quarkus%3Aquarkus-resteasy&e=io.quarkus%3Aquarkus-micrometer&e=io.quarkus%3Aquarkus-smallrye-health&e=io.quarkus%3Aquarkus-openshift&cn=devfile \
+  -o stacks/java-quarkus/community-offline.zip
+----
++
+. `git` - Package cloned contents into a directory then archive
++
+Example
++
+[source,bash]
+----
+cd /path/to/registry
+git clone https://github.com/odo-devfiles/nodejs-ex.git \
+  stacks/nodejs/nodejs-starter-offline
+cd stacks/nodejs
+zip -r nodejs-starter-offline.zip nodejs-starter-offline
+----
+
+=== Modify Devfile
+
+Change the devfile so you can update references to those offline resources as part of the registry build. For all the items pulled into the registry, update the corresponding devfile entries to reference the resources within the offline version in the registry:
+
+. All location references to `starterProjects` will change to local paths relative to the stacks directory.
+. Stack component image references will change to use the offline accessible image repository.
+
+.Procedure
+
+. Under `starterProjects`, find the starter project definition you want to make offline.
+. Under the definition for the starter project find either `git` or `zip`:
++
+.Starter Project Before
+====
+----
+...
+starterProjects:
+  - name: nodejs-starter
+    git:
+      remotes:
+        origin: https://github.com/odo-devfiles/nodejs-ex.git
+...
+----
+====
++
+. Do one of the following depending on the block type:
+  * If `git`, replace all of the `git` block with a `zip` block and add the `location` to be the path to the local file under the stack root directory (`<registry_root>/stacks/<stack>/`). 
+  * If `zip`, just replace the value of `location` to the local file under the stack root directory (`<registry_root>/stacks/<stack>/`).
+
+.Verification step
+
+To confirm you modified your devfile, verify your altered starter project definition is similar to the following example:
+
+.Altered Starter Project Definition
+====
+----
+...
+starterProjects:
+  - name: nodejs-starter
+    zip:
+      location: nodejs-starter-offline.zip
+...
+----
+====
+
+.Additional resources
+
+* To learn more about starter projects in devfiles, see xref:adding-projects-to-a-devfile.adoc[Adding projects to a devfile]
+
+=== Build Registry
+
+.Procedure
+
+. If not already at the root of the registry, change to the root of the registry.
++
+[source,bash]
+----
+cd /path/to/registry
+----
++
+. Build the registry image.
++
+[source,bash]
+----
+bash .ci/build.sh
+----
+
+.Additional resources
+
+* For more information about building your own registry image, see xref:building-a-custom-devfile-registry.adoc[Building a custom devfile registry]
