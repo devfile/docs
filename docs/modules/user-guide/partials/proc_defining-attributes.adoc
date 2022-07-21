@@ -1,0 +1,71 @@
+[id="proc_defining-attributes_{context}"]
+= Defining attributes
+
+[role="_abstract"]
+Use devfile attributes to configure various features and properties according to user and tooling needs. Attributes are implementation-dependent and written in free-form YAML. 
+
+Attributes can be defined at the top level of the devfile, or in the following objects:
+
+
+* `components`
+* `commands`
+* `projects`
+* `starterProjects`
+* `metadata`: Attributes in metadata are deprecated. Use top-level attributes instead.
+
+.Prerequisites
+
+* xref:adding-schema-version-to-a-devfile.adoc[]
+* xref:adding-a-name-to-a-devfile.adoc[]
+
+
+.Procedure
+
+. Define attributes in a `component`
++
+.Java Quarkus example
+====
+[source,yaml]
+----
+schemaVersion: 2.2.0
+metadata:
+  name: java-quarkus
+...
+components:  
+  - name: outerloop-deploy
+    attributes:
+      deployment/replicas: 1
+      deployment/cpuLimit: "100m"
+      deployment/cpuRequest: 10m
+      deployment/memoryLimit: 250Mi
+      deployment/memoryRequest: 100Mi
+      deployment/container-port: 8081
+    kubernetes:
+      uri: outerloop-deploy.yaml
+----
+====      
+. Define a custom attribute in `metadata`
++
+When no editor is specified, a default editor is provided. To represent this user-defined example, use the `editorFree` attribute as shown in the following example:
++
+.A devfile without an editor
+====
+[source,yaml]
+----
+schemaVersion: 2.2.0
+metadata:
+  name: petclinic-dev-environment
+  attributes:
+     editorFree: true
+components:
+  - name: myapp
+    kubernetes:
+      uri: my-app.yaml
+----
+====
+
+[role="_additional-resources"]
+.Additional resources
+
+* xref:api-reference.adoc[]
+* xref:devfile-resources.adoc[]

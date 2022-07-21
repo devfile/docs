@@ -23,7 +23,8 @@
 **** xref:defining-endpoints.adoc[]
 **** xref:defining-kubernetes-resources.adoc[]
 
-*** xref:adding-attributes-to-a-devfile.adoc[]
+*** xref:defining-variables.adoc[]
+*** xref:defining-attributes.adoc[]
 *** xref:adding-event-bindings.adoc[]
 *** xref:referring-to-a-parent-devfile-in-a-devfile.adoc[]
 
@@ -44,8 +45,11 @@
 ** xref:devfile-registry.adoc[]
 *** xref:understanding-a-devfile-registry.adoc[]
 *** xref:building-a-custom-devfile-registry.adoc[]
+*** xref:installation-of-incluster-offline-devfile-registry.adoc[]
 *** xref:deploying-a-devfile-registry.adoc[]
 *** xref:adding-a-registry-schema.adoc[]
+*** xref:creating-a-devfile-stack.adoc[]
+*** xref:adding-a-stack-yaml-file.adoc[]
 
 * xref:api-reference.adoc[]
 * xref:devfile-resources.adoc[]

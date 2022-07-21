@@ -1,6 +1,0 @@
-:description: Adding attributes to a devfile
-:navtitle: Adding attributes
-:keywords: authoring, stack, attributes
-:page-aliases: 
-
-include::partial$proc_adding-attributes-to-a-devfile.adoc[]

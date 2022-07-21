@@ -1,0 +1,6 @@
+:description: Defining attributes
+:navtitle: {description}
+:keywords: authoring, stack, attributes
+:page-aliases: 
+
+include::partial$proc_defining-attributes.adoc[]
