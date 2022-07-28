@@ -33,7 +33,7 @@ components:
         - name: GOCACHE
           value: /tmp/go-cache
 commands:
-  - id: compile and run
+  - id: compile-and-run
     exec:
       component: go-cli
       commandLine: "go get -d && go run main.go"
