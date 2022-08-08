@@ -13,7 +13,7 @@ Variables can be defined at the top level of the devfile or in the `parent` obje
 
 .Procedure
 
-. Add a variable definition at the top level in your devfile
+. Add a variable definition at the top level in your devfile:
 +
 [source,yaml]
 ----
@@ -25,7 +25,7 @@ variables:
   javaVersion: 11
 ...  
 ----
-. Reference the variable by name later in the devfile
+. Reference the variable by name later in the devfile:
 +
 [source,yaml]
 ----
