@@ -2,7 +2,7 @@
 = Defining attributes
 
 [role="_abstract"]
-As a developer, you can use devfile attributes to configure various features and properties according to user and tooling needs. Attributes are implementation-dependent and written in free-form YAML. 
+As a developer, you can use devfile attributes to configure various features and properties according to the needs of users and tools. Attributes are implementation-dependent and written in free-form YAML. 
 
 Attributes can be defined at the top level of the devfile, or in the following objects:
 
