@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Installation of In-Cluster Offline Devfile Registry :: Devfile documentation</title>
+    <meta name="description" content="Installation of In-Cluster Offline Devfile Registry">
+    <meta name="keywords" content="devfile, registry, stacks">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="stylesheet" href="../../../../_/css/extra.css">
+<link rel="stylesheet" href="../../../../_/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+<meta name="robots" content="noindex">
+<script>var uiRootPath = '../../../../_'</script>
+    <script>var uiRootPath = '../../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <button class="navbar-burger" data-target="topbar-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <img src="../../../../_/img/project-logo.svg" class="navbar-logo" alt="Project logo">
+        <a href="https://devfile.io">Devfile.io</a>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item hide-for-print">
+          <div id="search-field" class="field">
+            <input id="search-input" type="text" placeholder="Search the docs" autofocus>
+          </div>
+        </div>
+        <a class="navbar-item" href="https://devfile.io/getting-started">Getting Started</a>
+        <a class="navbar-item" href="https://devfile.io/docs/index.html">Docs</a>
+        <a class="navbar-item" href="https://registry.devfile.io/viewer">Devfile Registry</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="devfile" data-version="2.2.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Devfile User Guide</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developer</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../authoring-devfiles/">Authoring devfiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-schema-version-to-a-devfile/">Adding schema version</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-a-name-to-a-devfile/">Adding a name</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-projects-to-a-devfile/">Adding projects</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../adding-commands-to-a-devfile/">Adding commands</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../devfile-commands/">Devfile commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-a-command-section-to-a-devfile/">Adding a command section to a devfile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-a-command-group-to-a-devfile/">Adding a command group to a devfile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-exec-commands-to-a-devfile/">Adding exec commands to a devfile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-apply-commands-to-a-devfile/">Adding apply commands to a devfile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-composite-commands-to-a-devfile/">Adding composite commands to a devfile</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../adding-components-to-a-devfile/">Adding components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-a-kubernetes-or-openshift-component-to-a-devfile/">Adding a Kubernetes or OpenShift component</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-a-container-component-to-a-devfile/">Adding a container component</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-a-image-component-to-a-devfile/">Adding an image component</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-a-volume-component-to-a-devfile/">Adding a volume component</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../specifying-persistent-storage/">Specifying persistent storage</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../limiting-resources-usage/">Limiting resources usage</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../defining-environment-variables/">Defining environment variables</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../defining-endpoints/">Defining endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../defining-kubernetes-resources/">Defining Kubernetes resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../defining-variables/">Defining variables</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../defining-attributes/">Defining attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-event-bindings/">Adding event bindings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../referring-to-a-parent-devfile-in-a-devfile/">Referring to a parent</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../migrating-to-devfile-v2/">Migrating to devfile v2</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-schema-version/">Migrating schema version</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-projects/">Migrating projects</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-components/">Migrating components</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-plug-ins/">Migrating plug-ins</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-commands/">Migrating commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-event-bindings/">Adding event bindings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../referring-to-a-parent-devfile-in-a-devfile/">Referring to a parent</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../troubleshooting/">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../devfile-library/">Devfile library</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../using-the-devfile-library/">Using the devfile library</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Registry Administrator</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../devfile-registry/">Devfile registry</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../understanding-a-devfile-registry/">Understanding a devfile registry</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../building-a-custom-devfile-registry/">Building a custom devfile registry</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="./">Offline Devfile Registry</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../deploying-a-devfile-registry/">Deploying a devfile registry</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-a-registry-schema/">Adding a registry schema</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../creating-a-devfile-stack/">Creating a Devfile stack</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-a-stack-yaml-file/">Adding a stack.yaml file</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-reference/">API reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../devfile-resources/">Devfile resources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Devfile User Guide</span>
+    <span class="version">2.2.0-alpha</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../../2.1.0/user-guide/">Devfile User Guide</a>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../">2.2.0-alpha</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../../2.1.0/user-guide/">2.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../2.0.0/user-guide/">2.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../2.1.0/user-guide/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Devfile User Guide</a></li>
+    <li>Registry Administrator</li>
+    <li><a href="../devfile-registry/">Devfile registry</a></li>
+    <li><a href="./">Offline Devfile Registry</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2.2.0-alpha</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">2.2.0-alpha</a>
+    <a class="version is-missing" href="../../../2.1.0/user-guide/">2.1.0</a>
+    <a class="version is-missing" href="../../../2.0.0/user-guide/">2.0.0</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/devfile/docs/edit/main/docs/modules/user-guide/pages/installation-of-incluster-offline-devfile-registry.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Installation of In-Cluster Offline Devfile Registry</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A devfile refers to various resources, such as container images and starter projects. The current devfile registry currently does not store those supporting resources. Therefore, you must have access to those resources when using those devfiles.</p>
+</div>
+<div class="paragraph">
+<p>To support the air gap installation of the devfile registry, the air gap scenario divides into two stages:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Build a devfile registry based on one or more source repositories so that the registry contains all the resources available for offline installation.</p>
+</li>
+<li>
+<p>Install the devfile registry to a cluster to make it available for users to access the registry.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="stage-1-build-and-package-a-devfile-registry_devfile"><a class="anchor" href="#stage-1-build-and-package-a-devfile-registry_devfile"></a>Stage 1: Build and Package a Devfile Registry</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The main goal of this stage is:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Pull in resources into the registry as part of the registry build.</p>
+</li>
+<li>
+<p>Modify the devfile to update references to those offline resources as part of the registry build.</p>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Golang 1.17.x or higher</p>
+</li>
+<li>
+<p>Docker 17.05 or higher or Podman 4.0.x or higher</p>
+</li>
+<li>
+<p>Git</p>
+</li>
+<li>
+<p>Curl</p>
+</li>
+<li>
+<p>Archive Tools (such as <code>unzip</code>)</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_create_offline_registry"><a class="anchor" href="#_create_offline_registry"></a>Create Offline Registry</h3>
+<div class="paragraph">
+<p>Download / clone the <a href="https://github.com/devfile/registry">devfile/registry</a> repository.</p>
+</div>
+<div class="ulist">
+<div class="title">Procedure</div>
+<ul>
+<li>
+<p>Clone through HTTPS</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git clone https://github.com/devfile/registry.git /path/to/registry</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Clone through SSH</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git clone git@github.com:devfile/registry.git /path/to/registry</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>To create your own registry Git repository, see <a href="../building-a-custom-devfile-registry/" class="xref page">Building a custom devfile registry</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_install_stack_images"><a class="anchor" href="#_install_stack_images"></a>Install Stack Images</h3>
+<div class="paragraph">
+<p>You will first need to collect all the image tags used in the stacks needed for offline access. The image tags collected are to each be pulled, re-tagged, and installed into the image repository accessible by the offline cluster. Procedure here will require you to <strong>change the devfile</strong>.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Use the <code>docker pull</code> or the <code>podman pull</code> to pull down an image for a stack component:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman pull registry.access.redhat.com/ubi8/nodejs-16:latest</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Use the <code>docker tag</code> or the <code>podman tag</code> to re-tag the image that uses the form <code>&lt;registry_host&gt;:&lt;port&gt;/&lt;project&gt;/&lt;image&gt;</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman tag registry.access.redhat.com/ubi8/nodejs-16:latest \
+  &lt;registry_host&gt;:&lt;port&gt;/&lt;project&gt;/nodejs-16:latest</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Use the <code>docker push</code> or <code>podman push</code> to push the re-tagged image to the image repository at <code>&lt;registry_host&gt;:&lt;port&gt;</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman push &lt;registry_host&gt;:&lt;port&gt;/&lt;project&gt;/nodejs-16:latest</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>For more on interacting with the OpenShift Image Registry, see <a href="https://docs.openshift.com/container-platform/4.10/registry/accessing-the-registry.html">Accessing the registry</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_packaging_starter_projects"><a class="anchor" href="#_packaging_starter_projects"></a>Packaging Starter Projects</h3>
+<div class="paragraph">
+<p>To package starter projects you will need to download them manually then place them under <code>/stacks/&lt;stack&gt;/&lt;zip&gt;-offline.zip</code>. Procedure here will require you to <strong>change the devfile</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Note</strong>: Starter projects must be packaged under an archive with the suffix <code>-offline</code> to be pulled into the registry.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p><code>zip</code> - Download archive</p>
+<div class="paragraph">
+<p>Example</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd /path/to/registry
+curl -L https://code.quarkus.io/d?e=io.quarkus%3Aquarkus-resteasy&amp;e=io.quarkus%3Aquarkus-micrometer&amp;e=io.quarkus%3Aquarkus-smallrye-health&amp;e=io.quarkus%3Aquarkus-openshift&amp;cn=devfile \
+  -o stacks/java-quarkus/community-offline.zip</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><code>git</code> - Package cloned contents into a directory then archive</p>
+<div class="paragraph">
+<p>Example</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd /path/to/registry
+git clone https://github.com/odo-devfiles/nodejs-ex.git \
+  stacks/nodejs/nodejs-starter-offline
+cd stacks/nodejs
+zip -r nodejs-starter-offline.zip nodejs-starter-offline</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modify_devfile"><a class="anchor" href="#_modify_devfile"></a>Modify Devfile</h3>
+<div class="paragraph">
+<p>Change the devfile so you can update references to those offline resources as part of the registry build. For all the items pulled into the registry, update the corresponding devfile entries to reference the resources within the offline version in the registry:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>All location references to <code>starterProjects</code> will change to local paths relative to the stacks directory.</p>
+</li>
+<li>
+<p>Stack component image references will change to use the offline accessible image repository.</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Under <code>starterProjects</code>, find the starter project definition you want to make offline.</p>
+</li>
+<li>
+<p>Under the definition for the starter project find either <code>git</code> or <code>zip</code>:</p>
+<div class="exampleblock">
+<div class="title">Example 1. Starter Project Before</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>...
+starterProjects:
+  - name: nodejs-starter
+    git:
+      remotes:
+        origin: https://github.com/odo-devfiles/nodejs-ex.git
+...</pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Do one of the following depending on the block type:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If <code>git</code>, replace all of the <code>git</code> block with a <code>zip</code> block and add the <code>location</code> to be the path to the local file under the stack root directory (<code>&lt;registry_root&gt;/stacks/&lt;stack&gt;/</code>).</p>
+</li>
+<li>
+<p>If <code>zip</code>, just replace the value of <code>location</code> to the local file under the stack root directory (<code>&lt;registry_root&gt;/stacks/&lt;stack&gt;/</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Verification step</div>
+<p>To confirm you modified your devfile, verify your altered starter project definition is similar to the following example:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 2. Altered Starter Project Definition</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>...
+starterProjects:
+  - name: nodejs-starter
+    zip:
+      location: nodejs-starter-offline.zip
+...</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>To learn more about starter projects in devfiles, see <a href="../adding-projects-to-a-devfile/" class="xref page">Adding projects to a devfile</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_build_registry"><a class="anchor" href="#_build_registry"></a>Build Registry</h3>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>If not already at the root of the registry, change to the root of the registry.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cd /path/to/registry</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Build the registry image.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">bash .ci/build.sh</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>For more information about building your own registry image, see <a href="../building-a-custom-devfile-registry/" class="xref page">Building a custom devfile registry</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="stage-2-install-a-devfile-registry-to-a-cluster_devfile"><a class="anchor" href="#stage-2-install-a-devfile-registry-to-a-cluster_devfile"></a>Stage 2: Install a Devfile Registry to a cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this stage, you will push the container images to a registry available to the offline cluster.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Docker 17.05 or higher or Podman 4.0.x or higher</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_install_image_into_cluster_image_registry"><a class="anchor" href="#_install_image_into_cluster_image_registry"></a>Install Image into Cluster Image Registry</h3>
+<div class="paragraph">
+<p>The process of installing the built images into an offline image registry depends on which image registry has deployed and which image registry you have access to.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Use the <code>docker tag</code> or the <code>podman tag</code> to re-tag the image using the form <code>&lt;registry_host&gt;:&lt;port&gt;/&lt;project&gt;/&lt;image&gt;</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman tag devfile-index &lt;registry_host&gt;:&lt;port&gt;/&lt;project&gt;/devfile-index</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Use the <code>docker push</code> or <code>podman push</code> to push the re-tagged image to the cluster image registry at <code>&lt;registry_host&gt;:&lt;port&gt;</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman push &lt;registry_host&gt;:&lt;port&gt;/&lt;project&gt;/devfile-index</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>For more on interacting with the OpenShift Image Registry, see <a href="https://docs.openshift.com/container-platform/4.10/registry/accessing-the-registry.html">Accessing the registry</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="update-strategy-for-refreshing-registry-contents_devfile"><a class="anchor" href="#update-strategy-for-refreshing-registry-contents_devfile"></a>Update strategy for refreshing registry contents</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Steps to update an already deployed registry in the air gap scenario:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Follow offline registry instructions in the above sections and rerun the registry build script to rebuild the devfile registry.</p>
+</li>
+<li>
+<p>Update the existing offline devfile registry deployment with a newly built and updated offline devfile registry image.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer  class="footer">
+<p><a href="https://devfile.io/docs/sitemap.xml">Site map</a>
+</p>
+</footer><script src="../../../../_/js/site.js"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="100" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+  </body>
+</html>

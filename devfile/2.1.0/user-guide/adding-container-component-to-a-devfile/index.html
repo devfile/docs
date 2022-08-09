@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Adding container components to a devfile :: Devfile documentation</title>
+    <link rel="canonical" href="https://devfile.io/docs/devfile/2.1.0/user-guide/adding-container-component-to-a-devfile/">
+    <meta name="description" content="Adding container component to a devfile">
+    <meta name="keywords" content="authoring, stack, components">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="stylesheet" href="../../../../_/css/extra.css">
+<link rel="stylesheet" href="../../../../_/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+<script>var uiRootPath = '../../../../_'</script>
+    <script>var uiRootPath = '../../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <button class="navbar-burger" data-target="topbar-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <img src="../../../../_/img/project-logo.svg" class="navbar-logo" alt="Project logo">
+        <a href="https://devfile.io">Devfile.io</a>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item hide-for-print">
+          <div id="search-field" class="field">
+            <input id="search-input" type="text" placeholder="Search the docs" autofocus>
+          </div>
+        </div>
+        <a class="navbar-item" href="https://devfile.io/getting-started">Getting Started</a>
+        <a class="navbar-item" href="https://devfile.io/docs/index.html">Docs</a>
+        <a class="navbar-item" href="https://registry.devfile.io/viewer">Devfile Registry</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="devfile" data-version="2.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Devfile User Guide</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developer</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing-with-devfiles/">Developing with devfiles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../using-devfiles/">Using devfiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-schema-version-to-a-devfile/">Adding schema version</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-a-name-to-a-devfile/">Adding a name</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../authoring-devfiles/">Authoring devfiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-projects-to-a-devfile/">Adding projects</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-commands-to-a-devfile/">Adding commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../adding-components-to-a-devfile/">Adding components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-kubernetes-component-to-a-devfile/">Adding kubernetes component</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="4">
+    <a class="nav-link" href="./">Adding container component</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../specifying-persistent-storage/">Specifying persistent storage</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../limiting-resources-usage/">Limiting resources usage</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../defining-environment-variables/">Defining environment variables</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../defining-endpoints/">Defining endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../defining-kubernetes-resources/">Defining Kubernetes resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-attributes-to-a-devfile/">Adding attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-event-bindings/">Adding event bindings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../referring-to-a-parent-devfile-in-a-devfile/">Referring to a parent</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../migrating-to-devfile-v2/">Migrating to devfile v2</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-schema-version/">Migrating schema version</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-projects/">Migrating projects</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-components/">Migrating components</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-plug-ins/">Migrating plug-ins</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-commands/">Migrating commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-event-bindings/">Adding event bindings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../referring-to-a-parent-devfile-in-a-devfile/">Referring to a parent</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../troubleshooting/">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../devfile-library/">Devfile library</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../using-the-devfile-library/">Using the devfile library</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Registry Administrator</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../devfile-registry/">Devfile registry</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-reference/">API reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../devfile-resources/">Devfile resources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Devfile User Guide</span>
+    <span class="version">2.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../">Devfile User Guide</a>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../../2.2.0/user-guide/">2.2.0-alpha</a>
+        </li>
+        <li class="version is-current is-latest">
+          <a href="../">2.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../2.0.0/user-guide/">2.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Devfile User Guide</a></li>
+    <li>Developer</li>
+    <li><a href="../authoring-devfiles/">Authoring devfiles</a></li>
+    <li><a href="../adding-components-to-a-devfile/">Adding components</a></li>
+    <li><a href="./">Adding container component</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2.1.0</button>
+  <div class="version-menu">
+    <a class="version is-missing" href="../../../2.2.0/user-guide/">2.2.0-alpha</a>
+    <a class="version is-current" href="./">2.1.0</a>
+    <a class="version" href="../../../2.0.0/user-guide/adding-container-component-to-a-devfile/">2.0.0</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/devfile/docs/edit/main/docs/modules/user-guide/pages/adding-container-component-to-a-devfile.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Adding <code>container</code> components to a devfile</h1>
+<div class="paragraph _abstract">
+<p>A component type that allows to define a container image-based configuration of a container in a workspace. A devfile can contain one or more component(s) of the <code>container</code> type. The <code>container</code> type of component brings in custom tools into the workspace. The component is identified by its image.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p><a href="../adding-schema-version-to-a-devfile/" class="xref page">Adding schema version to a devfile</a></p>
+</li>
+<li>
+<p><a href="../adding-a-name-to-a-devfile/" class="xref page">Adding a name to a devfile</a></p>
+</li>
+<li>
+<p><a href="../adding-components-to-a-devfile/" class="xref page">Adding components to a devfile</a></p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Define a component using the type <code>container</code>.</p>
+<div class="listingblock">
+<div class="title">A <code>container</code> component</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml"> components:
+   - name: maven
+     container:
+      image: eclipse/maven-jdk8:latest
+      volumeMounts:
+        - name: mavenrepo
+          path: /root/.m2
+       env:
+         - name: ENV_VAR
+           value: value
+       endpoints:
+         - name: maven-server
+           targetPort: 3101
+           protocol: https
+           secure: 'true'
+           exposure: public
+       memoryRequest: 256M
+       memoryLimit: 1536M
+       cpuRequest: 0.1
+       cpuLimit: 0.5
+       command: ['tail']
+       args: ['-f', '/dev/null']</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">A minimal <code>container</code> component</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.1.0
+metadata:
+    name: mydevfile
+components:
+  - name: go
+    container:
+      image: golang
+      memoryLimit: 512Mi
+      command: ['sleep', 'infinity']</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It specifies the type of the component, <code>container</code> and the <code>image</code> attribute names the image to be used for the component using the usual Docker naming conventions, that is, the above <code>image</code> attribute is equal to <code>docker.io/library/golang:latest</code>.</p>
+</div>
+<div class="paragraph">
+<p>A <code>container</code> component has many features that enable augmenting the image with additional resources and information needed for meaningful integration of the <strong>tool</strong> provided by the image with Devfile.</p>
+</div>
+</li>
+<li>
+<p>Mounting project sources</p>
+<div class="paragraph">
+<p>For the <code>container</code> component to have access to the project sources, you must set the <code>mountSources</code> attribute to <code>true</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.1.0
+metadata:
+    name: mydevfile
+components:
+  - name: go
+    container:
+      image: golang
+      memoryLimit: 512Mi
+      mountSources: true
+      command: ['sleep', 'infinity']</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The sources is mounted on a location stored in the <code>PROJECTS_ROOT</code> environment variable that is made available in the running container of the image. This location defaults to <code>/projects</code>. If <code>sourceMapping</code> is defined in the container, it overrides the 'PROJECT_ROOT' value if present and mounts the source to the path defined by <code>sourceMapping</code>.</p>
+</div>
+</li>
+<li>
+<p>Container Entrypoint</p>
+<div class="paragraph">
+<p>The <code>command</code> attribute of the <code>container</code> along with other arguments, is used to modify the <code>entrypoint</code> command of the container created from the image. In Devfile the container is needed to run indefinitely so that you can connect to it and execute arbitrary commands in it at any time. Because the availability of the <code>sleep</code> command and the support for the <code>infinity</code> argument for it is different and depends on the base image used in the particular images, Devfile cannot insert this behavior automatically on its own. However, you can take advantage of this feature to, for example, start up necessary servers with modified configurations, etc.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="../api-reference/" class="xref page">API Reference</a></p>
+</li>
+<li>
+<p><a href="../devfile-resources/" class="xref page">Devfile resources</a></p>
+</li>
+</ul>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer  class="footer">
+<p><a href="https://devfile.io/docs/sitemap.xml">Site map</a>
+</p>
+</footer><script src="../../../../_/js/site.js"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="100" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+  </body>
+</html>

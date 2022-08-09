@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>About devfiles :: Devfile documentation</title>
+    <link rel="canonical" href="https://devfile.io/docs/devfile/2.1.0/user-guide/">
+    <meta name="description" content="Software Defined Development Environments">
+    <meta name="keywords" content="devfile">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/extra.css">
+<link rel="stylesheet" href="../../../_/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+<script>var uiRootPath = '../../../_'</script>
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <button class="navbar-burger" data-target="topbar-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <img src="../../../_/img/project-logo.svg" class="navbar-logo" alt="Project logo">
+        <a href="https://devfile.io">Devfile.io</a>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item hide-for-print">
+          <div id="search-field" class="field">
+            <input id="search-input" type="text" placeholder="Search the docs" autofocus>
+          </div>
+        </div>
+        <a class="navbar-item" href="https://devfile.io/getting-started">Getting Started</a>
+        <a class="navbar-item" href="https://devfile.io/docs/index.html">Docs</a>
+        <a class="navbar-item" href="https://registry.devfile.io/viewer">Devfile Registry</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="devfile" data-version="2.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="./">Devfile User Guide</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="./">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developer</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="developing-with-devfiles/">Developing with devfiles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="using-devfiles/">Using devfiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="adding-schema-version-to-a-devfile/">Adding schema version</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="adding-a-name-to-a-devfile/">Adding a name</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="authoring-devfiles/">Authoring devfiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="adding-projects-to-a-devfile/">Adding projects</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="adding-commands-to-a-devfile/">Adding commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="adding-components-to-a-devfile/">Adding components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="adding-kubernetes-component-to-a-devfile/">Adding kubernetes component</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="adding-container-component-to-a-devfile/">Adding container component</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="specifying-persistent-storage/">Specifying persistent storage</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="limiting-resources-usage/">Limiting resources usage</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="defining-environment-variables/">Defining environment variables</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="defining-endpoints/">Defining endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="defining-kubernetes-resources/">Defining Kubernetes resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="adding-attributes-to-a-devfile/">Adding attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="adding-event-bindings/">Adding event bindings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="referring-to-a-parent-devfile-in-a-devfile/">Referring to a parent</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="migrating-to-devfile-v2/">Migrating to devfile v2</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="migrating-schema-version/">Migrating schema version</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="migrating-projects/">Migrating projects</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="migrating-components/">Migrating components</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="migrating-plug-ins/">Migrating plug-ins</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="migrating-commands/">Migrating commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="adding-event-bindings/">Adding event bindings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="referring-to-a-parent-devfile-in-a-devfile/">Referring to a parent</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="troubleshooting/">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="devfile-library/">Devfile library</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="using-the-devfile-library/">Using the devfile library</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Registry Administrator</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devfile-registry/">Devfile registry</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="api-reference/">API reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="devfile-resources/">Devfile resources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Devfile User Guide</span>
+    <span class="version">2.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="./">Devfile User Guide</a>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../2.2.0/user-guide/">2.2.0-alpha</a>
+        </li>
+        <li class="version is-current is-latest">
+          <a href="./">2.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../2.0.0/user-guide/">2.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="./" class="home-link is-current"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="./">Devfile User Guide</a></li>
+    <li><a href="./">Overview</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2.1.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../2.2.0/user-guide/">2.2.0-alpha</a>
+    <a class="version is-current" href="./">2.1.0</a>
+    <a class="version" href="../../2.0.0/user-guide/">2.0.0</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/devfile/docs/edit/main/docs/modules/user-guide/pages/index.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">About devfiles</h1>
+<div class="paragraph _abstract">
+<div class="title">What a devfile does for you</div>
+<p>You can use devfiles to automate and simplify your development process. With devfiles, you record the instructions for configuring and running your software build environment as a YAML-formatted text file. Then, optionally, you can distribute those instructions to other software build tools and IDEs that support devfiles. Finally, to automatically configure and build a running application from a development project, you run the devfile instructions. You can also use devfiles to provide consistent software build processes across different languages and tools.</p>
+</div>
+<div class="paragraph">
+<p>Using the recommended best practices from the devfile, the tools and IDE can:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Take in the repository hosting your application source code.</p>
+</li>
+<li>
+<p>Build your code.</p>
+</li>
+<li>
+<p>Run your application on your local container.</p>
+</li>
+<li>
+<p>Deploy your application to cloud-native containers.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Benefits of devfiles</div>
+<p>With devfiles, you can make workspaces composed of multiple containers. In these containers, you can create any number of identical workspaces from the same devfile. If you create multiple workspaces, you can share your devfile with different teams. By sharing a single devfile across multiple teams, you can ensure that each team has the same user experience and build, run, deploy behaviors.</p>
+</div>
+<div class="paragraph">
+<p>Devfiles include the following features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Guidance for using runtime images</p>
+</li>
+<li>
+<p>Example code</p>
+</li>
+<li>
+<p>Build and CI commands</p>
+</li>
+<li>
+<p>Deployment options</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Devfiles have the following benefits:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reduce the gap between development and deployment</p>
+</li>
+<li>
+<p>Find available devfile stacks or samples in a devfile registry</p>
+</li>
+<li>
+<p>Produce consistent build and run behaviors</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Roles that use devfiles</div>
+<p>Stack providers use devfiles to develop their runtime stacks once and then use them across different tools. Therefore, with devfiles, you do not need to build and maintain custom development tools.</p>
+</div>
+<div class="paragraph">
+<p>Tool providers use devfiles to build runtime support for each runtime. The devfile runtime teams create the devfiles for building and running applications on their servers, giving you more time to work on your tools.</p>
+</div>
+<div class="paragraph">
+<p>With devfiles, developers do not need to set up the environment for building and running their applications. Instead, developers have the flexibility to use different tools, like Che and odo.</p>
+</div>
+<div class="ulist">
+<div class="title">How to work with devfiles</div>
+<ul>
+<li>
+<p>To access the devfile stacks so you can begin creating container workspaces, see <a href="https://github.com/devfile/registry/tree/main/stacks">devfile registry stacks</a>.</p>
+</li>
+<li>
+<p>To write a devfile stack so you can begin using devfiles in your application development, see <a href="authoring-devfiles/" class="xref page">Authoring devfiles</a>.</p>
+</li>
+<li>
+<p>To migrate an existing devfile to the most updated version, see <a href="migrating-to-devfile-v2/" class="xref page">Migrating to devfile v2</a>.</p>
+</li>
+<li>
+<p>To understand the schema attributes of devfiles, see <a href="api-reference/" class="xref page">API Reference</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph _additional-resources">
+<div class="title">Additional resources</div>
+<p>To ask questions, view open issues, raise concerns, or communicate directly with the devfile team, see the <a href="https://github.com/devfile/api">devfile GitHub repository</a>.</p>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer  class="footer">
+<p><a href="https://devfile.io/docs/sitemap.xml">Site map</a>
+</p>
+</footer><script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

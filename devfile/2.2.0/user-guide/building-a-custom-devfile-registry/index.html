@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Building a custom devfile registry :: Devfile documentation</title>
+    <link rel="canonical" href="https://devfile.io/docs/devfile/2.1.0/user-guide/building-a-custom-devfile-registry/">
+    <meta name="description" content="Building a custom devfile registry">
+    <meta name="keywords" content="devfile, registry, stacks">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="stylesheet" href="../../../../_/css/extra.css">
+<link rel="stylesheet" href="../../../../_/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+<meta name="robots" content="noindex">
+<script>var uiRootPath = '../../../../_'</script>
+    <script>var uiRootPath = '../../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <button class="navbar-burger" data-target="topbar-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <img src="../../../../_/img/project-logo.svg" class="navbar-logo" alt="Project logo">
+        <a href="https://devfile.io">Devfile.io</a>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item hide-for-print">
+          <div id="search-field" class="field">
+            <input id="search-input" type="text" placeholder="Search the docs" autofocus>
+          </div>
+        </div>
+        <a class="navbar-item" href="https://devfile.io/getting-started">Getting Started</a>
+        <a class="navbar-item" href="https://devfile.io/docs/index.html">Docs</a>
+        <a class="navbar-item" href="https://registry.devfile.io/viewer">Devfile Registry</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="devfile" data-version="2.2.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Devfile User Guide</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developer</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../authoring-devfiles/">Authoring devfiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-schema-version-to-a-devfile/">Adding schema version</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-a-name-to-a-devfile/">Adding a name</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-projects-to-a-devfile/">Adding projects</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../adding-commands-to-a-devfile/">Adding commands</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../devfile-commands/">Devfile commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-a-command-section-to-a-devfile/">Adding a command section to a devfile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-a-command-group-to-a-devfile/">Adding a command group to a devfile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-exec-commands-to-a-devfile/">Adding exec commands to a devfile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-apply-commands-to-a-devfile/">Adding apply commands to a devfile</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-composite-commands-to-a-devfile/">Adding composite commands to a devfile</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../adding-components-to-a-devfile/">Adding components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-a-kubernetes-or-openshift-component-to-a-devfile/">Adding a Kubernetes or OpenShift component</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-a-container-component-to-a-devfile/">Adding a container component</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-a-image-component-to-a-devfile/">Adding an image component</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-a-volume-component-to-a-devfile/">Adding a volume component</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../specifying-persistent-storage/">Specifying persistent storage</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../limiting-resources-usage/">Limiting resources usage</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../defining-environment-variables/">Defining environment variables</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../defining-endpoints/">Defining endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../defining-kubernetes-resources/">Defining Kubernetes resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../defining-variables/">Defining variables</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../defining-attributes/">Defining attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-event-bindings/">Adding event bindings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../referring-to-a-parent-devfile-in-a-devfile/">Referring to a parent</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../migrating-to-devfile-v2/">Migrating to devfile v2</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-schema-version/">Migrating schema version</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-projects/">Migrating projects</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-components/">Migrating components</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-plug-ins/">Migrating plug-ins</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-commands/">Migrating commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-event-bindings/">Adding event bindings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../referring-to-a-parent-devfile-in-a-devfile/">Referring to a parent</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../troubleshooting/">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../devfile-library/">Devfile library</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../using-the-devfile-library/">Using the devfile library</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Registry Administrator</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../devfile-registry/">Devfile registry</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../understanding-a-devfile-registry/">Understanding a devfile registry</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="./">Building a custom devfile registry</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../installation-of-incluster-offline-devfile-registry/">Offline Devfile Registry</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../deploying-a-devfile-registry/">Deploying a devfile registry</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-a-registry-schema/">Adding a registry schema</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../creating-a-devfile-stack/">Creating a Devfile stack</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-a-stack-yaml-file/">Adding a stack.yaml file</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-reference/">API reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../devfile-resources/">Devfile resources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Devfile User Guide</span>
+    <span class="version">2.2.0-alpha</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../../2.1.0/user-guide/">Devfile User Guide</a>
+      <ul class="versions">
+        <li class="version is-current">
+          <a href="../">2.2.0-alpha</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../../2.1.0/user-guide/">2.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../2.0.0/user-guide/">2.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../2.1.0/user-guide/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Devfile User Guide</a></li>
+    <li>Registry Administrator</li>
+    <li><a href="../devfile-registry/">Devfile registry</a></li>
+    <li><a href="./">Building a custom devfile registry</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2.2.0-alpha</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">2.2.0-alpha</a>
+    <a class="version" href="../../../2.1.0/user-guide/building-a-custom-devfile-registry/">2.1.0</a>
+    <a class="version is-missing" href="../../../2.0.0/user-guide/">2.0.0</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/devfile/docs/edit/main/docs/modules/user-guide/pages/building-a-custom-devfile-registry.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Building a custom devfile registry</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Provide your developers a devfile registry so they can access devfile stacks and samples, enabling them to use devfiles to simplify and improve their containerized application development.</p>
+</div>
+<div class="paragraph">
+<p>To create a devfile registry for your team’s container development:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a Git repository.</p>
+</li>
+<li>
+<p>Build a devfile registry.</p>
+</li>
+<li>
+<p>Tag and push the registry container image.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="creating-a-git-repository_devfile"><a class="anchor" href="#creating-a-git-repository_devfile"></a>Creating a Git repository</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>Set up a Git repository to store the devfile stacks to package into the devfile registry.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Fork the <a href="https://github.com/devfile/registry">devfile/registry</a> repository.</p>
+</li>
+<li>
+<p>Name your forked repository.</p>
+</li>
+<li>
+<p>Add or remove any stacks you need from this repository.</p>
+</li>
+<li>
+<p>Create a <code>stacks/</code> directory for storing the devfile stacks. Each directory under <code>stacks/</code> must correspond to a specific stack, for example, <code>stacks/java-wildfly/</code>.</p>
+</li>
+<li>
+<p>To package any external devfile stacks or samples in your devfile registry, go to the root of your repository and create an <code>extraDevfileEntries.yaml</code> file.</p>
+</li>
+<li>
+<p>Add your devfile stacks to your <code>stacks/</code> directory.</p>
+</li>
+<li>
+<p>Verify every devfile stack contains at least one <code>devfile.yaml</code> file. Add other required files to the stacks. These files can include VSX plug-ins, Dockerfiles, or Kubernetes manifests.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The registry build tool automatically validates your customized registry.</p>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>Example of <a href="https://github.com/devfile/registry/blob/main/extraDevfileEntries.yaml">extraDevfileEntries.yaml</a>.</p>
+</li>
+<li>
+<p>To create devfile stacks, see <a href="../creating-a-devfile-stack/" class="xref page">Creating a Devfile stack</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="building-a-custom-devfile-registry_devfile"><a class="anchor" href="#building-a-custom-devfile-registry_devfile"></a>Building a custom devfile registry</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>Make your repository into a devfile registry by building a <code>devfile index</code> container image. Deploy the <code>devfile index</code> image to your cloud or cluster to form the devfile registry.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Golang 1.13.x or higher</p>
+</li>
+<li>
+<p>Docker 17.05 or higher</p>
+</li>
+<li>
+<p>Git</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Run <code>./build_image.sh &lt;path-to-devfile-registry-folder&gt;</code> to  build a devfile registry repository.</p>
+</li>
+<li>
+<p>In a multi-stage Docker build, add a Dockerfile to your devfile registry repository. Make sure the Dockerfile contains the following:</p>
+<div class="exampleblock">
+<div class="title">Example 1. Dockerfile</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>FROM quay.io/openshift-pipeline/golang:1.15-alpine AS builder
+# Install dependencies
+RUN apk add --no-cache git bash
+COPY . /registry
+# Download the registry build tools
+RUN git clone https://github.com/devfile/registry-support.git /registry-support
+# Run the registry build tools
+RUN /registry-support/build-tools/build.sh /registry /build
+FROM quay.io/devfile/devfile-index-base:next
+COPY --from=builder /build/index.json /index.json
+COPY --from=builder /build/stacks /stacks</pre>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Run <code>docker build -t devfile-index</code> to build the devfile registry into a container image.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The build script builds the index generator, generates the <code>index.json</code> file from the specified devfile registry, and builds the stacks and <code>index.json</code> into a devfile index container image. The registry build process takes the contents of your devfile registry Git repository and:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Packages the content of each devfile stack based on the supported media types for the devfile registry.</p>
+</li>
+<li>
+<p>Validates the content of the devfile registry repository based on the expected registry structure.</p>
+</li>
+<li>
+<p>Generates <code>index.json</code> from the stacks in the repository and from any extra stacks or samples mentioned in the <code>extraDevfileEntries.yaml</code> file.</p>
+</li>
+<li>
+<p>Builds a devfile index container image with the devfile stack contents and <code>index.json</code>.</p>
+</li>
+</ol>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>For examples on how to add Dockerfiles to your devfile registry, see the <a href="https://github.com/devfile/registry/blob/master/.ci/Dockerfile">devfile/registry repository&#8217;s Dockerfile</a>.</p>
+</li>
+<li>
+<p>To run the registry build outside a container build, see the <a href="https://github.com/devfile/registry-support/tree/master/build-tools">devfile registry build tools</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tagging-and-pushing-a-registry-container-image_devfile"><a class="anchor" href="#tagging-and-pushing-a-registry-container-image_devfile"></a>Tagging and pushing a registry container image</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>Use the devfile index container image to create a container in which you build, run, and deploy your application.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Choose a container registry.</p>
+</li>
+<li>
+<p>Consult the documentation for your container registry and log in to the registry with the Docker CLI.</p>
+</li>
+<li>
+<p>Push the devfile index container image to your chosen container registry:</p>
+<div class="listingblock">
+<div class="content">
+<pre>$ docker tag -f devfile-index <em>&lt;registry-hostname&gt;</em>/<em>&lt;registry-username&gt;</em>/devfile-index:latest
+$ docker push <em>&lt;registry-hostname&gt;</em>/<em>&lt;registry-username&gt;</em>/devfile-index:latest</pre>
+</div>
+</div>
+</li>
+<li>
+<p>If your container does not build properly, consult the documentation for your container registry.</p>
+</li>
+</ol>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>For information on deploying the devfile index container image, see <a href="../deploying-a-devfile-registry/" class="xref page">Deploying a devfile registry</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer  class="footer">
+<p><a href="https://devfile.io/docs/sitemap.xml">Site map</a>
+</p>
+</footer><script src="../../../../_/js/site.js"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="100" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+  </body>
+</html>

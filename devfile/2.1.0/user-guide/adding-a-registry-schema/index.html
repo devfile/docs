@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Adding a registry schema :: Devfile documentation</title>
+    <link rel="canonical" href="https://devfile.io/docs/devfile/2.1.0/user-guide/adding-a-registry-schema/">
+    <meta name="description" content="Adding a registry schema">
+    <meta name="keywords" content="devfile">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="stylesheet" href="../../../../_/css/extra.css">
+<link rel="stylesheet" href="../../../../_/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+<script>var uiRootPath = '../../../../_'</script>
+    <script>var uiRootPath = '../../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <button class="navbar-burger" data-target="topbar-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <img src="../../../../_/img/project-logo.svg" class="navbar-logo" alt="Project logo">
+        <a href="https://devfile.io">Devfile.io</a>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item hide-for-print">
+          <div id="search-field" class="field">
+            <input id="search-input" type="text" placeholder="Search the docs" autofocus>
+          </div>
+        </div>
+        <a class="navbar-item" href="https://devfile.io/getting-started">Getting Started</a>
+        <a class="navbar-item" href="https://devfile.io/docs/index.html">Docs</a>
+        <a class="navbar-item" href="https://registry.devfile.io/viewer">Devfile Registry</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="devfile" data-version="2.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Devfile User Guide</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developer</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing-with-devfiles/">Developing with devfiles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../using-devfiles/">Using devfiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-schema-version-to-a-devfile/">Adding schema version</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-a-name-to-a-devfile/">Adding a name</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../authoring-devfiles/">Authoring devfiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-projects-to-a-devfile/">Adding projects</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-commands-to-a-devfile/">Adding commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../adding-components-to-a-devfile/">Adding components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-kubernetes-component-to-a-devfile/">Adding kubernetes component</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../adding-container-component-to-a-devfile/">Adding container component</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../specifying-persistent-storage/">Specifying persistent storage</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../limiting-resources-usage/">Limiting resources usage</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../defining-environment-variables/">Defining environment variables</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../defining-endpoints/">Defining endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../defining-kubernetes-resources/">Defining Kubernetes resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-attributes-to-a-devfile/">Adding attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-event-bindings/">Adding event bindings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../referring-to-a-parent-devfile-in-a-devfile/">Referring to a parent</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../migrating-to-devfile-v2/">Migrating to devfile v2</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-schema-version/">Migrating schema version</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-projects/">Migrating projects</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-components/">Migrating components</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-plug-ins/">Migrating plug-ins</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../migrating-commands/">Migrating commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-event-bindings/">Adding event bindings</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../referring-to-a-parent-devfile-in-a-devfile/">Referring to a parent</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../troubleshooting/">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../devfile-library/">Devfile library</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../using-the-devfile-library/">Using the devfile library</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Registry Administrator</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../devfile-registry/">Devfile registry</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-reference/">API reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../devfile-resources/">Devfile resources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Devfile User Guide</span>
+    <span class="version">2.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../">Devfile User Guide</a>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../../2.2.0/user-guide/">2.2.0-alpha</a>
+        </li>
+        <li class="version is-current is-latest">
+          <a href="../">2.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../2.0.0/user-guide/">2.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Devfile User Guide</a></li>
+    <li><a href="./">Adding a registry schema</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2.1.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../../2.2.0/user-guide/adding-a-registry-schema/">2.2.0-alpha</a>
+    <a class="version is-current" href="./">2.1.0</a>
+    <a class="version is-missing" href="../../../2.0.0/user-guide/">2.0.0</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/devfile/docs/edit/main/docs/modules/user-guide/pages/adding-a-registry-schema.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Adding a registry schema</h1>
+<div class="paragraph _abstract">
+<p>To add samples and stacks from other repositories, place the <code>extraDevfileEntries.yaml</code> file under the root of a devfile registry.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. extraDevfileEntries.yaml schema</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>samples</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>schema[]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The sample list.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stacks</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>schema[]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The stack list stack or sample attributes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The stack name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>displayName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The display name of a devfile.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>description</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The description of a devfile.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tags</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string[]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The tags associated to a devfile.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>icon</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A devfile icon.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>language</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The project language that is used in a devfile.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>git</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>git</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The information of remote repositories.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="exampleblock">
+<div class="title">Example 1. extraDevfileEntries.yaml sample</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>schemaVersion: 1.0.0
+samples:
+  - name: nodejs-basic
+    displayName: Basic NodeJS
+    description: A simple Hello World Node.js application
+    icon: https://github.com/maysunfaisal/node-bulletin-board-2/blob/main/nodejs-icon.png
+    tags: ["NodeJS", "Express"]
+    projectType: nodejs
+    language: nodejs
+    git:
+      remotes:
+        origin: https://github.com/redhat-developer/devfile-sample.git
+  - name: code-with-quarkus
+    displayName: Basic Quarkus
+    description: A simple Hello World Java application using Quarkus
+    icon: .devfile/icon/quarkus.png
+    tags: ["Java", "Quarkus"]
+    projectType: quarkus
+    language: java
+    git:
+      remotes:
+        origin: https://github.com/elsony/devfile-sample-code-with-quarkus.git
+  - name: java-springboot-basic
+    displayName: Basic Spring Boot
+    description: A simple Hello World Java Spring Boot application using Maven
+    icon: .devfile/icon/spring-logo.png
+    tags: ["Java", "Spring"]
+    projectType: springboot
+    language: java
+    git:
+      remotes:
+        origin: https://github.com/elsony/devfile-sample-java-springboot-basic.git
+  - name: python-basic
+    displayName: Basic Python
+    description: A simple Hello World application using Python
+    icon: .devfile/icon/python.png
+    tags: ["Python"]
+    projectType: python
+    language: python
+    git:
+      remotes:
+        origin: https://github.com/elsony/devfile-sample-python-basic.git</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>index.json</code> file contains metadata for the stacks and samples in the registry. This metadata is also known as the devfile index schema. From the devfile index schema, you can get the stack and sample generic information such as name, language, and resources.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Devfile index schema</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The stack name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>version</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The stack version.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>attributes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>map[string]apiext.JSON</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Map of implementation-dependant free-form YAML attributes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>displayName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The display name of a devfile.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>description</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The description of a devfile.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>type</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DevfileType</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of a devfile that currently supports stacks and samples.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tags</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string[]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The tags for a devfile.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>icon</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A devfile icon.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>globalMemoryLimit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A devfile global memory limit.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>projectType</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The project framework that is used in a devfile.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>language</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The project language that is used in a devfile.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>links</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>map[string]string</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Links related to a devfile.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>resources</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string[]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The file resources that compose a devfile stack.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tarterProjects</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>string[]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The project templates that can be used in a devfile.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>git</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>git</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The information of remote repositories.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="exampleblock">
+<div class="title">Example 2. Index.json sample</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>[
+  {
+    "name": "java-maven",
+    "version": "1.1.0",
+    "displayName": "Maven Java",
+    "description": "Upstream Maven and OpenJDK 11",
+    "type": "stack",
+    "tags": [
+      "Java",
+      "Maven"
+    ],
+    "projectType": "maven",
+    "language": "java",
+    "links": {
+      "self": "devfile-catalog/java-maven:latest"
+    },
+    "resources": [
+      "devfile.yaml"
+    ],
+    "starterProjects": [
+      "springbootproject"
+    ]
+  },
+  {
+    "name": "java-openliberty",
+    "version": "0.5.0",
+    "displayName": "Open Liberty",
+    "description": "Java application stack using Open Liberty runtime",
+    "type": "stack",
+    "projectType": "docker",
+    "language": "java",
+    "links": {
+      "self": "devfile-catalog/java-openliberty:latest"
+    },
+    "resources": [
+      "devfile.yaml"
+    ],
+    "starterProjects": [
+      "user-app"
+    ]
+  }
+]</pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer  class="footer">
+<p><a href="https://devfile.io/docs/sitemap.xml">Site map</a>
+</p>
+</footer><script src="../../../../_/js/site.js"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="100" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+  </body>
+</html>

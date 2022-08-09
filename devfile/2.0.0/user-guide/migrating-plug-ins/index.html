@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Migrating plug-ins :: Devfile documentation</title>
+    <link rel="canonical" href="https://devfile.io/docs/devfile/2.1.0/user-guide/migrating-plug-ins/">
+    <meta name="description" content="Migrating plug-ins">
+    <meta name="keywords" content="migrating, stack, plug-ins">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="stylesheet" href="../../../../_/css/extra.css">
+<link rel="stylesheet" href="../../../../_/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+<script>var uiRootPath = '../../../../_'</script>
+    <script>var uiRootPath = '../../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <button class="navbar-burger" data-target="topbar-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <img src="../../../../_/img/project-logo.svg" class="navbar-logo" alt="Project logo">
+        <a href="https://devfile.io">Devfile.io</a>
+      </div>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item hide-for-print">
+          <div id="search-field" class="field">
+            <input id="search-input" type="text" placeholder="Search the docs" autofocus>
+          </div>
+        </div>
+        <a class="navbar-item" href="https://devfile.io/getting-started">Getting Started</a>
+        <a class="navbar-item" href="https://devfile.io/docs/index.html">Docs</a>
+        <a class="navbar-item" href="https://registry.devfile.io/viewer">Devfile Registry</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="devfile" data-version="2.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Devfile User Guide</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../authoring-stacks/">Authoring stacks</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adding-schema-version-to-a-devfile/">Adding schema version</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adding-a-name-to-a-devfile/">Adding a name</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adding-projects-to-a-devfile/">Adding projects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adding-commands-to-a-devfile/">Adding commands</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../adding-components-to-a-devfile/">Adding components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-plugin-component-to-a-devfile/">Adding plugin component</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-kubernetes-component-to-a-devfile/">Adding kubernetes component</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../adding-container-component-to-a-devfile/">Adding container component</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../specifying-persistent-storage/">Specifying persistent storage</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../limiting-resources-usage/">Limiting resources usage</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../defining-environment-variables/">Defining environment variables</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../defining-endpoints/">Defining endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../defining-kubernetes-resources/">Defining Kubernetes resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adding-attributes-to-a-devfile/">Adding attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adding-event-bindings/">Adding event bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../refering-to-a-parent-devfile-in-a-devfile/">Refering to a parent</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../migrating-to-devfile-v2/">Migrating to devfile v2</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../migrating-schema-version/">Migrating schema version</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../migrating-projects/">Migrating projects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../migrating-components/">Migrating components</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Migrating plug-ins</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../migrating-commands/">Migrating commands</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adding-event-bindings/">Adding event bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../refering-to-a-parent-devfile-in-a-devfile/">Refering to a parent</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../troubleshooting/">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../api-reference/">API reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../devfile-samples/">Devfile samples</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Devfile User Guide</span>
+    <span class="version">2.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../../2.1.0/user-guide/">Devfile User Guide</a>
+      <ul class="versions">
+        <li class="version">
+          <a href="../../../2.2.0/user-guide/">2.2.0-alpha</a>
+        </li>
+        <li class="version is-latest">
+          <a href="../../../2.1.0/user-guide/">2.1.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../">2.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../2.1.0/user-guide/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Devfile User Guide</a></li>
+    <li><a href="../migrating-to-devfile-v2/">Migrating to devfile v2</a></li>
+    <li><a href="./">Migrating plug-ins</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2.0.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../../2.2.0/user-guide/migrating-plug-ins/">2.2.0-alpha</a>
+    <a class="version" href="../../../2.1.0/user-guide/migrating-plug-ins/">2.1.0</a>
+    <a class="version is-current" href="./">2.0.0</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/devfile/docs/edit/main/docs/modules/user-guide/pages/migrating-plug-ins.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Migrating plug-ins</h1>
+<div class="paragraph _abstract">
+<p>This section describes how to migrate plug-ins to devfile v2. There ARE major changes about the definition of plugins in a devfile. Plugins are now specified using a devfile. A plugin specified in a v1.0 meta.yaml will NOT work as it is in a devfile v2.0.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Plugins are now specified using a devfile. A plugin specified in a v1.0 meta.yaml will NOT work as it is in a devfile v2.0.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">v2.0
+---
+java8.yaml
+---
+schemaVersion: 2.0.0
+metadata:
+  publisher: redhat
+  name: java8
+  version: 0.57.0
+  displayName: Language Support for Java 8
+  title: Language Support for Java(TM) by ...
+  description: Java Linting, Intellisense ...
+  icon: https://.../logo-eclipseche.svg
+  repository: https://github.../vscode-java
+  category: Language
+  firstPublicationDate: "2020-02-20"
+  pluginType: che-theia-vsx # &lt;== mandatory
+                            # for plugins
+                      # Valid types:
+                      #   che-theia-vsx
+                      #   che-editor,
+                      #   che-theia-plugin,
+                      #   che-theia-ext,
+                      #   generic-service,
+                      #   generic-ui
+parent:
+  id: redhat/theia-vsx-template/latest
+  components:
+    - container:
+       name: vsx-installer
+       env:
+        - name: VSX_LIST
+          value: java-dbg.vsix,java.vsix
+components:
+ - kubernetes:
+    name: ...
+    reference: ...
+ - container:
+    image: ...che-sidecar-java
+    name: vscode-java
+    memoryLimit: "1500Mi"
+    volumeMounts:
+     - path: "/home/theia/.m2"
+       name: m2
+ - volume:
+    name: m2</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>And then can be referenced from a distinct devfile:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">v2.0
+---
+devfile.yaml
+---
+components:
+- plugin:
+    name: java language server
+    id: redhat/java11/0.57.0 # other then by `id`, a plugin
+                             # can be referenced by `uri` and
+                             # `kubernetes`</code></pre>
+</div>
+</div>
+<div class="ulist _additional-resources">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p>See <a href="https://github.com/che-incubator/devworkspace-api/issues/31">corresponding issue</a>.</p>
+</li>
+</ul>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer  class="footer">
+<p><a href="https://devfile.io/docs/sitemap.xml">Site map</a>
+</p>
+</footer><script src="../../../../_/js/site.js"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="100" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+  </body>
+</html>
