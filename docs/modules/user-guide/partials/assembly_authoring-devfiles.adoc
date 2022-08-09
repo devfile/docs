@@ -12,14 +12,15 @@ endif::[]
 :context: assembly_authoring-devfiles
 
 [role="_abstract"]
-A devfile is a `yaml` file. After you include it in your local environment, the devfile provides ways to automate your processes. Tools like `odo` run the devfile and apply its guidelines to your environment. You can configure the devfile based on your unique development needs. See the following documents to help you author a devfile based on your development needs:
+A devfile is a YAML file. After you include it in your local environment, the devfile provides ways to automate your processes. Tools like `odo` run the devfile and apply its guidelines to your environment. You can configure the devfile based on your unique development needs. See the following documents to help you author a devfile based on your development needs:
 
 * xref:adding-schema-version-to-a-devfile.adoc[]
 * xref:adding-a-name-to-a-devfile.adoc[]
 * xref:adding-projects-to-a-devfile.adoc[]
 * xref:adding-commands-to-a-devfile.adoc[]
 * xref:adding-components-to-a-devfile.adoc[]
-* xref:adding-attributes-to-a-devfile.adoc[]
+* xref:defining-variables.adoc[]
+* xref:defining-attributes.adoc[]
 * xref:adding-event-bindings.adoc[]
 * xref:referring-to-a-parent-devfile-in-a-devfile.adoc[]
 

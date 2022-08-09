@@ -1,0 +1,7 @@
+:description: Defining variables
+:navtitle: {description}
+:keywords: authoring, stack, variables
+
+:page-aliases: 
+
+include::partial$proc_defining-variables.adoc[]
