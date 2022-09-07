@@ -1,3 +1,6 @@
+# Deprecated
+This repository has been deprecated and is no longer supported! The Devfile 2.0 website and documentation has been moved to https://github.com/devfile/devfile-web/.
+
 # Devfile 2.0 website and documentation
 
 The generated JSON Schema documentation for the Devfile 2.x is available here: https://devfile.github.io/.
